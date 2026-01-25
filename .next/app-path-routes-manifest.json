@@ -1,0 +1,15 @@
+{
+  "/_not-found/page": "/_not-found",
+  "/sitemap.xml/route": "/sitemap.xml",
+  "/favicon.ico/route": "/favicon.ico",
+  "/blogs/[id]/page": "/blogs/[id]",
+  "/booking/page": "/booking",
+  "/checkAvailability/page": "/checkAvailability",
+  "/bookings/page": "/bookings",
+  "/experiences/page": "/experiences",
+  "/blogs/page": "/blogs",
+  "/dining/page": "/dining",
+  "/accommodations/page": "/accommodations",
+  "/gallery/page": "/gallery",
+  "/page": "/"
+}

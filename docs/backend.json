@@ -1,0 +1,381 @@
+
+{
+  "entities": {
+    "Experience": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Experience",
+      "type": "object",
+      "description": "Represents an experience or activity offered by the hotel.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the experience."
+        },
+        "title": {
+          "type": "string",
+          "description": "The title of the experience."
+        },
+        "description": {
+          "type": "string",
+          "description": "A detailed description of the experience."
+        },
+        "imageUrl": {
+          "type": "string",
+          "description": "URL of an image representing the experience."
+        }
+      },
+      "required": [
+        "id",
+        "title",
+        "description",
+        "imageUrl"
+      ]
+    },
+    "Reservation": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Reservation",
+      "type": "object",
+      "description": "Represents a hotel reservation.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the reservation."
+        },
+        "guestId": {
+          "type": "string",
+          "description": "Reference to Guest. (Relationship: Guest 1:N Reservation)"
+        },
+        "roomId": {
+          "type": "string",
+          "description": "Reference to Room. (Relationship: Room 1:N Reservation)"
+        },
+        "roomTitle": {
+          "type": "string",
+          "description": "Denormalized title of the room for easy display."
+        },
+        "guestName": {
+          "type": "string",
+          "description": "Denormalized name of the guest for easy display."
+        },
+        "guestEmail": {
+          "type": "string",
+          "description": "Denormalized email of the guest for easy display."
+        },
+        "checkInDate": {
+          "type": "string",
+          "description": "Date of check-in.",
+          "format": "date"
+        },
+        "checkOutDate": {
+          "type": "string",
+          "description": "Date of check-out.",
+          "format": "date"
+        },
+        "numberOfGuests": {
+          "type": "number",
+          "description": "Number of guests for the reservation."
+        },
+        "totalCost": {
+          "type": "number",
+          "description": "Total cost of the reservation."
+        },
+        "bookingDate": {
+          "type": "string",
+          "description": "Date the booking was made.",
+          "format": "date-time"
+        },
+        "specialRequests": {
+          "type": "string",
+          "description": "Any special requests made by the guest."
+        },
+        "status": {
+          "type": "string",
+          "description": "The current status of the reservation.",
+          "enum": ["pending", "confirmed", "cancelled"]
+        }
+      },
+      "required": [
+        "id",
+        "guestId",
+        "roomId",
+        "roomTitle",
+        "guestName",
+        "guestEmail",
+        "checkInDate",
+        "checkOutDate",
+        "numberOfGuests",
+        "totalCost",
+        "bookingDate",
+        "status"
+      ]
+    },
+    "Room": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Room",
+      "type": "object",
+      "description": "Represents a hotel room.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the room."
+        },
+        "title": {
+          "type": "string",
+          "description": "The title or name of the room type."
+        },
+        "description": {
+          "type": "string",
+          "description": "A detailed description of the room."
+        },
+        "roomCount": {
+          "type": "number",
+          "description": "The number of available rooms of this type."
+        },
+        "view": {
+          "type": "string",
+          "description": "The view from the room (e.g., Lake View, Garden View)."
+        },
+        "pricePerNight": {
+          "type": "number",
+          "description": "Price per night for the room."
+        },
+        "imageUrl": {
+          "type": "string",
+          "description": "URL of an image of the room."
+        }
+      },
+      "required": [
+        "id",
+        "title",
+        "description",
+        "roomCount",
+        "view",
+        "pricePerNight",
+        "imageUrl"
+      ]
+    },
+    "PromotionCode": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "PromotionCode",
+      "type": "object",
+      "description": "Represents a promotional code that can be applied to reservations.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the promotion code."
+        },
+        "code": {
+          "type": "string",
+          "description": "The actual promotion code."
+        },
+        "discountPercentage": {
+          "type": "number",
+          "description": "Discount percentage applied by the code."
+        },
+        "startDate": {
+          "type": "string",
+          "description": "Start date for the promotion code's validity.",
+          "format": "date-time"
+        },
+        "endDate": {
+          "type": "string",
+          "description": "End date for the promotion code's validity.",
+          "format": "date-time"
+        },
+        "description": {
+          "type": "string",
+          "description": "Description of the promotion code."
+        }
+      },
+      "required": [
+        "id",
+        "code",
+        "discountPercentage",
+        "startDate",
+        "endDate"
+      ]
+    },
+    "Guest": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Guest",
+      "type": "object",
+      "description": "Represents a guest staying at the hotel.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the guest."
+        },
+        "firstName": {
+          "type": "string",
+          "description": "First name of the guest."
+        },
+        "lastName": {
+          "type": "string",
+          "description": "Last name of the guest."
+        },
+        "email": {
+          "type": "string",
+          "description": "Email address of the guest.",
+          "format": "email"
+        },
+        "phoneNumber": {
+          "type": "string",
+          "description": "Phone number of the guest."
+        }
+      },
+      "required": [
+        "id",
+        "firstName",
+        "lastName",
+        "email"
+      ]
+    },
+    "Blog": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Blog",
+      "type": "object",
+      "description": "Represents a blog post.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the blog post."
+        },
+        "title": {
+          "type": "string",
+          "description": "The title of the blog post."
+        },
+        "content": {
+          "type": "string",
+          "description": "The content of the blog post in HTML or Markdown."
+        },
+        "imageUrl": {
+          "type": "string",
+          "description": "URL of a header image for the blog post."
+        },
+        "author": {
+          "type": "string",
+          "description": "The name of the author."
+        },
+        "publishDate": {
+          "type": "string",
+          "description": "Date the blog post was published.",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "id",
+        "title",
+        "content",
+        "author",
+        "publishDate"
+      ]
+    }
+  },
+  "auth": {
+    "providers": [
+      "password",
+      "anonymous"
+    ]
+  },
+  "firestore": {
+    "structure": [
+      {
+        "path": "/rooms/{roomId}",
+        "definition": {
+          "entityName": "Room",
+          "schema": {
+            "$ref": "#/backend/entities/Room"
+          },
+          "description": "Collection to store room information.",
+          "params": [
+            {
+              "name": "roomId",
+              "description": "The unique identifier of the room."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/reservations/{reservationId}",
+        "definition": {
+          "entityName": "Reservation",
+          "schema": {
+            "$ref": "#/backend/entities/Reservation"
+          },
+          "description": "Collection to store booking and reservation information.",
+          "params": [
+            {
+              "name": "reservationId",
+              "description": "The unique identifier of the reservation."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/promotion_codes/{promotionCodeId}",
+        "definition": {
+          "entityName": "PromotionCode",
+          "schema": {
+            "$ref": "#/backend/entities/PromotionCode"
+          },
+          "description": "Collection to store promotion codes.",
+          "params": [
+            {
+              "name": "promotionCodeId",
+              "description": "The unique identifier of the promotion code."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/guests/{guestId}",
+        "definition": {
+          "entityName": "Guest",
+          "schema": {
+            "$ref": "#/backend/entities/Guest"
+          },
+          "description": "Collection to store guest information.",
+          "params": [
+            {
+              "name": "guestId",
+              "description": "The unique identifier of the guest."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/experiences/{experienceId}",
+        "definition": {
+          "entityName": "Experience",
+          "schema": {
+            "$ref": "#/backend/entities/Experience"
+          },
+          "description": "Collection to store hotel experiences and activities.",
+          "params": [
+            {
+              "name": "experienceId",
+              "description": "The unique identifier of the experience."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/blogs/{blogId}",
+        "definition": {
+          "entityName": "Blog",
+          "schema": {
+            "$ref": "#/backend/entities/Blog"
+          },
+          "description": "Collection to store blog posts.",
+          "params": [
+            {
+              "name": "blogId",
+              "description": "The unique identifier of the blog post."
+            }
+          ]
+        }
+      }
+    ],
+    "reasoning": "This Firestore structure is designed to manage hotel bookings and related data, prioritizing security, scalability, and ease of debugging. It leverages denormalization for authorization independence and structural segregation for simplified security rules.\n\n**Authorization Independence (CRITICAL):** The design avoids hierarchical authorization dependencies (`get()`). All authorization data is denormalized into the documents, eliminating the need to fetch parent data for access control. This is particularly important for maintaining atomicity in transactions and batches.\n\n**Rooms and Reservations:** Rooms are stored in a root-level collection `/rooms`. Reservations are stored in a root-level collection `/reservations`. The Reservation document contains the `guestId`, and `roomId` which can be used to query the data.\n\n**QAPs (Rules are not Filters):** The structure facilitates secure `list` operations. Guests can access their own reservations by quering the `reservations` collection with their own `guestId`.\n\n**Invariants:** The structure supports the integrity of ownership, timestamps, and denormalized data."
+  }
+}

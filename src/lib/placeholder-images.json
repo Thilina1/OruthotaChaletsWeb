@@ -1,0 +1,82 @@
+{
+  "placeholderImages": [
+    {
+      "id": "hero-estate",
+      "description": "A luxury hotel in Kandy, Sri Lanka with a pool overlooking mountains.",
+      "imageUrl": "https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxob3RlbCUyMHNyJTIwbGFua2F8ZW58MHx8fHwxNzYyODU0MTA0fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "sri lanka hotel"
+    },
+    {
+      "id": "about-us-image",
+      "description": "Temple of the Tooth in Kandy, Sri Lanka.",
+      "imageUrl": "https://images.unsplash.com/photo-1642095012245-bda8033e8ee3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxrYW5keSUyMHNyaSUyMGxhbmthfGVufDB8fHx8MTc2MjAxNTM5MHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "kandy sri lanka"
+    },
+    {
+      "id": "accommodation-1",
+      "description": "Deluxe Room in a luxury hotel with a view of a tea plantation.",
+      "imageUrl": "https://images.unsplash.com/photo-1633605015660-b0f2dbad3bf2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjBiZWRyb29tJTIwc3JpJTIwbGFua2F8ZW58MHx8fHwxNzYyMDE1MzkwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "luxury bedroom sri lanka"
+    },
+    {
+      "id": "accommodation-2",
+      "description": "Hotel suite with traditional Sri Lankan decor.",
+      "imageUrl": "https://images.unsplash.com/photo-1618773928121-c32242e63f39?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxob3RlbCUyMHJvb218ZW58MHx8fHwxNzYyODU1MDM0fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "sri lankan hotel room"
+    },
+    {
+      "id": "accommodation-3",
+      "description": "A train passing over the Nine Arch Bridge in Sri Lanka.",
+      "imageUrl": "https://images.unsplash.com/photo-1581420618659-5c8add1b6a58?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxuaW5lJTIwYXJjaCUyMGJyaWRnZXxlbnwwfHx8fDE3NjIwMTUzOTB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "nine arch bridge"
+    },
+    {
+      "id": "experience-atv",
+      "description": "Man on an ATV on a dirt road in a lush, green landscape.",
+      "imageUrl": "https://images.unsplash.com/photo-1724414544014-3728aad0b45e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxhdHYlMjByaWRlfGVufDB8fHx8MTc2MjAxNjA0MXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "atv ride"
+    },
+    {
+      "id": "experience-shooting",
+      "description": "A woman and a man practicing with rifles on a wooden deck.",
+      "imageUrl": "https://images.unsplash.com/photo-1617619667494-6b3f51ce58a7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHx0YXJnZXQlMjBzaG9vdGluZ3xlbnwwfHx8fDE3NjIwMTYwNDF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "target shooting"
+    },
+    {
+      "id": "experience-hike",
+      "description": "A man standing on a rock overlooking a vast green valley and mountains.",
+      "imageUrl": "https://images.unsplash.com/photo-1552590854-7a7d89b018ff?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxoaWtpbmclMjBtb3VudGFpbnxlbnwwfHx8fDE3NjIwMTYwNDF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "hiking mountain"
+    },
+    {
+      "id": "testimonial-1",
+      "description": "Portrait of a smiling man.",
+      "imageUrl": "https://images.unsplash.com/photo-1636377985931-898218afd306?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxtYW4lMjBwb3J0cmFpdHxlbnwwfHx8fDE3NjE5OTU4ODd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "man portrait"
+    },
+    {
+      "id": "testimonial-2",
+      "description": "Portrait of a smiling woman.",
+      "imageUrl": "https://images.unsplash.com/photo-1557053910-d9eadeed1c58?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHx3b21hbiUyMHBvcnRyYWl0fGVufDB8fHx8MTc2MTkwOTQyNXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "woman portrait"
+    },
+    {
+      "id": "testimonial-3",
+      "description": "Portrait of a smiling man.",
+      "imageUrl": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxwZXJzb24lMjBwb3J0cmFpdHxlbnwwfHx8fDE3NjE5ODk0NTh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "person portrait"
+    },
+    {
+      "id": "dining-wine",
+      "description": "A couple enjoying a floating breakfast in a pool at a luxury resort.",
+      "imageUrl": "https://images.unsplash.com/photo-1728051104796-a8c0f667cd90?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxmbG9hdGluZyUyMGJyZWFrZmFzdHxlbnwwfHx8fDE3NjIwNzY4NzV8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "floating breakfast"
+    },
+    {
+      "id": "blog-hero",
+      "description": "Person writing in a notebook on a wooden table.",
+      "imageUrl": "https://images.unsplash.com/photo-1455390582262-044cdead277a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxibG9nJTIwd3JpdGluZ3xlbnwwfHx8fDE3MjkwNTcyODd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "blog writing"
+    }
+  ]
+}
