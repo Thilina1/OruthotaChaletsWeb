@@ -220,22 +220,22 @@ export default function Home() {
                             />
                           </div>
                         )}
-                        <div className="p-8 text-center">
+                        <div className="p-8 text-left md:text-center">
                           <h3 className="font-headline text-3xl text-foreground relative inline-block">
                             {accommodation.title}
-                            <div className="absolute bottom-[-10px] left-1/2 -translate-x-1/2 w-1/4 border-b-2 border-primary"></div>
+                            <div className="absolute bottom-[-10px] left-0 md:left-1/2 md:-translate-x-1/2 w-1/4 border-b-2 border-primary"></div>
                           </h3>
                           <p className="text-muted-foreground mt-8 text-sm leading-relaxed min-h-[120px]">
                             {accommodation.description}
                           </p>
-                          <div className="flex items-center justify-center gap-4 text-sm text-foreground my-8">
+                          <div className="flex items-center justify-start md:justify-center gap-4 text-sm text-foreground my-8">
                             <span>{accommodation.roomCount} Rooms</span>
                             <div className="w-px h-4 bg-border"></div>
                             <span>{accommodation.view}</span>
                           </div>
-                          <div className="flex gap-2 justify-center">
+                          <div className="flex gap-2 justify-start md:justify-center">
                             <Link href="/accommodations" passHref>
-                              <Button variant="link" className="text-foreground font-semibold tracking-wider hover:text-primary">
+                              <Button variant="link" className="text-foreground font-semibold tracking-wider hover:text-primary pl-0 md:pl-4">
                                 MORE DETAILS
                               </Button>
                             </Link>

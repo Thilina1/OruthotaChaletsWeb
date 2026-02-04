@@ -1,8 +1,13 @@
 'use client';
 
 import { MapPin, Phone, Mail } from 'lucide-react';
+import { usePathname } from 'next/navigation';
 
 export function VisitUs() {
+    const pathname = usePathname();
+
+    if (pathname === '/contact') return null;
+
     return (
         <section className="relative py-24 bg-primary/5 overflow-hidden">
             {/* Decorative Elements */}
