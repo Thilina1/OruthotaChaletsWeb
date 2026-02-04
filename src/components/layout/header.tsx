@@ -12,11 +12,11 @@ import React, { useState, useEffect } from 'react';
 const navLinks = [
   { href: '/', label: 'HOME' },
   { href: '/accommodations', label: 'ACCOMMODATIONS' },
-  { href: '/contact', label: 'CONTACT' },
   { href: '/dining', label: 'DINING' },
   { href: '/experiences', label: 'EXPERIENCES' },
   { href: '/gallery', label: 'GALLERY' },
   { href: '/blogs', label: 'BLOGS' },
+  { href: '/contact', label: 'CONTACT' },
 ];
 
 const MessengerIcon = (props: React.SVGProps<SVGSVGElement>) => (
@@ -54,15 +54,30 @@ export function Header() {
 
     const fetchWeather = async () => {
       try {
-        const response = await fetch('https://wttr.in/Kandy?format=j1');
+        // Use a timeout to prevent hanging requests
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 5000);
+
+        const response = await fetch('https://wttr.in/Kandy?format=j1', {
+          signal: controller.signal,
+          next: { revalidate: 3600 } // Cache for 1 hour if possible in Next.js
+        });
+
+        clearTimeout(timeoutId);
+
         if (!response.ok) {
-          throw new Error('Weather data not available');
+          // Silent failure, keep default
+          return;
         }
+
         const data = await response.json();
-        setWeather(data.current_condition[0].temp_C);
+        if (data && data.current_condition && data.current_condition[0]) {
+          setWeather(data.current_condition[0].temp_C);
+        }
       } catch (error) {
-        console.error("Failed to fetch weather:", error);
-        // Keep default weather
+        // Silent failure specifically for fetch errors
+        // console.error("Weather fetch failed", error); 
+        // Keep default weather '21'
       }
     };
 
@@ -92,7 +107,7 @@ export function Header() {
         )}>
           <div className='flex items-center gap-2'><Thermometer size={14} /><span>{weather} °C</span></div>
           <div className='hidden md:flex items-center gap-2'>{time}</div>
-          <div className='hidden md:flex items-center gap-2'><MessengerIcon className="w-4 h-4" /><span>@Victora</span></div>
+          <div className='hidden md:flex items-center gap-2'><MessengerIcon className="w-4 h-4" /><span>@OruthotaChalets</span></div>
           <div className='flex items-center gap-2'><WhatsAppIcon className="w-4 h-4" /><span>+94 81 2 375 396</span></div>
           <div className='flex md:hidden items-center gap-2'>{time}</div>
         </div>

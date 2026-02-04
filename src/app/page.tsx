@@ -6,9 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Utensils, BedDouble, MountainSnow, Map, Tag, Bed, Building2, RefreshCw, Star, ArrowRight, MapPin, ChevronLeft, ChevronRight, Quote } from 'lucide-react';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import Link from 'next/link';
-import { useCollection, useFirestore } from '@/firebase';
-import { useMemo } from 'react';
-import { collection } from 'firebase/firestore';
+import { useSupabaseCollection } from '@/hooks/use-supabase';
 import type { Room } from '@/types/room';
 import type { Experience } from '@/types/experience';
 
@@ -39,19 +37,8 @@ export default function Home() {
   const testimonialImages = PlaceHolderImages.filter(p => p.id.startsWith('testimonial-'));
   const diningImage = PlaceHolderImages.find(p => p.id === 'dining-wine');
 
-  const firestore = useFirestore();
-
-  const roomsCollectionRef = useMemo(
-    () => (firestore ? collection(firestore, 'rooms') : null),
-    [firestore]
-  );
-  const { data: rooms, isLoading: roomsLoading } = useCollection<Room>(roomsCollectionRef);
-
-  const experiencesCollectionRef = useMemo(
-    () => (firestore ? collection(firestore, 'experiences') : null),
-    [firestore]
-  );
-  const { data: experiences, isLoading: experiencesLoading } = useCollection<Experience>(experiencesCollectionRef);
+  const { data: rooms, isLoading: roomsLoading } = useSupabaseCollection<Room>('rooms');
+  const { data: experiences, isLoading: experiencesLoading } = useSupabaseCollection<Experience>('experiences');
 
   return (
     <div className="flex flex-col">
@@ -214,7 +201,10 @@ export default function Home() {
             className="w-full"
           >
             <CarouselContent className="justify-center">
-              {roomsLoading && <p>Loading rooms...</p>}
+              {roomsLoading && <p className="text-center w-full">Loading rooms...</p>}
+              {!roomsLoading && (!rooms || rooms.length === 0) && (
+                <p className="text-center w-full text-muted-foreground p-8">No rooms available at the moment.</p>
+              )}
               {rooms?.slice(0, 3).map((accommodation) => {
                 return (
                   <CarouselItem key={accommodation.id} className="md:basis-1/2 lg:basis-1/3">
@@ -244,9 +234,11 @@ export default function Home() {
                             <span>{accommodation.view}</span>
                           </div>
                           <div className="flex gap-2 justify-center">
-                            <Button variant="link" className="text-foreground font-semibold tracking-wider hover:text-primary">
-                              MORE DETAILS
-                            </Button>
+                            <Link href="/accommodations" passHref>
+                              <Button variant="link" className="text-foreground font-semibold tracking-wider hover:text-primary">
+                                MORE DETAILS
+                              </Button>
+                            </Link>
                             <Link href={`/booking?roomId=${accommodation.id}`} passHref>
                               <Button className="bg-primary text-primary-foreground rounded-sm font-semibold tracking-wider hover:bg-primary/90">
                                 BOOK NOW
@@ -314,7 +306,10 @@ export default function Home() {
           </div>
           <div className="flex flex-wrap justify-center gap-8">
             {experiencesLoading && <p className="col-span-3 text-center">Loading experiences...</p>}
-            {experiences?.map((experience) => {
+            {!experiencesLoading && (!experiences || experiences.length === 0) && (
+              <p className="col-span-3 text-center text-muted-foreground">Experiences coming soon.</p>
+            )}
+            {experiences?.slice(0, 3).map((experience) => {
               return (
                 <div key={experience.id} className="text-center w-full md:w-[30%] min-w-[300px]">
                   {experience.imageUrl && (
@@ -336,9 +331,11 @@ export default function Home() {
             })}
           </div>
           <div className="text-center mt-12">
-            <Button variant="outline" className="rounded-none border-primary text-primary hover:bg-primary hover:text-white px-8 py-6 text-sm tracking-wider">
-              VIEW ALL EXPERIENCES <RefreshCw className="w-4 h-4 ml-2" />
-            </Button>
+            <Link href="/experiences" passHref>
+              <Button variant="outline" className="rounded-none border-primary text-primary hover:bg-primary hover:text-white px-8 py-6 text-sm tracking-wider">
+                VIEW ALL EXPERIENCES <RefreshCw className="w-4 h-4 ml-2" />
+              </Button>
+            </Link>
           </div>
         </div>
       </section>

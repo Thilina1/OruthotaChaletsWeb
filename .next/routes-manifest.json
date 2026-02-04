@@ -67,6 +67,12 @@
       "namedRegex": "^/checkAvailability(?:/)?$"
     },
     {
+      "page": "/contact",
+      "regex": "^/contact(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/contact(?:/)?$"
+    },
+    {
       "page": "/dining",
       "regex": "^/dining(?:/)?$",
       "routeKeys": {},
@@ -89,6 +95,18 @@
       "regex": "^/gallery(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/gallery(?:/)?$"
+    },
+    {
+      "page": "/manifest.webmanifest",
+      "regex": "^/manifest\\.webmanifest(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/manifest\\.webmanifest(?:/)?$"
+    },
+    {
+      "page": "/robots.txt",
+      "regex": "^/robots\\.txt(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/robots\\.txt(?:/)?$"
     },
     {
       "page": "/sitemap.xml",
