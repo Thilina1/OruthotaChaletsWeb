@@ -1,5 +1,3 @@
-import { Timestamp } from "firebase/firestore";
-
 export type ReservationStatus = 'pending' | 'confirmed' | 'cancelled' | 'Booked';
 
 export interface Reservation {
@@ -11,11 +9,11 @@ export interface Reservation {
   guestEmail: string;
   idCardNumber: string;
   guestPhone: string;
-  checkInDate: string; 
+  checkInDate: string;
   checkOutDate: string;
   numberOfGuests: number;
   totalCost: number;
-  bookingDate: Timestamp;
+  bookingDate: string;
   status: ReservationStatus;
   specialRequests?: string;
 }

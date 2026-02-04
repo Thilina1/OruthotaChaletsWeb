@@ -5,22 +5,15 @@ import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { BookingForm } from '@/components/booking-form';
 import { Button } from '@/components/ui/button';
 import { Bed, Building2 } from 'lucide-react';
-import { useCollection, useFirestore } from '@/firebase';
-import { useMemo } from 'react';
-import { collection } from 'firebase/firestore';
+import { useSupabaseCollection } from '@/hooks/use-supabase';
 import type { Room } from '@/types/room';
 import Link from 'next/link';
 import { Suspense } from 'react';
 
 function CheckAvailabilityListComponent() {
   const heroImage = PlaceHolderImages.find((p) => p.id === 'hero-estate');
-  const firestore = useFirestore();
 
-  const roomsCollectionRef = useMemo(
-    () => (firestore ? collection(firestore, 'rooms') : null),
-    [firestore]
-  );
-  const { data: rooms, isLoading } = useCollection<Room>(roomsCollectionRef);
+  const { data: rooms, isLoading } = useSupabaseCollection<Room>('rooms');
 
   return (
     <div className="flex flex-col">
@@ -37,21 +30,21 @@ function CheckAvailabilityListComponent() {
         )}
         <div className="absolute inset-0 bg-black/40" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center text-white z-10 w-full px-4 flex items-center justify-center">
-            <div className="flex flex-col items-center justify-center">
-                <h1 className="font-headline text-5xl md:text-7xl tracking-wider font-normal text-white/90">
-                    Accommodations
-                </h1>
-            </div>
+          <div className="flex flex-col items-center justify-center">
+            <h1 className="font-headline text-5xl md:text-7xl tracking-wider font-normal text-white/90">
+              Accommodations
+            </h1>
+          </div>
         </div>
       </section>
 
       <div className="bg-background">
         <div className="py-8">
-            <BookingForm />
+          <BookingForm />
         </div>
       </div>
 
-       <section className="py-20 bg-background">
+      <section className="py-20 bg-background">
         <div className="container mx-auto px-4 max-w-4xl text-center">
           <p className="text-primary tracking-widest mb-4">ACCOMMODATION</p>
           <h2 className="font-headline text-4xl text-foreground mb-6">Tropical Tranquility and Contemporary Elegance</h2>
@@ -89,7 +82,7 @@ function CheckAvailabilityListComponent() {
                         />
                       ) : (
                         <div className="h-full w-full bg-muted flex items-center justify-center text-muted-foreground">
-                            No Image
+                          No Image
                         </div>
                       )}
                     </div>
@@ -106,7 +99,7 @@ function CheckAvailabilityListComponent() {
                         <div className="w-px h-4 bg-border"></div>
                         <span>{accommodation.view}</span>
                       </div>
-                       <div className="mb-8">
+                      <div className="mb-8">
                         <span className="font-bold text-lg text-primary">${accommodation.pricePerNight}</span>
                         <span className="text-sm text-muted-foreground"> / night</span>
                       </div>
@@ -123,7 +116,8 @@ function CheckAvailabilityListComponent() {
                     </div>
                   </div>
                 </div>
-              )})}
+              )
+            })}
           </div>
         </div>
       </section>
@@ -133,9 +127,9 @@ function CheckAvailabilityListComponent() {
 
 
 export default function CheckAvailabilityPage() {
-    return (
-        <Suspense fallback={<div className="text-center p-8">Loading...</div>}>
-            <CheckAvailabilityListComponent />
-        </Suspense>
-    )
+  return (
+    <Suspense fallback={<div className="text-center p-8">Loading...</div>}>
+      <CheckAvailabilityListComponent />
+    </Suspense>
+  )
 }

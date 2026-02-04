@@ -1,9 +1,8 @@
 'use client';
 
 import { useParams } from 'next/navigation';
-import { useMemo } from 'react';
-import { doc } from 'firebase/firestore';
-import { useDoc, useFirestore } from '@/firebase';
+import { useState, useEffect } from 'react';
+import { supabase } from '@/lib/supabase';
 import type { Blog } from '@/types/blog';
 import Image from 'next/image';
 import { format } from 'date-fns';
@@ -11,20 +10,35 @@ import { format } from 'date-fns';
 export default function BlogPostPage() {
   const params = useParams();
   const { id } = params;
-  const firestore = useFirestore();
 
-  const blogRef = useMemo(
-    () => (firestore && id ? doc(firestore, 'blogs', id as string) : null),
-    [firestore, id]
-  );
+  const [post, setPost] = useState<Blog | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<Error | null>(null);
 
-  const { data: post, isLoading, error } = useDoc<Blog>(blogRef);
+  useEffect(() => {
+    async function fetchPost() {
+      if (!id) return;
+      try {
+        const { data, error } = await supabase
+          .from('blogs')
+          .select('*')
+          .eq('id', id)
+          .single();
+
+        if (error) throw error;
+        if (data) setPost(data as Blog);
+      } catch (e: any) {
+        setError(e);
+      } finally {
+        setIsLoading(false);
+      }
+    }
+    fetchPost();
+  }, [id]);
 
   const formatDate = (timestamp: any) => {
     if (!timestamp) return 'Date not available';
-    if (timestamp.toDate) {
-      return format(timestamp.toDate(), 'MMMM d, yyyy');
-    }
+    // Supabase returns string, handle simple date parsing
     try {
       return format(new Date(timestamp), 'MMMM d, yyyy');
     } catch {
@@ -43,7 +57,7 @@ export default function BlogPostPage() {
   if (!post) {
     return <div className="container mx-auto py-20 px-4 text-center">Blog post not found.</div>;
   }
-  
+
   const modifiedImageUrl = post.contentImage ? post.contentImage.replace('dl=1', 'raw=1') : '';
 
   return (
@@ -69,11 +83,11 @@ export default function BlogPostPage() {
               />
             </div>
           )}
-          
+
           {post.content1 && (
-             <div dangerouslySetInnerHTML={{ __html: post.content1 }} className="mb-8" />
+            <div dangerouslySetInnerHTML={{ __html: post.content1 }} className="mb-8" />
           )}
-          
+
           {post.content2 && (
             <div dangerouslySetInnerHTML={{ __html: post.content2 }} />
           )}
