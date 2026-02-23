@@ -4,7 +4,7 @@
 
 var { g: global, __dirname } = __turbopack_context__;
 {
-__turbopack_context__.v(JSON.parse("{\"placeholderImages\":[{\"id\":\"hero-estate\",\"description\":\"A luxury hotel in Kandy, Sri Lanka with a pool overlooking mountains.\",\"imageUrl\":\"https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxob3RlbCUyMHNyJTIwbGFua2F8ZW58MHx8fHwxNzYyODU0MTA0fDA&ixlib=rb-4.1.0&q=80&w=1080\",\"imageHint\":\"sri lanka hotel\"},{\"id\":\"about-us-image\",\"description\":\"Temple of the Tooth in Kandy, Sri Lanka.\",\"imageUrl\":\"https://images.unsplash.com/photo-1642095012245-bda8033e8ee3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxrYW5keSUyMHNyaSUyMGxhbmthfGVufDB8fHx8MTc2MjAxNTM5MHww&ixlib=rb-4.1.0&q=80&w=1080\",\"imageHint\":\"kandy sri lanka\"},{\"id\":\"accommodation-1\",\"description\":\"Deluxe Room in a luxury hotel with a view of a tea plantation.\",\"imageUrl\":\"https://images.unsplash.com/photo-1633605015660-b0f2dbad3bf2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjBiZWRyb29tJTIwc3JpJTIwbGFua2F8ZW58MHx8fHwxNzYyMDE1MzkwfDA&ixlib=rb-4.1.0&q=80&w=1080\",\"imageHint\":\"luxury bedroom sri lanka\"},{\"id\":\"accommodation-2\",\"description\":\"Hotel suite with traditional Sri Lankan decor.\",\"imageUrl\":\"https://images.unsplash.com/photo-1618773928121-c32242e63f39?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxob3RlbCUyMHJvb218ZW58MHx8fHwxNzYyODU1MDM0fDA&ixlib=rb-4.1.0&q=80&w=1080\",\"imageHint\":\"sri lankan hotel room\"},{\"id\":\"accommodation-3\",\"description\":\"A train passing over the Nine Arch Bridge in Sri Lanka.\",\"imageUrl\":\"https://images.unsplash.com/photo-1581420618659-5c8add1b6a58?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxuaW5lJTIwYXJjaCUyMGJyaWRnZXxlbnwwfHx8fDE3NjIwMTUzOTB8MA&ixlib=rb-4.1.0&q=80&w=1080\",\"imageHint\":\"nine arch bridge\"},{\"id\":\"experience-atv\",\"description\":\"Man on an ATV on a dirt road in a lush, green landscape.\",\"imageUrl\":\"https://images.unsplash.com/photo-1724414544014-3728aad0b45e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxhdHYlMjByaWRlfGVufDB8fHx8MTc2MjAxNjA0MXww&ixlib=rb-4.1.0&q=80&w=1080\",\"imageHint\":\"atv ride\"},{\"id\":\"experience-shooting\",\"description\":\"A woman and a man practicing with rifles on a wooden deck.\",\"imageUrl\":\"https://images.unsplash.com/photo-1617619667494-6b3f51ce58a7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHx0YXJnZXQlMjBzaG9vdGluZ3xlbnwwfHx8fDE3NjIwMTYwNDF8MA&ixlib=rb-4.1.0&q=80&w=1080\",\"imageHint\":\"target shooting\"},{\"id\":\"experience-hike\",\"description\":\"A man standing on a rock overlooking a vast green valley and mountains.\",\"imageUrl\":\"https://images.unsplash.com/photo-1552590854-7a7d89b018ff?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxoaWtpbmclMjBtb3VudGFpbnxlbnwwfHx8fDE3NjIwMTYwNDF8MA&ixlib=rb-4.1.0&q=80&w=1080\",\"imageHint\":\"hiking mountain\"},{\"id\":\"testimonial-1\",\"description\":\"Portrait of a smiling man.\",\"imageUrl\":\"https://images.unsplash.com/photo-1636377985931-898218afd306?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxtYW4lMjBwb3J0cmFpdHxlbnwwfHx8fDE3NjE5OTU4ODd8MA&ixlib=rb-4.1.0&q=80&w=1080\",\"imageHint\":\"man portrait\"},{\"id\":\"testimonial-2\",\"description\":\"Portrait of a smiling woman.\",\"imageUrl\":\"https://images.unsplash.com/photo-1557053910-d9eadeed1c58?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHx3b21hbiUyMHBvcnRyYWl0fGVufDB8fHx8MTc2MTkwOTQyNXww&ixlib=rb-4.1.0&q=80&w=1080\",\"imageHint\":\"woman portrait\"},{\"id\":\"testimonial-3\",\"description\":\"Portrait of a smiling man.\",\"imageUrl\":\"https://images.unsplash.com/photo-1500648767791-00dcc994a43e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxwZXJzb24lMjBwb3J0cmFpdHxlbnwwfHx8fDE3NjE5ODk0NTh8MA&ixlib=rb-4.1.0&q=80&w=1080\",\"imageHint\":\"person portrait\"},{\"id\":\"dining-wine\",\"description\":\"A couple enjoying a floating breakfast in a pool at a luxury resort.\",\"imageUrl\":\"https://images.unsplash.com/photo-1728051104796-a8c0f667cd90?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxmbG9hdGluZyUyMGJyZWFrZmFzdHxlbnwwfHx8fDE3NjIwNzY4NzV8MA&ixlib=rb-4.1.0&q=80&w=1080\",\"imageHint\":\"floating breakfast\"},{\"id\":\"blog-hero\",\"description\":\"Person writing in a notebook on a wooden table.\",\"imageUrl\":\"https://images.unsplash.com/photo-1455390582262-044cdead277a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxibG9nJTIwd3JpdGluZ3xlbnwwfHx8fDE3MjkwNTcyODd8MA&ixlib=rb-4.1.0&q=80&w=1080\",\"imageHint\":\"blog writing\"}]}"));}}),
+__turbopack_context__.v(JSON.parse("{\"placeholderImages\":[{\"id\":\"hero-estate\",\"description\":\"A luxury hotel in Kandy, Sri Lanka with a pool overlooking mountains.\",\"imageUrl\":\"https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxob3RlbCUyMHNyJTIwbGFua2F8ZW58MHx8fHwxNzYyODU0MTA0fDA&ixlib=rb-4.1.0&q=80&w=1080\",\"imageHint\":\"sri lanka hotel\"},{\"id\":\"about-us-image\",\"description\":\"Temple of the Tooth in Kandy, Sri Lanka.\",\"imageUrl\":\"https://images.unsplash.com/photo-1642095012245-bda8033e8ee3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxrYW5keSUyMHNyaSUyMGxhbmthfGVufDB8fHx8MTc2MjAxNTM5MHww&ixlib=rb-4.1.0&q=80&w=1080\",\"imageHint\":\"kandy sri lanka\"},{\"id\":\"accommodation-1\",\"description\":\"Deluxe Room in a luxury hotel with a view of a tea plantation.\",\"imageUrl\":\"https://images.unsplash.com/photo-1633605015660-b0f2dbad3bf2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjBiZWRyb29tJTIwc3JpJTIwbGFua2F8ZW58MHx8fHwxNzYyMDE1MzkwfDA&ixlib=rb-4.1.0&q=80&w=1080\",\"imageHint\":\"luxury bedroom sri lanka\"},{\"id\":\"accommodation-2\",\"description\":\"Hotel suite with traditional Sri Lankan decor.\",\"imageUrl\":\"https://images.unsplash.com/photo-1618773928121-c32242e63f39?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxob3RlbCUyMHJvb218ZW58MHx8fHwxNzYyODU1MDM0fDA&ixlib=rb-4.1.0&q=80&w=1080\",\"imageHint\":\"sri lankan hotel room\"},{\"id\":\"accommodation-3\",\"description\":\"A train passing over the Nine Arch Bridge in Sri Lanka.\",\"imageUrl\":\"https://images.unsplash.com/photo-1581420618659-5c8add1b6a58?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxuaW5lJTIwYXJjaCUyMGJyaWRnZXxlbnwwfHx8fDE3NjIwMTUzOTB8MA&ixlib=rb-4.1.0&q=80&w=1080\",\"imageHint\":\"nine arch bridge\"},{\"id\":\"experience-atv\",\"description\":\"Man on an ATV on a dirt road in a lush, green landscape.\",\"imageUrl\":\"https://images.unsplash.com/photo-1724414544014-3728aad0b45e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxhdHYlMjByaWRlfGVufDB8fHx8MTc2MjAxNjA0MXww&ixlib=rb-4.1.0&q=80&w=1080\",\"imageHint\":\"atv ride\"},{\"id\":\"experience-shooting\",\"description\":\"A woman and a man practicing with rifles on a wooden deck.\",\"imageUrl\":\"https://images.unsplash.com/photo-1617619667494-6b3f51ce58a7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHx0YXJnZXQlMjBzaG9vdGluZ3xlbnwwfHx8fDE3NjIwMTYwNDF8MA&ixlib=rb-4.1.0&q=80&w=1080\",\"imageHint\":\"target shooting\"},{\"id\":\"experience-hike\",\"description\":\"A man standing on a rock overlooking a vast green valley and mountains.\",\"imageUrl\":\"https://images.unsplash.com/photo-1552590854-7a7d89b018ff?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxoaWtpbmclMjBtb3VudGFpbnxlbnwwfHx8fDE3NjIwMTYwNDF8MA&ixlib=rb-4.1.0&q=80&w=1080\",\"imageHint\":\"hiking mountain\"},{\"id\":\"testimonial-1\",\"description\":\"Portrait of a smiling man.\",\"imageUrl\":\"https://images.unsplash.com/photo-1636377985931-898218afd306?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxtYW4lMjBwb3J0cmFpdHxlbnwwfHx8fDE3NjE5OTU4ODd8MA&ixlib=rb-4.1.0&q=80&w=1080\",\"imageHint\":\"man portrait\"},{\"id\":\"testimonial-2\",\"description\":\"Portrait of a smiling woman.\",\"imageUrl\":\"https://images.unsplash.com/photo-1557053910-d9eadeed1c58?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHx3b21hbiUyMHBvcnRyYWl0fGVufDB8fHx8MTc2MTkwOTQyNXww&ixlib=rb-4.1.0&q=80&w=1080\",\"imageHint\":\"woman portrait\"},{\"id\":\"testimonial-3\",\"description\":\"Portrait of a smiling man.\",\"imageUrl\":\"https://images.unsplash.com/photo-1500648767791-00dcc994a43e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxwZXJzb24lMjBwb3J0cmFpdHxlbnwwfHx8fDE3NjE5ODk0NTh8MA&ixlib=rb-4.1.0&q=80&w=1080\",\"imageHint\":\"person portrait\"},{\"id\":\"dining-wine\",\"description\":\"A couple enjoying a floating breakfast in a pool at a luxury resort.\",\"imageUrl\":\"https://images.unsplash.com/photo-1728051104796-a8c0f667cd90?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxmbG9hdGluZyUyMGJyZWFrZmFzdHxlbnwwfHx8fDE3NjIwNzY4NzV8MA&ixlib=rb-4.1.0&q=80&w=1080\",\"imageHint\":\"floating breakfast\"},{\"id\":\"blog-hero\",\"description\":\"Person writing in a notebook on a wooden table.\",\"imageUrl\":\"https://images.unsplash.com/photo-1455390582262-044cdead277a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxibG9nJTIwd3JpdGluZ3xlbnwwfHx8fDE3MjkwNTcyODd8MA&ixlib=rb-4.1.0&q=80&w=1080\",\"imageHint\":\"blog writing\"},{\"id\":\"events-meetings\",\"description\":\"A large conference room set up for a meeting with many chairs and tables.\",\"imageUrl\":\"https://images.unsplash.com/photo-1505373877841-8d25f7d46678?q=80&w=1080&auto=format&fit=crop\",\"imageHint\":\"conference room\"},{\"id\":\"events-weddings\",\"description\":\"A luxurious wedding reception hall with round tables, floral centerpieces, and warm lighting.\",\"imageUrl\":\"https://images.unsplash.com/photo-1519167758481-83f550bb49b3?q=80&w=1080&auto=format&fit=crop\",\"imageHint\":\"wedding reception hall\"},{\"id\":\"instagram-1\",\"description\":\"A view of the mountains from the hotel.\",\"imageUrl\":\"https://images.unsplash.com/photo-1581420618659-5c8add1b6a58?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxuaW5lJTIwYXJjaCUyMGJyaWRnZXxlbnwwfHx8fDE3NjIwMTUzOTB8MA&ixlib=rb-4.1.0&q=80&w=1080\",\"imageHint\":\"mountain view\"},{\"id\":\"instagram-2\",\"description\":\"A couple enjoying a swing with a mountain view.\",\"imageUrl\":\"https://images.unsplash.com/photo-1552590854-7a7d89b018ff?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxoaWtpbmclMjBtb3VudGFpbnxlbnwwfHx8fDE3NjIwMTYwNDF8MA&ixlib=rb-4.1.0&q=80&w=1080\",\"imageHint\":\"swing view\"},{\"id\":\"instagram-3\",\"description\":\"A woman sitting by the pool overlooking the mountains.\",\"imageUrl\":\"https://images.unsplash.com/photo-1728051104796-a8c0f667cd90?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxmbG9hdGluZyUyMGJyZWFrZmFzdHxlbnwwfHx8fDE3NjIwNzY4NzV8MA&ixlib=rb-4.1.0&q=80&w=1080\",\"imageHint\":\"pool view\"},{\"id\":\"instagram-4\",\"description\":\"A view of an elephant walking in a lush jungle area.\",\"imageUrl\":\"https://images.unsplash.com/photo-1549643440-cc57ec017ea0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxlbGVwaGFudCUyMHNyaSUyMGxhbmthfGVufDB8fHx8MTc2MjI0NzAyMHww&ixlib=rb-4.1.0&q=80&w=1080\",\"imageHint\":\"elephant jungle\"}]}"));}}),
 "[project]/src/lib/placeholder-images.ts [app-client] (ecmascript)": ((__turbopack_context__) => {
 "use strict";
 
@@ -848,6 +848,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$re
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$wine$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Wine$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/wine.js [app-client] (ecmascript) <export default as Wine>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$coffee$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Coffee$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/coffee.js [app-client] (ecmascript) <export default as Coffee>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$sunset$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Sunset$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/sunset.js [app-client] (ecmascript) <export default as Sunset>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$clock$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Clock$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/clock.js [app-client] (ecmascript) <export default as Clock>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/lib/utils.ts [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$badge$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/components/ui/badge.tsx [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$page$2d$hero$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/components/page-hero.tsx [app-client] (ecmascript)");
@@ -978,12 +979,35 @@ function DiningPage() {
                     className: "container mx-auto px-4 text-center max-w-4xl space-y-12",
                     children: [
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "space-y-6",
+                            className: "text-center mb-24 max-w-4xl mx-auto space-y-6",
                             children: [
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                    className: "text-xs font-bold tracking-[0.3em] text-primary uppercase",
-                                    children: "Culinary Philosophy"
-                                }, void 0, false, {
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    className: "flex items-center justify-center mb-6 mt-16",
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            className: "h-px bg-foreground w-16 mx-4"
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/app/dining/page.tsx",
+                                            lineNumber: 110,
+                                            columnNumber: 15
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                            className: "text-xs tracking-[0.3em] font-semibold text-muted-foreground uppercase",
+                                            children: "Culinary Philosophy"
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/app/dining/page.tsx",
+                                            lineNumber: 111,
+                                            columnNumber: 15
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            className: "h-px bg-foreground w-16 mx-4"
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/app/dining/page.tsx",
+                                            lineNumber: 112,
+                                            columnNumber: 15
+                                        }, this)
+                                    ]
+                                }, void 0, true, {
                                     fileName: "[project]/src/app/dining/page.tsx",
                                     lineNumber: 109,
                                     columnNumber: 13
@@ -993,22 +1017,15 @@ function DiningPage() {
                                     children: "Exquisite Culinary Journeys"
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/dining/page.tsx",
-                                    lineNumber: 110,
-                                    columnNumber: 13
-                                }, this),
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: "w-24 h-1 bg-primary mx-auto rounded-full opacity-60"
-                                }, void 0, false, {
-                                    fileName: "[project]/src/app/dining/page.tsx",
-                                    lineNumber: 111,
+                                    lineNumber: 114,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                    className: "text-muted-foreground leading-relaxed text-lg font-light",
+                                    className: "text-muted-foreground text-sm leading-relaxed max-w-4xl mx-auto",
                                     children: "Indulge in an array of culinary delights at Oruthota Chalets. Our chefs craft exquisite dishes using the freshest local ingredients, offering a symphony of flavors that range from authentic Sri Lankan specialties to international cuisine. Whether it's a romantic dinner under the stars or a casual family meal, our dining experiences are designed to delight your senses and nourish your soul."
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/dining/page.tsx",
-                                    lineNumber: 112,
+                                    lineNumber: 115,
                                     columnNumber: 13
                                 }, this)
                             ]
@@ -1026,7 +1043,7 @@ function DiningPage() {
                                             className: "w-10 h-10 text-primary mb-4 group-hover:scale-110 transition-transform"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/dining/page.tsx",
-                                            lineNumber: 120,
+                                            lineNumber: 123,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
@@ -1034,7 +1051,7 @@ function DiningPage() {
                                             children: feature.title
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/dining/page.tsx",
-                                            lineNumber: 121,
+                                            lineNumber: 124,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1042,18 +1059,18 @@ function DiningPage() {
                                             children: feature.description
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/dining/page.tsx",
-                                            lineNumber: 122,
+                                            lineNumber: 125,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, idx, true, {
                                     fileName: "[project]/src/app/dining/page.tsx",
-                                    lineNumber: 119,
+                                    lineNumber: 122,
                                     columnNumber: 15
                                 }, this))
                         }, void 0, false, {
                             fileName: "[project]/src/app/dining/page.tsx",
-                            lineNumber: 117,
+                            lineNumber: 120,
                             columnNumber: 11
                         }, this)
                     ]
@@ -1068,163 +1085,487 @@ function DiningPage() {
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
-                className: "pb-24 bg-background",
+                className: "bg-background",
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                    className: "container mx-auto px-4",
+                    className: "flex flex-col lg:flex-row min-h-[600px]",
                     children: [
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "text-center mb-20",
+                            className: "w-full lg:w-1/2 bg-[#Fdf7f5] p-12 lg:p-24 flex flex-col justify-center",
+                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "max-w-xl mx-auto lg:ml-auto lg:mr-0 xl:mr-12 w-full space-y-10",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: "flex items-center space-x-4",
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                className: "text-[10px] tracking-[0.3em] font-semibold text-muted-foreground uppercase whitespace-nowrap",
+                                                children: "SCENIC DINING SETTINGS"
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/app/dining/page.tsx",
+                                                lineNumber: 140,
+                                                columnNumber: 17
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                className: "h-px bg-foreground flex-grow max-w-[100px]"
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/app/dining/page.tsx",
+                                                lineNumber: 141,
+                                                columnNumber: 17
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/src/app/dining/page.tsx",
+                                        lineNumber: 139,
+                                        columnNumber: 15
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
+                                        className: "font-headline text-4xl md:text-5xl text-foreground",
+                                        children: "360 by Oruthota Chalets"
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/app/dining/page.tsx",
+                                        lineNumber: 144,
+                                        columnNumber: 15
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: "space-y-6 text-muted-foreground text-sm leading-loose",
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                children: "At Oruthota Chalets, you're invited to experience Al Fresco dining across distinct settings. Whether you're enjoying panoramic views from the terrace, basking in the golden glow of sunset, or soaking in the serene surroundings by the lake, each dining area offers a unique atmosphere, perfectly blending exquisite cuisine with the breathtaking beauty of the highlands."
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/app/dining/page.tsx",
+                                                lineNumber: 147,
+                                                columnNumber: 17
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                children: "Message our reservations team via Whatsapp to reserve a table at our restaurant with magical mountain views."
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/app/dining/page.tsx",
+                                                lineNumber: 150,
+                                                columnNumber: 17
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/src/app/dining/page.tsx",
+                                        lineNumber: 146,
+                                        columnNumber: 15
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: "space-y-4 pt-4",
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                className: "flex items-center text-xs tracking-widest text-foreground font-semibold",
+                                                children: [
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$clock$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Clock$3e$__["Clock"], {
+                                                        className: "w-4 h-4 mr-3 text-muted-foreground"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/src/app/dining/page.tsx",
+                                                        lineNumber: 157,
+                                                        columnNumber: 19
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                        children: "BREAKFAST: 07.30 AM - 10.00 AM"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/src/app/dining/page.tsx",
+                                                        lineNumber: 158,
+                                                        columnNumber: 19
+                                                    }, this)
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/src/app/dining/page.tsx",
+                                                lineNumber: 156,
+                                                columnNumber: 17
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                className: "flex items-center text-xs tracking-widest text-foreground font-semibold",
+                                                children: [
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$clock$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Clock$3e$__["Clock"], {
+                                                        className: "w-4 h-4 mr-3 text-muted-foreground"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/src/app/dining/page.tsx",
+                                                        lineNumber: 161,
+                                                        columnNumber: 19
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                        children: "LUNCH: 12.30 AM - 3.00 PM"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/src/app/dining/page.tsx",
+                                                        lineNumber: 162,
+                                                        columnNumber: 19
+                                                    }, this)
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/src/app/dining/page.tsx",
+                                                lineNumber: 160,
+                                                columnNumber: 17
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                className: "flex items-center text-xs tracking-widest text-foreground font-semibold",
+                                                children: [
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$clock$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Clock$3e$__["Clock"], {
+                                                        className: "w-4 h-4 mr-3 text-muted-foreground"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/src/app/dining/page.tsx",
+                                                        lineNumber: 165,
+                                                        columnNumber: 19
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                        children: "HIGH TEA: 3.00 PM - 5.00 PM"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/src/app/dining/page.tsx",
+                                                        lineNumber: 166,
+                                                        columnNumber: 19
+                                                    }, this)
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/src/app/dining/page.tsx",
+                                                lineNumber: 164,
+                                                columnNumber: 17
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                className: "flex items-center text-xs tracking-widest text-foreground font-semibold",
+                                                children: [
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$clock$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Clock$3e$__["Clock"], {
+                                                        className: "w-4 h-4 mr-3 text-muted-foreground"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/src/app/dining/page.tsx",
+                                                        lineNumber: 169,
+                                                        columnNumber: 19
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                        children: "DINNER: 07.30 PM - 10.30 PM"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/src/app/dining/page.tsx",
+                                                        lineNumber: 170,
+                                                        columnNumber: 19
+                                                    }, this)
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/src/app/dining/page.tsx",
+                                                lineNumber: 168,
+                                                columnNumber: 17
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/src/app/dining/page.tsx",
+                                        lineNumber: 155,
+                                        columnNumber: 15
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: "pt-6",
+                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
+                                            className: "bg-[#bd2830] hover:bg-[#9a1e24] text-white rounded-none px-8 py-6 text-xs font-bold tracking-[0.2em] uppercase transition-colors",
+                                            children: [
+                                                "BOOK A TABLE ",
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$arrow$2d$right$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__ArrowRight$3e$__["ArrowRight"], {
+                                                    className: "w-4 h-4 ml-6"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/src/app/dining/page.tsx",
+                                                    lineNumber: 176,
+                                                    columnNumber: 32
+                                                }, this)
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "[project]/src/app/dining/page.tsx",
+                                            lineNumber: 175,
+                                            columnNumber: 17
+                                        }, this)
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/app/dining/page.tsx",
+                                        lineNumber: 174,
+                                        columnNumber: 15
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/src/app/dining/page.tsx",
+                                lineNumber: 137,
+                                columnNumber: 13
+                            }, this)
+                        }, void 0, false, {
+                            fileName: "[project]/src/app/dining/page.tsx",
+                            lineNumber: 136,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            className: "w-full lg:w-1/2 relative min-h-[400px] lg:min-h-full",
                             children: [
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
-                                    className: "font-headline text-4xl md:text-5xl text-foreground",
-                                    children: "Our Venues"
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    className: "absolute inset-0 lg:inset-y-12 lg:right-12 lg:left-0 z-10",
+                                    children: heroImage && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
+                                        src: heroImage.imageUrl,
+                                        alt: "Scenic Dining",
+                                        fill: true,
+                                        className: "object-cover shadow-2xl"
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/app/dining/page.tsx",
+                                        lineNumber: 187,
+                                        columnNumber: 17
+                                    }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/dining/page.tsx",
-                                    lineNumber: 133,
+                                    lineNumber: 185,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: "w-20 h-1 bg-primary/20 mx-auto rounded-full mt-6"
-                                }, void 0, false, {
+                                    className: "absolute bottom-4 lg:bottom-0 left-0 right-0 lg:right-12 flex justify-center gap-2 pb-4",
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            className: "w-2 h-2 rounded-full bg-[#bd2830]"
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/app/dining/page.tsx",
+                                            lineNumber: 197,
+                                            columnNumber: 15
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            className: "w-2 h-2 rounded-full bg-[#bd2830]"
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/app/dining/page.tsx",
+                                            lineNumber: 198,
+                                            columnNumber: 15
+                                        }, this)
+                                    ]
+                                }, void 0, true, {
                                     fileName: "[project]/src/app/dining/page.tsx",
-                                    lineNumber: 134,
+                                    lineNumber: 196,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/app/dining/page.tsx",
-                            lineNumber: 132,
-                            columnNumber: 11
-                        }, this),
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "flex flex-col gap-24",
-                            children: DINING_VENUES.map((venue, index)=>{
-                                const isEven = index % 2 === 0;
-                                const image = __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$placeholder$2d$images$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["PlaceHolderImages"].find((p)=>p.id === venue.imageId) || heroImage; // Fallback
-                                return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["cn"])("flex flex-col lg:flex-row gap-10 lg:gap-20 items-center group perspective-1000", !isEven && "lg:flex-row-reverse"),
-                                    children: [
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                            className: "w-full lg:w-1/2 relative h-[400px] md:h-[500px] rounded-2xl overflow-hidden shadow-2xl transform transition-transform duration-500 group-hover:rotate-1",
-                                            children: [
-                                                image && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
-                                                    src: image.imageUrl,
-                                                    alt: venue.title,
-                                                    fill: true,
-                                                    className: "object-cover transition-transform duration-700 group-hover:scale-105"
-                                                }, void 0, false, {
-                                                    fileName: "[project]/src/app/dining/page.tsx",
-                                                    lineNumber: 150,
-                                                    columnNumber: 23
-                                                }, this),
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                    className: "absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors duration-500"
-                                                }, void 0, false, {
-                                                    fileName: "[project]/src/app/dining/page.tsx",
-                                                    lineNumber: 157,
-                                                    columnNumber: 21
-                                                }, this)
-                                            ]
-                                        }, void 0, true, {
-                                            fileName: "[project]/src/app/dining/page.tsx",
-                                            lineNumber: 148,
-                                            columnNumber: 19
-                                        }, this),
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                            className: "w-full lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left space-y-6",
-                                            children: [
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                    className: "text-xs tracking-[0.3em] font-bold text-primary uppercase",
-                                                    children: venue.subtitle
-                                                }, void 0, false, {
-                                                    fileName: "[project]/src/app/dining/page.tsx",
-                                                    lineNumber: 162,
-                                                    columnNumber: 21
-                                                }, this),
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
-                                                    className: "font-headline text-4xl md:text-5xl lg:text-6xl text-foreground leading-tight",
-                                                    children: venue.title
-                                                }, void 0, false, {
-                                                    fileName: "[project]/src/app/dining/page.tsx",
-                                                    lineNumber: 164,
-                                                    columnNumber: 21
-                                                }, this),
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                    className: "text-muted-foreground leading-relaxed whitespace-pre-line text-lg font-light max-w-xl",
-                                                    children: venue.description
-                                                }, void 0, false, {
-                                                    fileName: "[project]/src/app/dining/page.tsx",
-                                                    lineNumber: 166,
-                                                    columnNumber: 21
-                                                }, this),
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                    className: "flex flex-wrap gap-2 justify-center lg:justify-start",
-                                                    children: venue.features.map((f)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$badge$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Badge"], {
-                                                            variant: "secondary",
-                                                            className: "bg-secondary text-foreground px-3 py-1.5 text-xs uppercase tracking-wider",
-                                                            children: f
-                                                        }, f, false, {
-                                                            fileName: "[project]/src/app/dining/page.tsx",
-                                                            lineNumber: 172,
-                                                            columnNumber: 25
-                                                        }, this))
-                                                }, void 0, false, {
-                                                    fileName: "[project]/src/app/dining/page.tsx",
-                                                    lineNumber: 170,
-                                                    columnNumber: 21
-                                                }, this),
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                    className: "pt-4",
-                                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
-                                                        variant: "outline",
-                                                        className: "rounded-full border-primary/30 text-primary hover:bg-primary hover:text-white px-8 h-12 uppercase tracking-widest text-xs font-bold transition-all hover:shadow-lg",
-                                                        children: [
-                                                            "View Menu ",
-                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$arrow$2d$right$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__ArrowRight$3e$__["ArrowRight"], {
-                                                                className: "w-4 h-4 ml-2"
-                                                            }, void 0, false, {
-                                                                fileName: "[project]/src/app/dining/page.tsx",
-                                                                lineNumber: 180,
-                                                                columnNumber: 35
-                                                            }, this)
-                                                        ]
-                                                    }, void 0, true, {
-                                                        fileName: "[project]/src/app/dining/page.tsx",
-                                                        lineNumber: 179,
-                                                        columnNumber: 23
-                                                    }, this)
-                                                }, void 0, false, {
-                                                    fileName: "[project]/src/app/dining/page.tsx",
-                                                    lineNumber: 178,
-                                                    columnNumber: 21
-                                                }, this)
-                                            ]
-                                        }, void 0, true, {
-                                            fileName: "[project]/src/app/dining/page.tsx",
-                                            lineNumber: 161,
-                                            columnNumber: 19
-                                        }, this)
-                                    ]
-                                }, venue.id, true, {
-                                    fileName: "[project]/src/app/dining/page.tsx",
-                                    lineNumber: 143,
-                                    columnNumber: 17
-                                }, this);
-                            })
-                        }, void 0, false, {
-                            fileName: "[project]/src/app/dining/page.tsx",
-                            lineNumber: 137,
+                            lineNumber: 184,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/app/dining/page.tsx",
-                    lineNumber: 131,
+                    lineNumber: 134,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/app/dining/page.tsx",
-                lineNumber: 130,
+                lineNumber: 133,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
+                className: "py-24 bg-background",
+                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    className: "container mx-auto px-4",
+                    children: [
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            className: "text-center mb-24 max-w-4xl mx-auto space-y-6",
+                            children: [
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    className: "flex items-center justify-center mb-6 mt-16",
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            className: "h-px bg-foreground w-16 mx-4"
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/app/dining/page.tsx",
+                                            lineNumber: 209,
+                                            columnNumber: 15
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                            className: "text-xs tracking-[0.3em] font-semibold text-muted-foreground uppercase",
+                                            children: "DINING VENUES"
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/app/dining/page.tsx",
+                                            lineNumber: 210,
+                                            columnNumber: 15
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            className: "h-px bg-foreground w-16 mx-4"
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/app/dining/page.tsx",
+                                            lineNumber: 211,
+                                            columnNumber: 15
+                                        }, this)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "[project]/src/app/dining/page.tsx",
+                                    lineNumber: 208,
+                                    columnNumber: 13
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
+                                    className: "font-headline text-4xl md:text-5xl text-foreground",
+                                    children: "Our Venues"
+                                }, void 0, false, {
+                                    fileName: "[project]/src/app/dining/page.tsx",
+                                    lineNumber: 213,
+                                    columnNumber: 13
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                    className: "text-muted-foreground text-sm leading-relaxed max-w-4xl mx-auto",
+                                    children: "Discover unique settings tailored to every mood and occasion."
+                                }, void 0, false, {
+                                    fileName: "[project]/src/app/dining/page.tsx",
+                                    lineNumber: 214,
+                                    columnNumber: 13
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "[project]/src/app/dining/page.tsx",
+                            lineNumber: 207,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            className: "flex flex-col gap-32",
+                            children: DINING_VENUES.map((venue, index)=>{
+                                const isEven = index % 2 === 0;
+                                const image = __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$placeholder$2d$images$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["PlaceHolderImages"].find((p)=>p.id === venue.imageId) || heroImage; // Fallback
+                                return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["cn"])("flex flex-col gap-10 lg:gap-20 items-center", isEven ? "lg:flex-row" : "lg:flex-row-reverse"),
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            className: "w-full lg:w-1/2 relative group perspective-1000",
+                                            children: [
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                    className: "relative aspect-[4/3] w-full overflow-hidden rounded-2xl shadow-2xl transform transition-transform duration-500 group-hover:rotate-1",
+                                                    children: [
+                                                        image && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
+                                                            src: image.imageUrl,
+                                                            alt: venue.title,
+                                                            fill: true,
+                                                            className: "object-cover transition-transform duration-700 group-hover:scale-110"
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/src/app/dining/page.tsx",
+                                                            lineNumber: 233,
+                                                            columnNumber: 25
+                                                        }, this),
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                            className: "absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-500"
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/src/app/dining/page.tsx",
+                                                            lineNumber: 240,
+                                                            columnNumber: 23
+                                                        }, this),
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                            className: "absolute top-6 left-6",
+                                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$badge$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Badge"], {
+                                                                variant: "secondary",
+                                                                className: "bg-white/95 text-foreground px-4 py-1.5 text-xs tracking-widest font-bold shadow-lg backdrop-blur-md uppercase",
+                                                                children: venue.subtitle
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/src/app/dining/page.tsx",
+                                                                lineNumber: 242,
+                                                                columnNumber: 25
+                                                            }, this)
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/src/app/dining/page.tsx",
+                                                            lineNumber: 241,
+                                                            columnNumber: 23
+                                                        }, this)
+                                                    ]
+                                                }, void 0, true, {
+                                                    fileName: "[project]/src/app/dining/page.tsx",
+                                                    lineNumber: 231,
+                                                    columnNumber: 21
+                                                }, this),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                    className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["cn"])("absolute -bottom-6 -z-10 w-full h-full rounded-2xl border border-primary/20 bg-primary/5 transition-transform duration-500 group-hover:translate-x-2 group-hover:translate-y-2", isEven ? "-right-6" : "-left-6")
+                                                }, void 0, false, {
+                                                    fileName: "[project]/src/app/dining/page.tsx",
+                                                    lineNumber: 248,
+                                                    columnNumber: 21
+                                                }, this)
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "[project]/src/app/dining/page.tsx",
+                                            lineNumber: 230,
+                                            columnNumber: 19
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            className: "w-full lg:w-1/2 flex flex-col items-start text-left space-y-6",
+                                            children: [
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
+                                                    className: "font-headline text-3xl md:text-4xl lg:text-5xl text-foreground leading-tight",
+                                                    children: venue.title
+                                                }, void 0, false, {
+                                                    fileName: "[project]/src/app/dining/page.tsx",
+                                                    lineNumber: 256,
+                                                    columnNumber: 21
+                                                }, this),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                    className: "prose prose-lg prose-neutral dark:prose-invert max-w-none text-muted-foreground leading-relaxed",
+                                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                        className: "whitespace-pre-line text-sm leading-relaxed",
+                                                        children: venue.description
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/src/app/dining/page.tsx",
+                                                        lineNumber: 261,
+                                                        columnNumber: 23
+                                                    }, this)
+                                                }, void 0, false, {
+                                                    fileName: "[project]/src/app/dining/page.tsx",
+                                                    lineNumber: 260,
+                                                    columnNumber: 21
+                                                }, this),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                    className: "flex flex-wrap gap-2 justify-start mt-4",
+                                                    children: venue.features.map((f)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$badge$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Badge"], {
+                                                            variant: "outline",
+                                                            className: "border-border text-muted-foreground px-3 py-1.5 text-xs uppercase tracking-wider",
+                                                            children: f
+                                                        }, f, false, {
+                                                            fileName: "[project]/src/app/dining/page.tsx",
+                                                            lineNumber: 268,
+                                                            columnNumber: 25
+                                                        }, this))
+                                                }, void 0, false, {
+                                                    fileName: "[project]/src/app/dining/page.tsx",
+                                                    lineNumber: 266,
+                                                    columnNumber: 21
+                                                }, this),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                    className: "pt-4 mt-2",
+                                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
+                                                        variant: "link",
+                                                        className: "p-0 h-auto text-primary font-bold tracking-widest hover:text-primary/80 hover:no-underline group/btn flex items-center gap-2 text-sm",
+                                                        children: [
+                                                            "VIEW MENU ",
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$arrow$2d$right$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__ArrowRight$3e$__["ArrowRight"], {
+                                                                className: "w-4 h-4 transition-transform duration-300 group-hover/btn:translate-x-1"
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/src/app/dining/page.tsx",
+                                                                lineNumber: 276,
+                                                                columnNumber: 35
+                                                            }, this)
+                                                        ]
+                                                    }, void 0, true, {
+                                                        fileName: "[project]/src/app/dining/page.tsx",
+                                                        lineNumber: 275,
+                                                        columnNumber: 23
+                                                    }, this)
+                                                }, void 0, false, {
+                                                    fileName: "[project]/src/app/dining/page.tsx",
+                                                    lineNumber: 274,
+                                                    columnNumber: 21
+                                                }, this)
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "[project]/src/app/dining/page.tsx",
+                                            lineNumber: 255,
+                                            columnNumber: 19
+                                        }, this)
+                                    ]
+                                }, venue.id, true, {
+                                    fileName: "[project]/src/app/dining/page.tsx",
+                                    lineNumber: 225,
+                                    columnNumber: 17
+                                }, this);
+                            })
+                        }, void 0, false, {
+                            fileName: "[project]/src/app/dining/page.tsx",
+                            lineNumber: 219,
+                            columnNumber: 11
+                        }, this)
+                    ]
+                }, void 0, true, {
+                    fileName: "[project]/src/app/dining/page.tsx",
+                    lineNumber: 206,
+                    columnNumber: 9
+                }, this)
+            }, void 0, false, {
+                fileName: "[project]/src/app/dining/page.tsx",
+                lineNumber: 205,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
@@ -1240,7 +1581,7 @@ function DiningPage() {
                                     children: "Taste the Difference"
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/dining/page.tsx",
-                                    lineNumber: 195,
+                                    lineNumber: 291,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
@@ -1248,13 +1589,13 @@ function DiningPage() {
                                     children: "Signature Creations"
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/dining/page.tsx",
-                                    lineNumber: 196,
+                                    lineNumber: 292,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/app/dining/page.tsx",
-                            lineNumber: 194,
+                            lineNumber: 290,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1266,7 +1607,7 @@ function DiningPage() {
                                             className: "absolute top-0 right-0 w-20 h-20 bg-primary/5 rounded-bl-full -mr-4 -mt-4 transition-transform group-hover:scale-150 duration-500"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/dining/page.tsx",
-                                            lineNumber: 202,
+                                            lineNumber: 298,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1277,7 +1618,7 @@ function DiningPage() {
                                                     children: dish.title
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/dining/page.tsx",
-                                                    lineNumber: 205,
+                                                    lineNumber: 301,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1285,20 +1626,20 @@ function DiningPage() {
                                                     children: dish.price
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/dining/page.tsx",
-                                                    lineNumber: 206,
+                                                    lineNumber: 302,
                                                     columnNumber: 19
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/app/dining/page.tsx",
-                                            lineNumber: 204,
+                                            lineNumber: 300,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                             className: "w-12 h-0.5 bg-border group-hover:bg-primary/50 mb-6 transition-colors duration-500"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/dining/page.tsx",
-                                            lineNumber: 209,
+                                            lineNumber: 305,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1306,18 +1647,18 @@ function DiningPage() {
                                             children: dish.description
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/dining/page.tsx",
-                                            lineNumber: 211,
+                                            lineNumber: 307,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, idx, true, {
                                     fileName: "[project]/src/app/dining/page.tsx",
-                                    lineNumber: 201,
+                                    lineNumber: 297,
                                     columnNumber: 15
                                 }, this))
                         }, void 0, false, {
                             fileName: "[project]/src/app/dining/page.tsx",
-                            lineNumber: 199,
+                            lineNumber: 295,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1327,23 +1668,23 @@ function DiningPage() {
                                 children: "* Please inform our staff of any allergies or dietary restrictions. We are happy to accommodate vegan and gluten-free requests."
                             }, void 0, false, {
                                 fileName: "[project]/src/app/dining/page.tsx",
-                                lineNumber: 219,
+                                lineNumber: 315,
                                 columnNumber: 13
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/src/app/dining/page.tsx",
-                            lineNumber: 218,
+                            lineNumber: 314,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/app/dining/page.tsx",
-                    lineNumber: 193,
+                    lineNumber: 289,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/app/dining/page.tsx",
-                lineNumber: 192,
+                lineNumber: 288,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
@@ -1353,7 +1694,7 @@ function DiningPage() {
                         className: "absolute inset-0 bg-[url('/noise.png')] opacity-10 mix-blend-overlay"
                     }, void 0, false, {
                         fileName: "[project]/src/app/dining/page.tsx",
-                        lineNumber: 228,
+                        lineNumber: 324,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1364,7 +1705,7 @@ function DiningPage() {
                                 children: "Reserve Your Table"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/dining/page.tsx",
-                                lineNumber: 230,
+                                lineNumber: 326,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1372,7 +1713,7 @@ function DiningPage() {
                                 children: "Whether it's a special celebration or a quiet dinner for two, let us reserve the perfect spot for you."
                             }, void 0, false, {
                                 fileName: "[project]/src/app/dining/page.tsx",
-                                lineNumber: 231,
+                                lineNumber: 327,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -1384,25 +1725,25 @@ function DiningPage() {
                                         className: "ml-2 w-5 h-5"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/dining/page.tsx",
-                                        lineNumber: 235,
+                                        lineNumber: 331,
                                         columnNumber: 26
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/dining/page.tsx",
-                                lineNumber: 234,
+                                lineNumber: 330,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/dining/page.tsx",
-                        lineNumber: 229,
+                        lineNumber: 325,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/dining/page.tsx",
-                lineNumber: 227,
+                lineNumber: 323,
                 columnNumber: 7
             }, this)
         ]
