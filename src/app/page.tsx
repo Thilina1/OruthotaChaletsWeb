@@ -36,6 +36,8 @@ export default function Home() {
   const aboutImage = PlaceHolderImages.find((p) => p.id === 'about-us-image');
   const testimonialImages = PlaceHolderImages.filter(p => p.id.startsWith('testimonial-'));
   const diningImage = PlaceHolderImages.find(p => p.id === 'dining-wine');
+  const meetingsImage = PlaceHolderImages.find((p) => p.id === 'events-meetings');
+  const weddingsImage = PlaceHolderImages.find((p) => p.id === 'events-weddings');
 
   const { data: rooms, isLoading: roomsLoading } = useSupabaseCollection<Room>('rooms');
   const { data: experiences, isLoading: experiencesLoading } = useSupabaseCollection<Experience>('experiences');
@@ -341,6 +343,48 @@ export default function Home() {
       </section>
 
       <section className="py-20 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="font-headline text-4xl text-foreground mt-2">Unforgettable Events</h2>
+            <p className="text-muted-foreground mt-4">
+              Design and enhance your event experiences with the very best of Oruthota Chalets
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 gap-12 max-w-7xl mx-auto">
+            <div className="border bg-card">
+              {meetingsImage && (
+                <div className="relative h-[250px] w-full">
+                  <Image src={meetingsImage.imageUrl} alt={meetingsImage.description} fill className="object-cover" />
+                </div>
+              )}
+              <div className="p-8">
+                <h3 className="font-headline text-2xl mb-4">Meetings & Events</h3>
+                <p className="text-muted-foreground text-sm leading-relaxed mb-6">
+                  Achieve more with meetings and events that are not only brilliant and beautiful, but also engaging, polished and productive. Created to empower your imagination, our meeting and events offering brings...
+                </p>
+                <Button variant="outline" className="rounded-none border-primary text-primary hover:bg-primary hover:text-white px-8">Learn More</Button>
+              </div>
+            </div>
+
+            <div className="border bg-card">
+              {weddingsImage && (
+                <div className="relative h-[250px] w-full">
+                  <Image src={weddingsImage.imageUrl} alt={weddingsImage.description} fill className="object-cover" />
+                </div>
+              )}
+              <div className="p-8">
+                <h3 className="font-headline text-2xl mb-4">Weddings and Celebrations</h3>
+                <p className="text-muted-foreground text-sm leading-relaxed mb-6">
+                  At Oruthota Chalets, your dream wedding comes to life with luxurious venues and a dedicated team, creating unforgettable moments that celebrate your unique love story.
+                </p>
+                <Button variant="outline" className="rounded-none border-primary text-primary hover:bg-primary hover:text-white px-8">Learn More</Button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 bg-secondary">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <p className="text-sm tracking-[0.2em] text-primary">TESTIMONIALS</p>
