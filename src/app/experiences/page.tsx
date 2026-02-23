@@ -126,11 +126,15 @@ export default function ExperiencesPage() {
 
       <section className="pb-24 bg-background">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-24 max-w-3xl mx-auto space-y-4">
-            <h2 className="font-headline text-4xl md:text-5xl text-foreground">Curated Activities</h2>
-            <div className="w-24 h-1 bg-primary mx-auto rounded-full opacity-60" />
-            <p className="text-muted-foreground text-lg leading-relaxed font-light">
-              We offer activities with a difference, allowing our guests to leave Sri Lanka with lasting memories of a unique touristic nature.
+          <div className="text-center mb-24 max-w-4xl mx-auto space-y-6">
+            <div className="flex items-center justify-center mb-6 mt-16">
+              <div className="h-px bg-foreground w-16 mx-4"></div>
+              <p className="text-xs tracking-[0.3em] font-semibold text-muted-foreground uppercase">EXPERIENCES</p>
+              <div className="h-px bg-foreground w-16 mx-4"></div>
+            </div>
+            <h2 className="font-headline text-4xl md:text-5xl text-foreground">Discover the Beauty and Culture</h2>
+            <p className="text-muted-foreground text-sm leading-relaxed max-w-4xl mx-auto">
+              At Oruthota Chalets, every moment is cratted to create lasting memories. From relaxing in our mist-tilled surroundings to discovering the many things to do in Kandy, or immersing yourself in the rich history of the region, we promise an unforgettable experience that will stay with you long after you leave.
             </p>
           </div>
 

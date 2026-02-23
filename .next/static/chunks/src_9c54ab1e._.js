@@ -4,7 +4,7 @@
 
 var { g: global, __dirname } = __turbopack_context__;
 {
-__turbopack_context__.v(JSON.parse("{\"placeholderImages\":[{\"id\":\"hero-estate\",\"description\":\"A luxury hotel in Kandy, Sri Lanka with a pool overlooking mountains.\",\"imageUrl\":\"https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxob3RlbCUyMHNyJTIwbGFua2F8ZW58MHx8fHwxNzYyODU0MTA0fDA&ixlib=rb-4.1.0&q=80&w=1080\",\"imageHint\":\"sri lanka hotel\"},{\"id\":\"about-us-image\",\"description\":\"Temple of the Tooth in Kandy, Sri Lanka.\",\"imageUrl\":\"https://images.unsplash.com/photo-1642095012245-bda8033e8ee3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxrYW5keSUyMHNyaSUyMGxhbmthfGVufDB8fHx8MTc2MjAxNTM5MHww&ixlib=rb-4.1.0&q=80&w=1080\",\"imageHint\":\"kandy sri lanka\"},{\"id\":\"accommodation-1\",\"description\":\"Deluxe Room in a luxury hotel with a view of a tea plantation.\",\"imageUrl\":\"https://images.unsplash.com/photo-1633605015660-b0f2dbad3bf2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjBiZWRyb29tJTIwc3JpJTIwbGFua2F8ZW58MHx8fHwxNzYyMDE1MzkwfDA&ixlib=rb-4.1.0&q=80&w=1080\",\"imageHint\":\"luxury bedroom sri lanka\"},{\"id\":\"accommodation-2\",\"description\":\"Hotel suite with traditional Sri Lankan decor.\",\"imageUrl\":\"https://images.unsplash.com/photo-1618773928121-c32242e63f39?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxob3RlbCUyMHJvb218ZW58MHx8fHwxNzYyODU1MDM0fDA&ixlib=rb-4.1.0&q=80&w=1080\",\"imageHint\":\"sri lankan hotel room\"},{\"id\":\"accommodation-3\",\"description\":\"A train passing over the Nine Arch Bridge in Sri Lanka.\",\"imageUrl\":\"https://images.unsplash.com/photo-1581420618659-5c8add1b6a58?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxuaW5lJTIwYXJjaCUyMGJyaWRnZXxlbnwwfHx8fDE3NjIwMTUzOTB8MA&ixlib=rb-4.1.0&q=80&w=1080\",\"imageHint\":\"nine arch bridge\"},{\"id\":\"experience-atv\",\"description\":\"Man on an ATV on a dirt road in a lush, green landscape.\",\"imageUrl\":\"https://images.unsplash.com/photo-1724414544014-3728aad0b45e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxhdHYlMjByaWRlfGVufDB8fHx8MTc2MjAxNjA0MXww&ixlib=rb-4.1.0&q=80&w=1080\",\"imageHint\":\"atv ride\"},{\"id\":\"experience-shooting\",\"description\":\"A woman and a man practicing with rifles on a wooden deck.\",\"imageUrl\":\"https://images.unsplash.com/photo-1617619667494-6b3f51ce58a7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHx0YXJnZXQlMjBzaG9vdGluZ3xlbnwwfHx8fDE3NjIwMTYwNDF8MA&ixlib=rb-4.1.0&q=80&w=1080\",\"imageHint\":\"target shooting\"},{\"id\":\"experience-hike\",\"description\":\"A man standing on a rock overlooking a vast green valley and mountains.\",\"imageUrl\":\"https://images.unsplash.com/photo-1552590854-7a7d89b018ff?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxoaWtpbmclMjBtb3VudGFpbnxlbnwwfHx8fDE3NjIwMTYwNDF8MA&ixlib=rb-4.1.0&q=80&w=1080\",\"imageHint\":\"hiking mountain\"},{\"id\":\"testimonial-1\",\"description\":\"Portrait of a smiling man.\",\"imageUrl\":\"https://images.unsplash.com/photo-1636377985931-898218afd306?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxtYW4lMjBwb3J0cmFpdHxlbnwwfHx8fDE3NjE5OTU4ODd8MA&ixlib=rb-4.1.0&q=80&w=1080\",\"imageHint\":\"man portrait\"},{\"id\":\"testimonial-2\",\"description\":\"Portrait of a smiling woman.\",\"imageUrl\":\"https://images.unsplash.com/photo-1557053910-d9eadeed1c58?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHx3b21hbiUyMHBvcnRyYWl0fGVufDB8fHx8MTc2MTkwOTQyNXww&ixlib=rb-4.1.0&q=80&w=1080\",\"imageHint\":\"woman portrait\"},{\"id\":\"testimonial-3\",\"description\":\"Portrait of a smiling man.\",\"imageUrl\":\"https://images.unsplash.com/photo-1500648767791-00dcc994a43e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxwZXJzb24lMjBwb3J0cmFpdHxlbnwwfHx8fDE3NjE5ODk0NTh8MA&ixlib=rb-4.1.0&q=80&w=1080\",\"imageHint\":\"person portrait\"},{\"id\":\"dining-wine\",\"description\":\"A couple enjoying a floating breakfast in a pool at a luxury resort.\",\"imageUrl\":\"https://images.unsplash.com/photo-1728051104796-a8c0f667cd90?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxmbG9hdGluZyUyMGJyZWFrZmFzdHxlbnwwfHx8fDE3NjIwNzY4NzV8MA&ixlib=rb-4.1.0&q=80&w=1080\",\"imageHint\":\"floating breakfast\"},{\"id\":\"blog-hero\",\"description\":\"Person writing in a notebook on a wooden table.\",\"imageUrl\":\"https://images.unsplash.com/photo-1455390582262-044cdead277a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxibG9nJTIwd3JpdGluZ3xlbnwwfHx8fDE3MjkwNTcyODd8MA&ixlib=rb-4.1.0&q=80&w=1080\",\"imageHint\":\"blog writing\"},{\"id\":\"events-meetings\",\"description\":\"A large conference room set up for a meeting with many chairs and tables.\",\"imageUrl\":\"https://images.unsplash.com/photo-1505373877841-8d25f7d46678?q=80&w=1080&auto=format&fit=crop\",\"imageHint\":\"conference room\"},{\"id\":\"events-weddings\",\"description\":\"A luxurious wedding reception hall with round tables, floral centerpieces, and warm lighting.\",\"imageUrl\":\"https://images.unsplash.com/photo-1519167758481-83f550bb49b3?q=80&w=1080&auto=format&fit=crop\",\"imageHint\":\"wedding reception hall\"}]}"));}}),
+__turbopack_context__.v(JSON.parse("{\"placeholderImages\":[{\"id\":\"hero-estate\",\"description\":\"A luxury hotel in Kandy, Sri Lanka with a pool overlooking mountains.\",\"imageUrl\":\"https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxob3RlbCUyMHNyJTIwbGFua2F8ZW58MHx8fHwxNzYyODU0MTA0fDA&ixlib=rb-4.1.0&q=80&w=1080\",\"imageHint\":\"sri lanka hotel\"},{\"id\":\"about-us-image\",\"description\":\"Temple of the Tooth in Kandy, Sri Lanka.\",\"imageUrl\":\"https://images.unsplash.com/photo-1642095012245-bda8033e8ee3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxrYW5keSUyMHNyaSUyMGxhbmthfGVufDB8fHx8MTc2MjAxNTM5MHww&ixlib=rb-4.1.0&q=80&w=1080\",\"imageHint\":\"kandy sri lanka\"},{\"id\":\"accommodation-1\",\"description\":\"Deluxe Room in a luxury hotel with a view of a tea plantation.\",\"imageUrl\":\"https://images.unsplash.com/photo-1633605015660-b0f2dbad3bf2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjBiZWRyb29tJTIwc3JpJTIwbGFua2F8ZW58MHx8fHwxNzYyMDE1MzkwfDA&ixlib=rb-4.1.0&q=80&w=1080\",\"imageHint\":\"luxury bedroom sri lanka\"},{\"id\":\"accommodation-2\",\"description\":\"Hotel suite with traditional Sri Lankan decor.\",\"imageUrl\":\"https://images.unsplash.com/photo-1618773928121-c32242e63f39?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxob3RlbCUyMHJvb218ZW58MHx8fHwxNzYyODU1MDM0fDA&ixlib=rb-4.1.0&q=80&w=1080\",\"imageHint\":\"sri lankan hotel room\"},{\"id\":\"accommodation-3\",\"description\":\"A train passing over the Nine Arch Bridge in Sri Lanka.\",\"imageUrl\":\"https://images.unsplash.com/photo-1581420618659-5c8add1b6a58?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxuaW5lJTIwYXJjaCUyMGJyaWRnZXxlbnwwfHx8fDE3NjIwMTUzOTB8MA&ixlib=rb-4.1.0&q=80&w=1080\",\"imageHint\":\"nine arch bridge\"},{\"id\":\"experience-atv\",\"description\":\"Man on an ATV on a dirt road in a lush, green landscape.\",\"imageUrl\":\"https://images.unsplash.com/photo-1724414544014-3728aad0b45e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxhdHYlMjByaWRlfGVufDB8fHx8MTc2MjAxNjA0MXww&ixlib=rb-4.1.0&q=80&w=1080\",\"imageHint\":\"atv ride\"},{\"id\":\"experience-shooting\",\"description\":\"A woman and a man practicing with rifles on a wooden deck.\",\"imageUrl\":\"https://images.unsplash.com/photo-1617619667494-6b3f51ce58a7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHx0YXJnZXQlMjBzaG9vdGluZ3xlbnwwfHx8fDE3NjIwMTYwNDF8MA&ixlib=rb-4.1.0&q=80&w=1080\",\"imageHint\":\"target shooting\"},{\"id\":\"experience-hike\",\"description\":\"A man standing on a rock overlooking a vast green valley and mountains.\",\"imageUrl\":\"https://images.unsplash.com/photo-1552590854-7a7d89b018ff?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxoaWtpbmclMjBtb3VudGFpbnxlbnwwfHx8fDE3NjIwMTYwNDF8MA&ixlib=rb-4.1.0&q=80&w=1080\",\"imageHint\":\"hiking mountain\"},{\"id\":\"testimonial-1\",\"description\":\"Portrait of a smiling man.\",\"imageUrl\":\"https://images.unsplash.com/photo-1636377985931-898218afd306?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxtYW4lMjBwb3J0cmFpdHxlbnwwfHx8fDE3NjE5OTU4ODd8MA&ixlib=rb-4.1.0&q=80&w=1080\",\"imageHint\":\"man portrait\"},{\"id\":\"testimonial-2\",\"description\":\"Portrait of a smiling woman.\",\"imageUrl\":\"https://images.unsplash.com/photo-1557053910-d9eadeed1c58?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHx3b21hbiUyMHBvcnRyYWl0fGVufDB8fHx8MTc2MTkwOTQyNXww&ixlib=rb-4.1.0&q=80&w=1080\",\"imageHint\":\"woman portrait\"},{\"id\":\"testimonial-3\",\"description\":\"Portrait of a smiling man.\",\"imageUrl\":\"https://images.unsplash.com/photo-1500648767791-00dcc994a43e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxwZXJzb24lMjBwb3J0cmFpdHxlbnwwfHx8fDE3NjE5ODk0NTh8MA&ixlib=rb-4.1.0&q=80&w=1080\",\"imageHint\":\"person portrait\"},{\"id\":\"dining-wine\",\"description\":\"A couple enjoying a floating breakfast in a pool at a luxury resort.\",\"imageUrl\":\"https://images.unsplash.com/photo-1728051104796-a8c0f667cd90?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxmbG9hdGluZyUyMGJyZWFrZmFzdHxlbnwwfHx8fDE3NjIwNzY4NzV8MA&ixlib=rb-4.1.0&q=80&w=1080\",\"imageHint\":\"floating breakfast\"},{\"id\":\"blog-hero\",\"description\":\"Person writing in a notebook on a wooden table.\",\"imageUrl\":\"https://images.unsplash.com/photo-1455390582262-044cdead277a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxibG9nJTIwd3JpdGluZ3xlbnwwfHx8fDE3MjkwNTcyODd8MA&ixlib=rb-4.1.0&q=80&w=1080\",\"imageHint\":\"blog writing\"},{\"id\":\"events-meetings\",\"description\":\"A large conference room set up for a meeting with many chairs and tables.\",\"imageUrl\":\"https://images.unsplash.com/photo-1505373877841-8d25f7d46678?q=80&w=1080&auto=format&fit=crop\",\"imageHint\":\"conference room\"},{\"id\":\"events-weddings\",\"description\":\"A luxurious wedding reception hall with round tables, floral centerpieces, and warm lighting.\",\"imageUrl\":\"https://images.unsplash.com/photo-1519167758481-83f550bb49b3?q=80&w=1080&auto=format&fit=crop\",\"imageHint\":\"wedding reception hall\"},{\"id\":\"instagram-1\",\"description\":\"A view of the mountains from the hotel.\",\"imageUrl\":\"https://images.unsplash.com/photo-1581420618659-5c8add1b6a58?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxuaW5lJTIwYXJjaCUyMGJyaWRnZXxlbnwwfHx8fDE3NjIwMTUzOTB8MA&ixlib=rb-4.1.0&q=80&w=1080\",\"imageHint\":\"mountain view\"},{\"id\":\"instagram-2\",\"description\":\"A couple enjoying a swing with a mountain view.\",\"imageUrl\":\"https://images.unsplash.com/photo-1552590854-7a7d89b018ff?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxoaWtpbmclMjBtb3VudGFpbnxlbnwwfHx8fDE3NjIwMTYwNDF8MA&ixlib=rb-4.1.0&q=80&w=1080\",\"imageHint\":\"swing view\"},{\"id\":\"instagram-3\",\"description\":\"A woman sitting by the pool overlooking the mountains.\",\"imageUrl\":\"https://images.unsplash.com/photo-1728051104796-a8c0f667cd90?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxmbG9hdGluZyUyMGJyZWFrZmFzdHxlbnwwfHx8fDE3NjIwNzY4NzV8MA&ixlib=rb-4.1.0&q=80&w=1080\",\"imageHint\":\"pool view\"},{\"id\":\"instagram-4\",\"description\":\"A view of an elephant walking in a lush jungle area.\",\"imageUrl\":\"https://images.unsplash.com/photo-1549643440-cc57ec017ea0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxlbGVwaGFudCUyMHNyaSUyMGxhbmthfGVufDB8fHx8MTc2MjI0NzAyMHww&ixlib=rb-4.1.0&q=80&w=1080\",\"imageHint\":\"elephant jungle\"}]}"));}}),
 "[project]/src/lib/placeholder-images.ts [app-client] (ecmascript)": ((__turbopack_context__) => {
 "use strict";
 
@@ -2146,30 +2146,53 @@ function Home() {
                     className: "container mx-auto px-4",
                     children: [
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "text-center mb-12",
+                            className: "text-center mb-16",
                             children: [
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                    className: "text-sm tracking-[0.2em] text-muted-foreground",
-                                    children: "UNFORGETTABLE"
-                                }, void 0, false, {
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    className: "flex items-center justify-center mb-6",
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            className: "h-px bg-foreground w-16 mx-4"
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/app/page.tsx",
+                                            lineNumber: 304,
+                                            columnNumber: 15
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                            className: "text-xs tracking-[0.3em] font-semibold text-muted-foreground uppercase",
+                                            children: "EXPERIENCES"
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/app/page.tsx",
+                                            lineNumber: 305,
+                                            columnNumber: 15
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            className: "h-px bg-foreground w-16 mx-4"
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/app/page.tsx",
+                                            lineNumber: 306,
+                                            columnNumber: 15
+                                        }, this)
+                                    ]
+                                }, void 0, true, {
                                     fileName: "[project]/src/app/page.tsx",
                                     lineNumber: 303,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
-                                    className: "font-headline text-4xl text-foreground mt-2",
-                                    children: "EXPERIENCES"
+                                    className: "font-headline text-4xl text-foreground mb-6",
+                                    children: "Discover the Beauty and Culture of Oruthota Chalets"
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/page.tsx",
-                                    lineNumber: 304,
+                                    lineNumber: 308,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                    className: "text-muted-foreground leading-relaxed mt-4 max-w-2xl mx-auto",
-                                    children: "Explore the rich cultural heritage and breathtaking landscapes that surround Oruthota Chalets. From ancient temples to scenic hikes, our curated experiences offer a glimpse into the soul of Sri Lanka."
+                                    className: "text-muted-foreground leading-relaxed max-w-4xl mx-auto text-sm",
+                                    children: "At Oruthota Chalets, every moment is crafted to create lasting memories. From relaxing in our mist-filled surroundings to discovering the many things to do in Kandy, or immersing yourself in the rich history of the region, we promise an unforgettable experience that will stay with you long after you leave."
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/page.tsx",
-                                    lineNumber: 305,
+                                    lineNumber: 309,
                                     columnNumber: 13
                                 }, this)
                             ]
@@ -2186,7 +2209,7 @@ function Home() {
                                     children: "Loading experiences..."
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/page.tsx",
-                                    lineNumber: 310,
+                                    lineNumber: 314,
                                     columnNumber: 36
                                 }, this),
                                 !experiencesLoading && (!experiences || experiences.length === 0) && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2194,7 +2217,7 @@ function Home() {
                                     children: "Experiences coming soon."
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/page.tsx",
-                                    lineNumber: 312,
+                                    lineNumber: 316,
                                     columnNumber: 15
                                 }, this),
                                 experiences?.slice(0, 3).map((experience)=>{
@@ -2210,12 +2233,12 @@ function Home() {
                                                     className: "object-cover"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/page.tsx",
-                                                    lineNumber: 319,
+                                                    lineNumber: 323,
                                                     columnNumber: 23
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/page.tsx",
-                                                lineNumber: 318,
+                                                lineNumber: 322,
                                                 columnNumber: 21
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
@@ -2223,7 +2246,7 @@ function Home() {
                                                 children: experience.title
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/page.tsx",
-                                                lineNumber: 327,
+                                                lineNumber: 331,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2231,20 +2254,20 @@ function Home() {
                                                 children: experience.description
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/page.tsx",
-                                                lineNumber: 328,
+                                                lineNumber: 332,
                                                 columnNumber: 19
                                             }, this)
                                         ]
                                     }, experience.id, true, {
                                         fileName: "[project]/src/app/page.tsx",
-                                        lineNumber: 316,
+                                        lineNumber: 320,
                                         columnNumber: 17
                                     }, this);
                                 })
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/app/page.tsx",
-                            lineNumber: 309,
+                            lineNumber: 313,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2261,23 +2284,23 @@ function Home() {
                                             className: "w-4 h-4 ml-2"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/page.tsx",
-                                            lineNumber: 338,
+                                            lineNumber: 342,
                                             columnNumber: 38
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/page.tsx",
-                                    lineNumber: 337,
+                                    lineNumber: 341,
                                     columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/src/app/page.tsx",
-                                lineNumber: 336,
+                                lineNumber: 340,
                                 columnNumber: 13
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/src/app/page.tsx",
-                            lineNumber: 335,
+                            lineNumber: 339,
                             columnNumber: 11
                         }, this)
                     ]
@@ -2304,7 +2327,7 @@ function Home() {
                                     children: "Unforgettable Events"
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/page.tsx",
-                                    lineNumber: 348,
+                                    lineNumber: 352,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2312,13 +2335,13 @@ function Home() {
                                     children: "Design and enhance your event experiences with the very best of Oruthota Chalets"
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/page.tsx",
-                                    lineNumber: 349,
+                                    lineNumber: 353,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/app/page.tsx",
-                            lineNumber: 347,
+                            lineNumber: 351,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2336,12 +2359,12 @@ function Home() {
                                                 className: "object-cover"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/page.tsx",
-                                                lineNumber: 357,
+                                                lineNumber: 361,
                                                 columnNumber: 19
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/page.tsx",
-                                            lineNumber: 356,
+                                            lineNumber: 360,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2352,7 +2375,7 @@ function Home() {
                                                     children: "Meetings & Events"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/page.tsx",
-                                                    lineNumber: 361,
+                                                    lineNumber: 365,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2360,7 +2383,7 @@ function Home() {
                                                     children: "Achieve more with meetings and events that are not only brilliant and beautiful, but also engaging, polished and productive. Created to empower your imagination, our meeting and events offering brings..."
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/page.tsx",
-                                                    lineNumber: 362,
+                                                    lineNumber: 366,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -2369,19 +2392,19 @@ function Home() {
                                                     children: "Learn More"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/page.tsx",
-                                                    lineNumber: 365,
+                                                    lineNumber: 369,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/app/page.tsx",
-                                            lineNumber: 360,
+                                            lineNumber: 364,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/page.tsx",
-                                    lineNumber: 354,
+                                    lineNumber: 358,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2396,12 +2419,12 @@ function Home() {
                                                 className: "object-cover"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/page.tsx",
-                                                lineNumber: 372,
+                                                lineNumber: 376,
                                                 columnNumber: 19
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/page.tsx",
-                                            lineNumber: 371,
+                                            lineNumber: 375,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2412,7 +2435,7 @@ function Home() {
                                                     children: "Weddings and Celebrations"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/page.tsx",
-                                                    lineNumber: 376,
+                                                    lineNumber: 380,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2420,7 +2443,7 @@ function Home() {
                                                     children: "At Oruthota Chalets, your dream wedding comes to life with luxurious venues and a dedicated team, creating unforgettable moments that celebrate your unique love story."
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/page.tsx",
-                                                    lineNumber: 377,
+                                                    lineNumber: 381,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -2429,36 +2452,36 @@ function Home() {
                                                     children: "Learn More"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/page.tsx",
-                                                    lineNumber: 380,
+                                                    lineNumber: 384,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/app/page.tsx",
-                                            lineNumber: 375,
+                                            lineNumber: 379,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/page.tsx",
-                                    lineNumber: 369,
+                                    lineNumber: 373,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/app/page.tsx",
-                            lineNumber: 353,
+                            lineNumber: 357,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/app/page.tsx",
-                    lineNumber: 346,
+                    lineNumber: 350,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/app/page.tsx",
-                lineNumber: 345,
+                lineNumber: 349,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
@@ -2474,7 +2497,7 @@ function Home() {
                                     children: "TESTIMONIALS"
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/page.tsx",
-                                    lineNumber: 390,
+                                    lineNumber: 394,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
@@ -2482,13 +2505,13 @@ function Home() {
                                     children: "What Our Guests Say"
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/page.tsx",
-                                    lineNumber: 391,
+                                    lineNumber: 395,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/app/page.tsx",
-                            lineNumber: 389,
+                            lineNumber: 393,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$carousel$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Carousel"], {
@@ -2514,12 +2537,12 @@ function Home() {
                                                                 className: "h-24 w-24 text-primary rotate-180"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/app/page.tsx",
-                                                                lineNumber: 407,
+                                                                lineNumber: 411,
                                                                 columnNumber: 27
                                                             }, this)
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/page.tsx",
-                                                            lineNumber: 406,
+                                                            lineNumber: 410,
                                                             columnNumber: 25
                                                         }, this),
                                                         image && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2532,12 +2555,12 @@ function Home() {
                                                                 "data-ai-hint": image.imageHint
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/app/page.tsx",
-                                                                lineNumber: 412,
+                                                                lineNumber: 416,
                                                                 columnNumber: 29
                                                             }, this)
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/page.tsx",
-                                                            lineNumber: 411,
+                                                            lineNumber: 415,
                                                             columnNumber: 27
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2551,12 +2574,12 @@ function Home() {
                                                                             className: "h-4 w-4 text-yellow-400 fill-yellow-400"
                                                                         }, i, false, {
                                                                             fileName: "[project]/src/app/page.tsx",
-                                                                            lineNumber: 424,
+                                                                            lineNumber: 428,
                                                                             columnNumber: 31
                                                                         }, this))
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/app/page.tsx",
-                                                                    lineNumber: 422,
+                                                                    lineNumber: 426,
                                                                     columnNumber: 27
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2568,7 +2591,7 @@ function Home() {
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/src/app/page.tsx",
-                                                                    lineNumber: 427,
+                                                                    lineNumber: 431,
                                                                     columnNumber: 27
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2579,7 +2602,7 @@ function Home() {
                                                                             children: testimonial.name
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/src/app/page.tsx",
-                                                                            lineNumber: 431,
+                                                                            lineNumber: 435,
                                                                             columnNumber: 29
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2587,72 +2610,72 @@ function Home() {
                                                                             children: testimonial.location
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/src/app/page.tsx",
-                                                                            lineNumber: 432,
+                                                                            lineNumber: 436,
                                                                             columnNumber: 29
                                                                         }, this)
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/src/app/page.tsx",
-                                                                    lineNumber: 430,
+                                                                    lineNumber: 434,
                                                                     columnNumber: 27
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/src/app/page.tsx",
-                                                            lineNumber: 421,
+                                                            lineNumber: 425,
                                                             columnNumber: 25
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/app/page.tsx",
-                                                    lineNumber: 405,
+                                                    lineNumber: 409,
                                                     columnNumber: 23
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/page.tsx",
-                                                lineNumber: 404,
+                                                lineNumber: 408,
                                                 columnNumber: 21
                                             }, this)
                                         }, testimonial.id, false, {
                                             fileName: "[project]/src/app/page.tsx",
-                                            lineNumber: 403,
+                                            lineNumber: 407,
                                             columnNumber: 19
                                         }, this);
                                     })
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/page.tsx",
-                                    lineNumber: 399,
+                                    lineNumber: 403,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$carousel$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CarouselPrevious"], {
                                     className: "absolute left-0 top-1/2 -translate-y-1/2 -translate-x-12 rounded-full border-primary text-primary hover:bg-primary hover:text-primary-foreground hidden md:flex"
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/page.tsx",
-                                    lineNumber: 441,
+                                    lineNumber: 445,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$carousel$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CarouselNext"], {
                                     className: "absolute right-0 top-1/2 -translate-y-1/2 translate-x-12 rounded-full border-primary text-primary hover:bg-primary hover:text-primary-foreground hidden md:flex"
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/page.tsx",
-                                    lineNumber: 442,
+                                    lineNumber: 446,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/app/page.tsx",
-                            lineNumber: 393,
+                            lineNumber: 397,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/app/page.tsx",
-                    lineNumber: 388,
+                    lineNumber: 392,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/app/page.tsx",
-                lineNumber: 387,
+                lineNumber: 391,
                 columnNumber: 7
             }, this)
         ]

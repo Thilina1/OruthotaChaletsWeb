@@ -299,11 +299,15 @@ export default function Home() {
 
       <section className="py-20 bg-secondary">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <p className="text-sm tracking-[0.2em] text-muted-foreground">UNFORGETTABLE</p>
-            <h2 className="font-headline text-4xl text-foreground mt-2">EXPERIENCES</h2>
-            <p className="text-muted-foreground leading-relaxed mt-4 max-w-2xl mx-auto">
-              Explore the rich cultural heritage and breathtaking landscapes that surround Oruthota Chalets. From ancient temples to scenic hikes, our curated experiences offer a glimpse into the soul of Sri Lanka.
+          <div className="text-center mb-16">
+            <div className="flex items-center justify-center mb-6">
+              <div className="h-px bg-foreground w-16 mx-4"></div>
+              <p className="text-xs tracking-[0.3em] font-semibold text-muted-foreground uppercase">EXPERIENCES</p>
+              <div className="h-px bg-foreground w-16 mx-4"></div>
+            </div>
+            <h2 className="font-headline text-4xl text-foreground mb-6">Discover the Beauty and Culture of Oruthota Chalets</h2>
+            <p className="text-muted-foreground leading-relaxed max-w-4xl mx-auto text-sm">
+              At Oruthota Chalets, every moment is crafted to create lasting memories. From relaxing in our mist-filled surroundings to discovering the many things to do in Kandy, or immersing yourself in the rich history of the region, we promise an unforgettable experience that will stay with you long after you leave.
             </p>
           </div>
           <div className="flex flex-wrap justify-center gap-8">
