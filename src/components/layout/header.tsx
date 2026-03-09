@@ -15,7 +15,7 @@ const navLinks = [
   { href: '/dining', label: 'DINING' },
   { href: '/experiences', label: 'EXPERIENCES' },
   { href: '/gallery', label: 'GALLERY' },
-  { href: '/blogs', label: 'BLOGS' },
+  //{ href: '/blogs', label: 'BLOGS' },
   { href: '/contact', label: 'CONTACT' },
 ];
 
@@ -107,7 +107,14 @@ export function Header() {
         )}>
           <div className='flex items-center gap-2'><Thermometer size={14} /><span>{weather} °C</span></div>
           <div className='hidden md:flex items-center gap-2'>{time}</div>
-          <div className='hidden md:flex items-center gap-2'><MessengerIcon className="w-4 h-4" /><span>@OruthotaChalets</span></div>
+          <a
+            href="https://www.instagram.com/kandychalets/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden md:flex items-center gap-2 hover:text-primary transition-colors"
+          >
+            <span>@KandyChalets</span>
+          </a>
           <div className='flex items-center gap-2'><WhatsAppIcon className="w-4 h-4" /><span>+94 81 2 375 396</span></div>
           <div className='flex md:hidden items-center gap-2'>{time}</div>
         </div>

@@ -45,16 +45,13 @@ export default function Home() {
   return (
     <div className="flex flex-col">
       <section className="relative h-screen min-h-[700px] w-full flex flex-col justify-center">
-        {heroImage && (
-          <Image
-            src={heroImage.imageUrl}
-            alt={heroImage.description}
-            fill
-            className="object-cover"
-            priority
-            data-ai-hint={heroImage.imageHint}
-          />
-        )}
+        <Image
+          src="/Hero1.jpg"
+          alt="Oruthota Chalets Hero Image"
+          fill
+          className="object-cover"
+          priority
+        />
         <div className="absolute inset-0 bg-black/40" />
         <br></br><br></br><br></br><br></br>
         <div className="relative z-10 flex flex-col flex-grow justify-center items-center text-center text-white px-4">
@@ -65,20 +62,7 @@ export default function Home() {
             <p className="mt-2 text-lg md:text-2xl text-white/80">
               The Aura of Tranquility
             </p>
-            <div className="mt-8 flex flex-wrap justify-center items-center gap-4 md:gap-8">
-              <div className="flex items-center gap-2">
-                <Utensils className="h-6 w-6 text-white" />
-                <span className="text-white font-light text-sm">Fine Dining</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <BedDouble className="h-6 w-6 text-white" />
-                <span className="text-white font-light text-sm">Luxury Rooms</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <MountainSnow className="h-6 w-6 text-white" />
-                <span className="text-white font-light text-sm">Excursions</span>
-              </div>
-            </div>
+
           </div>
         </div>
 

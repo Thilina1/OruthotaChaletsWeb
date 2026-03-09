@@ -13,10 +13,10 @@ export function InstagramFeed() {
         <section className="py-20 bg-background border-t">
             <div className="container mx-auto px-4 text-center">
                 <h2 className="text-3xl tracking-[0.2em] font-light text-muted-foreground uppercase mb-6">
-                    #ORUTHOTACHALETS
+                    #KANDYCHALETS
                 </h2>
                 <p className="text-muted-foreground max-w-2xl mx-auto mb-16 text-sm leading-relaxed">
-                    Visit <Link href="#" className="font-bold text-foreground border-b border-transparent hover:border-foreground transition-all">@oruthotachalets</Link> and <Link href="#" className="font-bold text-foreground border-b border-transparent hover:border-foreground transition-all">#oruthotachalets</Link> to discover unforgettable experiences at Oruthota Chalets, Kandy - Official Site.
+                    Visit <Link href="https://www.instagram.com/kandychalets/" className="font-bold text-foreground border-b border-transparent hover:border-foreground transition-all">@KANDYCHALETS</Link> to discover unforgettable experiences at Oruthota Chalets, Kandy - Official Site.
                 </p>
 
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-6xl mx-auto">
@@ -31,7 +31,7 @@ export function InstagramFeed() {
                         </div>
                         <div className="flex items-center gap-2 mt-4 text-xs tracking-widest text-muted-foreground group-hover:text-foreground transition-colors uppercase">
                             <Instagram className="w-4 h-4" />
-                            <span>@ORUTHOTACHALETS</span>
+                            <span>@KANDYCHALETS</span>
                         </div>
                     </div>
 
@@ -46,7 +46,7 @@ export function InstagramFeed() {
                         </div>
                         <div className="flex items-center gap-2 mt-4 text-xs tracking-widest text-muted-foreground group-hover:text-foreground transition-colors uppercase">
                             <Instagram className="w-4 h-4" />
-                            <span>@ORUTHOTACHALETS</span>
+                            <span>@KANDYCHALETS</span>
                         </div>
                     </div>
 
@@ -61,7 +61,7 @@ export function InstagramFeed() {
                         </div>
                         <div className="flex items-center gap-2 mt-4 text-xs tracking-widest text-muted-foreground group-hover:text-foreground transition-colors uppercase">
                             <Instagram className="w-4 h-4" />
-                            <span>@ORUTHOTACHALETS</span>
+                            <span>@KANDYCHALETS</span>
                         </div>
                     </div>
 
@@ -76,7 +76,7 @@ export function InstagramFeed() {
                         </div>
                         <div className="flex items-center gap-2 mt-4 text-xs tracking-widest text-muted-foreground group-hover:text-foreground transition-colors uppercase">
                             <Instagram className="w-4 h-4" />
-                            <span>@ORUTHOTACHALETS</span>
+                            <span>@KANDYCHALETS</span>
                         </div>
                     </div>
                 </div>

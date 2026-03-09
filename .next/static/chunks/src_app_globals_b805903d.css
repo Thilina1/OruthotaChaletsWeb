@@ -1656,6 +1656,10 @@ body {
   border-color: var(--color-border);
 }
 
+.border-border {
+  border-color: hsl(var(--border));
+}
+
 .border-border\/40 {
   border-color: hsl(var(--border) / .4);
 }
@@ -1728,10 +1732,6 @@ body {
 
 .border-white\/40 {
   border-color: #fff6;
-}
-
-.border-border {
-  border-color: hsl(var(--border));
 }
 
 .border-l-transparent {
