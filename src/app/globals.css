@@ -79,21 +79,25 @@
   html {
     @apply scroll-smooth;
   }
+
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground;
   }
-  
+
   .day-booked {
     @apply bg-destructive/80 text-destructive-foreground rounded-full;
     @apply hover:bg-destructive/90;
   }
+
   .rdp-day_disabled.day-booked {
     @apply bg-destructive/80 text-destructive-foreground opacity-100;
   }
+
   .day-available {
-     @apply bg-green-200;
+    @apply bg-green-200;
   }
 }

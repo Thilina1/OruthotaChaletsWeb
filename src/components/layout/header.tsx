@@ -97,13 +97,13 @@ export function Header() {
   return (
     <header className={cn(
       "w-full z-50 transition-all duration-300",
-      isScrolled ? 'fixed top-0 bg-background/80 backdrop-blur-sm text-foreground shadow-md' : 'absolute top-0 bg-black/50 text-white'
+      isScrolled ? 'fixed top-0 bg-[#283618]/80 backdrop-blur-sm text-white shadow-md' : 'absolute top-0 bg-[#283618] text-white'
     )}>
       <div className="container mx-auto px-4">
         {/* Top Bar */}
         <div className={cn(
           "flex justify-end items-center h-10 text-xs font-light gap-3 md:gap-6 border-b transition-all duration-300",
-          isScrolled ? 'border-border/50 hidden' : 'border-white/20'
+          isScrolled ? 'border-border/50 hidden' : 'border-white/10'
         )}>
           <div className='flex items-center gap-2'><Thermometer size={14} /><span>{weather} °C</span></div>
           <div className='hidden md:flex items-center gap-2'>{time}</div>
@@ -125,8 +125,8 @@ export function Header() {
         )}>
           <Link href="/" className="flex items-center gap-2">
             <div className="flex flex-col items-start">
-              <span className={cn("text-lg tracking-widest -mb-1", isScrolled ? 'text-foreground' : 'text-white')}>Oruthota Chalets</span>
-              <span className={cn("text-xs tracking-[0.3em] font-light", isScrolled ? 'text-foreground/80' : 'text-white/80')}>KANDY</span>
+              <span className={cn("text-lg tracking-widest -mb-1", 'text-white')}>Oruthota Chalets</span>
+              <span className={cn("text-xs tracking-[0.3em] font-light", 'text-white/80')}>KANDY</span>
             </div>
           </Link>
 
@@ -138,10 +138,8 @@ export function Header() {
                 href={link.href}
                 className={cn(
                   'relative transition-colors after:absolute after:bottom-[-4px] after:left-0 after:h-[1px] after:w-full after:scale-x-0 after:bg-primary after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100',
-                  isScrolled
-                    ? 'text-foreground/80 hover:text-foreground'
-                    : 'text-white/80 hover:text-white',
-                  pathname === link.href && (isScrolled ? 'text-foreground after:scale-x-100' : 'text-white after:scale-x-100')
+                  'text-white/80 hover:text-white',
+                  pathname === link.href && 'text-white after:scale-x-100'
                 )}
               >
                 {link.label}
@@ -163,7 +161,7 @@ export function Header() {
             <div className="md:hidden">
               <Sheet>
                 <SheetTrigger asChild>
-                  <Button variant="ghost" size="icon" aria-label="Open Menu" className={cn("hover:bg-transparent", isScrolled ? 'text-foreground hover:text-foreground' : 'text-white hover:text-white')}>
+                  <Button variant="ghost" size="icon" aria-label="Open Menu" className={cn("hover:bg-transparent", 'text-white hover:text-white')}>
                     <Menu className="h-8 w-8" />
                   </Button>
                 </SheetTrigger>

@@ -180,7 +180,7 @@ function CheckAvailabilityListComponent() {
 
                     <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto pt-4">
                       <Link href={`/booking?roomId=${accommodation.id}`} passHref className="w-full sm:w-auto">
-                        <Button size="lg" className="w-full sm:w-auto bg-primary text-primary-foreground rounded-full px-8 h-12 shadow-lg hover:shadow-primary/25 hover:-translate-y-0.5 transition-all text-base tracking-wide font-semibold">
+                        <Button size="lg" className="w-full sm:w-auto bg-[#283618] text-white rounded-full px-8 h-12 shadow-lg hover:shadow-[#283618]/25 hover:-translate-y-0.5 transition-all text-base tracking-wide font-semibold">
                           Check Availability
                         </Button>
                       </Link>
