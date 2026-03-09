@@ -5,6 +5,7 @@ import { Footer } from '@/components/layout/footer';
 import { VisitUs } from '@/components/visit-us';
 import { InstagramFeed } from '@/components/instagram-feed';
 import { Toaster } from '@/components/ui/toaster';
+import { ConciergeDesk } from '@/components/concierge-desk';
 
 
 export const metadata: Metadata = {
@@ -102,6 +103,7 @@ export default function RootLayout({
         <InstagramFeed />
         <VisitUs />
         <Footer />
+        <ConciergeDesk />
         <Toaster />
       </body>
     </html>

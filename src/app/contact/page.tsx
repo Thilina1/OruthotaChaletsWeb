@@ -114,7 +114,7 @@ export default function ContactPage() {
                             </div>
                         </div>
 
-                        <div className="bg-card border border-border/50 p-8 md:p-10 rounded-2xl shadow-xl">
+                        <div className="bg-[#FEFAE0] border border-border/50 p-8 md:p-10 rounded-2xl shadow-xl">
                             <div className="mb-8">
                                 <h3 className="font-headline text-2xl text-foreground mb-2">Send us a Message</h3>
                                 <p className="text-muted-foreground text-sm">We'll get back to you as soon as possible.</p>

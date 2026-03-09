@@ -390,7 +390,7 @@ export default function Home() {
                 return (
                   <CarouselItem key={testimonial.id} className="pl-4 md:basis-1/2">
                     <div className="h-full transform transition-all duration-300 hover:-translate-y-1">
-                      <div className="bg-card text-card-foreground shadow-lg rounded-xl p-8 md:p-10 text-center flex flex-col items-center gap-6 border h-full relative overflow-hidden group">
+                      <div className="bg-[#FEFAE0] text-card-foreground shadow-lg rounded-xl p-8 md:p-10 text-center flex flex-col items-center gap-6 border h-full relative overflow-hidden group">
                         <div className="absolute top-4 right-6 opacity-10">
                           <Quote className="h-24 w-24 text-primary rotate-180" />
                         </div>
