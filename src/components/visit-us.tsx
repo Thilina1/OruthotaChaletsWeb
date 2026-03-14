@@ -15,7 +15,7 @@ export function VisitUs() {
             <div className="absolute bottom-0 right-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl translate-x-1/3 translate-y-1/3" />
 
             <div className="container mx-auto px-4 relative z-10">
-                <div className="flex flex-col md:flex-row items-stretch justify-between gap-12 bg-[#FEFAE0] border border-border/50 rounded-2xl p-8 md:p-12 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-1">
+                <div className="flex flex-col md:flex-row items-stretch justify-between gap-12 bg-white border border-border/50 rounded-2xl p-8 md:p-12 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-1">
 
                     <div className="flex flex-col space-y-6 max-w-xl py-2">
                         <div className="space-y-2">

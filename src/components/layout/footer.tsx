@@ -1,5 +1,6 @@
 
 'use client';
+import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -32,9 +33,14 @@ export function Footer() {
     <footer className="bg-[#606C38] text-white">
       <div className="container mx-auto px-4 pt-16 pb-8">
         <div className="flex flex-col items-center text-center mb-12">
-          <h2 className="font-headline text-5xl text-white">O</h2>
-          <p className="tracking-[0.2em] text-sm">ORUTHOTA</p>
-          <p className="tracking-[0.3em] text-xs font-light">Chalets</p>
+          <div className="relative w-[200px] h-[54px]">
+            <Image
+              src="/logo_white.png"
+              alt="Oruthota Chalets Logo"
+              fill
+              className="object-contain"
+            />
+          </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-sm">

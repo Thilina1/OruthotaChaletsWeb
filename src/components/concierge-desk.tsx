@@ -58,15 +58,15 @@ export function ConciergeDesk() {
             {/* Concierge Desk Modal */}
             <div
                 className={cn(
-                    "fixed bottom-32 right-8 z-[100] w-[90vw] max-w-[450px] bg-[#FEFAE0] text-[#283618] rounded-3xl p-10 shadow-2xl transition-all duration-500 transform border border-[#283618]/10",
+                    "fixed bottom-32 right-8 z-[100] w-[90vw] max-w-[450px] bg-[#283618] text-[#FEFAE0] rounded-3xl p-10 shadow-2xl transition-all duration-500 transform border border-[#FEFAE0]/10",
                     isOpen ? "translate-y-0 opacity-100 scale-100" : "translate-y-10 opacity-0 scale-95 pointer-events-none"
                 )}
             >
                 <div className="relative">
                     {/* Header */}
-                    <div className="mb-10">
-                        <p className="text-[#606C38] uppercase tracking-[0.3em] text-[10px] font-bold mb-4">CONCIERGE DESK</p>
-                        <h2 className="font-headline text-3xl md:text-4xl text-[#283618]">How may we assist?</h2>
+                    <div className="mb-10 text-center">
+                        <p className="text-[#DDA15E] uppercase font-body tracking-[0.3em] text-[10px] font-bold mb-4">CONCIERGE DESK</p>
+                        <h2 className="font-headline text-3xl md:text-4xl text-[#FEFAE0]">How may we assist?</h2>
                     </div>
 
                     {/* Contact Options */}
@@ -76,56 +76,56 @@ export function ConciergeDesk() {
                             href="https://wa.me/94812375396"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="group flex items-center gap-6 p-6 rounded-2xl bg-white/40 border border-[#283618]/5 hover:bg-white/60 hover:border-[#25D366]/30 transition-all duration-300"
+                            className="group flex items-center gap-6 p-6 rounded-2xl bg-white/5 border border-white/5 hover:bg-white/10 hover:border-[#25D366]/30 transition-all duration-300"
                         >
-                            <div className="w-14 h-14 rounded-xl bg-[#283618]/5 flex items-center justify-center group-hover:bg-[#25D366]/10 transition-colors">
+                            <div className="w-14 h-14 rounded-xl bg-[#FEFAE0]/5 flex items-center justify-center group-hover:bg-[#25D366]/20 transition-colors">
                                 <MessageCircle className="w-7 h-7 text-[#25D366]" />
                             </div>
                             <div className="flex flex-col">
-                                <span className="text-lg font-bold font-headline tracking-wide">WhatsApp Business</span>
-                                <span className="text-xs text-[#606C38] italic">Direct artisan access</span>
+                                <span className="text-lg font-medium font-body tracking-wide text-[#FEFAE0]">WhatsApp Business</span>
+                                <span className="text-xs text-[#FEFAE0]/60 font-body">Direct artisan access</span>
                             </div>
                         </a>
 
                         {/* Email */}
                         <a
                             href="mailto:inquiries@oruthotachalets.com"
-                            className="group flex items-center gap-6 p-6 rounded-2xl bg-white/40 border border-[#283618]/5 hover:bg-white/60 hover:border-[#283618]/30 transition-all duration-300"
+                            className="group flex items-center gap-6 p-6 rounded-2xl bg-white/5 border border-white/5 hover:bg-white/10 hover:border-[#DDA15E]/30 transition-all duration-300"
                         >
-                            <div className="w-14 h-14 rounded-xl bg-[#283618]/5 flex items-center justify-center group-hover:bg-[#283618]/10 transition-colors">
-                                <Mail className="w-7 h-7 text-[#283618]" />
+                            <div className="w-14 h-14 rounded-xl bg-[#FEFAE0]/5 flex items-center justify-center group-hover:bg-[#DDA15E]/20 transition-colors">
+                                <Mail className="w-7 h-7 text-[#DDA15E]" />
                             </div>
                             <div className="flex flex-col">
-                                <span className="text-lg font-bold font-headline tracking-wide">Direct Email</span>
-                                <span className="text-xs text-[#606C38] italic line-clamp-1">concierge@oruthotachalets.com</span>
+                                <span className="text-lg font-medium font-body tracking-wide text-[#FEFAE0]">Direct Email</span>
+                                <span className="text-xs text-[#FEFAE0]/60 font-body line-clamp-1">concierge@oruthotachalets.com</span>
                             </div>
                         </a>
 
                         {/* Phone */}
                         <a
                             href="tel:+94812375396"
-                            className="group flex items-center gap-6 p-6 rounded-2xl bg-white/40 border border-[#283618]/5 hover:bg-white/60 hover:border-[#283618]/30 transition-all duration-300"
+                            className="group flex items-center gap-6 p-6 rounded-2xl bg-white/5 border border-white/5 hover:bg-white/10 hover:border-[#DDA15E]/30 transition-all duration-300"
                         >
-                            <div className="w-14 h-14 rounded-xl bg-[#283618]/5 flex items-center justify-center group-hover:bg-[#283618]/10 transition-colors">
-                                <Phone className="w-7 h-7 text-[#283618]" />
+                            <div className="w-14 h-14 rounded-xl bg-[#FEFAE0]/5 flex items-center justify-center group-hover:bg-[#DDA15E]/20 transition-colors">
+                                <Phone className="w-7 h-7 text-[#DDA15E]" />
                             </div>
                             <div className="flex flex-col">
-                                <span className="text-lg font-bold font-headline tracking-wide">Direct Protocol</span>
-                                <span className="text-xs text-[#606C38] italic">+94 81 2 375 396</span>
+                                <span className="text-lg font-medium font-body tracking-wide text-[#FEFAE0]">Direct Protocol</span>
+                                <span className="text-xs text-[#FEFAE0]/60 font-body">+94 81 2 375 396</span>
                             </div>
                         </a>
                     </div>
 
                     {/* Footer Info */}
-                    <div className="mt-10 text-center">
-                        <p className="text-[#606C38]/60 text-[11px] tracking-wide">
-                            Standard response time: <span className="text-[#283618]/70 font-semibold">Within 2 hours</span>
+                    <div className="mt-10 text-center font-body">
+                        <p className="text-[#FEFAE0]/60 text-[11px] tracking-wide">
+                            Standard response time: <span className="text-[#DDA15E] font-medium">Within 2 hours</span>
                         </p>
                     </div>
 
                     {/* Background Quote Icon Decoration */}
                     <div className="absolute top-2 right-0 opacity-[0.05] pointer-events-none">
-                        <Quote className="h-32 w-32 text-[#283618] rotate-180" />
+                        <Quote className="h-32 w-32 text-[#FEFAE0] rotate-180" />
                     </div>
                 </div>
             </div>
