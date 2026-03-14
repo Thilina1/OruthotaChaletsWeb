@@ -64,7 +64,7 @@ export function BookingForm() {
 
   return (
     <div className="max-w-6xl mx-auto">
-      <div className="bg-background/80 backdrop-blur-sm p-4">
+      <div className="bg-[#FEFAE0]/60 backdrop-blur-sm p-4">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-0.5">
           <div className="bg-white p-3 md:col-span-1 flex items-center justify-between gap-2">
             <Popover>

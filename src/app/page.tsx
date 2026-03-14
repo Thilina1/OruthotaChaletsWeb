@@ -339,7 +339,7 @@ export default function Home() {
             </p>
           </div>
           <div className="grid md:grid-cols-2 gap-12 max-w-7xl mx-auto">
-            <div className="border bg-card">
+            <div className="border bg-[#FEFAE0]">
               {meetingsImage && (
                 <div className="relative h-[250px] w-full">
                   <Image src={meetingsImage.imageUrl} alt={meetingsImage.description} fill className="object-cover" />
@@ -354,7 +354,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="border bg-card">
+            <div className="border bg-[#FEFAE0]">
               {weddingsImage && (
                 <div className="relative h-[250px] w-full">
                   <Image src={weddingsImage.imageUrl} alt={weddingsImage.description} fill className="object-cover" />

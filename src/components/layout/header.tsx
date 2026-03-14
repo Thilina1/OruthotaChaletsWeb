@@ -1,6 +1,7 @@
 
 'use client';
 
+import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger, SheetClose, SheetTitle } from '@/components/ui/sheet';
@@ -124,9 +125,14 @@ export function Header() {
           !isScrolled && "mt-4"
         )}>
           <Link href="/" className="flex items-center gap-2">
-            <div className="flex flex-col items-start">
-              <span className={cn("text-lg tracking-widest -mb-1", 'text-white')}>Oruthota Chalets</span>
-              <span className={cn("text-xs tracking-[0.3em] font-light", 'text-white/80')}>KANDY</span>
+            <div className="relative w-[150px] h-[40px] md:w-[200px] md:h-[54px] -ml-2 -mt-4">
+              <Image
+                src="/logo_white.png"
+                alt="Oruthota Chalets Logo"
+                fill
+                className="object-contain"
+                priority
+              />
             </div>
           </Link>
 

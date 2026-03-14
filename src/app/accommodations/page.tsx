@@ -197,11 +197,11 @@ function CheckAvailabilityListComponent() {
       </section>
 
       {/* Bottom CTA */}
-      <section className="py-24 bg-primary relative overflow-hidden text-primary-foreground text-center">
+      <section className="py-24 bg-[#DDA15E] relative overflow-hidden text-[#283618] text-center">
         <div className="absolute inset-0 bg-[url('/noise.png')] opacity-10 mix-blend-overlay" />
         <div className="container relative z-10 mx-auto px-4 max-w-3xl">
           <h2 className="font-headline text-4xl md:text-5xl mb-6 leading-tight">Not sure which sanctuary to choose?</h2>
-          <p className="text-primary-foreground/90 mb-10 text-xl font-light leading-relaxed">
+          <p className="text-[#283618]/90 mb-10 text-xl font-light leading-relaxed">
             Our dedicated team is happy to help you select the perfect accommodation for your tropical getaway.
           </p>
           <Link href="/contact" passHref>
