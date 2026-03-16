@@ -5,7 +5,7 @@
   "static/chunks/node_modules_date-fns_5e7b5adc._.js",
   "static/chunks/node_modules_react-day-picker_dist_index_esm_9fc30424.js",
   "static/chunks/node_modules_@supabase_auth-js_dist_module_6ccbf858._.js",
-  "static/chunks/node_modules_ffe77667._.js"
+  "static/chunks/node_modules_51815a7e._.js"
 ],
     source: "dynamic"
 });
