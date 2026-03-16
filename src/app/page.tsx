@@ -1,5 +1,7 @@
 'use client';
+import { useRef } from 'react';
 import Image from 'next/image';
+import Autoplay from 'embla-carousel-autoplay';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { BookingForm } from '@/components/booking-form';
 import { Button } from '@/components/ui/button';
@@ -143,17 +145,14 @@ export default function Home() {
                 FACT SHEET
               </Button>
             </div>
-            {aboutImage && (
-              <div className="relative h-96 rounded-lg overflow-hidden shadow-xl">
-                <Image
-                  src={aboutImage.imageUrl}
-                  alt={aboutImage.description}
-                  fill
-                  className="object-cover"
-                  data-ai-hint={aboutImage.imageHint}
-                />
-              </div>
-            )}
+            <div className="relative h-96 rounded-lg overflow-hidden shadow-xl">
+              <Image
+                src="/DSCN1986.jpg"
+                alt="Oruthota Chalets"
+                fill
+                className="object-cover"
+              />
+            </div>
           </div>
         </div>
       </section >
@@ -182,11 +181,11 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <Carousel
             opts={{
-              align: "center",
+              align: "start",
             }}
             className="w-full"
           >
-            <CarouselContent className="justify-center">
+            <CarouselContent className="md:justify-center">
               {roomsLoading && <p className="text-center w-full">Loading rooms...</p>}
               {!roomsLoading && (!rooms || rooms.length === 0) && (
                 <p className="text-center w-full text-muted-foreground p-8">No rooms available at the moment.</p>
@@ -266,17 +265,14 @@ export default function Home() {
                 FIND OUT MORE <ArrowRight className="w-4 h-4 ml-2" />
               </Button>
             </div>
-            {diningImage && (
-              <div className="relative h-96 min-h-[300px]">
-                <Image
-                  src={diningImage.imageUrl}
-                  alt={diningImage.description}
-                  fill
-                  className="object-cover"
-                  data-ai-hint={diningImage.imageHint}
-                />
-              </div>
-            )}
+            <div className="relative h-96 min-h-[300px]">
+              <Image
+                src="/Restaurant.png"
+                alt="Wine & Dine at Oruthota Chalets"
+                fill
+                className="object-cover"
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -355,11 +351,9 @@ export default function Home() {
             </div>
 
             <div className="border bg-[#FEFAE0]">
-              {weddingsImage && (
-                <div className="relative h-[250px] w-full">
-                  <Image src={weddingsImage.imageUrl} alt={weddingsImage.description} fill className="object-cover" />
-                </div>
-              )}
+              <div className="relative h-[250px] w-full">
+                <Image src="/wedding.png" alt="Weddings and Celebrations" fill className="object-cover" />
+              </div>
               <div className="p-8">
                 <h3 className="font-headline text-2xl mb-4">Weddings and Celebrations</h3>
                 <p className="text-muted-foreground text-sm leading-relaxed mb-6">
@@ -381,7 +375,15 @@ export default function Home() {
           <Carousel
             opts={{
               align: "start",
+              loop: true,
             }}
+            plugins={[
+              Autoplay({
+                delay: 4000,
+                stopOnInteraction: false,
+                stopOnMouseEnter: true,
+              }),
+            ]}
             className="w-full max-w-4xl mx-auto"
           >
             <CarouselContent className="-ml-4">
