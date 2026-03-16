@@ -40,6 +40,10 @@ export const metadata: Metadata = {
     description: 'Experience The Aura of Tranquility at Oruthota Chalets.',
     images: ['/og-image.jpg'],
   },
+  icons: {
+    icon: '/IMG_8148.PNG',
+    apple: '/IMG_8148.PNG',
+  },
   robots: {
     index: true,
     follow: true,
