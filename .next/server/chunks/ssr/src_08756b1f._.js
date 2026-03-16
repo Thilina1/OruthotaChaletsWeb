@@ -1498,7 +1498,7 @@ function Home() {
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
                             className: "font-headline text-4xl text-foreground mb-6",
-                            children: "Tropical Tranquility and Contemporary Elegance"
+                            children: "Eco-Friendly Comfort by the Reservoir"
                         }, void 0, false, {
                             fileName: "[project]/src/app/page.tsx",
                             lineNumber: 163,
@@ -1506,7 +1506,7 @@ function Home() {
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                             className: "text-muted-foreground leading-relaxed mb-12 max-w-3xl mx-auto",
-                            children: "Experience Bawa's tropical modernist design with breathtaking lake views and lush jungle canopies just minutes from iconic cultural landmarks like the Dambulla Cave Temples and Sigiriya Rock Fortress. Relaxing serene rooms and suites which blend nature, exclusivity and contemporary comforts."
+                            children: "Nestled amidst the serene hill country landscapes, our chalets and rooms offer breathtaking views of the Victoria Reservoir and the surrounding lush greenery. Each space is thoughtfully designed to blend rustic charm with modern comforts, ensuring a peaceful and memorable stay just 18 kilometres from Kandy."
                         }, void 0, false, {
                             fileName: "[project]/src/app/page.tsx",
                             lineNumber: 164,
@@ -1527,7 +1527,7 @@ function Home() {
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                             className: "text-foreground font-semibold",
-                                            children: "137 Rooms"
+                                            children: "Chalets"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/page.tsx",
                                             lineNumber: 170,
@@ -1551,7 +1551,7 @@ function Home() {
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                             className: "text-foreground font-semibold",
-                                            children: "15 Suites"
+                                            children: "Rooms"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/page.tsx",
                                             lineNumber: 174,

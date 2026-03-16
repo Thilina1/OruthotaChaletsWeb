@@ -70,11 +70,10 @@ function CheckAvailabilityListComponent() {
         <div className="container mx-auto px-4 max-w-4xl text-center space-y-12">
           <div className="space-y-6">
             <p className="text-xs font-bold tracking-[0.3em] text-primary uppercase">Your Private Sanctuary</p>
-            <h2 className="font-headline text-4xl md:text-5xl text-foreground">Tropical Tranquility & Elegance</h2>
+            <h2 className="font-headline text-4xl md:text-5xl text-foreground">Eco-Friendly Comfort by the Reservoir</h2>
             <div className="w-24 h-1 bg-primary mx-auto rounded-full opacity-60" />
             <p className="text-muted-foreground leading-relaxed text-lg font-light">
-              Experience our tropical modernist design with breathtaking lake views and lush jungle canopies.
-              Just minutes from iconic cultural landmarks like the Dambulla Cave Temples and Sigiriya Rock Fortress.
+              Discover our thoughtfully designed chalets and rooms with breathtaking views of the Victoria Reservoir and surrounding hill country landscapes. Just 18 kilometres from the historic city of Kandy, each space blends rustic charm with modern comforts for a truly peaceful retreat.
             </p>
           </div>
 
