@@ -47,18 +47,18 @@ function CheckAvailabilityListComponent() {
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4 max-w-4xl text-center">
           <p className="text-primary tracking-widest mb-4">ACCOMMODATION</p>
-          <h2 className="font-headline text-4xl text-foreground mb-6">Tropical Tranquility and Contemporary Elegance</h2>
+          <h2 className="font-headline text-4xl text-foreground mb-6">Eco-Friendly Comfort by the Reservoir</h2>
           <p className="text-muted-foreground leading-relaxed mb-12 max-w-3xl mx-auto">
-            Experience Bawa's tropical modernist design with breathtaking lake views and lush jungle canopies just minutes from iconic cultural landmarks like the Dambulla Cave Temples and Sigiriya Rock Fortress. Relaxing serene rooms and suites which blend nature, exclusivity and contemporary comforts.
+            Discover our thoughtfully designed chalets and rooms with breathtaking views of the Victoria Reservoir and surrounding hill country landscapes. Just 18 kilometres from the historic city of Kandy, each space blends rustic charm with modern comforts for a truly peaceful retreat.
           </p>
           <div className="flex justify-center items-center gap-8">
             <div className="flex items-center gap-3">
               <Bed className="h-8 w-8 text-primary" />
-              <span className="text-foreground font-semibold">137 Rooms</span>
+              <span className="text-foreground font-semibold">Chalets</span>
             </div>
             <div className="flex items-center gap-3">
               <Building2 className="h-8 w-8 text-primary" />
-              <span className="text-foreground font-semibold">15 Suites</span>
+              <span className="text-foreground font-semibold">Rooms</span>
             </div>
           </div>
         </div>

@@ -90,9 +90,8 @@ export default function DiningPage() {
         title="Wine & Dine"
         subtitle="Culinary Journeys"
         description="A symphony of flavors tailored to your palate, set against the backdrop of mist-covered mountains."
-        imageUrl={heroImage?.imageUrl || ''}
-        imageAlt={heroImage?.description || 'Dining at Oruthota Chalets'}
-        imageHint={heroImage?.imageHint}
+        imageUrl="/Restaurant.png"
+        imageAlt="Dining at Oruthota Chalets"
       />
 
       {/* Booking Form Integration */}
@@ -183,14 +182,12 @@ export default function DiningPage() {
           {/* Right Image Area */}
           <div className="w-full lg:w-1/2 relative min-h-[400px] lg:min-h-full">
             <div className="absolute inset-0 lg:inset-y-12 lg:right-12 lg:left-0 z-10">
-              {heroImage && (
-                <Image
-                  src={heroImage.imageUrl}
-                  alt="Scenic Dining"
-                  fill
-                  className="object-cover shadow-2xl"
-                />
-              )}
+              <Image
+                src="/Restaurant.png"
+                alt="Scenic Dining"
+                fill
+                className="object-cover shadow-2xl"
+              />
             </div>
             {/* Carousel Dots placeholder */}
             <div className="absolute bottom-4 lg:bottom-0 left-0 right-0 lg:right-12 flex justify-center gap-2 pb-4">

@@ -30,16 +30,13 @@ function CheckAvailabilityListComponent() {
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
       <section className="relative h-[60vh] min-h-[500px] w-full flex items-center justify-center overflow-hidden">
-        {heroImage && (
-          <Image
-            src={heroImage.imageUrl}
-            alt={heroImage.description}
+        <Image
+            src="/rooms-01.jpg"
+            alt="Oruthota Chalets Accommodations"
             fill
             className="object-cover transition-transform duration-1000 hover:scale-105"
             priority
-            data-ai-hint={heroImage.imageHint}
           />
-        )}
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-background/90" />
         <div className="absolute inset-0 flex items-center justify-center z-10 p-4">
           <div className="text-center space-y-6 max-w-4xl mx-auto">
@@ -70,11 +67,10 @@ function CheckAvailabilityListComponent() {
         <div className="container mx-auto px-4 max-w-4xl text-center space-y-12">
           <div className="space-y-6">
             <p className="text-xs font-bold tracking-[0.3em] text-primary uppercase">Your Private Sanctuary</p>
-            <h2 className="font-headline text-4xl md:text-5xl text-foreground">Tropical Tranquility & Elegance</h2>
+            <h2 className="font-headline text-4xl md:text-5xl text-foreground">Eco-Friendly Comfort by the Reservoir</h2>
             <div className="w-24 h-1 bg-primary mx-auto rounded-full opacity-60" />
             <p className="text-muted-foreground leading-relaxed text-lg font-light">
-              Experience our tropical modernist design with breathtaking lake views and lush jungle canopies.
-              Just minutes from iconic cultural landmarks like the Dambulla Cave Temples and Sigiriya Rock Fortress.
+              Discover our thoughtfully designed chalets and rooms with breathtaking views of the Victoria Reservoir and surrounding hill country landscapes. Just 18 kilometres from the historic city of Kandy, each space blends rustic charm with modern comforts for a truly peaceful retreat.
             </p>
           </div>
 

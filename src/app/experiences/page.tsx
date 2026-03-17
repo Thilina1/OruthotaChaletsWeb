@@ -68,6 +68,20 @@ const STATIC_EXPERIENCES: StaticExperience[] = [
     imageId: 'experience-atv',
     category: 'ADVENTURE',
   },
+  {
+    id: 'madaram-nuwara',
+    title: 'Visit to the Village of Madaram Nuwara',
+    description: `Oruthota Chalets forte is introducing Tourism with a Difference to visitors. Thus we concentrate on activities that are diverse and suggest tours to locations off the beaten track.`,
+    imageId: 'experience-hike',
+    category: 'CULTURAL',
+  },
+  {
+    id: 'cultural-dance',
+    title: 'Cultural Dance with a Special Cause',
+    description: `Oruthota Chalets offers this activity with pride. This dance is performed by students and their Dance Master from a local school in the neighborhood. These children have no opportunity to show their talents, as they cannot compete with those who hold the monopoly of this art in the bigger cities.`,
+    imageId: 'accommodation-2',
+    category: 'CULTURAL',
+  },
 ];
 
 export default function ExperiencesPage() {
@@ -89,16 +103,13 @@ export default function ExperiencesPage() {
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
       <section className="relative h-[60vh] min-h-[500px] w-full flex items-center justify-center overflow-hidden">
-        {heroImage && (
-          <Image
-            src={heroImage.imageUrl}
-            alt={heroImage.description}
+        <Image
+            src="/High-Knuckles-Glamping-in-Sri-Lanka.avif"
+            alt="Experiences at Oruthota Chalets"
             fill
             className="object-cover transition-transform duration-1000 hover:scale-105"
             priority
-            data-ai-hint={heroImage.imageHint}
           />
-        )}
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-background/90" />
         <div className="absolute inset-0 flex items-center justify-center z-10 p-4">
           <div className="text-center space-y-6 max-w-4xl mx-auto">
