@@ -3,7 +3,9 @@
   "/accommodations/page": "app/accommodations/page.js",
   "/contact/page": "app/contact/page.js",
   "/dining/page": "app/dining/page.js",
+  "/experiences/page": "app/experiences/page.js",
   "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/gallery/page": "app/gallery/page.js",
   "/manifest.webmanifest/route": "app/manifest.webmanifest/route.js",
   "/page": "app/page.js"
 }

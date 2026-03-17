@@ -54,7 +54,7 @@ export default function ContactPage() {
             <PageHero
                 title="Visit Us!"
                 description="We'd love to hear from you. Get in touch with us for any inquiries."
-                imageUrl="/contact-hero-bg.png"
+                imageUrl="/IMG_3197-Edit.jpg"
                 imageAlt="Oruthota Chalets Scenery"
             />
 

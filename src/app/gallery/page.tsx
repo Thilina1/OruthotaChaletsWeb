@@ -15,9 +15,9 @@ export default function GalleryPage() {
       <PageHero
         title="Our Gallery"
         description="Immerse yourself in the visual journey of Oruthota Chalets."
-        imageUrl={galleryImages[0]?.imageUrl || ''}
-        imageAlt={galleryImages[0]?.description || 'Oruthota Chalets Gallery'}
-        imageHint={galleryImages[0]?.imageHint}
+        imageUrl="/instagram-1.png"
+        imageAlt="Oruthota Chalets Gallery"
+        imageHint="resort gallery"
       />
 
       {/* Booking Form Integration */}
