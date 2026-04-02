@@ -5,7 +5,7 @@ import Autoplay from 'embla-carousel-autoplay';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { BookingForm } from '@/components/booking-form';
 import { Button } from '@/components/ui/button';
-import { Utensils, BedDouble, MountainSnow, Map, Tag, Bed, Building2, RefreshCw, Star, ArrowRight, MapPin, ChevronLeft, ChevronRight, Quote } from 'lucide-react';
+import { Utensils, BedDouble, MountainSnow, Map, Tag, Bed, Building2, RefreshCw, Star, ArrowRight, MapPin, ChevronLeft, ChevronRight, Quote, User, Download } from 'lucide-react';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import Link from 'next/link';
 import { useSupabaseCollection } from '@/hooks/use-supabase';
@@ -141,9 +141,21 @@ export default function Home() {
               <p className="text-muted-foreground leading-relaxed mb-6">
                 Nestled amidst the serene landscapes of Sri Lanka’s Hill Country, Oruthota Chalets is a hidden fairytale overlooking the tranquil waters of the Victoria Reservoir, just 18 kilometers from the historic city of Kandy. Set within a picturesque rural setting, this eco-friendly, family-oriented retreat offers a peaceful escape far removed from the bustle of city life. Reached via a charming village road, guests are gently introduced to the authentic rhythms of a small hamlet enriched with multi-religious traditions. From reconnecting with nature to unwinding in storybook-like surroundings, Oruthota Chalets promises a truly relaxing getaway and memories to cherish long after your stay. ✨🌿
               </p>
-              <Button variant="outline" className="rounded-none border-primary text-primary hover:bg-primary hover:text-white">
-                FACT SHEET
-              </Button>
+              <div className="flex flex-wrap gap-4 mt-8">
+                <Link href="/fact-sheet" passHref>
+                  <Button variant="outline" className="rounded-none border-primary text-primary hover:bg-primary hover:text-white px-8 h-12 text-sm tracking-widest font-bold">
+                    FACT SHEET
+                  </Button>
+                </Link>
+                <Button 
+                  variant="default" 
+                  className="rounded-none bg-primary text-white hover:bg-[#283618] px-8 h-12 text-sm tracking-widest font-bold flex items-center gap-2 group"
+                  onClick={() => window.print()}
+                >
+                  <Download className="w-4 h-4 transition-transform group-hover:-translate-y-1" />
+                  DOWNLOAD PDF
+                </Button>
+              </div>
             </div>
             <div className="relative h-96 rounded-lg overflow-hidden shadow-xl">
               <Image
@@ -261,8 +273,10 @@ export default function Home() {
               <p className="text-muted-foreground leading-relaxed max-w-sm mx-auto mb-8">
                 Enjoy our exquisite range of dishes ranging from Italian, Western, Sri Lankan specialities. Drinks that refresh your mind and soul specially tailor made for you.
               </p>
-              <Button variant="outline" className="rounded-none border-primary text-primary hover:bg-primary hover:text-white">
-                FIND OUT MORE <ArrowRight className="w-4 h-4 ml-2" />
+              <Button asChild variant="outline" className="rounded-none border-primary text-primary hover:bg-primary hover:text-white">
+                <Link href="/dining">
+                  FIND OUT MORE <ArrowRight className="w-4 h-4 ml-2" />
+                </Link>
               </Button>
             </div>
             <div className="relative h-96 min-h-[300px]">
@@ -335,102 +349,130 @@ export default function Home() {
             </p>
           </div>
           <div className="grid md:grid-cols-2 gap-12 max-w-7xl mx-auto">
-            <div className="border bg-[#FEFAE0]">
+            <div className="border bg-[#FEFAE0] flex flex-col">
               {meetingsImage && (
-                <div className="relative h-[250px] w-full">
+                <div className="relative h-[300px] w-full">
                   <Image src={meetingsImage.imageUrl} alt={meetingsImage.description} fill className="object-cover" />
                 </div>
               )}
-              <div className="p-8">
-                <h3 className="font-headline text-2xl mb-4">Meetings & Events</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed mb-6">
+              <div className="p-10 flex flex-col flex-grow">
+                <h3 className="font-headline text-3xl mb-4 text-[#283618]">Meetings & Events</h3>
+                <p className="text-muted-foreground text-md leading-relaxed mb-8 flex-grow">
                   Achieve more with meetings and events that are not only brilliant and beautiful, but also engaging, polished and productive. Created to empower your imagination, our meeting and events offering brings...
                 </p>
-                <Button variant="outline" className="rounded-none border-primary text-primary hover:bg-primary hover:text-white px-8">Learn More</Button>
+                <Link href="/events" passHref>
+                  <Button variant="outline" className="rounded-none border-primary text-primary hover:bg-primary hover:text-white px-10 h-12 text-sm tracking-widest font-bold uppercase transition-all">Learn More</Button>
+                </Link>
               </div>
             </div>
 
-            <div className="border bg-[#FEFAE0]">
-              <div className="relative h-[250px] w-full">
+            <div className="border bg-[#FEFAE0] flex flex-col">
+              <div className="relative h-[300px] w-full">
                 <Image src="/wedding.png" alt="Weddings and Celebrations" fill className="object-cover" />
               </div>
-              <div className="p-8">
-                <h3 className="font-headline text-2xl mb-4">Weddings and Celebrations</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed mb-6">
+              <div className="p-10 flex flex-col flex-grow">
+                <h3 className="font-headline text-3xl mb-4 text-[#283618]">Weddings and Celebrations</h3>
+                <p className="text-muted-foreground text-md leading-relaxed mb-8 flex-grow">
                   At Oruthota Chalets, your dream wedding comes to life with luxurious venues and a dedicated team, creating unforgettable moments that celebrate your unique love story.
                 </p>
-                <Button variant="outline" className="rounded-none border-primary text-primary hover:bg-primary hover:text-white px-8">Learn More</Button>
+                <Link href="/events" passHref>
+                  <Button variant="outline" className="rounded-none border-primary text-primary hover:bg-primary hover:text-white px-10 h-12 text-sm tracking-widest font-bold uppercase transition-all">Learn More</Button>
+                </Link>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="py-20 bg-secondary">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <p className="text-sm tracking-[0.2em] text-primary">TESTIMONIALS</p>
-            <h2 className="font-headline text-4xl text-foreground mt-2">What Our Guests Say</h2>
-          </div>
-          <Carousel
-            opts={{
-              align: "start",
-              loop: true,
-            }}
-            plugins={[
-              Autoplay({
-                delay: 4000,
-                stopOnInteraction: false,
-                stopOnMouseEnter: true,
-              }),
-            ]}
-            className="w-full max-w-4xl mx-auto"
-          >
-            <CarouselContent className="-ml-4">
-              {testimonials.map((testimonial, index) => {
-                const image = testimonialImages.find(img => img.id === testimonial.id);
-                return (
-                  <CarouselItem key={testimonial.id} className="pl-4 md:basis-1/2">
-                    <div className="h-full transform transition-all duration-300 hover:-translate-y-1">
-                      <div className="bg-[#FEFAE0] text-card-foreground shadow-lg rounded-xl p-8 md:p-10 text-center flex flex-col items-center gap-6 border h-full relative overflow-hidden group">
-                        <div className="absolute top-4 right-6 opacity-10">
-                          <Quote className="h-24 w-24 text-primary rotate-180" />
-                        </div>
+      <section className="py-32 bg-[#FAFAFA] relative overflow-hidden">
+        {/* Decorative background elements */}
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#606C38]/5 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/3 pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[#DDA15E]/5 rounded-full blur-[100px] translate-y-1/3 -translate-x-1/4 pointer-events-none" />
 
-                        {image && (
-                          <div className="relative h-24 w-24 rounded-full overflow-hidden shrink-0 border-4 border-primary/10 shadow-md z-10">
-                            <Image
-                              src={image.imageUrl}
-                              alt={testimonial.name}
-                              fill
-                              className="object-cover"
-                              data-ai-hint={image.imageHint}
-                            />
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="text-center mb-20 space-y-4">
+            <div className="flex items-center justify-center gap-2 mb-4">
+              <span className="py-1 px-4 rounded-full bg-[#606C38]/10 text-[#606C38] text-xs font-bold tracking-[0.2em] uppercase">
+                Guest Experiences
+              </span>
+            </div>
+            <h2 className="font-headline text-4xl md:text-5xl lg:text-6xl text-[#283618]">What Our Guests Say</h2>
+            <div className="w-24 h-1 bg-[#606C38]/20 mx-auto rounded-full" />
+          </div>
+
+          <div className="max-w-6xl mx-auto">
+            <Carousel
+              opts={{
+                align: "start",
+                loop: true,
+              }}
+              plugins={[
+                Autoplay({
+                  delay: 5000,
+                  stopOnInteraction: false,
+                  stopOnMouseEnter: true,
+                }),
+              ]}
+              className="w-full"
+            >
+              <CarouselContent className="-ml-4">
+                {testimonials.map((testimonial, index) => {
+                  const image = testimonialImages.find(img => img.id === testimonial.id);
+                  return (
+                    <CarouselItem key={testimonial.id} className="pl-4 md:basis-1/2">
+                      <div className="h-full transform transition-all duration-500">
+                        <div className="bg-white p-10 md:p-12 rounded-[2.5rem] shadow-[0_10px_50px_rgb(0,0,0,0.04)] border border-stone-100 flex flex-col items-center text-center gap-8 h-full relative overflow-hidden group hover:border-[#606C38]/30 transition-all">
+                          <div className="absolute top-8 right-10 opacity-[0.03] group-hover:opacity-[0.08] transition-opacity duration-500">
+                            <Quote className="h-24 w-24 text-[#606C38] rotate-180" />
                           </div>
-                        )}
-                        <div className="z-10 flex flex-col items-center w-full">
-                          <div className="flex mb-4">
+
+                          <div className="flex items-center gap-1 z-10">
                             {[...Array(5)].map((_, i) => (
                               <Star key={i} className="h-4 w-4 text-yellow-400 fill-yellow-400" />
                             ))}
                           </div>
-                          <p className="text-muted-foreground italic leading-relaxed mb-6 text-lg">
+
+                          <p className="text-[#283618]/80 italic leading-relaxed text-xl md:text-2xl font-body z-10 relative">
                             "{testimonial.quote}"
                           </p>
-                          <div className="mt-auto">
-                            <h3 className="font-bold text-foreground text-lg uppercase tracking-wide">{testimonial.name}</h3>
-                            <p className="text-xs text-primary font-medium tracking-wider mt-1">{testimonial.location}</p>
+
+                          <div className="mt-auto flex flex-col items-center gap-4 z-10">
+                            {image ? (
+                              <div className="relative h-16 w-16 rounded-full overflow-hidden border-2 border-[#606C38]/20 shadow-sm">
+                                <Image
+                                  src={image.imageUrl}
+                                  alt={testimonial.name}
+                                  fill
+                                  className="object-cover"
+                                />
+                              </div>
+                            ) : (
+                              <div className="w-16 h-16 rounded-full bg-[#606C38]/10 flex items-center justify-center">
+                                <User className="w-8 h-8 text-[#606C38]" />
+                              </div>
+                            )}
+                            <div>
+                              <h3 className="font-bold text-[#283618] text-lg tracking-wide uppercase">{testimonial.name}</h3>
+                              <p className="text-xs text-[#606C38] font-bold tracking-widest mt-1 opacity-70 uppercase">{testimonial.location}</p>
+                            </div>
                           </div>
                         </div>
                       </div>
-                    </div>
-                  </CarouselItem>
-                );
-              })}
-            </CarouselContent>
-            <CarouselPrevious className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-12 rounded-full border-primary text-primary hover:bg-primary hover:text-primary-foreground hidden md:flex" />
-            <CarouselNext className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-12 rounded-full border-primary text-primary hover:bg-primary hover:text-primary-foreground hidden md:flex" />
-          </Carousel>
+                    </CarouselItem>
+                  );
+                })}
+              </CarouselContent>
+              <div className="flex justify-center items-center gap-6 mt-16">
+                 <CarouselPrevious className="static -translate-y-0 w-14 h-14 rounded-2xl border-stone-200 text-[#606C38] hover:bg-[#606C38] hover:text-white transition-all shadow-sm" />
+                 <Link href="/reviews">
+                    <Button variant="outline" className="h-14 px-10 rounded-2xl border-stone-200 text-[#606C38] font-bold tracking-widest uppercase hover:bg-[#606C38] hover:text-white transition-all group">
+                        View All Stories <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-2" />
+                    </Button>
+                 </Link>
+                 <CarouselNext className="static -translate-y-0 w-14 h-14 rounded-2xl border-stone-200 text-[#606C38] hover:bg-[#606C38] hover:text-white transition-all shadow-sm" />
+              </div>
+            </Carousel>
+          </div>
         </div>
       </section>
 

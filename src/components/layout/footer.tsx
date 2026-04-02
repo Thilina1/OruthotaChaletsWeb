@@ -12,7 +12,7 @@ const footerNav = [
   { name: 'Home', href: '/' },
   { name: 'Experiences', href: '/experiences' },
   { name: 'Gallery', href: '/gallery' },
-  { name: 'Accommodations', href: '/rooms' },
+  { name: 'Accommodations', href: '/accommodations' },
   { name: 'Contact Us', href: '/contact' },
   { name: 'About Us', href: '/about' },
 ];
@@ -20,10 +20,9 @@ const footerNav = [
 const footerNavRight = [
   { name: 'Dining', href: '/dining' },
   { name: 'Contact Us', href: '/contact' },
-  { name: 'Location', href: '#' },
-  { name: 'Reviews', href: '#' },
-  { name: 'Sustainability', href: '#' },
-  { name: 'Blog', href: '/blogs' },
+  { name: 'Location', href: '/about#location' },
+  { name: 'Reviews', href: '/reviews' },
+  { name: 'Sustainability', href: '/sustainability' },
 ]
 
 export function Footer() {
@@ -115,10 +114,10 @@ export function Footer() {
 
         <div className="flex flex-col md:flex-row justify-between items-center text-xs text-white/60">
           <div className="flex gap-4 mb-4 md:mb-0">
-            <Link href="#" className="hover:text-white transition-colors">GDPR Compliance</Link>
-            <Link href="#" className="hover:text-white transition-colors">Privacy Policy</Link>
-            <Link href="#" className="hover:text-white transition-colors">Terms & Condition</Link>
-            <Link href="#" className="hover:text-white transition-colors">Sitemap</Link>
+            <Link href="/gdpr" className="hover:text-white transition-colors">GDPR Compliance</Link>
+            <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
+            <Link href="/terms" className="hover:text-white transition-colors">Terms & Condition</Link>
+            <Link href="/site-map" className="hover:text-white transition-colors">Sitemap</Link>
           </div>
           <p>&copy; {new Date().getFullYear()} Oruthota Chalets. All rights reserved.</p>
         </div>

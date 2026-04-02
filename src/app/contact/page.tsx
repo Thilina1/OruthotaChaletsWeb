@@ -2,7 +2,7 @@
 
 import { PageHero } from '@/components/page-hero';
 import { useState } from 'react';
-import { MapPin, Phone, Mail } from 'lucide-react';
+import { MapPin, Phone, Mail, Clock, Send, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -28,7 +28,6 @@ export default function ContactPage() {
         };
 
         try {
-            // Basic Supabase insertion - requires a 'contact_messages' table
             const { error } = await supabase.from('contact_messages').insert([data]);
 
             if (error) throw error;
@@ -49,103 +48,123 @@ export default function ContactPage() {
             setIsSubmitting(false);
         }
     };
+
     return (
-        <div className="flex flex-col min-h-screen">
+        <main className="min-h-screen bg-[#FAFAFA]">
             <PageHero
-                title="Visit Us!"
-                description="We'd love to hear from you. Get in touch with us for any inquiries."
-                imageUrl="/IMG_3197-Edit.jpg"
-                imageAlt="Oruthota Chalets Scenery"
+                title="Get in Touch"
+                subtitle="Contact Us"
+                description="We'd love to hear from you. Whether you have a question about our chalets or simply want to say hello, we're here to help."
+                imageUrl="/Hero1.jpg"
+                imageAlt="Oruthota Chalets Contact Hero"
+                titleClassName="text-5xl md:text-6xl lg:text-7xl"
             />
 
-            <section className="py-24 bg-background">
-                <div className="container mx-auto px-4">
-                    <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-start">
-                        <div className="space-y-12">
+            <section className="py-24 px-4 bg-background relative overflow-hidden">
+                {/* Decorative background elements */}
+                <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-[#606C38]/5 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/3 pointer-events-none" />
+                <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-[#DDA15E]/5 rounded-full blur-[100px] translate-y-1/3 -translate-x-1/4 pointer-events-none" />
+
+                <div className="container mx-auto max-w-7xl relative z-10">
+                    <div className="grid lg:grid-cols-12 gap-16 items-start">
+                        {/* Contact Info Side */}
+                        <div className="lg:col-span-5 space-y-10">
                             <div className="space-y-6">
-                                <h2 className="font-headline text-4xl text-foreground">The Aura of Tranquility</h2>
-                                <p className="text-muted-foreground italic text-xl leading-relaxed font-light border-l-4 border-primary pl-6 py-2">
+                                <h2 className="font-headline text-4xl md:text-5xl text-[#283618]">Our Sanctuary</h2>
+                                <p className="text-muted-foreground font-body leading-relaxed text-lg border-l-4 border-[#606C38] pl-6 py-2 italic bg-[#606C38]/5 rounded-r-lg">
                                     “Experience the unique concept of Oruthota Chalets surrounded amidst the rural ambiance of typical Sri Lankan culture”
                                 </p>
                             </div>
 
-                            <div className="space-y-8">
-                                <div className="flex items-start gap-6 group">
-                                    <div className="h-14 w-14 rounded-full bg-primary/10 flex items-center justify-center shrink-0 group-hover:bg-primary/20 transition-colors">
-                                        <MapPin className="h-6 w-6 text-primary" />
+                            <div className="grid gap-6">
+                                {[
+                                    {
+                                        icon: MapPin,
+                                        title: "Location",
+                                        detail: "Oruthota Chalets, Rajawella, Digana, Sri Lanka",
+                                        buttonText: "Open in Maps",
+                                        link: "https://www.google.com/maps/search/?api=1&query=Oruthota+Chalets,+Rajawella,+Digana,+Sri+Lanka"
+                                    },
+                                    {
+                                        icon: Phone,
+                                        title: "Phone",
+                                        detail: "+94 81 2 375 396",
+                                        link: "tel:+94812375396"
+                                    },
+                                    {
+                                        icon: Mail,
+                                        title: "Email",
+                                        detail: "inquiries@oruthotachalets.com",
+                                        link: "mailto:inquiries@oruthotachalets.com"
+                                    },
+                                    {
+                                        icon: Clock,
+                                        title: "Opening Hours",
+                                        detail: "Always open, 24/7 service"
+                                    }
+                                ].map((item, idx) => (
+                                    <div key={idx} className="group bg-white p-6 rounded-2xl shadow-[0_4px_20px_rgb(0,0,0,0.03)] border border-stone-100 hover:border-[#606C38]/30 transition-all duration-300">
+                                        <div className="flex gap-5">
+                                            <div className="w-12 h-12 rounded-xl bg-[#606C38]/10 flex items-center justify-center shrink-0 group-hover:bg-[#606C38] transition-colors duration-300">
+                                                <item.icon className="w-5 h-5 text-[#606C38] group-hover:text-white transition-colors duration-300" />
+                                            </div>
+                                            <div className="space-y-1">
+                                                <h3 className="font-headline text-xl text-[#283618]">{item.title}</h3>
+                                                {item.link ? (
+                                                    <a href={item.link} target={item.buttonText ? "_blank" : "_self"} className="text-muted-foreground hover:text-[#606C38] transition-colors block">
+                                                        {item.detail}
+                                                    </a>
+                                                ) : (
+                                                    <p className="text-muted-foreground">{item.detail}</p>
+                                                )}
+                                                {item.buttonText && (
+                                                    <Button 
+                                                        variant="link" 
+                                                        className="p-0 h-auto text-xs font-bold text-[#606C38] tracking-widest uppercase hover:text-[#283618] mt-2 group/btn"
+                                                        onClick={() => window.open(item.link, '_blank')}
+                                                    >
+                                                        {item.buttonText} <ChevronRight className="ml-1 w-3 h-3 transition-transform group-hover/btn:translate-x-1" />
+                                                    </Button>
+                                                )}
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div className="space-y-2">
-                                        <h3 className="font-semibold text-xl text-foreground">Hotel Address</h3>
-                                        <p className="text-muted-foreground leading-relaxed">Oruthota Chalets, Rajawella,<br />Digana, Sri Lanka</p>
-                                        <Button
-                                            variant="outline"
-                                            size="sm"
-                                            className="h-9 px-4 text-xs border-primary/30 text-primary hover:bg-primary hover:text-white mt-1 transition-all"
-                                            onClick={() => window.open('https://www.google.com/maps/search/?api=1&query=Oruthota+Chalets,+Rajawella,+Digana,+Sri+Lanka', '_blank')}
-                                        >
-                                            Location on Map <MapPin className="ml-2 w-3 h-3" />
-                                        </Button>
-                                    </div>
-                                </div>
-
-                                <div className="flex items-start gap-6 group">
-                                    <div className="h-14 w-14 rounded-full bg-primary/10 flex items-center justify-center shrink-0 group-hover:bg-primary/20 transition-colors">
-                                        <Phone className="h-6 w-6 text-primary" />
-                                    </div>
-                                    <div className="space-y-2">
-                                        <h3 className="font-semibold text-xl text-foreground">Phone Number</h3>
-                                        <a href="tel:+94812375396" className="text-muted-foreground hover:text-primary transition-colors text-lg block">
-                                            +94 81 2 375 396
-                                        </a>
-                                    </div>
-                                </div>
-
-                                <div className="flex items-start gap-6 group">
-                                    <div className="h-14 w-14 rounded-full bg-primary/10 flex items-center justify-center shrink-0 group-hover:bg-primary/20 transition-colors">
-                                        <Mail className="h-6 w-6 text-primary" />
-                                    </div>
-                                    <div className="space-y-2">
-                                        <h3 className="font-semibold text-xl text-foreground">Email Address</h3>
-                                        <a href="mailto:inquiries@oruthotachalets.com" className="text-muted-foreground hover:text-primary transition-colors text-lg block">
-                                            inquiries@oruthotachalets.com
-                                        </a>
-                                    </div>
-                                </div>
+                                ))}
                             </div>
                         </div>
 
-                        <div className="bg-[#FEFAE0] border border-border/50 p-8 md:p-10 rounded-2xl shadow-xl">
-                            <div className="mb-8">
-                                <h3 className="font-headline text-2xl text-foreground mb-2">Send us a Message</h3>
-                                <p className="text-muted-foreground text-sm">We'll get back to you as soon as possible.</p>
+                        {/* Form Side */}
+                        <div className="lg:col-span-7 bg-white p-8 md:p-12 rounded-3xl shadow-[0_10px_50px_rgb(0,0,0,0.05)] border border-stone-100">
+                            <div className="mb-10">
+                                <h2 className="font-headline text-3xl text-[#283618] mb-4">Send us a message</h2>
+                                <p className="text-muted-foreground font-body">Fill out the form below and our team will get back to you as soon as possible.</p>
                             </div>
+
                             <form onSubmit={handleSubmit} className="space-y-6">
-                                <div className="space-y-2">
-                                    <Label htmlFor="name" className="text-sm font-medium text-foreground/80">Your Name <span className="text-destructive">*</span></Label>
-                                    <Input id="name" name="name" required placeholder="John Doe" className="h-12 bg-secondary/50 border-input/50 focus:border-primary focus:ring-primary/20" />
+                                <div className="grid md:grid-cols-2 gap-6">
+                                    <div className="space-y-2">
+                                        <Label htmlFor="name" className="text-sm font-semibold text-[#283618]">Your Name</Label>
+                                        <Input id="name" name="name" placeholder="John Doe" required className="rounded-xl border-stone-200 focus:ring-[#606C38] focus:border-[#606C38]" />
+                                    </div>
+                                    <div className="space-y-2">
+                                        <Label htmlFor="email" className="text-sm font-semibold text-[#283618]">Email Address</Label>
+                                        <Input id="email" name="email" type="email" placeholder="john@example.com" required className="rounded-xl border-stone-200 focus:ring-[#606C38] focus:border-[#606C38]" />
+                                    </div>
                                 </div>
-
                                 <div className="space-y-2">
-                                    <Label htmlFor="email" className="text-sm font-medium text-foreground/80">Your Email <span className="text-destructive">*</span></Label>
-                                    <Input id="email" name="email" type="email" required placeholder="john@example.com" className="h-12 bg-secondary/50 border-input/50 focus:border-primary focus:ring-primary/20" />
+                                    <Label htmlFor="subject" className="text-sm font-semibold text-[#283618]">Subject</Label>
+                                    <Input id="subject" name="subject" placeholder="Reservation Inquiry" required className="rounded-xl border-stone-200 focus:ring-[#606C38] focus:border-[#606C38]" />
                                 </div>
-
                                 <div className="space-y-2">
-                                    <Label htmlFor="subject" className="text-sm font-medium text-foreground/80">Subject</Label>
-                                    <Input id="subject" name="subject" placeholder="Inquiry about..." className="h-12 bg-secondary/50 border-input/50 focus:border-primary focus:ring-primary/20" />
+                                    <Label htmlFor="message" className="text-sm font-semibold text-[#283618]">Message</Label>
+                                    <Textarea id="message" name="message" placeholder="How can we help you?" required className="min-h-[150px] rounded-xl border-stone-200 focus:ring-[#606C38] focus:border-[#606C38]" />
                                 </div>
-
-                                <div className="space-y-2">
-                                    <Label htmlFor="message" className="text-sm font-medium text-foreground/80">Your Message</Label>
-                                    <Textarea id="message" name="message" rows={5} placeholder="How can we help you?" className="bg-secondary/50 border-input/50 focus:border-primary focus:ring-primary/20 resize-none" />
-                                </div>
-
-                                <Button
-                                    type="submit"
-                                    disabled={isSubmitting}
-                                    className="w-full h-12 text-base rounded-lg bg-primary text-primary-foreground font-semibold tracking-wide hover:bg-primary/90 shadow-lg hover:shadow-primary/25 transition-all"
+                                <Button 
+                                    type="submit" 
+                                    disabled={isSubmitting} 
+                                    className="w-full h-14 bg-[#606C38] hover:bg-[#283618] text-white rounded-xl text-md font-bold tracking-widest uppercase transition-all flex items-center justify-center gap-3"
                                 >
-                                    {isSubmitting ? 'Sending...' : 'SEND MESSAGE'}
+                                    {isSubmitting ? "Sending..." : <>Send Message <Send className="w-4 h-4" /></>}
                                 </Button>
                             </form>
                         </div>
@@ -165,6 +184,6 @@ export default function ContactPage() {
                     className="w-full h-full"
                 />
             </section>
-        </div>
+        </main>
     );
 }

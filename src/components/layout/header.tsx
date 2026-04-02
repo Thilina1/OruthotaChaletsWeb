@@ -16,7 +16,8 @@ const navLinks = [
   { href: '/dining', label: 'DINING' },
   { href: '/experiences', label: 'EXPERIENCES' },
   { href: '/gallery', label: 'GALLERY' },
-  //{ href: '/blogs', label: 'BLOGS' },
+  { href: '/reviews', label: 'REVIEWS' },
+  { href: '/about', label: 'ABOUT US' },
   { href: '/contact', label: 'CONTACT' },
 ];
 

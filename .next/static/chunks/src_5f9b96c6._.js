@@ -746,7 +746,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$imag
 'use client';
 ;
 ;
-function PageHero({ title, description, imageUrl, imageAlt, subtitle, imageHint }) {
+function PageHero({ title, description, imageUrl, imageAlt, subtitle, imageHint, titleClassName }) {
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
         className: "relative h-[60vh] min-h-[500px] w-full flex items-center justify-center overflow-hidden",
         children: [
@@ -759,14 +759,14 @@ function PageHero({ title, description, imageUrl, imageAlt, subtitle, imageHint 
                 "data-ai-hint": imageHint
             }, void 0, false, {
                 fileName: "[project]/src/components/page-hero.tsx",
-                lineNumber: 24,
+                lineNumber: 26,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-background/90"
             }, void 0, false, {
                 fileName: "[project]/src/components/page-hero.tsx",
-                lineNumber: 34,
+                lineNumber: 36,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -781,20 +781,20 @@ function PageHero({ title, description, imageUrl, imageAlt, subtitle, imageHint 
                                 children: subtitle
                             }, void 0, false, {
                                 fileName: "[project]/src/components/page-hero.tsx",
-                                lineNumber: 41,
+                                lineNumber: 43,
                                 columnNumber: 29
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/src/components/page-hero.tsx",
-                            lineNumber: 40,
+                            lineNumber: 42,
                             columnNumber: 25
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
-                            className: "font-headline text-5xl md:text-7xl lg:text-8xl tracking-tight text-white drop-shadow-xl animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-100",
+                            className: `font-headline tracking-tight text-white drop-shadow-xl animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-100 ${titleClassName || 'text-5xl md:text-7xl lg:text-8xl'}`,
                             children: title
                         }, void 0, false, {
                             fileName: "[project]/src/components/page-hero.tsx",
-                            lineNumber: 47,
+                            lineNumber: 49,
                             columnNumber: 21
                         }, this),
                         description && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -802,24 +802,24 @@ function PageHero({ title, description, imageUrl, imageAlt, subtitle, imageHint 
                             children: description
                         }, void 0, false, {
                             fileName: "[project]/src/components/page-hero.tsx",
-                            lineNumber: 52,
+                            lineNumber: 54,
                             columnNumber: 25
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/components/page-hero.tsx",
-                    lineNumber: 38,
+                    lineNumber: 40,
                     columnNumber: 17
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/components/page-hero.tsx",
-                lineNumber: 37,
+                lineNumber: 39,
                 columnNumber: 13
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/components/page-hero.tsx",
-        lineNumber: 23,
+        lineNumber: 25,
         columnNumber: 9
     }, this);
 }

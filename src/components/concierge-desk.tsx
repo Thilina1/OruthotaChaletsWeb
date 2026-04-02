@@ -97,7 +97,7 @@ export function ConciergeDesk() {
                             </div>
                             <div className="flex flex-col">
                                 <span className="text-lg font-medium font-body tracking-wide text-[#FEFAE0]">Direct Email</span>
-                                <span className="text-xs text-[#FEFAE0]/60 font-body line-clamp-1">concierge@oruthotachalets.com</span>
+                                <span className="text-xs text-[#FEFAE0]/60 font-body line-clamp-1">inquiries@oruthotachalets.com</span>
                             </div>
                         </a>
 
