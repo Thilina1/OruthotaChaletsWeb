@@ -78,7 +78,7 @@ export default function ReviewsPage() {
         title="Guest Stories"
         subtitle="Reviews"
         description="Read about the experiences of our guests and discover why Oruthota Chalets is considered a true sanctuary in the heart of Sri Lanka."
-        imageUrl="/Hero1.jpg" // Using a high-quality existing image
+        imageUrl="/Hero1_new.jpg" // Using a high-quality existing image
         imageAlt="Oruthota Chalets Reviews Hero"
         titleClassName="text-5xl md:text-6xl lg:text-7xl"
       />
@@ -159,7 +159,7 @@ export default function ReviewsPage() {
 
           <div className="mt-24 bg-[#283618] rounded-[2rem] p-12 md:p-20 text-center relative overflow-hidden">
             {/* Dark theme CTA */}
-            <div className="absolute top-0 left-0 w-full h-full bg-[url('/Hero1.jpg')] bg-cover bg-center opacity-10" />
+            <div className="absolute top-0 left-0 w-full h-full bg-[url('/Hero1_new.jpg')] bg-cover bg-center opacity-10" />
             <div className="relative z-10 space-y-8">
               <h2 className="font-headline text-4xl md:text-5xl text-white">Have you stayed with us?</h2>
               <p className="text-white/70 text-lg max-w-2xl mx-auto font-body">

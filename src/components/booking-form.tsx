@@ -5,15 +5,19 @@ import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import { Calendar } from '@/components/ui/calendar';
-import { Calendar as CalendarIcon, User, Plus, Minus } from 'lucide-react';
+import { Calendar as CalendarIcon, User, Plus, Minus, Utensils, Clock } from 'lucide-react';
 import { format, addDays } from 'date-fns';
 import { useRouter } from 'next/navigation';
+import { cn } from '@/lib/utils';
 import { useToast } from '@/hooks/use-toast';
+import { TableBookingModal } from './table-booking-modal';
 
-export function BookingForm() {
+export function BookingForm({ showBuffet = false }: { showBuffet?: boolean }) {
   const router = useRouter();
   const { toast } = useToast();
 
+  const [activeTab, setActiveTab] = useState<'stay' | 'buffet'>('stay');
+  const [isTableModalOpen, setIsTableModalOpen] = useState(false);
   const [checkInDate, setCheckInDate] = useState<Date | undefined>(undefined);
   const [checkOutDate, setCheckOutDate] = useState<Date | undefined>(undefined);
   const [guests, setGuests] = useState({
@@ -63,10 +67,36 @@ export function BookingForm() {
   };
 
   return (
-    <div className="max-w-6xl mx-auto">
-      <div className="bg-[#FEFAE0]/60 backdrop-blur-sm p-4">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-0.5">
-          <div className="bg-white p-3 md:col-span-1 flex items-center justify-between gap-2">
+    <div className="max-w-6xl mx-auto py-4">
+      {/* Tab Switcher */}
+      {showBuffet && (
+        <div className="flex gap-4 mb-4 px-2">
+          <button 
+            onClick={() => setActiveTab('stay')}
+            className={cn(
+              "pb-2 text-sm font-bold tracking-widest uppercase transition-all border-b-2",
+              activeTab === 'stay' ? "text-[#283618] border-[#283618]" : "text-muted-foreground border-transparent hover:text-[#283618]"
+            )}
+          >
+            Book a Stay
+          </button>
+          <button 
+            onClick={() => setActiveTab('buffet')}
+            className={cn(
+              "pb-2 text-sm font-bold tracking-widest uppercase transition-all border-b-2",
+              activeTab === 'buffet' ? "text-[#283618] border-[#283618]" : "text-muted-foreground border-transparent hover:text-[#283618]"
+            )}
+          >
+            Book a Buffet
+          </button>
+        </div>
+      )}
+
+      <div className="bg-[#FEFAE0]/60 backdrop-blur-sm p-4 rounded-xl shadow-lg border border-white/20">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-0.5 overflow-hidden rounded-lg shadow-sm">
+          {(!showBuffet || activeTab === 'stay') ? (
+            <>
+              <div className="bg-white p-3 md:col-span-1 flex items-center justify-between gap-2 border-r border-stone-100">
             <Popover>
               <PopoverTrigger asChild>
                 <button className="w-full flex items-center justify-between text-left">
@@ -160,11 +190,42 @@ export function BookingForm() {
               </PopoverContent>
             </Popover>
           </div>
-          <Button onClick={handleFindRoom} className="bg-[#283618] text-white rounded-none text-base font-semibold tracking-wider h-full md:col-span-1 hover:bg-[#283618]/90 transition-colors">
-            CHECK AVAILABILITY
+          <Button 
+            onClick={activeTab === 'stay' ? handleFindRoom : () => setIsTableModalOpen(true)} 
+            className="bg-[#283618] text-white rounded-none text-base font-semibold tracking-wider h-full md:col-span-1 hover:bg-[#3d5324] transition-all hover:scale-[1.02] active:scale-95 shadow-lg"
+          >
+            {activeTab === 'stay' ? 'CHECK AVAILABILITY' : 'BOOK A BUFFET'}
           </Button>
+            </>
+          ) : (
+            <div className="col-span-4 bg-white p-6 flex flex-col md:flex-row items-center justify-between gap-6">
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 rounded-full bg-[#606C38]/10 flex items-center justify-center">
+                  <Utensils className="w-6 h-6 text-[#606C38]" />
+                </div>
+                <div>
+                  <h3 className="font-headline text-xl text-[#283618]">Scenic Dining at 360</h3>
+                  <p className="text-sm text-muted-foreground">Experience Al Fresco dining with magical mountain views.</p>
+                </div>
+              </div>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-[10px] tracking-widest text-[#283618] font-bold uppercase">
+                <div className="flex items-center gap-2 bg-stone-50 px-3 py-2 rounded-lg"><Clock className="w-3 h-3" /> Breakfast</div>
+                <div className="flex items-center gap-2 bg-stone-50 px-3 py-2 rounded-lg"><Clock className="w-3 h-3" /> Lunch</div>
+                <div className="flex items-center gap-2 bg-stone-50 px-3 py-2 rounded-lg"><Clock className="w-3 h-3" /> High Tea</div>
+                <div className="flex items-center gap-2 bg-stone-50 px-3 py-2 rounded-lg"><Clock className="w-3 h-3" /> Dinner</div>
+              </div>
+              <Button 
+                onClick={() => setIsTableModalOpen(true)}
+                className="bg-[#283618] text-white rounded-xl px-8 h-12 hover:bg-[#3d5324] transition-all"
+              >
+                BOOK A BUFFET
+              </Button>
+            </div>
+          )}
         </div>
       </div>
+
+      <TableBookingModal open={isTableModalOpen} onClose={() => setIsTableModalOpen(false)} />
     </div>
   );
 }

@@ -90,7 +90,7 @@ export default function FactSheetPage() {
         title="Property Fact Sheet"
         subtitle="Essentials"
         description="Every detail carefully curated for your peace of mind. Discover the specifications, facilities, and unique offerings of Oruthota Chalets."
-        imageUrl="/Hero1.jpg"
+        imageUrl="/Hero1_new.jpg"
         imageAlt="Oruthota Chalets Property"
         titleClassName="text-5xl md:text-6xl lg:text-7xl"
       />

@@ -43,7 +43,7 @@ export default function SitemapPage() {
             <PageHero 
                 title="Sitemap" 
                 subtitle="Explore our sanctuary by the Victoria Reservoir"
-                imageUrl="/Hero1.jpg"
+                imageUrl="/Hero1_new.jpg"
                 imageAlt="Sitemap Hero Image"
                 titleClassName="text-5xl md:text-6xl lg:text-7xl"
             />

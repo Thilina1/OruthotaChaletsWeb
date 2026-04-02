@@ -1,6 +1,7 @@
 
 'use client';
 
+import { useState } from 'react';
 import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { BookingForm } from '@/components/booking-form';
@@ -8,8 +9,8 @@ import { Button } from '@/components/ui/button';
 import { ArrowRight, Utensils, Wine, Coffee, Sunset, Clock } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Badge } from '@/components/ui/badge';
-
 import { PageHero } from '@/components/page-hero';
+import { TableBookingModal } from '@/components/table-booking-modal';
 
 const DINING_FEATURES = [
   {
@@ -82,6 +83,7 @@ const SIGNATURE_DISHES = [
 
 export default function DiningPage() {
   const heroImage = PlaceHolderImages.find((p) => p.id === 'dining-wine');
+  const [bookingOpen, setBookingOpen] = useState(false);
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -97,7 +99,7 @@ export default function DiningPage() {
       {/* Booking Form Integration */}
       <div className="relative z-20 -mt-16 container mx-auto px-4 mb-16">
         <div className="bg-card rounded-xl shadow-2xl border border-border/50 backdrop-blur-sm overflow-hidden">
-          <BookingForm />
+          <BookingForm showBuffet={true} />
         </div>
       </div>
 
@@ -171,8 +173,11 @@ export default function DiningPage() {
               </div>
 
               <div className="pt-6">
-                <Button className="bg-[#bd2830] hover:bg-[#9a1e24] text-white rounded-none px-8 py-6 text-xs font-bold tracking-[0.2em] uppercase transition-colors">
-                  BOOK A TABLE <ArrowRight className="w-4 h-4 ml-6" />
+                <Button
+                  onClick={() => setBookingOpen(true)}
+                  className="bg-[#bd2830] hover:bg-[#9a1e24] text-white rounded-none px-8 py-6 text-xs font-bold tracking-[0.2em] uppercase transition-colors"
+                >
+                  BOOK A BUFFET <ArrowRight className="w-4 h-4 ml-6" />
                 </Button>
               </div>
 
@@ -324,11 +329,17 @@ export default function DiningPage() {
           <p className="text-primary-foreground/90 mb-10 text-xl font-light leading-relaxed">
             Whether it&apos;s a special celebration or a quiet dinner for two, let us reserve the perfect spot for you.
           </p>
-          <Button size="lg" className="rounded-full px-10 h-14 bg-white text-primary hover:bg-white/90 shadow-2xl hover:shadow-black/20 hover:-translate-y-1 transition-all text-lg font-bold">
-            Book a Table <ArrowRight className="ml-2 w-5 h-5" />
+          <Button
+            size="lg"
+            onClick={() => setBookingOpen(true)}
+            className="rounded-full px-10 h-14 bg-white text-primary hover:bg-white/90 shadow-2xl hover:shadow-black/20 hover:-translate-y-1 transition-all text-lg font-bold"
+          >
+            Book a Buffet <ArrowRight className="ml-2 w-5 h-5" />
           </Button>
         </div>
       </section>
+
+      <TableBookingModal open={bookingOpen} onClose={() => setBookingOpen(false)} />
     </div>
   );
 }

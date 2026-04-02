@@ -59,7 +59,7 @@ export default function AboutPage() {
                             </div>
                             <div className="absolute bottom-0 left-0 w-2/3 h-[300px] rounded-2xl overflow-hidden shadow-xl z-20 border-8 border-background transition-transform duration-700 hover:-translate-y-2">
                                 <Image
-                                    src="/Hero1.jpg"
+                                    src="/Hero1_new.jpg"
                                     alt="Relaxing ambiance at Oruthota Chalets"
                                     fill
                                     className="object-cover"

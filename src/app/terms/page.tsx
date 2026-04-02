@@ -36,7 +36,7 @@ export default function TermsAndConditionsPage() {
             <PageHero 
                 title="Terms & Conditions" 
                 subtitle="Guidelines and regulations for your stay"
-                imageUrl="/Hero1.jpg"
+                imageUrl="/Hero1_new.jpg"
                 imageAlt="Terms and Conditions Hero Image"
                 titleClassName="text-5xl md:text-6xl lg:text-7xl"
             />

@@ -19,12 +19,11 @@ export default function ContactPage() {
         setIsSubmitting(true);
 
         const formData = new FormData(e.currentTarget);
-        const data = {
-            name: formData.get('name'),
-            email: formData.get('email'),
-            subject: formData.get('subject'),
-            message: formData.get('message'),
-            created_at: new Date().toISOString(),
+        const data: Record<string, any> = {
+            name: formData.get('name') as string,
+            email: formData.get('email') as string,
+            subject: formData.get('subject') as string,
+            message: formData.get('message') as string,
         };
 
         try {
@@ -37,12 +36,12 @@ export default function ContactPage() {
                 description: "We'll get back to you shortly.",
             });
             (e.target as HTMLFormElement).reset();
-        } catch (error) {
-            console.error('Error submitting form:', error);
+        } catch (error: any) {
+            console.warn('Error submitting form:', error);
             toast({
                 variant: 'destructive',
-                title: "Error",
-                description: "Failed to send message. Please try again.",
+                title: "Failed to Send",
+                description: error?.message || "Please try again.",
             });
         } finally {
             setIsSubmitting(false);

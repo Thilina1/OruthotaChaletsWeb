@@ -6,6 +6,7 @@ import { PageHero } from '@/components/page-hero';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { BookingForm } from '@/components/booking-form';
 import { Button } from '@/components/ui/button';
+import Link from 'next/link';
 import { RefreshCw, MapPin, ArrowRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Badge } from '@/components/ui/badge';
@@ -230,9 +231,11 @@ export default function ExperiencesPage() {
                 <p className="text-muted-foreground mb-8 max-w-xl text-lg leading-relaxed">
                   Contact us to arrange any of these experiences during your stay. We're happy to customize activities to your preferences.
                 </p>
-                <Button className="rounded-full px-8 h-12 text-base shadow-xl hover:shadow-primary/20 hover:-translate-y-0.5 transition-all duration-300">
-                  INQUIRE NOW <RefreshCw className="w-4 h-4 ml-2 animate-spin-slow" />
-                </Button>
+                <Link href="/contact" passHref>
+                  <Button className="rounded-full px-8 h-12 text-base shadow-xl hover:shadow-primary/20 hover:-translate-y-0.5 transition-all duration-300">
+                    INQUIRE NOW <RefreshCw className="w-4 h-4 ml-2 animate-spin-slow" />
+                  </Button>
+                </Link>
               </div>
             </div>
           </div>

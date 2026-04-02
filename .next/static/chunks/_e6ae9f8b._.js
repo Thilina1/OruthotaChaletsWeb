@@ -193,7 +193,7 @@ function ReviewsPage() {
                 title: "Guest Stories",
                 subtitle: "Reviews",
                 description: "Read about the experiences of our guests and discover why Oruthota Chalets is considered a true sanctuary in the heart of Sri Lanka.",
-                imageUrl: "/Hero1.jpg" // Using a high-quality existing image
+                imageUrl: "/Hero1_new.jpg" // Using a high-quality existing image
                 ,
                 imageAlt: "Oruthota Chalets Reviews Hero",
                 titleClassName: "text-5xl md:text-6xl lg:text-7xl"
@@ -446,7 +446,7 @@ function ReviewsPage() {
                                 className: "mt-24 bg-[#283618] rounded-[2rem] p-12 md:p-20 text-center relative overflow-hidden",
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                        className: "absolute top-0 left-0 w-full h-full bg-[url('/Hero1.jpg')] bg-cover bg-center opacity-10"
+                                        className: "absolute top-0 left-0 w-full h-full bg-[url('/Hero1_new.jpg')] bg-cover bg-center opacity-10"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/reviews/page.tsx",
                                         lineNumber: 162,

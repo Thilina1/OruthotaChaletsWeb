@@ -58,7 +58,7 @@ export default function EventsPage() {
         title="Unforgettable Events"
         subtitle="Memories in the Making"
         description="Whether it's a dream wedding, a corporate retreat, or an intimate celebration, Oruthota Chalets offers the perfect canvas for your most significant moments."
-        imageUrl="/Hero1.jpg"
+        imageUrl="/Hero1_new.jpg"
         imageAlt="Oruthota Chalets Events"
         titleClassName="text-5xl md:text-6xl lg:text-7xl"
       />

@@ -1,5 +1,5 @@
 'use client';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import Image from 'next/image';
 import Autoplay from 'embla-carousel-autoplay';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
@@ -11,6 +11,7 @@ import Link from 'next/link';
 import { useSupabaseCollection } from '@/hooks/use-supabase';
 import type { Room } from '@/types/room';
 import type { Experience } from '@/types/experience';
+import { RoomDetailsModal } from '@/components/room-details-modal';
 
 const testimonials = [
   {
@@ -43,6 +44,7 @@ export default function Home() {
 
   const { data: rooms, isLoading: roomsLoading } = useSupabaseCollection<Room>('rooms');
   const { data: experiences, isLoading: experiencesLoading } = useSupabaseCollection<Experience>('experiences');
+  const [selectedRoom, setSelectedRoom] = useState<Room | null>(null);
 
   return (
     <div className="flex flex-col">
@@ -231,11 +233,13 @@ export default function Home() {
                             <span>{accommodation.view}</span>
                           </div>
                           <div className="flex gap-2 justify-start md:justify-center">
-                            <Link href="/accommodations" passHref>
-                              <Button variant="link" className="text-foreground font-semibold tracking-wider hover:text-primary pl-0 md:pl-4">
-                                MORE DETAILS
-                              </Button>
-                            </Link>
+                            <Button
+                              variant="link"
+                              className="text-foreground font-semibold tracking-wider hover:text-primary pl-0 md:pl-4"
+                              onClick={() => setSelectedRoom(accommodation)}
+                            >
+                              MORE DETAILS
+                            </Button>
                             <Link href={`/booking?roomId=${accommodation.id}`} passHref>
                               <Button className="bg-primary text-primary-foreground rounded-sm font-semibold tracking-wider hover:bg-primary/90">
                                 BOOK NOW
@@ -254,6 +258,15 @@ export default function Home() {
               <CarouselNext className="static -translate-y-0 rounded-none border-primary text-primary hover:bg-primary hover:text-primary-foreground" />
             </div>
           </Carousel>
+        </div>
+
+        {/* Explore CTA */}
+        <div className="text-center mt-12">
+          <Link href="/accommodations" passHref>
+            <Button variant="outline" className="rounded-none border-primary text-primary hover:bg-primary hover:text-white px-8 py-6 text-sm tracking-wider">
+              VIEW ACCOMMODATIONS <RefreshCw className="w-4 h-4 ml-2" />
+            </Button>
+          </Link>
         </div>
       </section>
 
@@ -349,16 +362,19 @@ export default function Home() {
             </p>
           </div>
           <div className="grid md:grid-cols-2 gap-12 max-w-7xl mx-auto">
-            <div className="border bg-[#FEFAE0] flex flex-col">
-              {meetingsImage && (
-                <div className="relative h-[300px] w-full">
-                  <Image src={meetingsImage.imageUrl} alt={meetingsImage.description} fill className="object-cover" />
-                </div>
-              )}
+            <div className="border bg-[#FEFAE0] flex flex-col items-stretch">
+              <div className="relative h-[300px] w-full overflow-hidden">
+                <Image 
+                  src={meetingsImage?.imageUrl || "/meetings.jpg"} 
+                  alt={meetingsImage?.description || "Meetings & Corporate Events"} 
+                  fill 
+                  className="object-cover transition-transform duration-500 hover:scale-105" 
+                />
+              </div>
               <div className="p-10 flex flex-col flex-grow">
                 <h3 className="font-headline text-3xl mb-4 text-[#283618]">Meetings & Events</h3>
                 <p className="text-muted-foreground text-md leading-relaxed mb-8 flex-grow">
-                  Achieve more with meetings and events that are not only brilliant and beautiful, but also engaging, polished and productive. Created to empower your imagination, our meeting and events offering brings...
+                  Achieve more with meetings and events that are not only brilliant and beautiful, but also engaging, polished and productive. Created to empower your imagination, our meeting and events offering brings together the best of technology and nature.
                 </p>
                 <Link href="/events" passHref>
                   <Button variant="outline" className="rounded-none border-primary text-primary hover:bg-primary hover:text-white px-10 h-12 text-sm tracking-widest font-bold uppercase transition-all">Learn More</Button>
@@ -476,7 +492,13 @@ export default function Home() {
         </div>
       </section>
 
-    </div >
+      {/* Room Details Modal */}
+      <RoomDetailsModal
+        room={selectedRoom}
+        open={!!selectedRoom}
+        onClose={() => setSelectedRoom(null)}
+      />
+    </div>
   );
 
 

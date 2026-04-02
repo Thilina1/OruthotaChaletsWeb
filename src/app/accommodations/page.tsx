@@ -1,7 +1,6 @@
 'use client';
 
 import Image from 'next/image';
-import { PageHero } from '@/components/page-hero';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { BookingForm } from '@/components/booking-form';
 import { Button } from '@/components/ui/button';
@@ -9,9 +8,10 @@ import { Bed, Building2, Wind, Wifi, Car, Coffee, Utensils, Waves } from 'lucide
 import { useSupabaseCollection } from '@/hooks/use-supabase';
 import type { Room } from '@/types/room';
 import Link from 'next/link';
-import { Suspense } from 'react';
+import { Suspense, useState } from 'react';
 import { cn } from '@/lib/utils';
 import { Badge } from '@/components/ui/badge';
+import { RoomDetailsModal } from '@/components/room-details-modal';
 
 const RESORT_AMENITIES = [
   { icon: Wifi, label: "High-Speed Wifi" },
@@ -25,6 +25,7 @@ const RESORT_AMENITIES = [
 function CheckAvailabilityListComponent() {
   const heroImage = PlaceHolderImages.find((p) => p.id === 'hero-estate');
   const { data: rooms, isLoading } = useSupabaseCollection<Room>('rooms');
+  const [selectedRoom, setSelectedRoom] = useState<Room | null>(null);
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -180,7 +181,12 @@ function CheckAvailabilityListComponent() {
                           Check Availability
                         </Button>
                       </Link>
-                      <Button variant="outline" size="lg" className="w-full sm:w-auto rounded-full h-12 border-primary/30 text-foreground hover:bg-primary/5 hover:text-primary transition-all text-base tracking-wide font-semibold">
+                      <Button
+                        variant="outline"
+                        size="lg"
+                        className="w-full sm:w-auto rounded-full h-12 border-primary/30 text-foreground hover:bg-primary/5 hover:text-primary transition-all text-base tracking-wide font-semibold"
+                        onClick={() => setSelectedRoom(accommodation)}
+                      >
                         Room Details
                       </Button>
                     </div>
@@ -207,6 +213,13 @@ function CheckAvailabilityListComponent() {
           </Link>
         </div>
       </section>
+
+      {/* Room Details Modal */}
+      <RoomDetailsModal
+        room={selectedRoom}
+        open={!!selectedRoom}
+        onClose={() => setSelectedRoom(null)}
+      />
     </div>
   );
 }
