@@ -36,7 +36,7 @@ export default function PrivacyPolicyPage() {
             <PageHero 
                 title="Privacy Policy" 
                 subtitle="How we protect your data and privacy"
-                imageUrl="/Hero1_new.jpg"
+                imageUrl="/DSCN1986.jpg"
                 imageAlt="Privacy Policy Hero Image"
                 titleClassName="text-5xl md:text-6xl lg:text-7xl"
             />

@@ -1052,6 +1052,10 @@ body {
   height: 100svh;
 }
 
+.h-\[32px\] {
+  height: 32px;
+}
+
 .max-h-96 {
   max-height: 24rem;
 }
@@ -1886,6 +1890,11 @@ body {
   border-width: 1.5px;
 }
 
+.border-y {
+  border-top-width: 1px;
+  border-bottom-width: 1px;
+}
+
 .border-b {
   border-bottom-width: 1px;
 }
@@ -2309,6 +2318,10 @@ body {
   background-color: #fffffff2;
 }
 
+.bg-white\/50 {
+  background-color: #ffffff80;
+}
+
 .bg-\[url\(\'\/Hero1_new\.jpg\'\)\] {
   background-image: url("/Hero1_new.jpg");
 }
@@ -2403,6 +2416,10 @@ body {
 
 .object-cover {
   object-fit: cover;
+}
+
+.object-left {
+  object-position: left;
 }
 
 .p-0 {
@@ -2550,6 +2567,11 @@ body {
   padding-bottom: 2rem;
 }
 
+.py-12 {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
 .pb-2 {
   padding-bottom: .5rem;
 }
@@ -2636,6 +2658,10 @@ body {
 
 .pt-8 {
   padding-top: 2rem;
+}
+
+.pb-6 {
+  padding-bottom: 1.5rem;
 }
 
 .text-left {
@@ -3017,6 +3043,10 @@ body {
 .text-yellow-400 {
   --tw-text-opacity: 1;
   color: rgb(250 204 21 / var(--tw-text-opacity, 1));
+}
+
+.text-\[\#606C38\]\/60 {
+  color: #606c3899;
 }
 
 .underline-offset-4 {
@@ -3811,6 +3841,10 @@ body {
   opacity: 1;
 }
 
+.hover\:opacity-80:hover {
+  opacity: .8;
+}
+
 .hover\:shadow-2xl:hover {
   --tw-shadow: 0 25px 50px -12px #00000040;
   --tw-shadow-colored: 0 25px 50px -12px var(--tw-shadow-color);
@@ -4101,6 +4135,11 @@ body {
   color: rgb(255 255 255 / var(--tw-text-opacity, 1));
 }
 
+.group:hover .group-hover\:text-\[\#606C38\] {
+  --tw-text-opacity: 1;
+  color: rgb(96 108 56 / var(--tw-text-opacity, 1));
+}
+
 .group\/menu-item:hover .group-hover\/menu-item\:opacity-100, .group:hover .group-hover\:opacity-100 {
   opacity: 1;
 }
@@ -4115,6 +4154,11 @@ body {
 
 .group:hover .group-hover\:opacity-\[0\.08\] {
   opacity: .08;
+}
+
+.group:hover .group-hover\:grayscale-0 {
+  --tw-grayscale: grayscale(0);
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 
 .group.destructive .group-\[\.destructive\]\:border-muted\/40 {

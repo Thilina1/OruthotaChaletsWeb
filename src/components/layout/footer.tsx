@@ -107,6 +107,22 @@ export function Footer() {
                 <Youtube className="h-5 w-5" />
               </Button>
             </div>
+            <Link 
+              href="https://www.tripadvisor.com/Hotel_Review-g1199439-d1052258-Reviews-Oruthota_Chalets-Digana_Kandy_District_Central_Province.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-8 block hover:opacity-80 transition-opacity"
+            >
+              <p className="text-sm text-white/80 mb-3">Now with travelers’ hotel reviews from</p>
+              <div className="relative w-[150px] h-[32px]">
+                <Image
+                  src="/logotipo-tripadvisor.png"
+                  alt="TripAdvisor"
+                  fill
+                  className="object-contain object-left"
+                />
+              </div>
+            </Link>
           </div>
         </div>
 

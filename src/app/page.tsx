@@ -16,28 +16,34 @@ import { RoomDetailsModal } from '@/components/room-details-modal';
 const testimonials = [
   {
     id: 'testimonial-1',
-    name: 'John Doe',
-    location: 'New York, USA',
-    quote: 'An unforgettable stay! The colonial charm, combined with modern luxury, made our trip to Kandy truly special. The views are breathtaking, and the service is impeccable. We felt like royalty.'
+    name: 'Anton Selvakumar Dilan',
+    location: 'Guest Review',
+    quote: 'Stayed at this property for 02 nights with friends and really liked it and enjoyed our stay. The resort is located by the lake/river front. The sceneries are really lovely…'
   },
   {
     id: 'testimonial-2',
-    name: 'Emily Williams',
-    location: 'London, UK',
-    quote: 'Oruthota Chalets is a gem. The serene environment and the beautifully restored bungalow provided the perfect escape. The staff went above and beyond to make our stay comfortable. Highly recommended!'
+    name: 'Peter Gayan Munasinghe',
+    location: 'Guest Review',
+    quote: 'I love this place because of the environment. It is in a beautiful location. Someone can say its too far from city, but to experience the Creation you must visit. Tasty food according to your taste. Friendly staff will help you experience.'
   },
   {
     id: 'testimonial-3',
-    name: 'David Chen',
-    location: 'Sydney, Australia',
-    quote: 'From the moment we arrived, we were captivated by the elegance and tranquility of this place. The personalized experiences and the attention to detail are what set this hotel apart. A must-visit in Sri Lanka.'
+    name: 'Saman IWA Tours ~ Sri Lanka',
+    location: 'Travel Professional',
+    quote: 'Hotel manager from the front desk made us feel welcomed and comfortable. The villa is spotlessly clean and the rooms are big and spacious and the beds are so comfortable. The view from our room was very pleasant. The pool is great. Distant views so beautiful. The staff were superb. Definitely we will be back and highly recommend this place.'
+  },
+  {
+    id: 'testimonial-4',
+    name: 'Ramalingam J',
+    location: 'Business Guest',
+    quote: 'A very beautiful masterpiece by Mr. Michael Sansoni. What a great view of the Victoria Lake and the surrounding mountains, the garden and the set up. The service is par excellence. Food was great. Best recommended.'
   }
 ];
+
 
 export default function Home() {
   const heroImage = PlaceHolderImages.find((p) => p.id === 'hero-estate');
   const aboutImage = PlaceHolderImages.find((p) => p.id === 'about-us-image');
-  const testimonialImages = PlaceHolderImages.filter(p => p.id.startsWith('testimonial-'));
   const diningImage = PlaceHolderImages.find(p => p.id === 'dining-wine');
   const meetingsImage = PlaceHolderImages.find((p) => p.id === 'events-meetings');
   const weddingsImage = PlaceHolderImages.find((p) => p.id === 'events-weddings');
@@ -433,7 +439,6 @@ export default function Home() {
             >
               <CarouselContent className="-ml-4">
                 {testimonials.map((testimonial, index) => {
-                  const image = testimonialImages.find(img => img.id === testimonial.id);
                   return (
                     <CarouselItem key={testimonial.id} className="pl-4 md:basis-1/2">
                       <div className="h-full transform transition-all duration-500">
@@ -453,20 +458,6 @@ export default function Home() {
                           </p>
 
                           <div className="mt-auto flex flex-col items-center gap-4 z-10">
-                            {image ? (
-                              <div className="relative h-16 w-16 rounded-full overflow-hidden border-2 border-[#606C38]/20 shadow-sm">
-                                <Image
-                                  src={image.imageUrl}
-                                  alt={testimonial.name}
-                                  fill
-                                  className="object-cover"
-                                />
-                              </div>
-                            ) : (
-                              <div className="w-16 h-16 rounded-full bg-[#606C38]/10 flex items-center justify-center">
-                                <User className="w-8 h-8 text-[#606C38]" />
-                              </div>
-                            )}
                             <div>
                               <h3 className="font-bold text-[#283618] text-lg tracking-wide uppercase">{testimonial.name}</h3>
                               <p className="text-xs text-[#606C38] font-bold tracking-widest mt-1 opacity-70 uppercase">{testimonial.location}</p>

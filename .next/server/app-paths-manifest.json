@@ -5,7 +5,6 @@
   "/booking/page": "app/booking/page.js",
   "/contact/page": "app/contact/page.js",
   "/dining/page": "app/dining/page.js",
-  "/events/page": "app/events/page.js",
   "/experiences/page": "app/experiences/page.js",
   "/favicon.ico/route": "app/favicon.ico/route.js",
   "/gallery/page": "app/gallery/page.js",
@@ -15,6 +14,5 @@
   "/privacy/page": "app/privacy/page.js",
   "/reviews/page": "app/reviews/page.js",
   "/site-map/page": "app/site-map/page.js",
-  "/sustainability/page": "app/sustainability/page.js",
   "/terms/page": "app/terms/page.js"
 }
