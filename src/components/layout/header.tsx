@@ -3,7 +3,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { Button } from '@/components/ui/button';
+import { Button, buttonVariants } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger, SheetClose, SheetTitle } from '@/components/ui/sheet';
 import { Menu, Phone, RefreshCw, Thermometer } from 'lucide-react';
 import { usePathname } from 'next/navigation';
@@ -38,6 +38,7 @@ export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [time, setTime] = useState('');
   const [weather, setWeather] = useState('21');
+  const [hasMounted, setHasMounted] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -83,18 +84,19 @@ export function Header() {
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
-    updateTime();
-    fetchWeather();
-    const timerId = setInterval(updateTime, 60000); // Update every minute
-    const weatherTimerId = setInterval(fetchWeather, 30 * 60 * 1000); // Update weather every 30 mins
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-      clearInterval(timerId);
-      clearInterval(weatherTimerId);
-    };
-  }, []);
+      setHasMounted(true);
+      window.addEventListener('scroll', handleScroll);
+      updateTime();
+      fetchWeather();
+      const timerId = setInterval(updateTime, 60000); // Update every minute
+      const weatherTimerId = setInterval(fetchWeather, 30 * 60 * 1000); // Update weather every 30 mins
+  
+      return () => {
+        window.removeEventListener('scroll', handleScroll);
+        clearInterval(timerId);
+        clearInterval(weatherTimerId);
+      };
+    }, []);
 
   return (
     <header className={cn(
@@ -107,8 +109,13 @@ export function Header() {
           "flex justify-end items-center h-10 text-xs font-light gap-3 md:gap-6 border-b transition-all duration-300",
           isScrolled ? 'border-border/50 hidden' : 'border-white/10'
         )}>
-          <div className='flex items-center gap-2'><Thermometer size={14} /><span>{weather} °C</span></div>
-          <div className='hidden md:flex items-center gap-2'>{time}</div>
+          <div className='flex items-center gap-2'>
+            <Thermometer size={14} />
+            <span suppressHydrationWarning>{weather} °C</span>
+          </div>
+          <div className='hidden md:flex items-center gap-2' suppressHydrationWarning>
+            {time}
+          </div>
           <a
             href="https://www.instagram.com/kandychalets/"
             target="_blank"
@@ -118,7 +125,7 @@ export function Header() {
             <span>@KandyChalets</span>
           </a>
           <div className='flex items-center gap-2'><WhatsAppIcon className="w-4 h-4" /><span>+94 81 2 375 396</span></div>
-          <div className='flex md:hidden items-center gap-2'>{time}</div>
+          <div className='flex md:hidden items-center gap-2' suppressHydrationWarning>{time}</div>
         </div>
 
         <div className={cn(
@@ -155,14 +162,21 @@ export function Header() {
           </nav>
 
           <div className="flex items-center gap-4">
-            <Button variant={isScrolled ? 'default' : 'outline'} className={cn(
-              "hidden md:inline-flex rounded-none font-semibold tracking-wider",
-              isScrolled
-                ? 'bg-primary text-white hover:bg-primary/90'
-                : 'bg-transparent text-white border-white hover:bg-white hover:text-black'
-            )}>
+            <Link
+              href="/accommodations"
+              className={cn(
+                buttonVariants({
+                  variant: isScrolled ? 'default' : 'outline',
+                  size: 'default'
+                }),
+                "hidden md:inline-flex rounded-none font-semibold tracking-wider",
+                isScrolled
+                  ? 'bg-primary text-white hover:bg-primary/90'
+                  : 'bg-transparent text-white border-white hover:bg-white hover:text-black'
+              )}
+            >
               CHECK RATES
-            </Button>
+            </Link>
 
             {/* Mobile Nav */}
             <div className="md:hidden">
@@ -187,9 +201,15 @@ export function Header() {
                         </Link>
                       </SheetClose>
                     ))}
-                    <Button variant="default" className="rounded-none bg-primary text-white font-semibold tracking-wider mt-4">
+                    <Link
+                      href="/accommodations"
+                      className={cn(
+                        buttonVariants({ variant: 'default' }),
+                        "w-full rounded-none bg-primary text-white font-semibold tracking-wider mt-4 text-center py-2"
+                      )}
+                    >
                       CHECK RATES
-                    </Button>
+                    </Link>
                   </nav>
                 </SheetContent>
               </Sheet>

@@ -3,6 +3,7 @@
   "/about/page": "app/about/page.js",
   "/accommodations/page": "app/accommodations/page.js",
   "/booking/page": "app/booking/page.js",
+  "/bookings/page": "app/bookings/page.js",
   "/contact/page": "app/contact/page.js",
   "/dining/page": "app/dining/page.js",
   "/experiences/page": "app/experiences/page.js",

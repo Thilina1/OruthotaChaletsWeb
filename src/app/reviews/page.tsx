@@ -1,11 +1,15 @@
 'use client';
 
+import { cn } from '@/lib/utils';
+
 import React from 'react';
 import { PageHero } from '@/components/page-hero';
-import { Star, Quote, User, Verified, Sparkles, MessageSquare } from 'lucide-react';
+import { Star, Quote, User, Verified, Sparkles, MessageSquare, ArrowRight } from 'lucide-react';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
+import Autoplay from 'embla-carousel-autoplay';
+import { Carousel, CarouselContent, CarouselItem } from '@/components/ui/carousel';
 
 const ALL_REVIEWS = [
   {
@@ -157,28 +161,140 @@ export default function ReviewsPage() {
             ))}
           </div>
 
-          <div className="mt-24 bg-[#283618] rounded-[2rem] p-12 md:p-20 text-center relative overflow-hidden">
-            {/* Dark theme CTA */}
-            <div className="absolute top-0 left-0 w-full h-full bg-[url('/Hero1_new.jpg')] bg-cover bg-center opacity-10" />
-            <div className="relative z-10 space-y-8">
-              <h2 className="font-headline text-4xl md:text-5xl text-white">Have you stayed with us?</h2>
-              <p className="text-white/70 text-lg max-w-2xl mx-auto font-body">
-                We would love to hear about your experience. Your feedback helps us maintain the highest standards of hospitality.
-              </p>
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-                <Button asChild className="bg-[#DDA15E] hover:bg-[#BC8A4C] text-white rounded-xl h-14 px-8 text-md font-bold tracking-widest uppercase transition-all">
-                  <Link href="/contact">Write a Review</Link>
-                </Button>
-                <Button variant="outline" className="text-white border-white/20 hover:bg-white/10 rounded-xl h-14 px-8 text-md font-bold tracking-widest uppercase transition-all">
-                  Tripadvisor
-                </Button>
-              </div>
-            </div>
+          {/* Reviews CTA Section */}
+          <div className="mt-24 max-w-5xl mx-auto">
+            <Carousel
+              opts={{
+                align: "start",
+                loop: true,
+              }}
+              plugins={[
+                Autoplay({
+                  delay: 4000,
+                  stopOnInteraction: false,
+                }),
+              ]}
+              className="w-full"
+            >
+              <CarouselContent className="-ml-4 md:-ml-8">
+                {/* TripAdvisor Card */}
+                <CarouselItem className="pl-4 md:pl-8 basis-full lg:basis-1/2">
+                  <div className="bg-[#FEFAE0]/40 rounded-[2rem] p-6 md:p-10 text-center border border-[#606C38]/10 shadow-[0_15px_40px_rgba(96,108,56,0.05)] relative group overflow-hidden flex flex-col justify-between h-full min-h-[400px]">
+                    {/* Decorative background logo */}
+                    <div className="absolute -right-10 -bottom-10 opacity-[0.03] group-hover:scale-110 group-hover:-rotate-12 transition-all duration-700 pointer-events-none">
+                      <Image src="/logotipo-tripadvisor.png" alt="" width={200} height={200} className="object-contain grayscale" />
+                    </div>
+
+                    <div className="relative z-10 space-y-6">
+                      <div className="flex justify-center">
+                        <div className="relative w-[120px] h-[28px] transition-transform duration-300 hover:scale-110">
+                          <Image 
+                            src="/logotipo-tripadvisor.png" 
+                            alt="TripAdvisor" 
+                            fill 
+                            className="object-contain" 
+                          />
+                        </div>
+                      </div>
+
+                      <div className="space-y-3">
+                        <h2 className="font-headline text-2xl md:text-3xl text-[#283618]">Have you stayed with us?</h2>
+                        <p className="text-muted-foreground text-md leading-relaxed">
+                          We would love to hear about your experience. Your feedback helps us maintain the highest standards.
+                        </p>
+                      </div>
+
+                      <div className="pt-2">
+                        <Link 
+                          href="https://www.tripadvisor.com/Hotel_Review-g1199439-d1052258-Reviews-Oruthota_Chalets-Digana_Kandy_District_Central_Province.html" 
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <Button className="bg-[#606C38] text-white hover:bg-[#283618] rounded-full px-8 h-12 text-sm font-bold tracking-widest uppercase shadow-lg hover:shadow-xl transition-all hover:-translate-y-1 active:scale-95 group/btn">
+                            Write a Review 
+                            <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
+                          </Button>
+                        </Link>
+                      </div>
+
+                      <div className="pt-4 flex flex-col items-center gap-2">
+                        <div className="flex items-center gap-2">
+                          <div className="flex gap-1">
+                            {[...Array(5)].map((_, i) => (
+                              <div key={i} className="w-4 h-4 rounded-full bg-[#00AF87] flex items-center justify-center">
+                                <Star className="h-2 w-2 text-white fill-current" />
+                              </div>
+                            ))}
+                          </div>
+                          <span className="text-[#283618] font-bold text-sm">Excellent</span>
+                        </div>
+                        <span className="text-stone-400 text-[9px] font-bold tracking-widest uppercase">Highly Recommended on Tripadvisor</span>
+                      </div>
+                    </div>
+                  </div>
+                </CarouselItem>
+
+                {/* Google Reviews Card */}
+                <CarouselItem className="pl-4 md:pl-8 basis-full lg:basis-1/2">
+                  <div className="bg-[#E3F2FD]/40 rounded-[2rem] p-6 md:p-10 text-center border border-[#1976D2]/10 shadow-[0_15px_40px_rgba(25,118,210,0.05)] relative group overflow-hidden flex flex-col justify-between h-full min-h-[400px]">
+                    {/* Decorative background logo */}
+                    <div className="absolute -right-10 -bottom-10 opacity-[0.03] group-hover:scale-110 group-hover:-rotate-12 transition-all duration-700 pointer-events-none">
+                      <Image src="/google-logo.png" alt="" width={200} height={200} className="object-contain grayscale" />
+                    </div>
+
+                    <div className="relative z-10 space-y-6">
+                      <div className="flex justify-center">
+                        <div className="relative w-[120px] h-[28px] transition-transform duration-300 hover:scale-110">
+                          <Image 
+                            src="/google-logo.png" 
+                            alt="Google Reviews" 
+                            fill 
+                            className="object-contain" 
+                          />
+                        </div>
+                      </div>
+
+                      <div className="space-y-3">
+                        <h2 className="font-headline text-2xl md:text-3xl text-[#1A237E]">Love our services?</h2>
+                        <p className="text-muted-foreground text-md leading-relaxed">
+                          Please share your experience on Google. Your feedback is invaluable to us and our future guests.
+                        </p>
+                      </div>
+
+                      <div className="pt-2">
+                        <Link 
+                          href="https://www.google.com/search?q=Oruthota+Chalets+Digana#lrd=0x3ae360e9f6ed0591:0x7b6a1200021c3260,1,,," 
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <Button className="bg-[#1976D2] text-white hover:bg-[#0D47A1] rounded-full px-8 h-12 text-sm font-bold tracking-widest uppercase shadow-lg hover:shadow-xl transition-all hover:-translate-y-1 active:scale-95 group/btn">
+                            Write a Review 
+                            <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
+                          </Button>
+                        </Link>
+                      </div>
+
+                      <div className="pt-4 flex flex-col items-center gap-2">
+                        <div className="flex items-center gap-2">
+                          <div className="flex gap-1">
+                            {[...Array(5)].map((_, i) => (
+                              <div key={i} className="w-4 h-4 rounded-full bg-[#FBBC05] flex items-center justify-center">
+                                <Star className="h-2 w-2 text-white fill-current" />
+                              </div>
+                            ))}
+                          </div>
+                          <span className="text-[#1A237E] font-bold text-sm">Excellent</span>
+                        </div>
+                        <span className="text-stone-400 text-[9px] font-bold tracking-widest uppercase">Highly Recommended on Google</span>
+                      </div>
+                    </div>
+                  </div>
+                </CarouselItem>
+              </CarouselContent>
+            </Carousel>
           </div>
         </div>
       </section>
     </main>
   );
 }
-
-import { cn } from '@/lib/utils';

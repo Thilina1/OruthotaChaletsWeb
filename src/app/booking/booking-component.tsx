@@ -98,6 +98,28 @@ export default function BookingPageComponent() {
     }
 
     try {
+      // Check for overlapping bookings one last time before submitting
+      const { data: existingBookings, error: checkError } = await supabase
+        .from('reservations')
+        .select('id')
+        .eq('room_id', roomId)
+        .eq('status', 'confirmed')
+        .lt('check_in_date', format(checkOutDate, 'yyyy-MM-dd'))
+        .gt('check_out_date', format(checkInDate, 'yyyy-MM-dd'));
+
+      if (checkError) {
+        console.error('Error checking availability:', checkError);
+      }
+
+      if (existingBookings && existingBookings.length > 0) {
+        toast({
+          variant: 'destructive',
+          title: 'Room No Longer Available',
+          description: 'This room has just been booked for the selected dates. Please choose another date or room.'
+        });
+        return;
+      }
+
       // Create or update guest information - simplified for guest checkout
       // In a real app, you'd check if guest exists by email
       const guestData = {
@@ -130,7 +152,7 @@ export default function BookingPageComponent() {
         status: 'confirmed',
         special_requests: specialRequests,
         id_card_number: idCardNumber,
-        guest_phone: phone
+        guest_phone: phone,
       };
 
       const { error: reservationError } = await supabase
@@ -143,8 +165,18 @@ export default function BookingPageComponent() {
       router.push('/');
 
     } catch (error: any) {
-      console.error('Booking failed:', error);
-      toast({ variant: 'destructive', title: 'Booking Failed', description: error.message });
+      console.error('Booking submission failed:', {
+        message: error.message,
+        details: error.details,
+        hint: error.hint,
+        code: error.code,
+        error: error
+      });
+      toast({ 
+        variant: 'destructive', 
+        title: 'Booking Failed', 
+        description: error.message || 'There was a problem submitting your booking. Please try again.' 
+      });
     }
   };
 
