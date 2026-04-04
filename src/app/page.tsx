@@ -109,7 +109,7 @@ export default function Home() {
             </p>
           </div>
           <div className="mt-8 flex flex-col items-center gap-8">
-            <Link href="https://www.google.com/maps/search/?api=1&query=Kandy" target="_blank" rel="noopener noreferrer">
+            <Link href="https://maps.app.goo.gl/TpzL2ciq5FgdUk6M9" target="_blank" rel="noopener noreferrer">
               <Button variant="outline" className="rounded-none border-primary text-primary hover:bg-primary hover:text-white px-8 py-6 text-sm tracking-[0.2em] font-medium transition-all duration-300">
                 <MapPin className="mr-3 h-5 w-5" />
                 LOCATION ON MAP
