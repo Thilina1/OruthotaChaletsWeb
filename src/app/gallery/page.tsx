@@ -9,9 +9,22 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Camera, Image as ImageIcon, Sparkles } from 'lucide-react';
 
-export default function GalleryPage() {
-  const galleryImages = PlaceHolderImages;
+const GALLERY_IMAGES = [
+  { id: 1, url: '/instagram-1.png', category: 'RESORT VIEW', title: 'Sanctuary Mornings' },
+  { id: 2, url: '/instagram-2.png', category: 'LAKEFRONT', title: 'Victoria Reservoir' },
+  { id: 3, url: '/instagram-3.png', category: 'DINING', title: 'Garden Breakfast' },
+  { id: 4, url: '/instagram-4.png', category: 'RELAXATION', title: 'Mist-Filled Horizons' },
+  { id: 5, url: '/Restaurant.png', category: 'DINING', title: 'Wine & Dine' },
+  { id: 6, url: '/Room 1.png', category: 'ACCOMMODATION', title: 'Rustic Luxury' },
+  { id: 7, url: '/Room 2.png', category: 'SUITE', title: 'Elegant Interiors' },
+  { id: 8, url: '/Hero1_new.jpg', category: 'AERIAL VIEW', title: 'Island Essence' },
+  { id: 9, url: '/Hero3.jpg', category: 'EXPLORATION', title: 'Hills of Kandy' },
+  { id: 10, url: '/meetings.jpg', category: 'EVENTS', title: 'Corporate Retreats' },
+  { id: 11, url: '/wedding.png', category: 'WEDDINGS', title: 'Magical Celebrations' },
+  { id: 12, url: '/DSCN1986.jpg', category: 'NATURE', title: 'Garden Sanctuary' },
+];
 
+export default function GalleryPage() {
   return (
     <main className="min-h-screen bg-[#FAFAFA]">
       {/* Hero Section */}
@@ -57,19 +70,18 @@ export default function GalleryPage() {
 
           {/* Masonry Grid */}
           <div className="columns-1 md:columns-2 lg:columns-3 gap-8 space-y-8">
-            {galleryImages.map((p, index) => (
+            {GALLERY_IMAGES.map((img) => (
               <div
-                key={p.id}
+                key={img.id}
                 className="break-inside-avoid relative group rounded-3xl overflow-hidden shadow-[0_4px_25px_rgb(0,0,0,0.05)] hover:shadow-[0_20px_50px_rgb(0,0,0,0.15)] transition-all duration-500 ease-out border border-stone-100"
               >
                 <div className="relative w-full overflow-hidden bg-muted">
                   <Image
-                    src={p.imageUrl}
-                    alt={p.description || "Oruthota Chalets Gallery Image"}
+                    src={img.url}
+                    alt={img.title}
                     width={800}
                     height={800}
                     className="object-cover w-full h-auto transition-all duration-1000 ease-in-out group-hover:scale-110 group-hover:rotate-1"
-                    data-ai-hint={p.imageHint}
                   />
                   
                   {/* Overlay on hover */}
@@ -77,9 +89,9 @@ export default function GalleryPage() {
                     <div className="translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
                         <div className="flex items-center gap-2 mb-2">
                             <ImageIcon className="w-4 h-4 text-white/80" />
-                            <span className="text-white/80 text-xs font-bold tracking-widest uppercase">Resort View</span>
+                            <span className="text-white/80 text-xs font-bold tracking-widest uppercase">{img.category}</span>
                         </div>
-                        <p className="text-white text-lg font-headline">Oruthota Sanctuary</p>
+                        <p className="text-white text-lg font-headline">{img.title}</p>
                     </div>
                   </div>
                 </div>
