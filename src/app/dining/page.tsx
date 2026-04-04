@@ -142,7 +142,7 @@ export default function DiningPage() {
                 <div className="h-px bg-foreground flex-grow max-w-[100px]"></div>
               </div>
 
-              <h2 className="font-headline text-4xl md:text-5xl text-foreground">360 by Oruthota Chalets</h2>
+              <h2 className="font-headline text-4xl md:text-5xl text-foreground">By Oruthota Chalets</h2>
 
               <div className="space-y-6 text-muted-foreground text-sm leading-loose">
                 <p>
