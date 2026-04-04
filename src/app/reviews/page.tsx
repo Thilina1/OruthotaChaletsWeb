@@ -82,7 +82,7 @@ export default function ReviewsPage() {
         title="Guest Stories"
         subtitle="Reviews"
         description="Read about the experiences of our guests and discover why Oruthota Chalets is considered a true sanctuary in the heart of Sri Lanka."
-        imageUrl="/Hero1_new.jpg" // Using a high-quality existing image
+        imageUrl="/instagram-4.png" // Using the requested image
         imageAlt="Oruthota Chalets Reviews Hero"
         titleClassName="text-5xl md:text-6xl lg:text-7xl"
       />

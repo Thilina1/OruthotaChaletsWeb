@@ -11,5 +11,6 @@
   "/gallery/page": "app/gallery/page.js",
   "/manifest.webmanifest/route": "app/manifest.webmanifest/route.js",
   "/page": "app/page.js",
-  "/reviews/page": "app/reviews/page.js"
+  "/reviews/page": "app/reviews/page.js",
+  "/sustainability/page": "app/sustainability/page.js"
 }
