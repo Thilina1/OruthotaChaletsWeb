@@ -82,7 +82,7 @@ export default function ContactPage() {
                                         title: "Location",
                                         detail: "Oruthota Chalets, Rajawella, Digana, Sri Lanka",
                                         buttonText: "Open in Maps",
-                                        link: "https://www.google.com/maps/search/?api=1&query=Oruthota+Chalets,+Rajawella,+Digana,+Sri+Lanka"
+                                        link: "https://maps.app.goo.gl/TpzL2ciq5FgdUk6M9"
                                     },
                                     {
                                         icon: Phone,
