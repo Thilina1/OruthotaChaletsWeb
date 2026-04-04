@@ -890,7 +890,7 @@ function TableBookingModal({ open, onClose }) {
                                         "📱 You may also reach our reservations team via",
                                         ' ',
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
-                                            href: "https://wa.me/94812375396",
+                                            href: "https://wa.me/94776347922",
                                             target: "_blank",
                                             rel: "noopener noreferrer",
                                             className: "text-[#25D366] font-semibold hover:underline",
@@ -2222,6 +2222,86 @@ function RoomDetailsModal({ room, open, onClose }) {
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    className: "py-6 border-t border-stone-100",
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                            className: "text-[10px] tracking-[0.2em] font-bold text-muted-foreground uppercase mb-4 text-center sm:text-left",
+                                            children: "Also Bookable Via"
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/components/room-details-modal.tsx",
+                                            lineNumber: 136,
+                                            columnNumber: 17
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            className: "flex flex-wrap items-center justify-center sm:justify-start gap-8 opacity-60 hover:opacity-100 transition-opacity",
+                                            children: [
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
+                                                    href: "https://www.booking.com/hotel/lk/oruthota-chalets.en-gb.html",
+                                                    target: "_blank",
+                                                    rel: "noopener noreferrer",
+                                                    className: "grayscale hover:grayscale-0 transition-all hover:scale-110",
+                                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                        className: "relative w-28 h-6",
+                                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
+                                                            src: "/booking-logo.svg",
+                                                            alt: "Booking.com",
+                                                            fill: true,
+                                                            className: "object-contain"
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/src/components/room-details-modal.tsx",
+                                                            lineNumber: 145,
+                                                            columnNumber: 29
+                                                        }, this)
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/src/components/room-details-modal.tsx",
+                                                        lineNumber: 144,
+                                                        columnNumber: 25
+                                                    }, this)
+                                                }, void 0, false, {
+                                                    fileName: "[project]/src/components/room-details-modal.tsx",
+                                                    lineNumber: 138,
+                                                    columnNumber: 21
+                                                }, this),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
+                                                    href: "https://www.agoda.com/oruthota-chalets/hotel/kandy-lk.html",
+                                                    target: "_blank",
+                                                    rel: "noopener noreferrer",
+                                                    className: "grayscale hover:grayscale-0 transition-all hover:scale-110",
+                                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                        className: "relative w-24 h-6",
+                                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
+                                                            src: "/color-default.svg",
+                                                            alt: "Agoda",
+                                                            fill: true,
+                                                            className: "object-contain"
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/src/components/room-details-modal.tsx",
+                                                            lineNumber: 155,
+                                                            columnNumber: 29
+                                                        }, this)
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/src/components/room-details-modal.tsx",
+                                                        lineNumber: 154,
+                                                        columnNumber: 25
+                                                    }, this)
+                                                }, void 0, false, {
+                                                    fileName: "[project]/src/components/room-details-modal.tsx",
+                                                    lineNumber: 148,
+                                                    columnNumber: 21
+                                                }, this)
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "[project]/src/components/room-details-modal.tsx",
+                                            lineNumber: 137,
+                                            columnNumber: 17
+                                        }, this)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "[project]/src/components/room-details-modal.tsx",
+                                    lineNumber: 135,
+                                    columnNumber: 13
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                     className: "flex flex-col sm:flex-row items-center justify-between gap-6 pt-4 border-t border-border/50",
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2232,7 +2312,7 @@ function RoomDetailsModal({ room, open, onClose }) {
                                                     children: "Starting from"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/room-details-modal.tsx",
-                                                    lineNumber: 137,
+                                                    lineNumber: 164,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2246,7 +2326,7 @@ function RoomDetailsModal({ room, open, onClose }) {
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/src/components/room-details-modal.tsx",
-                                                            lineNumber: 139,
+                                                            lineNumber: 166,
                                                             columnNumber: 19
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -2254,13 +2334,13 @@ function RoomDetailsModal({ room, open, onClose }) {
                                                             children: "/ night"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/room-details-modal.tsx",
-                                                            lineNumber: 140,
+                                                            lineNumber: 167,
                                                             columnNumber: 19
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/components/room-details-modal.tsx",
-                                                    lineNumber: 138,
+                                                    lineNumber: 165,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2268,13 +2348,13 @@ function RoomDetailsModal({ room, open, onClose }) {
                                                     children: "Taxes and fees may apply"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/room-details-modal.tsx",
-                                                    lineNumber: 142,
+                                                    lineNumber: 169,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/components/room-details-modal.tsx",
-                                            lineNumber: 136,
+                                            lineNumber: 163,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2287,7 +2367,7 @@ function RoomDetailsModal({ room, open, onClose }) {
                                                     children: "Close"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/room-details-modal.tsx",
-                                                    lineNumber: 146,
+                                                    lineNumber: 173,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
@@ -2300,24 +2380,24 @@ function RoomDetailsModal({ room, open, onClose }) {
                                                         children: "Book This Room"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/room-details-modal.tsx",
-                                                        lineNumber: 154,
+                                                        lineNumber: 181,
                                                         columnNumber: 19
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/room-details-modal.tsx",
-                                                    lineNumber: 153,
+                                                    lineNumber: 180,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/components/room-details-modal.tsx",
-                                            lineNumber: 145,
+                                            lineNumber: 172,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/room-details-modal.tsx",
-                                    lineNumber: 135,
+                                    lineNumber: 162,
                                     columnNumber: 13
                                 }, this)
                             ]
@@ -2903,6 +2983,86 @@ function CheckAvailabilityListComponent() {
                                                     fileName: "[project]/src/app/accommodations/page.tsx",
                                                     lineNumber: 178,
                                                     columnNumber: 21
+                                                }, this),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                    className: "pt-4 flex flex-col items-center lg:items-start gap-4",
+                                                    children: [
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                            className: "text-[10px] tracking-[0.2em] font-bold text-muted-foreground uppercase",
+                                                            children: "Also Bookable Via"
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/src/app/accommodations/page.tsx",
+                                                            lineNumber: 196,
+                                                            columnNumber: 23
+                                                        }, this),
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                            className: "flex items-center gap-6 opacity-70 hover:opacity-100 transition-opacity",
+                                                            children: [
+                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
+                                                                    href: "https://www.booking.com/hotel/lk/oruthota-chalets.en-gb.html",
+                                                                    target: "_blank",
+                                                                    rel: "noopener noreferrer",
+                                                                    className: "grayscale hover:grayscale-0 transition-all hover:scale-110",
+                                                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                        className: "relative w-24 h-6",
+                                                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
+                                                                            src: "/booking-logo.svg",
+                                                                            alt: "Booking.com",
+                                                                            fill: true,
+                                                                            className: "object-contain"
+                                                                        }, void 0, false, {
+                                                                            fileName: "[project]/src/app/accommodations/page.tsx",
+                                                                            lineNumber: 205,
+                                                                            columnNumber: 29
+                                                                        }, this)
+                                                                    }, void 0, false, {
+                                                                        fileName: "[project]/src/app/accommodations/page.tsx",
+                                                                        lineNumber: 204,
+                                                                        columnNumber: 27
+                                                                    }, this)
+                                                                }, void 0, false, {
+                                                                    fileName: "[project]/src/app/accommodations/page.tsx",
+                                                                    lineNumber: 198,
+                                                                    columnNumber: 25
+                                                                }, this),
+                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
+                                                                    href: "https://www.agoda.com/oruthota-chalets/hotel/kandy-lk.html",
+                                                                    target: "_blank",
+                                                                    rel: "noopener noreferrer",
+                                                                    className: "grayscale hover:grayscale-0 transition-all hover:scale-110",
+                                                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                        className: "relative w-20 h-6",
+                                                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
+                                                                            src: "/color-default.svg",
+                                                                            alt: "Agoda",
+                                                                            fill: true,
+                                                                            className: "object-contain"
+                                                                        }, void 0, false, {
+                                                                            fileName: "[project]/src/app/accommodations/page.tsx",
+                                                                            lineNumber: 215,
+                                                                            columnNumber: 29
+                                                                        }, this)
+                                                                    }, void 0, false, {
+                                                                        fileName: "[project]/src/app/accommodations/page.tsx",
+                                                                        lineNumber: 214,
+                                                                        columnNumber: 27
+                                                                    }, this)
+                                                                }, void 0, false, {
+                                                                    fileName: "[project]/src/app/accommodations/page.tsx",
+                                                                    lineNumber: 208,
+                                                                    columnNumber: 25
+                                                                }, this)
+                                                            ]
+                                                        }, void 0, true, {
+                                                            fileName: "[project]/src/app/accommodations/page.tsx",
+                                                            lineNumber: 197,
+                                                            columnNumber: 23
+                                                        }, this)
+                                                    ]
+                                                }, void 0, true, {
+                                                    fileName: "[project]/src/app/accommodations/page.tsx",
+                                                    lineNumber: 195,
+                                                    columnNumber: 21
                                                 }, this)
                                             ]
                                         }, void 0, true, {
@@ -2940,7 +3100,7 @@ function CheckAvailabilityListComponent() {
                         className: "absolute inset-0 bg-[url('/noise.png')] opacity-10 mix-blend-overlay"
                     }, void 0, false, {
                         fileName: "[project]/src/app/accommodations/page.tsx",
-                        lineNumber: 203,
+                        lineNumber: 230,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2951,7 +3111,7 @@ function CheckAvailabilityListComponent() {
                                 children: "Not sure which sanctuary to choose?"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/accommodations/page.tsx",
-                                lineNumber: 205,
+                                lineNumber: 232,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2959,7 +3119,7 @@ function CheckAvailabilityListComponent() {
                                 children: "Our dedicated team is happy to help you select the perfect accommodation for your tropical getaway."
                             }, void 0, false, {
                                 fileName: "[project]/src/app/accommodations/page.tsx",
-                                lineNumber: 206,
+                                lineNumber: 233,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
@@ -2972,24 +3132,24 @@ function CheckAvailabilityListComponent() {
                                     children: "Contact Us Today"
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/accommodations/page.tsx",
-                                    lineNumber: 210,
+                                    lineNumber: 237,
                                     columnNumber: 13
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/src/app/accommodations/page.tsx",
-                                lineNumber: 209,
+                                lineNumber: 236,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/accommodations/page.tsx",
-                        lineNumber: 204,
+                        lineNumber: 231,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/accommodations/page.tsx",
-                lineNumber: 202,
+                lineNumber: 229,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$room$2d$details$2d$modal$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["RoomDetailsModal"], {
@@ -2998,7 +3158,7 @@ function CheckAvailabilityListComponent() {
                 onClose: ()=>setSelectedRoom(null)
             }, void 0, false, {
                 fileName: "[project]/src/app/accommodations/page.tsx",
-                lineNumber: 218,
+                lineNumber: 245,
                 columnNumber: 7
             }, this)
         ]
@@ -3015,17 +3175,17 @@ function AccommodationsPage() {
             children: "Loading..."
         }, void 0, false, {
             fileName: "[project]/src/app/accommodations/page.tsx",
-            lineNumber: 229,
+            lineNumber: 256,
             columnNumber: 25
         }, void 0),
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(CheckAvailabilityListComponent, {}, void 0, false, {
             fileName: "[project]/src/app/accommodations/page.tsx",
-            lineNumber: 230,
+            lineNumber: 257,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/src/app/accommodations/page.tsx",
-        lineNumber: 229,
+        lineNumber: 256,
         columnNumber: 5
     }, this);
 }

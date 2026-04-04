@@ -124,7 +124,7 @@ export function Header() {
           >
             <span>@KandyChalets</span>
           </a>
-          <div className='flex items-center gap-2'><WhatsAppIcon className="w-4 h-4" /><span>+94 81 2 375 396</span></div>
+          <div className='flex items-center gap-2'><WhatsAppIcon className="w-4 h-4" /><span>+94 77 634 7922</span></div>
           <div className='flex md:hidden items-center gap-2' suppressHydrationWarning>{time}</div>
         </div>
 

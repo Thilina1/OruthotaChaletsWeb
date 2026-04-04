@@ -482,7 +482,7 @@ function Header() {
                                     columnNumber: 52
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                    children: "+94 81 2 375 396"
+                                    children: "+94 77 634 7922"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/layout/header.tsx",
                                     lineNumber: 127,
@@ -1017,9 +1017,9 @@ function Footer() {
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
-                                                    href: "tel:+94812375396",
+                                                    href: "tel:+94776347922",
                                                     className: "hover:text-secondary transition-colors text-white/90",
-                                                    children: "+94 81 2 375 396"
+                                                    children: "+94 77 634 7922"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/layout/footer.tsx",
                                                     lineNumber: 83,
@@ -1427,9 +1427,9 @@ function VisitUs() {
                                                     columnNumber: 33
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
-                                                    href: "tel:+94812375396",
+                                                    href: "tel:+94776347922",
                                                     className: "text-muted-foreground hover:text-primary transition-colors",
-                                                    children: "+94 81 2 375 396"
+                                                    children: "+94 77 634 7922"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/visit-us.tsx",
                                                     lineNumber: 41,
@@ -1979,7 +1979,7 @@ function ConciergeDesk() {
                             className: "space-y-4",
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
-                                    href: "https://wa.me/94812375396",
+                                    href: "https://wa.me/94776347922",
                                     target: "_blank",
                                     rel: "noopener noreferrer",
                                     className: "group flex items-center gap-6 p-6 rounded-2xl bg-white/5 border border-white/5 hover:bg-white/10 hover:border-[#25D366]/30 transition-all duration-300",
@@ -2079,7 +2079,7 @@ function ConciergeDesk() {
                                     columnNumber: 25
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
-                                    href: "tel:+94812375396",
+                                    href: "tel:+94776347922",
                                     className: "group flex items-center gap-6 p-6 rounded-2xl bg-white/5 border border-white/5 hover:bg-white/10 hover:border-[#DDA15E]/30 transition-all duration-300",
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2109,7 +2109,7 @@ function ConciergeDesk() {
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                     className: "text-xs text-[#FEFAE0]/60 font-body",
-                                                    children: "+94 81 2 375 396"
+                                                    children: "+94 77 634 7922"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/concierge-desk.tsx",
                                                     lineNumber: 114,

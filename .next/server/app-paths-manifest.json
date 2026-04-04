@@ -9,11 +9,7 @@
   "/experiences/page": "app/experiences/page.js",
   "/favicon.ico/route": "app/favicon.ico/route.js",
   "/gallery/page": "app/gallery/page.js",
-  "/gdpr/page": "app/gdpr/page.js",
   "/manifest.webmanifest/route": "app/manifest.webmanifest/route.js",
   "/page": "app/page.js",
-  "/privacy/page": "app/privacy/page.js",
-  "/reviews/page": "app/reviews/page.js",
-  "/site-map/page": "app/site-map/page.js",
-  "/terms/page": "app/terms/page.js"
+  "/reviews/page": "app/reviews/page.js"
 }

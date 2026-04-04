@@ -1,0 +1,139 @@
+export type StaticExperience = {
+  id: string;
+  title: string;
+  description: string;
+  imageId: string;
+  category: string;
+  galleryImages?: string[];
+};
+
+export const STATIC_EXPERIENCES: StaticExperience[] = [
+  {
+    id: 'walk-in-village',
+    title: 'A Walk in the Village',
+    description: `Here is an opportunity to offer a new experience to our visitors to Sri Lanka. "A Walk in the Village" is an inspiring and soul-searching activity. We are proud to share with our visitors the authentic life of a rural family. Unlike the common routine visits to tourist attractions, "A Walk in the Village" will allow our foreign guests to understand the way of life of our rural community, its culture and family situations. The positive feedback from our past visits, have inspired us to further enhance this activity to provide a great new experience to our visitors from overseas.`,
+    imageId: 'experience-hike',
+    category: 'CULTURAL',
+    galleryImages: [
+      '/experiences/1/ttd_awitv_2-685x1024.jpg',
+      '/experiences/1/ttd_awitv_3.jpg',
+      '/experiences/1/ttd_awitv_5-685x1024.jpg',
+      '/experiences/1/ttd_awitv_6.jpg',
+      '/experiences/1/ttd_awitv_7.jpg',
+    ]
+  },
+  {
+    id: 'culinary-tourism',
+    title: 'Culinary Tourism',
+    description: `Sri Lankan's are known for their hospitality and the culinary tour is no different. Sri Lanka has long been a multi-cultural society, with its early history in the ancient silk route and trade. Sri Lankan food is diverse and varied. It is an amazing and fascinating experience to share our traditional kitchen with our foreign visitors.
+From early morning, our guests will have the opportunity to see how we select the fresh local vegetables for the day, and then take part in the preparation of the traditional Sri Lankan meal with the family. The aromatic spices and the traditional methods of cooking, on clay pots over the health, gives the food a unique flavour.
+We are proud and happy to share our food and our cooking methods with our visitors to this island.`,
+    imageId: 'experience-food',
+    category: 'CULINARY',
+    galleryImages: [
+      '/experiences/2/ttd_ct_10.jpg',
+      '/experiences/2/ttd_ct_3.jpg',
+      '/experiences/2/ttd_ct_5.jpg',
+      '/experiences/2/ttd_ct_6 (1).jpg',
+      '/experiences/2/ttd_ct_7.jpg',
+    ]
+  },
+  {
+    id: 'rural-activities',
+    title: 'A Feel to Typical Rural Activities: Weaving of Coconut Palms',
+    description: `Most roofs of rural homes are thatched with coconut palms. In certain areas of the country rural folk would even build their entire homes with thatched coconut palms, it is very common in fishing areas. It is an interesting weave that is done on the fresh (green) leaves, and serves as a cover to roofs and walls of homes. Visitors enjoy trying out this activity. This can be a morning program after breakfast, in the large garden area of Oruthota Chalets, visitors will be taught how to weave a coconut palm. Individual attention will be given to every visitor until they get familiar with this art. This is a wonderful experience and memory to take back home.`,
+    imageId: 'accommodation-2',
+    category: 'TRADITIONAL',
+    galleryImages: [
+      '/experiences/3/ttd_fwcp_1.jpg',
+      '/experiences/3/ttd_fwcp_2.jpg',
+      '/experiences/3/ttd_fwcp_4.jpg',
+      '/experiences/3/ttd_fwcp_5.jpg',
+      '/experiences/3/ttd_fwcp_6.jpg',
+    ]
+  },
+  {
+    id: 'day-by-river',
+    title: 'A Day by the River',
+    description: `Here is an opportunity to offer another new experience to our visitors to Sri Lanka – "A Day by the River" with the experience of a river bath. Tourism is not limited to sightseeing; an authentic psychocentric tourist will always wish to experience the typical culture of a destination. We are proud to share with our visitors the authentic life of a rural family. Many of our humble village folk enjoy a river bath after a day’s work is done. People bathing and washing clothes at a river is a common sight around Sri Lanka. This unique activity will give our foreign guests an opportunity to experience this common ritual of our rural folk.`,
+    imageId: 'accommodation-3',
+    category: 'LEISURE',
+    galleryImages: [
+      '/experiences/4/ttd_dbtr_1.jpg',
+      '/experiences/4/ttd_dbtr_4.jpg',
+      '/experiences/4/ttd_dbtr_6.jpg',
+      '/experiences/4/ttd_dbtr_7.jpg',
+      '/experiences/4/ttd_dbtr_8.jpg',
+    ]
+  },
+  {
+    id: 'veddha-village',
+    title: 'Visit to the Veddha Village',
+    description: `(Home of the Indigenous people of Sri Lanka)\nThis activity has two options:\n\n1. A day excursion to the village of the Veddha people in Dambana\n2. A visit by a couple of the Veddha people to Oruthota Chalets\n\nThe 1st option will require a whole day with a pack lunch. The village is located about 72 kilometers from Oruthota Chalets. The tour is unique to all visitors as they experience the authentic life of an indigenous Sri Lankan – the veddha. The visit begins with a welcome from the Veddha Chieftain at his humble abode. He will talk about his clan and their lifestyles. They use a dialect unique to their community. Translators are available for day excursions. Thereafter, the visitors will be taken into the jungles to see what they do for a living. How they haunt for food, how they make traps for animals, various rituals etc. will be included.`,
+    imageId: 'experience-shooting',
+    category: 'HERITAGE',
+    galleryImages: [
+      '/experiences/5/ttd_vv_1.jpg',
+      '/experiences/5/ttd_vv_13.jpg',
+      '/experiences/5/ttd_vv_2.jpg',
+      '/experiences/5/ttd_vv_6.jpg',
+      '/experiences/5/ttd_vv_9.jpg',
+    ]
+  },
+  {
+    id: 'knuckles-trek',
+    title: 'Trek to the Knuckles Mountain Range',
+    description: `With an overnight camp (optional).\nKnuckles Mountain Range received its UNESCO World Heritage Site Inscription in 2010, and is a popular eco-tourism venue. It has also been declared as a conservation area, and known as the Knuckles National Heritage and Wilderness area. This is a "must visit" location for nature lovers and the adventurous tourist.`,
+    imageId: 'accommodation-1',
+    category: 'ADVENTURE',
+    galleryImages: [
+      '/experiences/6/ttd_tkmr_1.jpg',
+      '/experiences/6/ttd_tkmr_10.jpg',
+      '/experiences/6/ttd_tkmr_5.jpg',
+      '/experiences/6/ttd_tkmr_6.jpg',
+      '/experiences/6/ttd_tkmr_8.jpg',
+    ]
+  },
+  {
+    id: 'meemure-trek',
+    title: 'Trek to the Meemure Village',
+    description: `With an overnight camp (optional).\nMeemure is one of the most remote villages in Sri Lanka with the only access of about a 14 kilometer trail from its ajacent village called Loolwatte. The village is renowned for its scenic beauty and beautiful waterways. The residents depend on a number of staple crops as their income and mode of existence. A day trip will include all the beautiful locations found in the village. The more adventurous visitor can opt for an overnight camp at this picturesque village in the mountains, amidst lush greenery and maybe beside the calm river that winds its way along the village and down the mountain slopes.`,
+    imageId: 'experience-atv',
+    category: 'ADVENTURE',
+    galleryImages: [
+      '/experiences/7/ttd_tmv_11.jpg',
+      '/experiences/7/ttd_tmv_4.jpg',
+      '/experiences/7/ttd_tmv_6.jpg',
+      '/experiences/7/ttd_tmv_8.jpg',
+      '/experiences/7/ttd_tmv_9.jpg',
+    ]
+  },
+  {
+    id: 'madaram-nuwara',
+    title: 'Visit the Village of Madaram Nuwara',
+    description: `Madaram Nuwara is a small village situated at the foot of the Pidurutalagala Mountain. It's a hidden gem in Sri Lanka, surrounded by lush green mountains and misty landscapes. The village is famous for its waterfalls and agriculture, primarily tea and vegetables. Exploring Madaram Nuwara offers a peaceful escape and a chance to experience the authentic rural life of the Sri Lankan hill country.`,
+    imageId: 'experience-hike',
+    category: 'CULTURAL',
+    galleryImages: [
+      '/experiences/8/ttd_vmn_1.jpg',
+      '/experiences/8/ttd_vmn_3.jpg',
+      '/experiences/8/ttd_vmn_4.jpg',
+      '/experiences/8/ttd_vmn_7.jpg',
+      '/experiences/8/ttd_vmn_8.jpg',
+    ]
+  },
+  {
+    id: 'cultural-dance',
+    title: 'Cultural Dance with a Special Cause',
+    description: `Oruthota Chalets offers this activity with pride. This dance is performed by students and their Dance Master from a local school in the neighborhood. These children have no opportunity to show their talents, as they cannot compete with those who hold the monopoly of this art in the bigger cities.`,
+    imageId: 'accommodation-2',
+    category: 'CULTURAL',
+    galleryImages: [
+      '/experiences/9/ttd_cd_1.jpg',
+      '/experiences/9/ttd_cd_10.jpg',
+      '/experiences/9/ttd_cd_11.jpg',
+      '/experiences/9/ttd_cd_15.jpg',
+      '/experiences/9/ttd_cd_5.jpg',
+    ]
+  },
+];

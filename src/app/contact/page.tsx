@@ -88,7 +88,7 @@ export default function ContactPage() {
                                         icon: Phone,
                                         title: "Phone",
                                         detail: "+94 81 2 375 396",
-                                        link: "tel:+94812375396"
+                                        link: "tel:+94776347922"
                                     },
                                     {
                                         icon: Mail,

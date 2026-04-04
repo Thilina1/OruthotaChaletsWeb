@@ -231,6 +231,33 @@ function BookingsListComponent() {
                           </Button>
                         </Link>
                       </div>
+
+                      {/* Partner Booking Logos */}
+                      <div className="pt-8 flex flex-col items-center gap-4">
+                        <p className="text-[10px] tracking-[0.2em] font-bold text-muted-foreground uppercase">Also Bookable Via</p>
+                        <div className="flex items-center gap-6 opacity-70 hover:opacity-100 transition-opacity">
+                          <a 
+                            href="https://www.booking.com/hotel/lk/oruthota-chalets.en-gb.html" 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className="grayscale hover:grayscale-0 transition-all hover:scale-110"
+                          >
+                            <div className="relative w-24 h-6">
+                              <Image src="/booking-logo.svg" alt="Booking.com" fill className="object-contain" />
+                            </div>
+                          </a>
+                          <a 
+                            href="https://www.agoda.com/oruthota-chalets/hotel/kandy-lk.html" 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className="grayscale hover:grayscale-0 transition-all hover:scale-110"
+                          >
+                            <div className="relative w-20 h-6">
+                              <Image src="/color-default.svg" alt="Agoda" fill className="object-contain" />
+                            </div>
+                          </a>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

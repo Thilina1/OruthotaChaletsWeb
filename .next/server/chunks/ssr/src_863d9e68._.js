@@ -2059,58 +2059,63 @@ function ExperiencesPage() {
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                             className: "w-full lg:w-1/2 relative group perspective-1000",
-                                            children: [
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                    className: "relative aspect-[4/3] w-full overflow-hidden rounded-2xl shadow-2xl transform transition-transform duration-500 group-hover:rotate-1",
-                                                    children: [
-                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
-                                                            src: imageUrl,
-                                                            alt: experience.title,
-                                                            fill: true,
-                                                            className: "object-cover transition-transform duration-700 group-hover:scale-110"
+                                            children: experience.galleryImages && experience.galleryImages.length > 0 ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(ExperienceGallery, {
+                                                images: experience.galleryImages,
+                                                alt: experience.title
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/app/experiences/page.tsx",
+                                                lineNumber: 170,
+                                                columnNumber: 23
+                                            }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                className: "relative aspect-[4/3] w-full overflow-hidden rounded-2xl shadow-2xl transform transition-transform duration-500 group-hover:rotate-1",
+                                                children: [
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
+                                                        src: imageUrl,
+                                                        alt: experience.title,
+                                                        fill: true,
+                                                        className: "object-cover transition-transform duration-700 group-hover:scale-110"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/src/app/experiences/page.tsx",
+                                                        lineNumber: 173,
+                                                        columnNumber: 25
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                        className: "absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-500"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/src/app/experiences/page.tsx",
+                                                        lineNumber: 179,
+                                                        columnNumber: 25
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                        className: "absolute top-6 left-6",
+                                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$badge$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Badge"], {
+                                                            variant: "secondary",
+                                                            className: "bg-white/95 text-foreground px-4 py-1.5 text-xs tracking-widest font-bold shadow-lg backdrop-blur-md uppercase",
+                                                            children: experience.category
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/experiences/page.tsx",
-                                                            lineNumber: 170,
-                                                            columnNumber: 23
-                                                        }, this),
-                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                            className: "absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-500"
-                                                        }, void 0, false, {
-                                                            fileName: "[project]/src/app/experiences/page.tsx",
-                                                            lineNumber: 176,
-                                                            columnNumber: 23
-                                                        }, this),
-                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                            className: "absolute top-6 left-6",
-                                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$badge$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Badge"], {
-                                                                variant: "secondary",
-                                                                className: "bg-white/95 text-foreground px-4 py-1.5 text-xs tracking-widest font-bold shadow-lg backdrop-blur-md uppercase",
-                                                                children: experience.category
-                                                            }, void 0, false, {
-                                                                fileName: "[project]/src/app/experiences/page.tsx",
-                                                                lineNumber: 178,
-                                                                columnNumber: 25
-                                                            }, this)
-                                                        }, void 0, false, {
-                                                            fileName: "[project]/src/app/experiences/page.tsx",
-                                                            lineNumber: 177,
-                                                            columnNumber: 23
+                                                            lineNumber: 181,
+                                                            columnNumber: 27
                                                         }, this)
-                                                    ]
-                                                }, void 0, true, {
-                                                    fileName: "[project]/src/app/experiences/page.tsx",
-                                                    lineNumber: 169,
-                                                    columnNumber: 21
-                                                }, this),
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                    className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["cn"])("absolute -bottom-6 -z-10 w-full h-full rounded-2xl border border-primary/20 bg-primary/5 transition-transform duration-500 group-hover:translate-x-2 group-hover:translate-y-2", isEven ? "-right-6" : "-left-6")
-                                                }, void 0, false, {
-                                                    fileName: "[project]/src/app/experiences/page.tsx",
-                                                    lineNumber: 184,
-                                                    columnNumber: 21
-                                                }, this)
-                                            ]
-                                        }, void 0, true, {
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/src/app/experiences/page.tsx",
+                                                        lineNumber: 180,
+                                                        columnNumber: 25
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                        className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["cn"])("absolute -bottom-6 -z-10 w-full h-full rounded-2xl border border-primary/20 bg-primary/5 transition-transform duration-500 group-hover:translate-x-2 group-hover:translate-y-2", isEven ? "-right-6" : "-left-6")
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/src/app/experiences/page.tsx",
+                                                        lineNumber: 186,
+                                                        columnNumber: 25
+                                                    }, this)
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/src/app/experiences/page.tsx",
+                                                lineNumber: 172,
+                                                columnNumber: 23
+                                            }, this)
+                                        }, void 0, false, {
                                             fileName: "[project]/src/app/experiences/page.tsx",
                                             lineNumber: 168,
                                             columnNumber: 19
@@ -2123,7 +2128,7 @@ function ExperiencesPage() {
                                                     children: experience.title
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/experiences/page.tsx",
-                                                    lineNumber: 192,
+                                                    lineNumber: 196,
                                                     columnNumber: 21
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2133,12 +2138,12 @@ function ExperiencesPage() {
                                                         children: experience.description
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/experiences/page.tsx",
-                                                        lineNumber: 197,
+                                                        lineNumber: 201,
                                                         columnNumber: 23
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/experiences/page.tsx",
-                                                    lineNumber: 196,
+                                                    lineNumber: 200,
                                                     columnNumber: 21
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
@@ -2151,19 +2156,19 @@ function ExperiencesPage() {
                                                             className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["cn"])("w-4 h-4 transition-transform duration-300", !isExpanded && "group-hover/btn:translate-x-1", isExpanded && "rotate-180")
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/experiences/page.tsx",
-                                                            lineNumber: 211,
+                                                            lineNumber: 215,
                                                             columnNumber: 23
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/app/experiences/page.tsx",
-                                                    lineNumber: 205,
+                                                    lineNumber: 209,
                                                     columnNumber: 21
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/app/experiences/page.tsx",
-                                            lineNumber: 191,
+                                            lineNumber: 195,
                                             columnNumber: 19
                                         }, this)
                                     ]
@@ -2187,14 +2192,14 @@ function ExperiencesPage() {
                                         className: "absolute -top-24 -left-24 w-64 h-64 bg-primary/5 rounded-full blur-3xl"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/experiences/page.tsx",
-                                        lineNumber: 226,
+                                        lineNumber: 230,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                         className: "absolute -bottom-24 -right-24 w-64 h-64 bg-primary/10 rounded-full blur-3xl"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/experiences/page.tsx",
-                                        lineNumber: 227,
+                                        lineNumber: 231,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2205,7 +2210,7 @@ function ExperiencesPage() {
                                                 children: "Ready for an Adventure?"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/experiences/page.tsx",
-                                                lineNumber: 230,
+                                                lineNumber: 234,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2213,7 +2218,7 @@ function ExperiencesPage() {
                                                 children: "Contact us to arrange any of these experiences during your stay. We're happy to customize activities to your preferences."
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/experiences/page.tsx",
-                                                lineNumber: 231,
+                                                lineNumber: 235,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
@@ -2227,35 +2232,35 @@ function ExperiencesPage() {
                                                             className: "w-4 h-4 ml-2 animate-spin-slow"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/experiences/page.tsx",
-                                                            lineNumber: 236,
+                                                            lineNumber: 240,
                                                             columnNumber: 33
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/app/experiences/page.tsx",
-                                                    lineNumber: 235,
+                                                    lineNumber: 239,
                                                     columnNumber: 19
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/experiences/page.tsx",
-                                                lineNumber: 234,
+                                                lineNumber: 238,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/experiences/page.tsx",
-                                        lineNumber: 229,
+                                        lineNumber: 233,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/experiences/page.tsx",
-                                lineNumber: 224,
+                                lineNumber: 228,
                                 columnNumber: 13
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/src/app/experiences/page.tsx",
-                            lineNumber: 223,
+                            lineNumber: 227,
                             columnNumber: 11
                         }, this)
                     ]

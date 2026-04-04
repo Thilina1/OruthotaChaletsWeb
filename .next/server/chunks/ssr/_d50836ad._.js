@@ -490,7 +490,7 @@ function RootLayout({ children }) {
                                     latitude: 7.3157,
                                     longitude: 80.7444
                                 },
-                                telephone: '+94812375396',
+                                telephone: '+94776347922',
                                 email: 'inquiries@oruthotachalets.com',
                                 url: 'https://oruthotachalets.com',
                                 priceRange: '$$$'

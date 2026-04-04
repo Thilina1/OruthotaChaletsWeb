@@ -73,7 +73,7 @@ export function ConciergeDesk() {
                     <div className="space-y-4">
                         {/* WhatsApp */}
                         <a
-                            href="https://wa.me/94812375396"
+                            href="https://wa.me/94776347922"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="group flex items-center gap-6 p-6 rounded-2xl bg-white/5 border border-white/5 hover:bg-white/10 hover:border-[#25D366]/30 transition-all duration-300"
@@ -103,7 +103,7 @@ export function ConciergeDesk() {
 
                         {/* Phone */}
                         <a
-                            href="tel:+94812375396"
+                            href="tel:+94776347922"
                             className="group flex items-center gap-6 p-6 rounded-2xl bg-white/5 border border-white/5 hover:bg-white/10 hover:border-[#DDA15E]/30 transition-all duration-300"
                         >
                             <div className="w-14 h-14 rounded-xl bg-[#FEFAE0]/5 flex items-center justify-center group-hover:bg-[#DDA15E]/20 transition-colors">
@@ -111,7 +111,7 @@ export function ConciergeDesk() {
                             </div>
                             <div className="flex flex-col">
                                 <span className="text-lg font-medium font-body tracking-wide text-[#FEFAE0]">Direct Protocol</span>
-                                <span className="text-xs text-[#FEFAE0]/60 font-body">+94 81 2 375 396</span>
+                                <span className="text-xs text-[#FEFAE0]/60 font-body">+94 77 634 7922</span>
                             </div>
                         </a>
                     </div>

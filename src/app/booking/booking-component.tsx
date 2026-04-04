@@ -13,7 +13,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
-import { Calendar as CalendarIcon } from 'lucide-react';
+import { Calendar as CalendarIcon, Star } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { supabase } from '@/lib/supabase';
 
@@ -220,6 +220,49 @@ export default function BookingPageComponent() {
                   <span className="font-bold text-foreground">Total cost</span>
                   <span className="font-bold text-primary">${totalCost.toFixed(2)}</span>
                 </div>
+              </CardContent>
+            </Card>
+
+            {/* Partner Booking Options */}
+            <Card className="mt-8 border-dashed border-2 hover:bg-white/40 transition-colors">
+              <CardHeader className="pb-4">
+                <CardTitle className="text-lg font-headline text-[#283618]">Also Available On</CardTitle>
+                <CardDescription className="text-xs">Prefer your favorite booking platform?</CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-6">
+                <a 
+                  href="https://www.booking.com/hotel/lk/oruthota-chalets.en-gb.html" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-between p-4 rounded-xl border border-stone-100 bg-white shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all group"
+                >
+                  <div className="relative w-28 h-8">
+                    <Image src="/booking-logo.svg" alt="Booking.com" fill className="object-contain" />
+                  </div>
+                  <div className="flex flex-col items-end">
+                    <div className="bg-[#003580] text-white px-2 py-0.5 rounded text-[10px] font-bold">9.1</div>
+                    <span className="text-[10px] text-muted-foreground mt-1 uppercase tracking-tighter">Superb</span>
+                  </div>
+                </a>
+
+                <a 
+                  href="https://www.agoda.com/oruthota-chalets/hotel/kandy-lk.html" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-between p-4 rounded-xl border border-stone-100 bg-white shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all group"
+                >
+                  <div className="relative w-24 h-8">
+                    <Image src="/color-default.svg" alt="Agoda" fill className="object-contain" />
+                  </div>
+                  <div className="flex flex-col items-end">
+                    <div className="flex gap-0.5">
+                      {[...Array(5)].map((_, i) => (
+                        <Star key={i} className="w-2.5 h-2.5 text-yellow-400 fill-yellow-400" />
+                      ))}
+                    </div>
+                    <span className="text-[10px] text-muted-foreground mt-1 uppercase tracking-tighter">Top Rated</span>
+                  </div>
+                </a>
               </CardContent>
             </Card>
           </div>

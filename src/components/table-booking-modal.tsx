@@ -188,7 +188,7 @@ export function TableBookingModal({ open, onClose }: TableBookingModalProps) {
             {/* Note */}
             <p className="text-xs text-muted-foreground bg-stone-50 rounded-xl p-4 leading-relaxed">
               📱 You may also reach our reservations team via{' '}
-              <a href="https://wa.me/94812375396" target="_blank" rel="noopener noreferrer" className="text-[#25D366] font-semibold hover:underline">
+              <a href="https://wa.me/94776347922" target="_blank" rel="noopener noreferrer" className="text-[#25D366] font-semibold hover:underline">
                 WhatsApp
               </a>{' '}
               for instant confirmation.

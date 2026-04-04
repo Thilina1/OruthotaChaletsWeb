@@ -3,6 +3,7 @@ import { useRef, useState } from 'react';
 import Image from 'next/image';
 import Autoplay from 'embla-carousel-autoplay';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
+import { STATIC_EXPERIENCES } from '@/data/experiences';
 import { BookingForm } from '@/components/booking-form';
 import { Button } from '@/components/ui/button';
 import { Utensils, BedDouble, MountainSnow, Map, Tag, Bed, Building2, RefreshCw, Star, ArrowRight, MapPin, ChevronLeft, ChevronRight, Quote, User, Download } from 'lucide-react';
@@ -324,25 +325,28 @@ export default function Home() {
             </p>
           </div>
           <div className="flex flex-wrap justify-center gap-8">
-            {experiencesLoading && <p className="col-span-3 text-center">Loading experiences...</p>}
-            {!experiencesLoading && (!experiences || experiences.length === 0) && (
-              <p className="col-span-3 text-center text-muted-foreground">Experiences coming soon.</p>
-            )}
-            {experiences?.slice(0, 3).map((experience) => {
+            {STATIC_EXPERIENCES.filter(exp => 
+              ['culinary-tourism', 'knuckles-trek', 'rural-activities'].includes(exp.id)
+            ).map((experience) => {
+              const imageUrl = experience.galleryImages?.[0] || PlaceHolderImages.find(p => p.id === experience.imageId)?.imageUrl || '/placeholder.svg';
               return (
-                <div key={experience.id} className="text-center w-full md:w-[30%] min-w-[300px]">
-                  {experience.imageUrl && (
-                    <div className="relative h-96 mb-6">
-                      <Image
-                        src={experience.imageUrl}
-                        alt={experience.title}
-                        fill
-                        className="object-cover"
-                      />
+                <div key={experience.id} className="group text-center w-full md:w-[30%] min-w-[300px]">
+                  <div className="relative h-96 mb-8 overflow-hidden rounded-2xl shadow-xl transform transition-all duration-500 group-hover:shadow-2xl group-hover:-translate-y-2">
+                    <Image
+                      src={imageUrl}
+                      alt={experience.title}
+                      fill
+                      className="object-cover transition-transform duration-700 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    <div className="absolute bottom-6 left-0 right-0 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
+                      <Link href="/experiences" className="inline-flex items-center text-white font-bold tracking-widest text-xs uppercase">
+                        Explore More <ArrowRight className="w-4 h-4 ml-2" />
+                      </Link>
                     </div>
-                  )}
-                  <h3 className="font-headline text-2xl text-foreground mb-2">{experience.title}</h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed px-4">
+                  </div>
+                  <h3 className="font-headline text-2xl text-foreground mb-3 transition-colors group-hover:text-primary">{experience.title}</h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed px-4 line-clamp-3">
                     {experience.description}
                   </p>
                 </div>
@@ -610,6 +614,116 @@ export default function Home() {
                           <span className="text-[#1A237E] font-bold text-sm">Excellent</span>
                         </div>
                         <span className="text-stone-400 text-[9px] font-bold tracking-widest uppercase">Highly Recommended on Google</span>
+                      </div>
+                    </div>
+                  </div>
+                </CarouselItem>
+
+                {/* Booking.com Card */}
+                <CarouselItem className="pl-4 md:pl-8 basis-full lg:basis-1/2">
+                  <div className="bg-[#E7F2F9]/40 rounded-[2rem] p-6 md:p-10 text-center border border-[#003580]/10 shadow-[0_15px_40px_rgba(0,53,128,0.05)] relative group overflow-hidden flex flex-col justify-between h-full min-h-[400px]">
+                    {/* Decorative background logo */}
+                    <div className="absolute -right-10 -bottom-10 opacity-[0.03] group-hover:scale-110 group-hover:-rotate-12 transition-all duration-700 pointer-events-none">
+                      <Image src="/booking-logo.svg" alt="" width={200} height={200} className="object-contain grayscale" />
+                    </div>
+
+                    <div className="relative z-10 space-y-6">
+                      <div className="flex justify-center">
+                        <div className="relative w-[150px] h-[35px] transition-transform duration-300 hover:scale-110">
+                          <Image 
+                            src="/booking-logo.svg" 
+                            alt="Booking.com" 
+                            fill 
+                            className="object-contain" 
+                          />
+                        </div>
+                      </div>
+
+                      <div className="space-y-3">
+                        <h2 className="font-headline text-2xl md:text-3xl text-[#003580]">Trusted by Travelers</h2>
+                        <p className="text-muted-foreground text-md leading-relaxed">
+                          We are proud to be highly rated on Booking.com. See what our global guests are saying about their stay.
+                        </p>
+                      </div>
+
+                      <div className="pt-2">
+                        <Link 
+                          href="https://www.booking.com/hotel/lk/oruthota-chalets.en-gb.html" 
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <Button className="bg-[#003580] text-white hover:bg-[#00224D] rounded-full px-8 h-12 text-sm font-bold tracking-widest uppercase shadow-lg hover:shadow-xl transition-all hover:-translate-y-1 active:scale-95 group/btn">
+                            View Reviews 
+                            <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
+                          </Button>
+                        </Link>
+                      </div>
+
+                      <div className="pt-4 flex flex-col items-center gap-2">
+                        <div className="flex items-center gap-2">
+                            <div className="bg-[#003580] text-white px-2 py-1 rounded-md font-bold text-lg">9.1</div>
+                            <div className="flex flex-col items-start leading-none">
+                                <span className="text-[#003580] font-bold text-sm">Superb</span>
+                                <span className="text-stone-400 text-[9px] font-bold tracking-widest uppercase mt-0.5">Recommended on Booking.com</span>
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </CarouselItem>
+
+                {/* Agoda Card */}
+                <CarouselItem className="pl-4 md:pl-8 basis-full lg:basis-1/2">
+                  <div className="bg-[#FFF9E6]/40 rounded-[2rem] p-6 md:p-10 text-center border border-[#FCB716]/10 shadow-[0_15px_40px_rgba(252,183,22,0.05)] relative group overflow-hidden flex flex-col justify-between h-full min-h-[400px]">
+                    {/* Decorative background logo */}
+                    <div className="absolute -right-10 -bottom-10 opacity-[0.03] group-hover:scale-110 group-hover:-rotate-12 transition-all duration-700 pointer-events-none">
+                      <Image src="/color-default.svg" alt="" width={200} height={200} className="object-contain grayscale" />
+                    </div>
+
+                    <div className="relative z-10 space-y-6">
+                      <div className="flex justify-center">
+                        <div className="relative w-[120px] h-[35px] transition-transform duration-300 hover:scale-110">
+                          <Image 
+                            src="/color-default.svg" 
+                            alt="Agoda" 
+                            fill 
+                            className="object-contain" 
+                          />
+                        </div>
+                      </div>
+
+                      <div className="space-y-3">
+                        <h2 className="font-headline text-2xl md:text-3xl text-[#283618]">Top Rated on Agoda</h2>
+                        <p className="text-muted-foreground text-md leading-relaxed">
+                          Join thousands of travelers who have chosen Oruthota Chalets as their preferred destination on Agoda.
+                        </p>
+                      </div>
+
+                      <div className="pt-2">
+                        <Link 
+                          href="https://www.agoda.com/oruthota-chalets/hotel/kandy-lk.html" 
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <Button className="bg-[#FF5A5F] text-white hover:bg-[#D32F2F] rounded-full px-8 h-12 text-sm font-bold tracking-widest uppercase shadow-lg hover:shadow-xl transition-all hover:-translate-y-1 active:scale-95 group/btn">
+                             Check Agoda Reviews 
+                            <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
+                          </Button>
+                        </Link>
+                      </div>
+
+                      <div className="pt-4 flex flex-col items-center gap-2">
+                        <div className="flex items-center gap-2">
+                          <div className="flex gap-1">
+                            {[...Array(5)].map((_, i) => (
+                              <div key={i} className="w-4 h-4 rounded-full bg-[#FCB716] flex items-center justify-center">
+                                <Star className="h-2 w-2 text-white fill-current" />
+                              </div>
+                            ))}
+                          </div>
+                          <span className="text-[#283618] font-bold text-sm">Outstanding</span>
+                        </div>
+                        <span className="text-stone-400 text-[9px] font-bold tracking-widest uppercase">Verified on Agoda</span>
                       </div>
                     </div>
                   </div>

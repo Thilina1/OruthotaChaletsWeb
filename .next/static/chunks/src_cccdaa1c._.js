@@ -2518,6 +2518,86 @@ function BookingsListComponent() {
                                                         fileName: "[project]/src/app/bookings/page.tsx",
                                                         lineNumber: 203,
                                                         columnNumber: 23
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                        className: "pt-8 flex flex-col items-center gap-4",
+                                                        children: [
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                                className: "text-[10px] tracking-[0.2em] font-bold text-muted-foreground uppercase",
+                                                                children: "Also Bookable Via"
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/src/app/bookings/page.tsx",
+                                                                lineNumber: 237,
+                                                                columnNumber: 25
+                                                            }, this),
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                className: "flex items-center gap-6 opacity-70 hover:opacity-100 transition-opacity",
+                                                                children: [
+                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
+                                                                        href: "https://www.booking.com/hotel/lk/oruthota-chalets.en-gb.html",
+                                                                        target: "_blank",
+                                                                        rel: "noopener noreferrer",
+                                                                        className: "grayscale hover:grayscale-0 transition-all hover:scale-110",
+                                                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                            className: "relative w-24 h-6",
+                                                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
+                                                                                src: "/booking-logo.svg",
+                                                                                alt: "Booking.com",
+                                                                                fill: true,
+                                                                                className: "object-contain"
+                                                                            }, void 0, false, {
+                                                                                fileName: "[project]/src/app/bookings/page.tsx",
+                                                                                lineNumber: 246,
+                                                                                columnNumber: 31
+                                                                            }, this)
+                                                                        }, void 0, false, {
+                                                                            fileName: "[project]/src/app/bookings/page.tsx",
+                                                                            lineNumber: 245,
+                                                                            columnNumber: 29
+                                                                        }, this)
+                                                                    }, void 0, false, {
+                                                                        fileName: "[project]/src/app/bookings/page.tsx",
+                                                                        lineNumber: 239,
+                                                                        columnNumber: 27
+                                                                    }, this),
+                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
+                                                                        href: "https://www.agoda.com/oruthota-chalets/hotel/kandy-lk.html",
+                                                                        target: "_blank",
+                                                                        rel: "noopener noreferrer",
+                                                                        className: "grayscale hover:grayscale-0 transition-all hover:scale-110",
+                                                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                            className: "relative w-20 h-6",
+                                                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
+                                                                                src: "/color-default.svg",
+                                                                                alt: "Agoda",
+                                                                                fill: true,
+                                                                                className: "object-contain"
+                                                                            }, void 0, false, {
+                                                                                fileName: "[project]/src/app/bookings/page.tsx",
+                                                                                lineNumber: 256,
+                                                                                columnNumber: 31
+                                                                            }, this)
+                                                                        }, void 0, false, {
+                                                                            fileName: "[project]/src/app/bookings/page.tsx",
+                                                                            lineNumber: 255,
+                                                                            columnNumber: 29
+                                                                        }, this)
+                                                                    }, void 0, false, {
+                                                                        fileName: "[project]/src/app/bookings/page.tsx",
+                                                                        lineNumber: 249,
+                                                                        columnNumber: 27
+                                                                    }, this)
+                                                                ]
+                                                            }, void 0, true, {
+                                                                fileName: "[project]/src/app/bookings/page.tsx",
+                                                                lineNumber: 238,
+                                                                columnNumber: 25
+                                                            }, this)
+                                                        ]
+                                                    }, void 0, true, {
+                                                        fileName: "[project]/src/app/bookings/page.tsx",
+                                                        lineNumber: 236,
+                                                        columnNumber: 23
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
@@ -2575,17 +2655,17 @@ function BookingsPage() {
             children: "Loading..."
         }, void 0, false, {
             fileName: "[project]/src/app/bookings/page.tsx",
-            lineNumber: 249,
+            lineNumber: 276,
             columnNumber: 25
         }, void 0),
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(BookingsListComponent, {}, void 0, false, {
             fileName: "[project]/src/app/bookings/page.tsx",
-            lineNumber: 250,
+            lineNumber: 277,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/src/app/bookings/page.tsx",
-        lineNumber: 249,
+        lineNumber: 276,
         columnNumber: 5
     }, this);
 }
