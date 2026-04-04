@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Separator } from '@/components/ui/separator';
-import { Facebook, Instagram, Youtube, Twitter, MapPin, Mail, Phone, ArrowRight } from 'lucide-react';
+import { Facebook, Instagram, MapPin, Mail, Phone, ArrowRight } from 'lucide-react';
 import { usePathname } from 'next/navigation';
 
 const footerNav = [
@@ -24,6 +24,12 @@ const footerNavRight = [
   { name: 'Reviews', href: '/reviews' },
   { name: 'Sustainability', href: '/sustainability' },
 ]
+
+const TikTokIcon = (props: React.SVGProps<SVGSVGElement>) => (
+  <svg {...props} viewBox="0 0 24 24" fill="currentColor">
+    <path d="M12.53.02C13.84 0 15.14.01 16.44 0c.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.03 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.59-5.71-.29-2.63.85-5.21 2.87-6.9 1.47-1.21 3.39-1.84 5.3-1.74v4.02c-1.22-.06-2.45.36-3.33 1.25-.97.94-1.38 2.37-1.05 3.68.32 1.48 1.62 2.65 3.12 2.8 1.2.14 2.44-.24 3.34-1.03.74-.7 1.11-1.74 1.09-2.74-.01-4.8.01-9.6-.01-14.4z" />
+  </svg>
+);
 
 export function Footer() {
   const pathname = usePathname();
@@ -101,10 +107,7 @@ export function Footer() {
                 <Instagram className="h-5 w-5" />
               </Button>
               <Button variant="outline" size="icon" className="rounded-full border-white/30 bg-background text-[#283618] hover:bg-white hover:text-[#606C38]">
-                <Twitter className="h-5 w-5" />
-              </Button>
-              <Button variant="outline" size="icon" className="rounded-full border-white/30 bg-background text-[#283618] hover:bg-white hover:text-[#606C38]">
-                <Youtube className="h-5 w-5" />
+                <TikTokIcon className="h-5 w-5" />
               </Button>
             </div>
             <Link 

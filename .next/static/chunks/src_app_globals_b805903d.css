@@ -2447,6 +2447,11 @@ body {
   background-color: rgb(245 245 244 / var(--tw-bg-opacity, 1));
 }
 
+.bg-gray-200 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(229 231 235 / var(--tw-bg-opacity, 1));
+}
+
 .bg-\[url\(\'\/noise\.png\'\)\] {
   background-image: url("/noise.png");
 }
@@ -3827,6 +3832,10 @@ body {
 
 .hover\:border-primary\/30:hover {
   border-color: hsl(var(--primary) / .3);
+}
+
+.hover\:border-primary:hover {
+  border-color: hsl(var(--primary));
 }
 
 .hover\:bg-\[\#0D47A1\]:hover {

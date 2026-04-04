@@ -13,9 +13,9 @@ import { cn } from '@/lib/utils';
 
 const MEAL_TYPES = [
   { label: 'Breakfast', time: '07:30 AM – 10:00 AM', icon: '🌅' },
-  { label: 'Lunch',     time: '12:30 PM – 03:00 PM', icon: '☀️' },
-  { label: 'High Tea',  time: '03:00 PM – 05:00 PM', icon: '🍵' },
-  { label: 'Dinner',    time: '07:30 PM – 10:30 PM', icon: '🌙' },
+  { label: 'Lunch', time: '12:30 PM – 03:00 PM', icon: '☀️' },
+  { label: 'High Tea', time: '03:00 PM – 05:00 PM', icon: '🍵' },
+  { label: 'Dinner', time: '07:30 PM – 10:30 PM', icon: '🌙' },
 ];
 
 interface TableBookingModalProps {
@@ -40,16 +40,16 @@ export function TableBookingModal({ open, onClose }: TableBookingModalProps) {
 
     const formData = new FormData(e.currentTarget);
     const data: Record<string, any> = {
-      name:      formData.get('name')   as string,
-      email:     formData.get('email')  as string,
-      date:      formData.get('date')   as string,
+      name: formData.get('name') as string,
+      email: formData.get('email') as string,
+      date: formData.get('date') as string,
       meal_type: selectedMeal,
-      guests:    parseInt(formData.get('guests') as string, 10) || 2,
+      guests: parseInt(formData.get('guests') as string, 10) || 2,
     };
 
-    const phone    = formData.get('phone')    as string;
+    const phone = formData.get('phone') as string;
     const comments = formData.get('comments') as string;
-    if (phone)    data.phone    = phone;
+    if (phone) data.phone = phone;
     if (comments) data.comments = comments;
 
     try {
@@ -78,7 +78,7 @@ export function TableBookingModal({ open, onClose }: TableBookingModalProps) {
   return (
     <Dialog open={open} onOpenChange={onClose}>
       <DialogContent className="max-w-2xl w-full p-0 overflow-hidden rounded-2xl border-0 shadow-2xl bg-white">
-        <DialogTitle className="sr-only">Book a Buffet – 360 by Oruthota Chalets</DialogTitle>
+        <DialogTitle className="sr-only">Book a Buffet – in Oruthota Chalets</DialogTitle>
 
         <div className="flex flex-col max-h-[92vh] overflow-y-auto">
           {/* Header */}
@@ -92,7 +92,7 @@ export function TableBookingModal({ open, onClose }: TableBookingModalProps) {
             </button>
             <div className="flex items-center gap-3 mb-3">
               <Utensils className="w-5 h-5 text-[#DDA15E]" />
-              <span className="text-xs tracking-[0.25em] text-[#DDA15E] font-bold uppercase">360 by Oruthota Chalets</span>
+              <span className="text-xs tracking-[0.25em] text-[#DDA15E] font-bold uppercase">Oruthota Chalets</span>
             </div>
             <h2 className="font-headline text-3xl md:text-4xl text-white">Book a Buffet</h2>
             <p className="text-white/70 mt-2 text-sm leading-relaxed">

@@ -6,13 +6,19 @@ import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { STATIC_EXPERIENCES } from '@/data/experiences';
 import { BookingForm } from '@/components/booking-form';
 import { Button } from '@/components/ui/button';
-import { Utensils, BedDouble, MountainSnow, Map, Tag, Bed, Building2, RefreshCw, Star, ArrowRight, MapPin, ChevronLeft, ChevronRight, Quote, User, Download } from 'lucide-react';
+import { Utensils, BedDouble, MountainSnow, Map, Tag, Bed, Building2, RefreshCw, Star, ArrowRight, MapPin, ChevronLeft, ChevronRight, Quote, User, Download, Facebook, Instagram } from 'lucide-react';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import Link from 'next/link';
 import { useSupabaseCollection } from '@/hooks/use-supabase';
 import type { Room } from '@/types/room';
 import type { Experience } from '@/types/experience';
 import { RoomDetailsModal } from '@/components/room-details-modal';
+
+const TikTokIcon = (props: React.SVGProps<SVGSVGElement>) => (
+  <svg {...props} viewBox="0 0 24 24" fill="currentColor">
+    <path d="M12.53.02C13.84 0 15.14.01 16.44 0c.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.03 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.59-5.71-.29-2.63.85-5.21 2.87-6.9 1.47-1.21 3.39-1.84 5.3-1.74v4.02c-1.22-.06-2.45.36-3.33 1.25-.97.94-1.38 2.37-1.05 3.68.32 1.48 1.62 2.65 3.12 2.8 1.2.14 2.44-.24 3.34-1.03.74-.7 1.11-1.74 1.09-2.74-.01-4.8.01-9.6-.01-14.4z" />
+  </svg>
+);
 
 const testimonials = [
   {
@@ -102,13 +108,35 @@ export default function Home() {
               Enjoy the perfect ambiance for a well-deserved, relaxed holiday in the Hill Country of Sri Lanka. Here is the ideal destination to unwind yourself from your busy lifestyle and enjoy the nature that surrounds Oruthota Chalets – a stay to be remembered always!!!!
             </p>
           </div>
-          <div className="mt-8">
+          <div className="mt-8 flex flex-col items-center gap-8">
             <Link href="https://www.google.com/maps/search/?api=1&query=Kandy" target="_blank" rel="noopener noreferrer">
-              <Button variant="outline" className="rounded-none border-primary text-primary hover:bg-primary hover:text-white">
-                <MapPin className="mr-2 h-4 w-4" />
-                Location on Map
+              <Button variant="outline" className="rounded-none border-primary text-primary hover:bg-primary hover:text-white px-8 py-6 text-sm tracking-[0.2em] font-medium transition-all duration-300">
+                <MapPin className="mr-3 h-5 w-5" />
+                LOCATION ON MAP
               </Button>
             </Link>
+
+            <div className="flex items-center gap-6">
+              <div className="h-px w-12 bg-gray-200"></div>
+              <div className="flex gap-4">
+                <Link href="https://www.facebook.com/oruthotachalets/" target="_blank" rel="noopener noreferrer" title="Follow us on Facebook">
+                  <Button variant="ghost" size="icon" className="rounded-full text-primary hover:text-white hover:bg-primary transition-all duration-300 hover:scale-110 shadow-sm border border-transparent hover:border-primary">
+                    <Facebook className="h-5 w-5" />
+                  </Button>
+                </Link>
+                <Link href="https://www.instagram.com/oruthotachalets/" target="_blank" rel="noopener noreferrer" title="Follow us on Instagram">
+                  <Button variant="ghost" size="icon" className="rounded-full text-primary hover:text-white hover:bg-primary transition-all duration-300 hover:scale-110 shadow-sm border border-transparent hover:border-primary">
+                    <Instagram className="h-5 w-5" />
+                  </Button>
+                </Link>
+                <Link href="https://www.tiktok.com/@oruthotachalets" target="_blank" rel="noopener noreferrer" title="Follow us on TikTok">
+                  <Button variant="ghost" size="icon" className="rounded-full text-primary hover:text-white hover:bg-primary transition-all duration-300 hover:scale-110 shadow-sm border border-transparent hover:border-primary">
+                    <TikTokIcon className="h-5 w-5" />
+                  </Button>
+                </Link>
+              </div>
+              <div className="h-px w-12 bg-gray-200"></div>
+            </div>
           </div>
         </div>
       </section>
@@ -444,7 +472,7 @@ export default function Home() {
               <CarouselContent className="-ml-4">
                 {testimonials.map((testimonial, index) => {
                   return (
-                    <CarouselItem key={testimonial.id} className="pl-4 md:basis-1/2">
+                    <CarouselItem key={testimonial.id} className="pl-4 md:basis-1/2 lg:basis-1/3">
                       <div className="h-full transform transition-all duration-500">
                         <div className="bg-white p-10 md:p-12 rounded-[2.5rem] shadow-[0_10px_50px_rgb(0,0,0,0.04)] border border-stone-100 flex flex-col items-center text-center gap-8 h-full relative overflow-hidden group hover:border-[#606C38]/30 transition-all">
                           <div className="absolute top-8 right-10 opacity-[0.03] group-hover:opacity-[0.08] transition-opacity duration-500">
