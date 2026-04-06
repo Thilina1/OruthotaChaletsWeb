@@ -88,6 +88,14 @@ export function Footer() {
                 <Phone className="h-5 w-5 mt-0.5 text-white/70" />
                 <a href="tel:+94776347922" className="hover:text-secondary transition-colors text-white/90">+94 77 634 7922</a>
               </li>
+              <li className="flex items-start gap-3">
+                <div className="h-5 w-5 mt-0.5 text-white/70">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
+                    <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21h.01c5.46 0 9.91-4.45 9.91-9.91s-4.45-9.91-9.91-9.91zM17.47 14.38c-.2-.1-1.17-.58-1.35-.65-.18-.07-.31-.1-.44.1-.13.2-.51.65-.63.78-.12.13-.24.15-.44.05-.2-.1-.85-.31-1.62-.99-.6-.54-1-1.2-1.12-1.4-.12-.2-.02-.31.08-.41.09-.09.2-.24.3-.36.1-.12.13-.2.2-.33.06-.13.03-.24-.01-.34-.05-.1-.44-1.06-.6-1.45-.16-.39-.32-.33-.44-.34h-.1c-.13 0-.26 0-.39.04-.13.04-.31.15-.47.31-.16.16-.62.61-.62 1.48 0 .87.64 1.72.73 1.85.09.13 1.25 1.91 3.03 2.66.42.18.75.28.99.36.43.14.83.12 1.14.07.35-.05 1.17-.48 1.33-.94.16-.46.16-.85.11-.94-.05-.09-.18-.14-.38-.24z" />
+                  </svg>
+                </div>
+                <a href="https://wa.me/94776347922" target="_blank" rel="noopener noreferrer" className="hover:text-secondary transition-colors text-white/90">+94 77 634 7922</a>
+              </li>
             </ul>
           </div>
 
@@ -100,7 +108,7 @@ export function Footer() {
               </Button>
             </div>
             <div className="flex gap-2 mt-4">
-              <Link href="https://www.facebook.com/oruthotachalets/" target="_blank" rel="noopener noreferrer">
+              <Link href="https://web.facebook.com/OruthotaChaletsKandy/?_rdc=1&_rdr#" target="_blank" rel="noopener noreferrer">
                 <Button variant="outline" size="icon" className="rounded-full border-white/30 bg-background text-[#283618] hover:bg-white hover:text-[#606C38]">
                   <Facebook className="h-5 w-5" />
                 </Button>

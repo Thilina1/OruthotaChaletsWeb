@@ -455,11 +455,11 @@ export default function Home() {
                 Guest Experiences
               </span>
             </div>
-            <h2 className="font-headline text-2xl md:text-3xl lg:text-4xl text-[#283618]">What Our Guests Say</h2>
-            <div className="w-24 h-1 bg-[#606C38]/20 mx-auto rounded-full" />
+            <h2 className="font-headline text-xl md:text-2xl lg:text-3xl text-[#283618]">What Our Guests Say</h2>
+            <div className="w-16 h-0.5 bg-[#606C38]/20 mx-auto rounded-full" />
           </div>
 
-          <div className="max-w-6xl mx-auto">
+          <div className="max-w-5xl mx-auto">
             <Carousel
               opts={{
                 align: "start",
@@ -479,25 +479,25 @@ export default function Home() {
                   return (
                     <CarouselItem key={testimonial.id} className="pl-4 md:basis-1/2 lg:basis-1/3">
                       <div className="h-full transform transition-all duration-500">
-                        <div className="bg-white p-6 md:p-8 rounded-[2.5rem] shadow-[0_10px_50px_rgb(0,0,0,0.04)] border border-stone-100 flex flex-col items-center text-center gap-4 h-full relative overflow-hidden group hover:border-[#606C38]/30 transition-all">
-                          <div className="absolute top-6 right-8 opacity-[0.03] group-hover:opacity-[0.08] transition-opacity duration-500">
-                            <Quote className="h-16 w-16 text-[#606C38] rotate-180" />
+                        <div className="bg-white p-5 md:p-6 rounded-[2rem] shadow-[0_10px_50px_rgb(0,0,0,0.04)] border border-stone-100 flex flex-col items-center text-center gap-3 h-full relative overflow-hidden group hover:border-[#606C38]/30 transition-all">
+                          <div className="absolute top-4 right-6 opacity-[0.03] group-hover:opacity-[0.08] transition-opacity duration-500">
+                            <Quote className="h-10 w-10 text-[#606C38] rotate-180" />
                           </div>
 
                           <div className="flex items-center gap-1 z-10">
                             {[...Array(5)].map((_, i) => (
-                              <Star key={i} className="h-3 w-3 text-yellow-400 fill-yellow-400" />
+                              <Star key={i} className="h-2.5 w-2.5 text-yellow-400 fill-yellow-400" />
                             ))}
                           </div>
 
-                          <p className="text-[#283618]/80 italic leading-relaxed text-sm md:text-base font-body z-10 relative">
+                          <p className="text-[#283618]/80 italic leading-relaxed text-xs md:text-sm font-body z-10 relative">
                             "{testimonial.quote}"
                           </p>
 
-                          <div className="mt-auto flex flex-col items-center gap-2 z-10">
+                          <div className="mt-auto flex flex-col items-center gap-1 z-10">
                             <div>
-                              <h3 className="font-bold text-[#283618] text-sm tracking-wide uppercase">{testimonial.name}</h3>
-                              <p className="text-[9px] text-[#606C38] font-bold tracking-widest mt-1 opacity-70 uppercase">{testimonial.location}</p>
+                              <h3 className="font-bold text-[#283618] text-xs tracking-wide uppercase">{testimonial.name}</h3>
+                              <p className="text-[8px] text-[#606C38] font-bold tracking-widest opacity-70 uppercase">{testimonial.location}</p>
                             </div>
                           </div>
                         </div>
