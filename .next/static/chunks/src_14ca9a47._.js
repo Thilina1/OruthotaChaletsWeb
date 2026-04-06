@@ -360,7 +360,7 @@ function BookingPageComponent() {
                 toast({
                     variant: 'destructive',
                     title: 'Room No Longer Available',
-                    description: 'This room has just been booked for the selected dates. Please choose another date or room.'
+                    description: 'This room has just been booked for the selected dates. Please choose another date or room. Please contact our team.'
                 });
                 return;
             }

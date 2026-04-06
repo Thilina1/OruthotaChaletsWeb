@@ -119,7 +119,7 @@ export default function Home() {
             <div className="flex items-center gap-6">
               <div className="h-px w-12 bg-gray-200"></div>
               <div className="flex gap-4">
-                <Link href="https://www.facebook.com/oruthotachalets/" target="_blank" rel="noopener noreferrer" title="Follow us on Facebook">
+                <Link href="https://web.facebook.com/OruthotaChaletsKandy/?_rdc=1&_rdr#" target="_blank" rel="noopener noreferrer" title="Follow us on Facebook">
                   <Button variant="ghost" size="icon" className="rounded-full text-primary hover:text-white hover:bg-primary transition-all duration-300 hover:scale-110 shadow-sm border border-transparent hover:border-primary">
                     <Facebook className="h-5 w-5" />
                   </Button>
@@ -129,7 +129,7 @@ export default function Home() {
                     <Instagram className="h-5 w-5" />
                   </Button>
                 </Link>
-                <Link href="https://www.tiktok.com/@oruthotachalets" target="_blank" rel="noopener noreferrer" title="Follow us on TikTok">
+                <Link href="https://www.tiktok.com/@oruthota_chalets?is_from_webapp=1&sender_device=pc" target="_blank" rel="noopener noreferrer" title="Follow us on TikTok">
                   <Button variant="ghost" size="icon" className="rounded-full text-primary hover:text-white hover:bg-primary transition-all duration-300 hover:scale-110 shadow-sm border border-transparent hover:border-primary">
                     <TikTokIcon className="h-5 w-5" />
                   </Button>
@@ -184,8 +184,8 @@ export default function Home() {
                     FACT SHEET
                   </Button>
                 </Link>
-                <Button 
-                  variant="default" 
+                <Button
+                  variant="default"
                   className="rounded-none bg-primary text-white hover:bg-[#283618] px-8 h-12 text-sm tracking-widest font-bold flex items-center gap-2 group"
                   onClick={() => window.print()}
                 >
@@ -353,7 +353,7 @@ export default function Home() {
             </p>
           </div>
           <div className="flex flex-wrap justify-center gap-8">
-            {STATIC_EXPERIENCES.filter(exp => 
+            {STATIC_EXPERIENCES.filter(exp =>
               ['culinary-tourism', 'knuckles-trek', 'rural-activities'].includes(exp.id)
             ).map((experience) => {
               const imageUrl = experience.galleryImages?.[0] || PlaceHolderImages.find(p => p.id === experience.imageId)?.imageUrl || '/placeholder.svg';
@@ -402,11 +402,11 @@ export default function Home() {
           <div className="grid md:grid-cols-2 gap-12 max-w-7xl mx-auto">
             <div className="border bg-[#FEFAE0] flex flex-col items-stretch">
               <div className="relative h-[300px] w-full overflow-hidden">
-                <Image 
-                  src={meetingsImage?.imageUrl || "/meetings.jpg"} 
-                  alt={meetingsImage?.description || "Meetings & Corporate Events"} 
-                  fill 
-                  className="object-cover transition-transform duration-500 hover:scale-105" 
+                <Image
+                  src={meetingsImage?.imageUrl || "/meetings.jpg"}
+                  alt={meetingsImage?.description || "Meetings & Corporate Events"}
+                  fill
+                  className="object-cover transition-transform duration-500 hover:scale-105"
                 />
               </div>
               <div className="p-10 flex flex-col flex-grow">
@@ -421,8 +421,13 @@ export default function Home() {
             </div>
 
             <div className="border bg-[#FEFAE0] flex flex-col">
-              <div className="relative h-[300px] w-full">
-                <Image src="/wedding.png" alt="Weddings and Celebrations" fill className="object-cover" />
+              <div className="relative h-[300px] w-full overflow-hidden">
+                <Image
+                  src="/wedding.png"
+                  alt="Weddings and Celebrations"
+                  fill
+                  className="object-cover transition-transform duration-500 hover:scale-105"
+                />
               </div>
               <div className="p-10 flex flex-col flex-grow">
                 <h3 className="font-headline text-3xl mb-4 text-[#283618]">Weddings and Celebrations</h3>
@@ -450,7 +455,7 @@ export default function Home() {
                 Guest Experiences
               </span>
             </div>
-            <h2 className="font-headline text-4xl md:text-5xl lg:text-6xl text-[#283618]">What Our Guests Say</h2>
+            <h2 className="font-headline text-2xl md:text-3xl lg:text-4xl text-[#283618]">What Our Guests Say</h2>
             <div className="w-24 h-1 bg-[#606C38]/20 mx-auto rounded-full" />
           </div>
 
@@ -474,25 +479,25 @@ export default function Home() {
                   return (
                     <CarouselItem key={testimonial.id} className="pl-4 md:basis-1/2 lg:basis-1/3">
                       <div className="h-full transform transition-all duration-500">
-                        <div className="bg-white p-10 md:p-12 rounded-[2.5rem] shadow-[0_10px_50px_rgb(0,0,0,0.04)] border border-stone-100 flex flex-col items-center text-center gap-8 h-full relative overflow-hidden group hover:border-[#606C38]/30 transition-all">
-                          <div className="absolute top-8 right-10 opacity-[0.03] group-hover:opacity-[0.08] transition-opacity duration-500">
-                            <Quote className="h-24 w-24 text-[#606C38] rotate-180" />
+                        <div className="bg-white p-6 md:p-8 rounded-[2.5rem] shadow-[0_10px_50px_rgb(0,0,0,0.04)] border border-stone-100 flex flex-col items-center text-center gap-4 h-full relative overflow-hidden group hover:border-[#606C38]/30 transition-all">
+                          <div className="absolute top-6 right-8 opacity-[0.03] group-hover:opacity-[0.08] transition-opacity duration-500">
+                            <Quote className="h-16 w-16 text-[#606C38] rotate-180" />
                           </div>
 
                           <div className="flex items-center gap-1 z-10">
                             {[...Array(5)].map((_, i) => (
-                              <Star key={i} className="h-4 w-4 text-yellow-400 fill-yellow-400" />
+                              <Star key={i} className="h-3 w-3 text-yellow-400 fill-yellow-400" />
                             ))}
                           </div>
 
-                          <p className="text-[#283618]/80 italic leading-relaxed text-xl md:text-2xl font-body z-10 relative">
+                          <p className="text-[#283618]/80 italic leading-relaxed text-sm md:text-base font-body z-10 relative">
                             "{testimonial.quote}"
                           </p>
 
-                          <div className="mt-auto flex flex-col items-center gap-4 z-10">
+                          <div className="mt-auto flex flex-col items-center gap-2 z-10">
                             <div>
-                              <h3 className="font-bold text-[#283618] text-lg tracking-wide uppercase">{testimonial.name}</h3>
-                              <p className="text-xs text-[#606C38] font-bold tracking-widest mt-1 opacity-70 uppercase">{testimonial.location}</p>
+                              <h3 className="font-bold text-[#283618] text-sm tracking-wide uppercase">{testimonial.name}</h3>
+                              <p className="text-[9px] text-[#606C38] font-bold tracking-widest mt-1 opacity-70 uppercase">{testimonial.location}</p>
                             </div>
                           </div>
                         </div>
@@ -502,13 +507,13 @@ export default function Home() {
                 })}
               </CarouselContent>
               <div className="flex justify-center items-center gap-6 mt-16">
-                 <CarouselPrevious className="static -translate-y-0 w-14 h-14 rounded-2xl border-stone-200 text-[#606C38] hover:bg-[#606C38] hover:text-white transition-all shadow-sm" />
-                 <Link href="/reviews">
-                    <Button variant="outline" className="h-14 px-10 rounded-2xl border-stone-200 text-[#606C38] font-bold tracking-widest uppercase hover:bg-[#606C38] hover:text-white transition-all group">
-                        View All Stories <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-2" />
-                    </Button>
-                 </Link>
-                 <CarouselNext className="static -translate-y-0 w-14 h-14 rounded-2xl border-stone-200 text-[#606C38] hover:bg-[#606C38] hover:text-white transition-all shadow-sm" />
+                <CarouselPrevious className="static -translate-y-0 w-10 h-10 rounded-xl border-stone-200 text-[#606C38] hover:bg-[#606C38] hover:text-white transition-all shadow-sm" />
+                <Link href="/reviews">
+                  <Button variant="outline" className="h-10 px-6 rounded-xl border-stone-200 text-[#606C38] text-xs font-bold tracking-widest uppercase hover:bg-[#606C38] hover:text-white transition-all group">
+                    View All Stories <ArrowRight className="ml-2 w-3 h-3 transition-transform group-hover:translate-x-1" />
+                  </Button>
+                </Link>
+                <CarouselNext className="static -translate-y-0 w-10 h-10 rounded-xl border-stone-200 text-[#606C38] hover:bg-[#606C38] hover:text-white transition-all shadow-sm" />
               </div>
             </Carousel>
           </div>
@@ -544,11 +549,11 @@ export default function Home() {
                     <div className="relative z-10 space-y-6">
                       <div className="flex justify-center">
                         <div className="relative w-[120px] h-[28px] transition-transform duration-300 hover:scale-110">
-                          <Image 
-                            src="/logotipo-tripadvisor.png" 
-                            alt="TripAdvisor" 
-                            fill 
-                            className="object-contain" 
+                          <Image
+                            src="/logotipo-tripadvisor.png"
+                            alt="TripAdvisor"
+                            fill
+                            className="object-contain"
                           />
                         </div>
                       </div>
@@ -561,13 +566,13 @@ export default function Home() {
                       </div>
 
                       <div className="pt-2">
-                        <Link 
-                          href="https://www.tripadvisor.com/Hotel_Review-g1199439-d1052258-Reviews-Oruthota_Chalets-Digana_Kandy_District_Central_Province.html" 
+                        <Link
+                          href="https://www.tripadvisor.com/Hotel_Review-g1199439-d1052258-Reviews-Oruthota_Chalets-Digana_Kandy_District_Central_Province.html"
                           target="_blank"
                           rel="noopener noreferrer"
                         >
                           <Button className="bg-[#606C38] text-white hover:bg-[#283618] rounded-full px-8 h-12 text-sm font-bold tracking-widest uppercase shadow-lg hover:shadow-xl transition-all hover:-translate-y-1 active:scale-95 group/btn">
-                            Write a Review 
+                            Write a Review
                             <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
                           </Button>
                         </Link>
@@ -601,11 +606,11 @@ export default function Home() {
                     <div className="relative z-10 space-y-6">
                       <div className="flex justify-center">
                         <div className="relative w-[120px] h-[28px] transition-transform duration-300 hover:scale-110">
-                          <Image 
-                            src="/google-logo.png" 
-                            alt="Google Reviews" 
-                            fill 
-                            className="object-contain" 
+                          <Image
+                            src="/google-logo.png"
+                            alt="Google Reviews"
+                            fill
+                            className="object-contain"
                           />
                         </div>
                       </div>
@@ -618,13 +623,13 @@ export default function Home() {
                       </div>
 
                       <div className="pt-2">
-                        <Link 
-                          href="https://www.google.com/search?q=Oruthota+Chalets+Digana#lrd=0x3ae360e9f6ed0591:0x7b6a1200021c3260,1,,," 
+                        <Link
+                          href="https://www.google.com/search?q=Oruthota+Chalets+Digana#lrd=0x3ae360e9f6ed0591:0x7b6a1200021c3260,1,,,"
                           target="_blank"
                           rel="noopener noreferrer"
                         >
                           <Button className="bg-[#1976D2] text-white hover:bg-[#0D47A1] rounded-full px-8 h-12 text-sm font-bold tracking-widest uppercase shadow-lg hover:shadow-xl transition-all hover:-translate-y-1 active:scale-95 group/btn">
-                            Write a Review 
+                            Write a Review
                             <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
                           </Button>
                         </Link>
@@ -658,11 +663,11 @@ export default function Home() {
                     <div className="relative z-10 space-y-6">
                       <div className="flex justify-center">
                         <div className="relative w-[150px] h-[35px] transition-transform duration-300 hover:scale-110">
-                          <Image 
-                            src="/booking-logo.svg" 
-                            alt="Booking.com" 
-                            fill 
-                            className="object-contain" 
+                          <Image
+                            src="/booking-logo.svg"
+                            alt="Booking.com"
+                            fill
+                            className="object-contain"
                           />
                         </div>
                       </div>
@@ -675,13 +680,13 @@ export default function Home() {
                       </div>
 
                       <div className="pt-2">
-                        <Link 
-                          href="https://www.booking.com/hotel/lk/oruthota-chalets.en-gb.html" 
+                        <Link
+                          href="https://www.booking.com/hotel/lk/oruthota-chalets.en-gb.html"
                           target="_blank"
                           rel="noopener noreferrer"
                         >
                           <Button className="bg-[#003580] text-white hover:bg-[#00224D] rounded-full px-8 h-12 text-sm font-bold tracking-widest uppercase shadow-lg hover:shadow-xl transition-all hover:-translate-y-1 active:scale-95 group/btn">
-                            View Reviews 
+                            View Reviews
                             <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
                           </Button>
                         </Link>
@@ -689,11 +694,11 @@ export default function Home() {
 
                       <div className="pt-4 flex flex-col items-center gap-2">
                         <div className="flex items-center gap-2">
-                            <div className="bg-[#003580] text-white px-2 py-1 rounded-md font-bold text-lg">9.1</div>
-                            <div className="flex flex-col items-start leading-none">
-                                <span className="text-[#003580] font-bold text-sm">Superb</span>
-                                <span className="text-stone-400 text-[9px] font-bold tracking-widest uppercase mt-0.5">Recommended on Booking.com</span>
-                            </div>
+                          <div className="bg-[#003580] text-white px-2 py-1 rounded-md font-bold text-lg">9.1</div>
+                          <div className="flex flex-col items-start leading-none">
+                            <span className="text-[#003580] font-bold text-sm">Superb</span>
+                            <span className="text-stone-400 text-[9px] font-bold tracking-widest uppercase mt-0.5">Recommended on Booking.com</span>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -711,11 +716,11 @@ export default function Home() {
                     <div className="relative z-10 space-y-6">
                       <div className="flex justify-center">
                         <div className="relative w-[120px] h-[35px] transition-transform duration-300 hover:scale-110">
-                          <Image 
-                            src="/color-default.svg" 
-                            alt="Agoda" 
-                            fill 
-                            className="object-contain" 
+                          <Image
+                            src="/color-default.svg"
+                            alt="Agoda"
+                            fill
+                            className="object-contain"
                           />
                         </div>
                       </div>
@@ -728,13 +733,13 @@ export default function Home() {
                       </div>
 
                       <div className="pt-2">
-                        <Link 
-                          href="https://www.agoda.com/oruthota-chalets/hotel/kandy-lk.html" 
+                        <Link
+                          href="https://www.agoda.com/oruthota-chalets/hotel/kandy-lk.html"
                           target="_blank"
                           rel="noopener noreferrer"
                         >
                           <Button className="bg-[#FF5A5F] text-white hover:bg-[#D32F2F] rounded-full px-8 h-12 text-sm font-bold tracking-widest uppercase shadow-lg hover:shadow-xl transition-all hover:-translate-y-1 active:scale-95 group/btn">
-                             Check Agoda Reviews 
+                            Check Agoda Reviews
                             <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
                           </Button>
                         </Link>

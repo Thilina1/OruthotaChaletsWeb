@@ -3,7 +3,6 @@
   "/about/page": "app/about/page.js",
   "/accommodations/page": "app/accommodations/page.js",
   "/booking/page": "app/booking/page.js",
-  "/bookings/page": "app/bookings/page.js",
   "/contact/page": "app/contact/page.js",
   "/dining/page": "app/dining/page.js",
   "/experiences/page": "app/experiences/page.js",
@@ -11,6 +10,5 @@
   "/gallery/page": "app/gallery/page.js",
   "/manifest.webmanifest/route": "app/manifest.webmanifest/route.js",
   "/page": "app/page.js",
-  "/reviews/page": "app/reviews/page.js",
-  "/sustainability/page": "app/sustainability/page.js"
+  "/reviews/page": "app/reviews/page.js"
 }

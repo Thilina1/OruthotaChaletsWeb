@@ -100,17 +100,23 @@ export function Footer() {
               </Button>
             </div>
             <div className="flex gap-2 mt-4">
-              <Button variant="outline" size="icon" className="rounded-full border-white/30 bg-background text-[#283618] hover:bg-white hover:text-[#606C38]">
-                <Facebook className="h-5 w-5" />
-              </Button>
-              <Button variant="outline" size="icon" className="rounded-full border-white/30 bg-background text-[#283618] hover:bg-white hover:text-[#606C38]">
-                <Instagram className="h-5 w-5" />
-              </Button>
-              <Button variant="outline" size="icon" className="rounded-full border-white/30 bg-background text-[#283618] hover:bg-white hover:text-[#606C38]">
-                <TikTokIcon className="h-5 w-5" />
-              </Button>
+              <Link href="https://www.facebook.com/oruthotachalets/" target="_blank" rel="noopener noreferrer">
+                <Button variant="outline" size="icon" className="rounded-full border-white/30 bg-background text-[#283618] hover:bg-white hover:text-[#606C38]">
+                  <Facebook className="h-5 w-5" />
+                </Button>
+              </Link>
+              <Link href="https://www.instagram.com/oruthotachalets/" target="_blank" rel="noopener noreferrer">
+                <Button variant="outline" size="icon" className="rounded-full border-white/30 bg-background text-[#283618] hover:bg-white hover:text-[#606C38]">
+                  <Instagram className="h-5 w-5" />
+                </Button>
+              </Link>
+              <Link href="https://www.tiktok.com/@oruthota_chalets?is_from_webapp=1&sender_device=pc" target="_blank" rel="noopener noreferrer">
+                <Button variant="outline" size="icon" className="rounded-full border-white/30 bg-background text-[#283618] hover:bg-white hover:text-[#606C38]">
+                  <TikTokIcon className="h-5 w-5" />
+                </Button>
+              </Link>
             </div>
-            <Link 
+            <Link
               href="https://www.tripadvisor.com/Hotel_Review-g1199439-d1052258-Reviews-Oruthota_Chalets-Digana_Kandy_District_Central_Province.html"
               target="_blank"
               rel="noopener noreferrer"
