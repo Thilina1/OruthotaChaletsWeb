@@ -2,13 +2,13 @@
 
 import React from 'react';
 import { PageHero } from '@/components/page-hero';
-import { 
-  Heart, 
-  Users, 
-  Music, 
-  UtensilsCrossed, 
-  Camera, 
-  Calendar, 
+import {
+  Heart,
+  Users,
+  Music,
+  UtensilsCrossed,
+  Camera,
+  Calendar,
   Sparkles,
   ArrowRight,
   ShieldCheck,
@@ -29,7 +29,7 @@ const EVENT_TYPES = [
     features: ["Lakeside Ceremony Space", "Customizable Decor Themes", "Gourmet Catering Options", "Dedicated Wedding Coordinator"]
   },
   {
-    title: "Meetings & Corporate",
+    title: "Conferences and events",
     description: "Inspire your team in a serene environment away from city distractions. Perfect for strategy sessions, team building, and intimate executive retreats.",
     icon: Users,
     image: "/meetings.jpg",
@@ -66,7 +66,7 @@ export default function EventsPage() {
       <section className="py-24 px-4 bg-background relative overflow-hidden">
         {/* Decorative background elements */}
         <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-[#606C38]/5 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/3 pointer-events-none" />
-        
+
         <div className="container mx-auto max-w-7xl relative z-10">
           <div className="text-center max-w-3xl mx-auto mb-20">
             <h2 className="font-headline text-4xl md:text-5xl text-[#283618] mb-6">Designed to Inspire</h2>
@@ -77,8 +77,8 @@ export default function EventsPage() {
 
           <div className="space-y-24">
             {EVENT_TYPES.map((event, idx) => (
-              <div 
-                key={idx} 
+              <div
+                key={idx}
                 className={`flex flex-col ${idx % 2 === 1 ? 'md:flex-row-reverse' : 'md:flex-row'} items-center gap-12 lg:gap-20`}
               >
                 <div className="w-full md:w-1/2 relative group">
@@ -103,7 +103,7 @@ export default function EventsPage() {
                   <p className="text-muted-foreground text-lg leading-relaxed">
                     {event.description}
                   </p>
-                  
+
                   <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     {event.features.map((feature, fIdx) => (
                       <li key={fIdx} className="flex items-center gap-3 text-stone-600 font-body font-medium">
@@ -155,10 +155,10 @@ export default function EventsPage() {
       {/* CTA Section */}
       <section className="py-24 relative overflow-hidden">
         <div className="absolute inset-0 bg-[#283618]" />
-        <Image 
-          src="/Hero3.jpg" 
-          alt="Oruthota Events" 
-          fill 
+        <Image
+          src="/Hero3.jpg"
+          alt="Oruthota Events"
+          fill
           className="object-cover opacity-20 mix-blend-overlay"
         />
         <div className="container mx-auto max-w-5xl px-4 relative z-10 text-center text-white space-y-8">

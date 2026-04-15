@@ -20,17 +20,8 @@ const navLinks = [
   { href: '/contact', label: 'CONTACT' },
 ];
 
-const MessengerIcon = (props: React.SVGProps<SVGSVGElement>) => (
-  <svg {...props} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10c1.85 0 3.58-.5 5.07-1.38a.5.5 0 0 0 .19-.53l-.62-2.19a.5.5 0 0 0-.45-.39c-.58-.1-1.16-.1-1.69-.1-4.42 0-8-3.13-8-7s3.58-7 8-7 8 3.13 8 7c0 2.21-1.21 4.16-3.06 5.39a.5.5 0 0 0-.19.53l.62 2.19a.5.5 0 0 0 .45.39c.58.1 1.16.1 1.69.1 1.25 0 2.45-.2 3.58-.57a.5.5 0 0 0 .34-.63l-.01-.01C21.49 15.58 22 13.85 22 12c0-5.52-4.48-10-10-10zm-1.5 10.5L8 10l5.5-3.5L16 10l-2.5 2.5z" />
-  </svg>
-);
 
-const WhatsAppIcon = (props: React.SVGProps<SVGSVGElement>) => (
-  <svg {...props} xmlns="http://www.w3.org/2000/svg" viewBox="0.0 24 24" fill="currentColor">
-    <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21h.01c5.46 0 9.91-4.45 9.91-9.91s-4.45-9.91-9.91-9.91zM17.47 14.38c-.2-.1-1.17-.58-1.35-.65-.18-.07-.31-.1-.44.1-.13.2-.51.65-.63.78-.12.13-.24.15-.44.05-.2-.1-.85-.31-1.62-.99-.6-.54-1-1.2-1.12-1.4-.12-.2-.02-.31.08-.41.09-.09.2-.24.3-.36.1-.12.13-.2.2-.33.06-.13.03-.24-.01-.34-.05-.1-.44-1.06-.6-1.45-.16-.39-.32-.33-.44-.34h-.1c-.13 0-.26 0-.39.04-.13.04-.31.15-.47.31-.16.16-.62.61-.62 1.48 0 .87.64 1.72.73 1.85.09.13 1.25 1.91 3.03 2.66.42.18.75.28.99.36.43.14.83.12 1.14.07.35-.05 1.17-.48 1.33-.94.16-.46.16-.85.11-.94-.05-.09-.18-.14-.38-.24z" />
-  </svg>
-);
+
 
 export function Header() {
   const pathname = usePathname();
@@ -83,19 +74,19 @@ export function Header() {
       }
     };
 
-      setHasMounted(true);
-      window.addEventListener('scroll', handleScroll);
-      updateTime();
-      fetchWeather();
-      const timerId = setInterval(updateTime, 60000); // Update every minute
-      const weatherTimerId = setInterval(fetchWeather, 30 * 60 * 1000); // Update weather every 30 mins
-  
-      return () => {
-        window.removeEventListener('scroll', handleScroll);
-        clearInterval(timerId);
-        clearInterval(weatherTimerId);
-      };
-    }, []);
+    setHasMounted(true);
+    window.addEventListener('scroll', handleScroll);
+    updateTime();
+    fetchWeather();
+    const timerId = setInterval(updateTime, 60000); // Update every minute
+    const weatherTimerId = setInterval(fetchWeather, 30 * 60 * 1000); // Update weather every 30 mins
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      clearInterval(timerId);
+      clearInterval(weatherTimerId);
+    };
+  }, []);
 
   return (
     <header className={cn(
@@ -123,7 +114,7 @@ export function Header() {
           >
             <span>@KandyChalets</span>
           </a>
-          <div className='flex items-center gap-2'><WhatsAppIcon className="w-4 h-4" /><span>+94 77 634 7922</span></div>
+          <div className='flex items-center gap-2'><Phone className="w-4 h-4" /><span>+94 812 375 396</span></div>
           <div className='flex md:hidden items-center gap-2' suppressHydrationWarning>{time}</div>
         </div>
 
@@ -159,6 +150,7 @@ export function Header() {
               </Link>
             ))}
           </nav>
+
 
           <div className="flex items-center gap-4">
             <Link

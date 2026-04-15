@@ -124,7 +124,7 @@ export default function Home() {
                     <Facebook className="h-5 w-5" />
                   </Button>
                 </Link>
-                <Link href="https://www.instagram.com/oruthotachalets/" target="_blank" rel="noopener noreferrer" title="Follow us on Instagram">
+                <Link href="https://www.instagram.com/kandychalets/" target="_blank" rel="noopener noreferrer" title="Follow us on Instagram">
                   <Button variant="ghost" size="icon" className="rounded-full text-primary hover:text-white hover:bg-primary transition-all duration-300 hover:scale-110 shadow-sm border border-transparent hover:border-primary">
                     <Instagram className="h-5 w-5" />
                   </Button>
@@ -146,22 +146,22 @@ export default function Home() {
           <div className="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-16 text-center">
             <div className="flex flex-col items-center justify-center">
               <div className="flex items-end">
-                <span className="font-headline text-6xl text-primary tracking-tighter">45</span>
-                <span className="font-headline text-2xl text-primary ml-1 mb-1">min</span>
+                <span className="font-headline text-4xl text-primary tracking-tighter">45</span>
+                <span className="font-headline text-1xl text-primary ml-1 mb-1">min</span>
               </div>
               <p className="tracking-[0.2em] text-xs text-muted-foreground mt-1">TO KANDY CITY</p>
             </div>
             <div className="flex flex-col items-center justify-center">
               <div className="flex items-end">
-                <span className="font-headline text-6xl text-primary tracking-tighter">1</span>
-                <span className="font-headline text-2xl text-primary ml-1 mb-1">Hrs</span>
+                <span className="font-headline text-4xl text-primary tracking-tighter">1</span>
+                <span className="font-headline text-1xl text-primary ml-1 mb-1">Hrs</span>
               </div>
               <p className="tracking-[0.2em] text-xs text-muted-foreground mt-1">TO KNUCKLES</p>
             </div>
             <div className="flex flex-col items-center justify-center">
               <div className="flex items-end">
-                <span className="font-headline text-6xl text-primary tracking-tighter">4</span>
-                <span className="font-headline text-2xl text-primary ml-1 mb-1">Hrs</span>
+                <span className="font-headline text-4xl text-primary tracking-tighter">4</span>
+                <span className="font-headline text-1xl text-primary ml-1 mb-1">Hrs</span>
               </div>
               <p className="tracking-[0.2em] text-xs text-muted-foreground mt-1">TO COLOMBO</p>
             </div>
@@ -209,10 +209,8 @@ export default function Home() {
       <section className="py-20 bg-secondary">
         <div className="container mx-auto px-4 max-w-4xl text-center">
           <p className="text-primary tracking-widest mb-4">ACCOMMODATION</p>
-          <h2 className="font-headline text-4xl text-foreground mb-6">Eco-Friendly Comfort by the Reservoir</h2>
-          <p className="text-muted-foreground leading-relaxed mb-12 max-w-3xl mx-auto">
-            Nestled amidst the serene hill country landscapes, our chalets and rooms offer breathtaking views of the Victoria Reservoir and the surrounding lush greenery. Each space is thoughtfully designed to blend rustic charm with modern comforts, ensuring a peaceful and memorable stay just 18 kilometres from Kandy.
-          </p>
+          <h2 className="font-headline text-4xl text-foreground mb-3">Eco-Friendly Comfort by the Reservoir</h2>
+
           <div className="flex justify-center items-center gap-8">
             <div className="flex items-center gap-3">
               <Bed className="h-8 w-8 text-primary" />
@@ -319,8 +317,7 @@ export default function Home() {
                 </div>
               </div>
               <p className="text-muted-foreground leading-relaxed max-w-sm mx-auto mb-8">
-                Enjoy our exquisite range of dishes ranging from Italian, Western, Sri Lankan specialities. Drinks that refresh your mind and soul specially tailor made for you.
-              </p>
+                Enjoy our specially curated dishes ranging from Sri Lankan to international specialties              </p>
               <Button asChild variant="outline" className="rounded-none border-primary text-primary hover:bg-primary hover:text-white">
                 <Link href="/dining">
                   FIND OUT MORE <ArrowRight className="w-4 h-4 ml-2" />
@@ -410,7 +407,7 @@ export default function Home() {
                 />
               </div>
               <div className="p-10 flex flex-col flex-grow">
-                <h3 className="font-headline text-3xl mb-4 text-[#283618]">Meetings & Events</h3>
+                <h3 className="font-headline text-3xl mb-4 text-[#283618]">Conferences and events</h3>
                 <p className="text-muted-foreground text-md leading-relaxed mb-8 flex-grow">
                   Achieve more with meetings and events that are not only brilliant and beautiful, but also engaging, polished and productive. Created to empower your imagination, our meeting and events offering brings together the best of technology and nature.
                 </p>
@@ -538,62 +535,7 @@ export default function Home() {
               className="w-full"
             >
               <CarouselContent className="-ml-4 md:-ml-8">
-                {/* TripAdvisor Card */}
-                <CarouselItem className="pl-4 md:pl-8 basis-full lg:basis-1/2">
-                  <div className="bg-[#FEFAE0]/40 rounded-[2rem] p-6 md:p-10 text-center border border-[#606C38]/10 shadow-[0_15px_40px_rgba(96,108,56,0.05)] relative group overflow-hidden flex flex-col justify-between h-full min-h-[400px]">
-                    {/* Decorative background logo */}
-                    <div className="absolute -right-10 -bottom-10 opacity-[0.03] group-hover:scale-110 group-hover:-rotate-12 transition-all duration-700 pointer-events-none">
-                      <Image src="/logotipo-tripadvisor.png" alt="" width={200} height={200} className="object-contain grayscale" />
-                    </div>
 
-                    <div className="relative z-10 space-y-6">
-                      <div className="flex justify-center">
-                        <div className="relative w-[120px] h-[28px] transition-transform duration-300 hover:scale-110">
-                          <Image
-                            src="/logotipo-tripadvisor.png"
-                            alt="TripAdvisor"
-                            fill
-                            className="object-contain"
-                          />
-                        </div>
-                      </div>
-
-                      <div className="space-y-3">
-                        <h2 className="font-headline text-2xl md:text-3xl text-[#283618]">Have you stayed with us?</h2>
-                        <p className="text-muted-foreground text-md leading-relaxed">
-                          We would love to hear about your experience. Your feedback helps us maintain the highest standards.
-                        </p>
-                      </div>
-
-                      <div className="pt-2">
-                        <Link
-                          href="https://www.tripadvisor.com/Hotel_Review-g1199439-d1052258-Reviews-Oruthota_Chalets-Digana_Kandy_District_Central_Province.html"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          <Button className="bg-[#606C38] text-white hover:bg-[#283618] rounded-full px-8 h-12 text-sm font-bold tracking-widest uppercase shadow-lg hover:shadow-xl transition-all hover:-translate-y-1 active:scale-95 group/btn">
-                            Write a Review
-                            <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
-                          </Button>
-                        </Link>
-                      </div>
-
-                      <div className="pt-4 flex flex-col items-center gap-2">
-                        <div className="flex items-center gap-2">
-                          <div className="flex gap-1">
-                            {[...Array(5)].map((_, i) => (
-                              <div key={i} className="w-4 h-4 rounded-full bg-[#00AF87] flex items-center justify-center">
-                                <Star className="h-2 w-2 text-white fill-current" />
-                              </div>
-                            ))}
-                          </div>
-                          <span className="text-[#283618] font-bold text-sm">Excellent</span>
-                        </div>
-                        <span className="text-stone-400 text-[9px] font-bold tracking-widest uppercase">Highly Recommended on Tripadvisor</span>
-                      </div>
-                    </div>
-                  </div>
-                </CarouselItem>
 
                 {/* Google Reviews Card */}
                 <CarouselItem className="pl-4 md:pl-8 basis-full lg:basis-1/2">

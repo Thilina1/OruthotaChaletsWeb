@@ -11,7 +11,7 @@ import { ConciergeDesk } from '@/components/concierge-desk';
 export const metadata: Metadata = {
   metadataBase: new URL('https://oruthotachalets.com'),
   title: {
-    default: 'Oruthota Chalets | Luxury Hotel in Kandy',
+    default: 'Oruthota Chalets',
     template: '%s | Oruthota Chalets',
   },
   description: 'Experience The Aura of Tranquility at Oruthota Chalets. A luxury eco-friendly resort overlooking Victoria Reservoir in Kandy, Sri Lanka.',
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Oruthota Chalets | Luxury Hotel in Kandy',
+    title: 'Oruthota Chalets',
     description: 'Experience The Aura of Tranquility at Oruthota Chalets.',
     images: ['/og-image.jpg'],
   },

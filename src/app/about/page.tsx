@@ -38,10 +38,15 @@ export default function AboutPage() {
                                 </p>
                             </div>
 
-                            <div className="pt-4">
+                            <div className="pt-4 flex flex-wrap gap-4 mt-8">
                                 <Link href="/contact" passHref>
                                     <Button className="rounded-none bg-primary text-primary-foreground font-semibold tracking-wider hover:bg-primary/90 px-8 py-6">
                                         GET IN TOUCH
+                                    </Button>
+                                </Link>
+                                <Link href="/fact-sheet" passHref>
+                                    <Button variant="outline" className="rounded-none border-primary text-primary hover:bg-primary hover:text-white px-8 h-12 text-sm tracking-widest font-bold">
+                                        FACT SHEET
                                     </Button>
                                 </Link>
                             </div>

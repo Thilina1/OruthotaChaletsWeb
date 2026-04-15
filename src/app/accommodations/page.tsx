@@ -19,7 +19,7 @@ const RESORT_AMENITIES = [
   { icon: Car, label: "Free Parking" },
   { icon: Coffee, label: "Tea/Coffee Maker" },
   { icon: Utensils, label: "In-Room Dining" },
-  { icon: Waves, label: "Infinity Pool" }
+  { icon: Waves, label: "Pool Access" }
 ];
 
 function CheckAvailabilityListComponent() {
@@ -32,12 +32,12 @@ function CheckAvailabilityListComponent() {
       {/* Hero Section */}
       <section className="relative h-[60vh] min-h-[500px] w-full flex items-center justify-center overflow-hidden">
         <Image
-            src="/rooms-01.jpg"
-            alt="Oruthota Chalets Accommodations"
-            fill
-            className="object-cover transition-transform duration-1000 hover:scale-105"
-            priority
-          />
+          src="/rooms-01.jpg"
+          alt="Oruthota Chalets Accommodations"
+          fill
+          className="object-cover transition-transform duration-1000 hover:scale-105"
+          priority
+        />
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-background/90" />
         <div className="absolute inset-0 flex items-center justify-center z-10 p-4">
           <div className="text-center space-y-6 max-w-4xl mx-auto">
@@ -195,9 +195,9 @@ function CheckAvailabilityListComponent() {
                     <div className="pt-4 flex flex-col items-center lg:items-start gap-4">
                       <p className="text-[10px] tracking-[0.2em] font-bold text-muted-foreground uppercase">Also Bookable Via</p>
                       <div className="flex items-center gap-6 opacity-70 hover:opacity-100 transition-opacity">
-                        <a 
-                          href="https://www.booking.com/hotel/lk/oruthota-chalets.en-gb.html" 
-                          target="_blank" 
+                        <a
+                          href="https://www.booking.com/hotel/lk/oruthota-chalets.en-gb.html"
+                          target="_blank"
                           rel="noopener noreferrer"
                           className="grayscale hover:grayscale-0 transition-all hover:scale-110"
                         >
@@ -205,9 +205,9 @@ function CheckAvailabilityListComponent() {
                             <Image src="/booking-logo.svg" alt="Booking.com" fill className="object-contain" />
                           </div>
                         </a>
-                        <a 
-                          href="https://www.agoda.com/oruthota-chalets/hotel/kandy-lk.html" 
-                          target="_blank" 
+                        <a
+                          href="https://www.agoda.com/oruthota-chalets/hotel/kandy-lk.html"
+                          target="_blank"
                           rel="noopener noreferrer"
                           className="grayscale hover:grayscale-0 transition-all hover:scale-110"
                         >

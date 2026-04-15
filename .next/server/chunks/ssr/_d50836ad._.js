@@ -357,7 +357,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$concier
 const metadata = {
     metadataBase: new URL('https://oruthotachalets.com'),
     title: {
-        default: 'Oruthota Chalets | Luxury Hotel in Kandy',
+        default: 'Oruthota Chalets',
         template: '%s | Oruthota Chalets'
     },
     description: 'Experience The Aura of Tranquility at Oruthota Chalets. A luxury eco-friendly resort overlooking Victoria Reservoir in Kandy, Sri Lanka.',
@@ -394,7 +394,7 @@ const metadata = {
     },
     twitter: {
         card: 'summary_large_image',
-        title: 'Oruthota Chalets | Luxury Hotel in Kandy',
+        title: 'Oruthota Chalets',
         description: 'Experience The Aura of Tranquility at Oruthota Chalets.',
         images: [
             '/og-image.jpg'

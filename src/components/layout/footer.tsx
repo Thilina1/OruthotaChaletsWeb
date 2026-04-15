@@ -86,7 +86,7 @@ export function Footer() {
               </li>
               <li className="flex items-start gap-3">
                 <Phone className="h-5 w-5 mt-0.5 text-white/70" />
-                <a href="tel:+94776347922" className="hover:text-secondary transition-colors text-white/90">+94 77 634 7922</a>
+                <a href="tel:+94776347922" className="hover:text-secondary transition-colors text-white/90">+94 812 375 396, +94 812 376 985</a>
               </li>
               <li className="flex items-start gap-3">
                 <div className="h-5 w-5 mt-0.5 text-white/70">
@@ -101,19 +101,14 @@ export function Footer() {
 
           <div>
             <h2 className="font-bold mb-4 after:block after:w-10 after:h-0.5 after:bg-white/40 after:mt-2">Stay Connected with Oruthota Chalets</h2>
-            <div className="relative">
-              <Input type="email" placeholder="Enter your email" className="bg-transparent border-white/30 rounded-full pr-10 text-white placeholder:text-white/50" />
-              <Button type="submit" size="icon" variant="ghost" className="absolute top-1/2 right-1 -translate-y-1/2 rounded-full h-8 w-8 hover:bg-white/10">
-                <ArrowRight className="h-4 w-4 text-white" />
-              </Button>
-            </div>
+
             <div className="flex gap-2 mt-4">
               <Link href="https://web.facebook.com/OruthotaChaletsKandy/?_rdc=1&_rdr#" target="_blank" rel="noopener noreferrer">
                 <Button variant="outline" size="icon" className="rounded-full border-white/30 bg-background text-[#283618] hover:bg-white hover:text-[#606C38]">
                   <Facebook className="h-5 w-5" />
                 </Button>
               </Link>
-              <Link href="https://www.instagram.com/oruthotachalets/" target="_blank" rel="noopener noreferrer">
+              <Link href="https://www.instagram.com/kandychalets/" target="_blank" rel="noopener noreferrer">
                 <Button variant="outline" size="icon" className="rounded-full border-white/30 bg-background text-[#283618] hover:bg-white hover:text-[#606C38]">
                   <Instagram className="h-5 w-5" />
                 </Button>
@@ -124,22 +119,7 @@ export function Footer() {
                 </Button>
               </Link>
             </div>
-            <Link
-              href="https://www.tripadvisor.com/Hotel_Review-g1199439-d1052258-Reviews-Oruthota_Chalets-Digana_Kandy_District_Central_Province.html"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-8 block hover:opacity-80 transition-opacity"
-            >
-              <p className="text-sm text-white/80 mb-3">Now with travelers’ hotel reviews from</p>
-              <div className="relative w-[150px] h-[32px]">
-                <Image
-                  src="/logotipo-tripadvisor.png"
-                  alt="TripAdvisor"
-                  fill
-                  className="object-contain object-left"
-                />
-              </div>
-            </Link>
+
           </div>
         </div>
 
