@@ -153,7 +153,7 @@ export function Header() {
 
 
           <div className="flex items-center gap-4">
-            <Link
+            {/* <Link
               href="/accommodations"
               className={cn(
                 buttonVariants({
@@ -167,7 +167,7 @@ export function Header() {
               )}
             >
               CHECK RATES
-            </Link>
+            </Link> */}
 
             {/* Mobile Nav */}
             <div className="md:hidden">
@@ -192,15 +192,6 @@ export function Header() {
                         </Link>
                       </SheetClose>
                     ))}
-                    <Link
-                      href="/accommodations"
-                      className={cn(
-                        buttonVariants({ variant: 'default' }),
-                        "w-full rounded-none bg-primary text-white font-semibold tracking-wider mt-4 text-center py-2"
-                      )}
-                    >
-                      CHECK RATES
-                    </Link>
                   </nav>
                 </SheetContent>
               </Sheet>

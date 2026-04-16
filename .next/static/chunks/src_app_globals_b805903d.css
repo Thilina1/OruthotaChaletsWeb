@@ -993,10 +993,6 @@ body {
   height: 300px;
 }
 
-.h-\[32px\] {
-  height: 32px;
-}
-
 .h-\[35px\] {
   height: 35px;
 }
@@ -2533,10 +2529,6 @@ body {
   object-fit: cover;
 }
 
-.object-left {
-  object-position: left;
-}
-
 .p-0 {
   padding: 0;
 }
@@ -2730,10 +2722,6 @@ body {
   padding-left: 2rem;
 }
 
-.pr-10 {
-  padding-right: 2.5rem;
-}
-
 .pr-2 {
   padding-right: .5rem;
 }
@@ -2827,11 +2815,6 @@ body {
 
 .text-5xl {
   font-size: 3rem;
-  line-height: 1;
-}
-
-.text-6xl {
-  font-size: 3.75rem;
   line-height: 1;
 }
 
@@ -3630,10 +3613,6 @@ body {
 
 .placeholder\:text-muted-foreground::placeholder {
   color: hsl(var(--muted-foreground));
-}
-
-.placeholder\:text-white\/50::placeholder {
-  color: #ffffff80;
 }
 
 .after\:absolute:after {
