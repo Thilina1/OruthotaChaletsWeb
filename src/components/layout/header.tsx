@@ -135,7 +135,7 @@ export function Header() {
           </Link>
 
           {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center gap-8 text-sm tracking-wider">
+          <nav className="hidden md:flex ml-auto gap-8 text-sm tracking-wider">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
