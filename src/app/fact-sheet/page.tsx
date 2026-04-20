@@ -2,15 +2,15 @@
 
 import React from 'react';
 import { PageHero } from '@/components/page-hero';
-import { 
-  Hotel, 
-  Utensils, 
-  MapPin, 
-  Thermometer, 
-  Waves, 
-  Wifi, 
-  ShieldCheck, 
-  Clock, 
+import {
+  Hotel,
+  Utensils,
+  MapPin,
+  Thermometer,
+  Waves,
+  Wifi,
+  ShieldCheck,
+  Clock,
   Info,
   Car,
   Plane,
@@ -25,7 +25,7 @@ const FACT_SECTIONS = [
     title: "Overview",
     icon: Info,
     items: [
-      { label: "Property Type", value: "Boutique Eco-Resort" },
+      { label: "Property Type", value: "Family oriented eco resort" },
       { label: "Location", value: "Rajawella, Digana, Kandy (18km from City Center)" },
       { label: "Total Area", value: "Overlooking Victoria Reservoir" },
       { label: "Vibe", value: "Rustic, Tranquil, and Family-Oriented" }
@@ -35,7 +35,7 @@ const FACT_SECTIONS = [
     title: "Accommodation",
     icon: Hotel,
     items: [
-      { label: "Total Units", value: "8 Private Chalets + Main Lodge Rooms" },
+      { label: "Total Units", value: "25 Rooms" },
       { label: "Chalet Types", value: "A-Frame Chalets & Lakefront Suites" },
       { label: "Amenities", value: "Private Balconies, En-suite Bathrooms" },
       { label: "Occupancy", value: "2-4 Adults per Chalet (Family options)" }
@@ -45,9 +45,9 @@ const FACT_SECTIONS = [
     title: "Dining",
     icon: Utensils,
     items: [
-      { label: "Restaurant", value: "Main Dining Hall (Western & Sri Lankan)" },
+      { label: "Restaurant", value: "Open restaurant (Western & Sri Lankan)" },
       { label: "Signature", value: "Traditional Kandy Rice & Curry" },
-      { label: "Services", value: "Private Dining, BBQ nights, Lakeview Lounge" },
+      { label: "Services", value: "Private Dining, BBQ nights, Lakeview Dinning" },
       { label: "Bar", value: "Exotic Juices & Curated Beverages" }
     ]
   },
@@ -65,9 +65,9 @@ const FACT_SECTIONS = [
     title: "Climate & Settings",
     icon: Thermometer,
     items: [
-      { label: "Avg Temp", value: "21°C - 28°C" },
+      { label: "Avg Temp", value: "28°C" },
       { label: "Best Time", value: "December to April (High Season)" },
-      { label: "Landscape", value: "Tropical Garden, Lakeview Slopes" },
+      { label: "Landscape", value: "Tropical Garden, Lake view Slopes" },
       { label: "Elevation", value: "Approx 450m above sea level" }
     ]
   },
@@ -75,9 +75,9 @@ const FACT_SECTIONS = [
     title: "Facilities",
     icon: Waves,
     items: [
-      { label: "Swimming Pool", value: "Overflow Infinity Pool with Lake View" },
+      { label: "Swimming Pool", value: "Pool with Lake view" },
       { label: "Connectivity", value: "High-Speed Wi-Fi in Public Areas" },
-      { label: "Security", value: "24/7 Gated Property with Concierge" },
+      { label: "Security", value: "24/7 Gated Property" },
       { label: "Parking", value: "On-site Secure Parking for Guests" }
     ]
   }
@@ -103,8 +103,8 @@ export default function FactSheetPage() {
         <div className="container mx-auto max-w-7xl relative z-10">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {FACT_SECTIONS.map((section, idx) => (
-              <div 
-                key={idx} 
+              <div
+                key={idx}
                 className="group bg-white p-8 md:p-10 rounded-[2rem] shadow-[0_4px_30px_rgb(0,0,0,0.03)] border border-stone-100 hover:border-[#606C38]/30 transition-all duration-500 hover:shadow-[0_20px_50px_rgb(0,0,0,0.08)]"
               >
                 <div className="flex items-center gap-4 mb-8">
@@ -128,59 +128,56 @@ export default function FactSheetPage() {
 
           {/* Practicalities Section */}
           <div className="mt-20 grid md:grid-cols-2 gap-8">
-             <div className="bg-[#606C38]/5 p-10 rounded-[2.5rem] border border-[#606C38]/10 relative overflow-hidden group">
-                <div className="absolute top-0 right-0 p-8 opacity-10">
-                    <ShieldCheck className="w-32 h-32 text-[#606C38]" />
-                </div>
-                <div className="relative z-10 space-y-6">
-                    <h3 className="font-headline text-3xl text-[#283618]">Safety & Regulations</h3>
-                    <ul className="space-y-3 text-muted-foreground font-body">
-                        <li className="flex items-center gap-3">
-                            <div className="w-1.5 h-1.5 rounded-full bg-[#606C38]" />
-                            Fire safety equipment in all chalets
-                        </li>
-                        <li className="flex items-center gap-3">
-                            <div className="w-1.5 h-1.5 rounded-full bg-[#606C38]" />
-                            24-hour on-call security and staff
-                        </li>
-                        <li className="flex items-center gap-3">
-                            <div className="w-1.5 h-1.5 rounded-full bg-[#606C38]" />
-                            First aid and emergency evacuation protocols
-                        </li>
-                        <li className="flex items-center gap-3">
-                            <div className="w-1.5 h-1.5 rounded-full bg-[#606C38]" />
-                            Plastic-free initiatives in effect
-                        </li>
-                    </ul>
-                </div>
-             </div>
+            <div className="bg-[#606C38]/5 p-10 rounded-[2.5rem] border border-[#606C38]/10 relative overflow-hidden group">
+              <div className="absolute top-0 right-0 p-8 opacity-10">
+                <ShieldCheck className="w-32 h-32 text-[#606C38]" />
+              </div>
+              <div className="relative z-10 space-y-6">
+                <h3 className="font-headline text-3xl text-[#283618]">Safety & Regulations</h3>
+                <ul className="space-y-3 text-muted-foreground font-body">
+                  <li className="flex items-center gap-3">
+                    <div className="w-1.5 h-1.5 rounded-full bg-[#606C38]" />
+                    Fire safety equipment
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <div className="w-1.5 h-1.5 rounded-full bg-[#606C38]" />
+                    24-hour on-call security and staff
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <div className="w-1.5 h-1.5 rounded-full bg-[#606C38]" />
+                    First aid and emergency
+                  </li>
 
-             <div className="bg-[#DDA15E]/5 p-10 rounded-[2.5rem] border border-[#DDA15E]/10 relative overflow-hidden group">
-                <div className="absolute top-0 right-0 p-8 opacity-10">
-                    <Clock className="w-32 h-32 text-[#DDA15E]" />
+                </ul>
+              </div>
+            </div>
+
+            <div className="bg-[#DDA15E]/5 p-10 rounded-[2.5rem] border border-[#DDA15E]/10 relative overflow-hidden group">
+              <div className="absolute top-0 right-0 p-8 opacity-10">
+                <Clock className="w-32 h-32 text-[#DDA15E]" />
+              </div>
+              <div className="relative z-10 space-y-6">
+                <h3 className="font-headline text-3xl text-[#283618]">Guest Guidelines</h3>
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="space-y-1">
+                    <p className="text-xs font-bold uppercase tracking-widest text-stone-400">Check-in</p>
+                    <p className="text-lg font-bold text-[#606C38]">14:00 PM</p>
+                  </div>
+                  <div className="space-y-1">
+                    <p className="text-xs font-bold uppercase tracking-widest text-stone-400">Check-out</p>
+                    <p className="text-lg font-bold text-[#606C38]">11:00 AM</p>
+                  </div>
+                  <div className="space-y-1">
+                    <p className="text-xs font-bold uppercase tracking-widest text-stone-400">Breakfast</p>
+                    <p className="text-lg font-bold text-[#606C38]">07:30 - 10:00</p>
+                  </div>
+                  <div className="space-y-1">
+                    <p className="text-xs font-bold uppercase tracking-widest text-stone-400">Quiet Hours</p>
+                    <p className="text-lg font-bold text-[#606C38]">From 22:00</p>
+                  </div>
                 </div>
-                <div className="relative z-10 space-y-6">
-                    <h3 className="font-headline text-3xl text-[#283618]">Guest Guidelines</h3>
-                    <div className="grid grid-cols-2 gap-4">
-                        <div className="space-y-1">
-                            <p className="text-xs font-bold uppercase tracking-widest text-stone-400">Check-in</p>
-                            <p className="text-lg font-bold text-[#606C38]">14:00 PM</p>
-                        </div>
-                        <div className="space-y-1">
-                            <p className="text-xs font-bold uppercase tracking-widest text-stone-400">Check-out</p>
-                            <p className="text-lg font-bold text-[#606C38]">11:00 AM</p>
-                        </div>
-                        <div className="space-y-1">
-                            <p className="text-xs font-bold uppercase tracking-widest text-stone-400">Breakfast</p>
-                            <p className="text-lg font-bold text-[#606C38]">07:30 - 10:00</p>
-                        </div>
-                        <div className="space-y-1">
-                            <p className="text-xs font-bold uppercase tracking-widest text-stone-400">Quiet Hours</p>
-                            <p className="text-lg font-bold text-[#606C38]">From 22:00</p>
-                        </div>
-                    </div>
-                </div>
-             </div>
+              </div>
+            </div>
           </div>
 
           <div className="mt-24 text-center">
@@ -191,8 +188,8 @@ export default function FactSheetPage() {
                 <Button asChild className="bg-[#606C38] hover:bg-[#283618] text-white rounded-xl h-14 px-10 text-md font-bold tracking-widest uppercase transition-all">
                   <Link href="/booking">Book a Chalet</Link>
                 </Button>
-                <Button 
-                  variant="outline" 
+                <Button
+                  variant="outline"
                   className="rounded-xl border-stone-200 h-14 px-10 text-md font-bold tracking-widest uppercase hover:bg-stone-50 flex items-center gap-2 group"
                   onClick={() => window.print()}
                 >

@@ -1,5 +1,9 @@
 {
   "/_not-found/page": "app/_not-found/page.js",
+  "/accommodations/page": "app/accommodations/page.js",
+  "/booking/page": "app/booking/page.js",
+  "/dining/page": "app/dining/page.js",
+  "/fact-sheet/page": "app/fact-sheet/page.js",
   "/favicon.ico/route": "app/favicon.ico/route.js",
   "/manifest.webmanifest/route": "app/manifest.webmanifest/route.js",
   "/page": "app/page.js"

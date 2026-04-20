@@ -19,11 +19,6 @@ const DINING_FEATURES = [
     description: "Fresh ingredients sourced directly from local farmers and our own organic gardens."
   },
   {
-    icon: Wine,
-    title: "Curated Cellar",
-    description: "An extensive collection of international wines and premium spirits to pair with your meal."
-  },
-  {
     icon: Coffee,
     title: "Ceylon Tea",
     description: "Experience the world's finest tea, brewed to perfection in the heart of the hill country."
@@ -99,7 +94,7 @@ export default function DiningPage() {
       {/* Booking Form Integration */}
       <div className="relative z-20 -mt-16 container mx-auto px-4 mb-16">
         <div className="bg-card rounded-xl shadow-2xl border border-border/50 backdrop-blur-sm overflow-hidden">
-          <BookingForm showBuffet={true} />
+          <BookingForm showTableBooking={true} />
         </div>
       </div>
 
@@ -114,11 +109,11 @@ export default function DiningPage() {
             </div>
             <h2 className="font-headline text-4xl md:text-5xl text-foreground">Exquisite Culinary Journeys</h2>
             <p className="text-muted-foreground text-sm leading-relaxed max-w-4xl mx-auto">
-              Indulge in an array of culinary delights at Oruthota Chalets. Our chefs craft exquisite dishes using the freshest local ingredients, offering a symphony of flavors that range from authentic Sri Lankan specialties to international cuisine. Whether it&apos;s a romantic dinner under the stars or a casual family meal, our dining experiences are designed to delight your senses and nourish your soul.
+              Indulge in an array of culinary delights at Oruthota Chalets. Our chefs craft exquisite dishes using the freshest local ingredients, offering a symphony of flavors that range from authentic Sri Lankan specialties to international. Whether it&apos;s a romantic dinner under the stars or a casual family meal, our dining experiences are designed to delight your senses and nourish your soul.
             </p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             {DINING_FEATURES.map((feature, idx) => (
               <div key={idx} className="flex flex-col items-center p-6 rounded-2xl bg-secondary/30 hover:bg-secondary/60 transition-colors group">
                 <feature.icon className="w-10 h-10 text-primary mb-4 group-hover:scale-110 transition-transform" />
@@ -177,7 +172,7 @@ export default function DiningPage() {
                   onClick={() => setBookingOpen(true)}
                   className="bg-[#bd2830] hover:bg-[#9a1e24] text-white rounded-none px-8 py-6 text-xs font-bold tracking-[0.2em] uppercase transition-colors"
                 >
-                  BOOK A BUFFET <ArrowRight className="w-4 h-4 ml-6" />
+                  BOOK A TABLE <ArrowRight className="w-4 h-4 ml-6" />
                 </Button>
               </div>
 
@@ -334,7 +329,7 @@ export default function DiningPage() {
             onClick={() => setBookingOpen(true)}
             className="rounded-full px-10 h-14 bg-white text-primary hover:bg-white/90 shadow-2xl hover:shadow-black/20 hover:-translate-y-1 transition-all text-lg font-bold"
           >
-            Book a Buffet <ArrowRight className="ml-2 w-5 h-5" />
+            Book a Table <ArrowRight className="ml-2 w-5 h-5" />
           </Button>
         </div>
       </section>

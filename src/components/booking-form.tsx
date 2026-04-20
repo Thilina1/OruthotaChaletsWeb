@@ -13,11 +13,12 @@ import { cn } from '@/lib/utils';
 import { useToast } from '@/hooks/use-toast';
 import { TableBookingModal } from './table-booking-modal';
 
-export function BookingForm({ showBuffet = false }: { showBuffet?: boolean }) {
+export function BookingForm({ showTableBooking = false }: { showTableBooking?: boolean }) {
   const router = useRouter();
   const { toast } = useToast();
 
-  const [activeTab, setActiveTab] = useState<'stay' | 'buffet'>('stay');
+  const [activeTab, setActiveTab] = useState<'stay' | 'table'>('stay');
+  const [isMounted, setIsMounted] = useState(false);
   const [isTableModalOpen, setIsTableModalOpen] = useState(false);
   const [checkInDate, setCheckInDate] = useState<Date | undefined>(undefined);
   const [checkOutDate, setCheckOutDate] = useState<Date | undefined>(undefined);
@@ -32,6 +33,7 @@ export function BookingForm({ showBuffet = false }: { showBuffet?: boolean }) {
     const today = new Date();
     setCheckInDate(today);
     setCheckOutDate(addDays(today, 1));
+    setIsMounted(true);
   }, []);
 
 
@@ -70,7 +72,7 @@ export function BookingForm({ showBuffet = false }: { showBuffet?: boolean }) {
   return (
     <div className="max-w-6xl mx-auto py-4">
       {/* Tab Switcher */}
-      {showBuffet && (
+      {isMounted && showTableBooking && (
         <div className="flex gap-4 mb-4 px-2">
           <button
             onClick={() => setActiveTab('stay')}
@@ -82,20 +84,20 @@ export function BookingForm({ showBuffet = false }: { showBuffet?: boolean }) {
             Book a Stay
           </button>
           <button
-            onClick={() => setActiveTab('buffet')}
+            onClick={() => setActiveTab('table')}
             className={cn(
               "pb-2 text-sm font-bold tracking-widest uppercase transition-all border-b-2",
-              activeTab === 'buffet' ? "text-[#283618] border-[#283618]" : "text-muted-foreground border-transparent hover:text-[#283618]"
+              activeTab === 'table' ? "text-[#283618] border-[#283618]" : "text-muted-foreground border-transparent hover:text-[#283618]"
             )}
           >
-            Book a Buffet
+            Book a Table
           </button>
         </div>
       )}
 
       <div className="bg-[#FEFAE0]/60 backdrop-blur-sm p-3 rounded-xl shadow-lg border border-white/20">
         {/* Third-party Booking Platforms */}
-        {(!showBuffet || activeTab === 'stay') && (
+        {(!showTableBooking || activeTab === 'stay') && (
           <div className="mb-3 pb-3 border-b border-stone-100 flex flex-col items-center justify-center gap-4">
             <span className="text-[10px] tracking-[0.2em] font-bold text-[#606C38]/60 uppercase">Book via trusted platforms</span>
             <div className="flex gap-6 items-center">
@@ -134,7 +136,7 @@ export function BookingForm({ showBuffet = false }: { showBuffet?: boolean }) {
         )}
 
         <div className="grid grid-cols-1 md:grid-cols-4 gap-0.5 overflow-hidden rounded-lg shadow-sm">
-          {(!showBuffet || activeTab === 'stay') ? (
+          {(!showTableBooking || activeTab === 'stay') ? (
             <>
               <div className="bg-white p-2 md:col-span-1 flex items-center justify-between gap-2 border-r border-stone-100">
                 <Popover>
@@ -234,7 +236,7 @@ export function BookingForm({ showBuffet = false }: { showBuffet?: boolean }) {
                 onClick={activeTab === 'stay' ? handleFindRoom : () => setIsTableModalOpen(true)}
                 className="bg-[#283618] text-white rounded-none text-xs font-semibold tracking-wider h-full px-4 md:col-span-1 hover:bg-[#3d5324] transition-all hover:scale-[1.02] active:scale-95 shadow-lg"
               >
-                {activeTab === 'stay' ? 'CHECK AVAILABILITY' : 'BOOK A BUFFET'}
+                {activeTab === 'stay' ? 'CHECK AVAILABILITY' : 'BOOK A TABLE'}
               </Button>
             </>
           ) : (
@@ -244,8 +246,8 @@ export function BookingForm({ showBuffet = false }: { showBuffet?: boolean }) {
                   <Utensils className="w-6 h-6 text-[#606C38]" />
                 </div>
                 <div>
-                  <h3 className="font-headline text-xl text-[#283618]">Scenic Dining at 360</h3>
-                  <p className="text-sm text-muted-foreground">Experience Al Fresco dining with magical mountain views.</p>
+                  <h3 className="font-headline text-xl text-[#283618]">Scenic Dining at Oruthota Chalets</h3>
+                  {/* <p className="text-sm text-muted-foreground">Experience Al Fresco dining with magical mountain views.</p> */}
                 </div>
               </div>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-[10px] tracking-widest text-[#283618] font-bold uppercase">
@@ -258,7 +260,7 @@ export function BookingForm({ showBuffet = false }: { showBuffet?: boolean }) {
                 onClick={() => setIsTableModalOpen(true)}
                 className="bg-[#283618] text-white rounded-lg px-6 h-10 text-xs hover:bg-[#3d5324] transition-all"
               >
-                BOOK A BUFFET
+                BOOK A TABLE
               </Button>
             </div>
           )}

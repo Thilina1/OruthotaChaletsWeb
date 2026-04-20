@@ -78,7 +78,7 @@ export function TableBookingModal({ open, onClose }: TableBookingModalProps) {
   return (
     <Dialog open={open} onOpenChange={onClose}>
       <DialogContent className="max-w-2xl w-full p-0 overflow-hidden rounded-2xl border-0 shadow-2xl bg-white">
-        <DialogTitle className="sr-only">Book a Buffet – in Oruthota Chalets</DialogTitle>
+        <DialogTitle className="sr-only">Book a Table – in Oruthota Chalets</DialogTitle>
 
         <div className="flex flex-col max-h-[92vh] overflow-y-auto">
           {/* Header */}
@@ -94,7 +94,7 @@ export function TableBookingModal({ open, onClose }: TableBookingModalProps) {
               <Utensils className="w-5 h-5 text-[#DDA15E]" />
               <span className="text-xs tracking-[0.25em] text-[#DDA15E] font-bold uppercase">Oruthota Chalets</span>
             </div>
-            <h2 className="font-headline text-3xl md:text-4xl text-white">Book a Buffet</h2>
+            <h2 className="font-headline text-3xl md:text-4xl text-white">Book a Table</h2>
             <p className="text-white/70 mt-2 text-sm leading-relaxed">
               Reserve your spot at our scenic Al Fresco dining experience.
             </p>

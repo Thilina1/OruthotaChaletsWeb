@@ -132,7 +132,7 @@ const FACT_SECTIONS = [
         items: [
             {
                 label: "Property Type",
-                value: "Boutique Eco-Resort"
+                value: "Family oriented eco resort"
             },
             {
                 label: "Location",
@@ -154,7 +154,7 @@ const FACT_SECTIONS = [
         items: [
             {
                 label: "Total Units",
-                value: "8 Private Chalets + Main Lodge Rooms"
+                value: "25 Rooms"
             },
             {
                 label: "Chalet Types",
@@ -176,7 +176,7 @@ const FACT_SECTIONS = [
         items: [
             {
                 label: "Restaurant",
-                value: "Main Dining Hall (Western & Sri Lankan)"
+                value: "Open restaurant (Western & Sri Lankan)"
             },
             {
                 label: "Signature",
@@ -184,7 +184,7 @@ const FACT_SECTIONS = [
             },
             {
                 label: "Services",
-                value: "Private Dining, BBQ nights, Lakeview Lounge"
+                value: "Private Dining, BBQ nights, Lakeview Dinning"
             },
             {
                 label: "Bar",
@@ -220,7 +220,7 @@ const FACT_SECTIONS = [
         items: [
             {
                 label: "Avg Temp",
-                value: "21°C - 28°C"
+                value: "28°C"
             },
             {
                 label: "Best Time",
@@ -228,7 +228,7 @@ const FACT_SECTIONS = [
             },
             {
                 label: "Landscape",
-                value: "Tropical Garden, Lakeview Slopes"
+                value: "Tropical Garden, Lake view Slopes"
             },
             {
                 label: "Elevation",
@@ -242,7 +242,7 @@ const FACT_SECTIONS = [
         items: [
             {
                 label: "Swimming Pool",
-                value: "Overflow Infinity Pool with Lake View"
+                value: "Pool with Lake view"
             },
             {
                 label: "Connectivity",
@@ -250,7 +250,7 @@ const FACT_SECTIONS = [
             },
             {
                 label: "Security",
-                value: "24/7 Gated Property with Concierge"
+                value: "24/7 Gated Property"
             },
             {
                 label: "Parking",
@@ -387,12 +387,12 @@ function FactSheetPage() {
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/fact-sheet/page.tsx",
                                                     lineNumber: 133,
-                                                    columnNumber: 21
+                                                    columnNumber: 17
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/fact-sheet/page.tsx",
                                                 lineNumber: 132,
-                                                columnNumber: 17
+                                                columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                 className: "relative z-10 space-y-6",
@@ -403,7 +403,7 @@ function FactSheetPage() {
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/fact-sheet/page.tsx",
                                                         lineNumber: 136,
-                                                        columnNumber: 21
+                                                        columnNumber: 17
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
                                                         className: "space-y-3 text-muted-foreground font-body",
@@ -416,14 +416,14 @@ function FactSheetPage() {
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/app/fact-sheet/page.tsx",
                                                                         lineNumber: 139,
-                                                                        columnNumber: 29
+                                                                        columnNumber: 21
                                                                     }, this),
-                                                                    "Fire safety equipment in all chalets"
+                                                                    "Fire safety equipment"
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/src/app/fact-sheet/page.tsx",
                                                                 lineNumber: 138,
-                                                                columnNumber: 25
+                                                                columnNumber: 19
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
                                                                 className: "flex items-center gap-3",
@@ -433,14 +433,14 @@ function FactSheetPage() {
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/app/fact-sheet/page.tsx",
                                                                         lineNumber: 143,
-                                                                        columnNumber: 29
+                                                                        columnNumber: 21
                                                                     }, this),
                                                                     "24-hour on-call security and staff"
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/src/app/fact-sheet/page.tsx",
                                                                 lineNumber: 142,
-                                                                columnNumber: 25
+                                                                columnNumber: 19
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
                                                                 className: "flex items-center gap-3",
@@ -450,49 +450,32 @@ function FactSheetPage() {
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/app/fact-sheet/page.tsx",
                                                                         lineNumber: 147,
-                                                                        columnNumber: 29
+                                                                        columnNumber: 21
                                                                     }, this),
-                                                                    "First aid and emergency evacuation protocols"
+                                                                    "First aid and emergency"
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/src/app/fact-sheet/page.tsx",
                                                                 lineNumber: 146,
-                                                                columnNumber: 25
-                                                            }, this),
-                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
-                                                                className: "flex items-center gap-3",
-                                                                children: [
-                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                        className: "w-1.5 h-1.5 rounded-full bg-[#606C38]"
-                                                                    }, void 0, false, {
-                                                                        fileName: "[project]/src/app/fact-sheet/page.tsx",
-                                                                        lineNumber: 151,
-                                                                        columnNumber: 29
-                                                                    }, this),
-                                                                    "Plastic-free initiatives in effect"
-                                                                ]
-                                                            }, void 0, true, {
-                                                                fileName: "[project]/src/app/fact-sheet/page.tsx",
-                                                                lineNumber: 150,
-                                                                columnNumber: 25
+                                                                columnNumber: 19
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/src/app/fact-sheet/page.tsx",
                                                         lineNumber: 137,
-                                                        columnNumber: 21
+                                                        columnNumber: 17
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/app/fact-sheet/page.tsx",
                                                 lineNumber: 135,
-                                                columnNumber: 17
+                                                columnNumber: 15
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/fact-sheet/page.tsx",
                                         lineNumber: 131,
-                                        columnNumber: 14
+                                        columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                         className: "bg-[#DDA15E]/5 p-10 rounded-[2.5rem] border border-[#DDA15E]/10 relative overflow-hidden group",
@@ -503,13 +486,13 @@ function FactSheetPage() {
                                                     className: "w-32 h-32 text-[#DDA15E]"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/fact-sheet/page.tsx",
-                                                    lineNumber: 160,
-                                                    columnNumber: 21
+                                                    lineNumber: 157,
+                                                    columnNumber: 17
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/fact-sheet/page.tsx",
-                                                lineNumber: 159,
-                                                columnNumber: 17
+                                                lineNumber: 156,
+                                                columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                 className: "relative z-10 space-y-6",
@@ -519,8 +502,8 @@ function FactSheetPage() {
                                                         children: "Guest Guidelines"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/fact-sheet/page.tsx",
-                                                        lineNumber: 163,
-                                                        columnNumber: 21
+                                                        lineNumber: 160,
+                                                        columnNumber: 17
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                         className: "grid grid-cols-2 gap-4",
@@ -533,22 +516,22 @@ function FactSheetPage() {
                                                                         children: "Check-in"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/app/fact-sheet/page.tsx",
-                                                                        lineNumber: 166,
-                                                                        columnNumber: 29
+                                                                        lineNumber: 163,
+                                                                        columnNumber: 21
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                                                         className: "text-lg font-bold text-[#606C38]",
                                                                         children: "14:00 PM"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/app/fact-sheet/page.tsx",
-                                                                        lineNumber: 167,
-                                                                        columnNumber: 29
+                                                                        lineNumber: 164,
+                                                                        columnNumber: 21
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/src/app/fact-sheet/page.tsx",
-                                                                lineNumber: 165,
-                                                                columnNumber: 25
+                                                                lineNumber: 162,
+                                                                columnNumber: 19
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                                 className: "space-y-1",
@@ -558,22 +541,22 @@ function FactSheetPage() {
                                                                         children: "Check-out"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/app/fact-sheet/page.tsx",
-                                                                        lineNumber: 170,
-                                                                        columnNumber: 29
+                                                                        lineNumber: 167,
+                                                                        columnNumber: 21
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                                                         className: "text-lg font-bold text-[#606C38]",
                                                                         children: "11:00 AM"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/app/fact-sheet/page.tsx",
-                                                                        lineNumber: 171,
-                                                                        columnNumber: 29
+                                                                        lineNumber: 168,
+                                                                        columnNumber: 21
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/src/app/fact-sheet/page.tsx",
-                                                                lineNumber: 169,
-                                                                columnNumber: 25
+                                                                lineNumber: 166,
+                                                                columnNumber: 19
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                                 className: "space-y-1",
@@ -583,22 +566,22 @@ function FactSheetPage() {
                                                                         children: "Breakfast"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/app/fact-sheet/page.tsx",
-                                                                        lineNumber: 174,
-                                                                        columnNumber: 29
+                                                                        lineNumber: 171,
+                                                                        columnNumber: 21
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                                                         className: "text-lg font-bold text-[#606C38]",
                                                                         children: "07:30 - 10:00"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/app/fact-sheet/page.tsx",
-                                                                        lineNumber: 175,
-                                                                        columnNumber: 29
+                                                                        lineNumber: 172,
+                                                                        columnNumber: 21
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/src/app/fact-sheet/page.tsx",
-                                                                lineNumber: 173,
-                                                                columnNumber: 25
+                                                                lineNumber: 170,
+                                                                columnNumber: 19
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                                 className: "space-y-1",
@@ -608,40 +591,40 @@ function FactSheetPage() {
                                                                         children: "Quiet Hours"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/app/fact-sheet/page.tsx",
-                                                                        lineNumber: 178,
-                                                                        columnNumber: 29
+                                                                        lineNumber: 175,
+                                                                        columnNumber: 21
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                                                         className: "text-lg font-bold text-[#606C38]",
                                                                         children: "From 22:00"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/app/fact-sheet/page.tsx",
-                                                                        lineNumber: 179,
-                                                                        columnNumber: 29
+                                                                        lineNumber: 176,
+                                                                        columnNumber: 21
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/src/app/fact-sheet/page.tsx",
-                                                                lineNumber: 177,
-                                                                columnNumber: 25
+                                                                lineNumber: 174,
+                                                                columnNumber: 19
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/src/app/fact-sheet/page.tsx",
-                                                        lineNumber: 164,
-                                                        columnNumber: 21
+                                                        lineNumber: 161,
+                                                        columnNumber: 17
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/app/fact-sheet/page.tsx",
-                                                lineNumber: 162,
-                                                columnNumber: 17
+                                                lineNumber: 159,
+                                                columnNumber: 15
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/fact-sheet/page.tsx",
-                                        lineNumber: 158,
-                                        columnNumber: 14
+                                        lineNumber: 155,
+                                        columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
@@ -658,7 +641,7 @@ function FactSheetPage() {
                                             className: "w-8 h-8 text-[#DDA15E] animate-pulse"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/fact-sheet/page.tsx",
-                                            lineNumber: 188,
+                                            lineNumber: 185,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
@@ -666,7 +649,7 @@ function FactSheetPage() {
                                             children: "Plan Your Stay"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/fact-sheet/page.tsx",
-                                            lineNumber: 189,
+                                            lineNumber: 186,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -680,12 +663,12 @@ function FactSheetPage() {
                                                         children: "Book a Chalet"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/fact-sheet/page.tsx",
-                                                        lineNumber: 192,
+                                                        lineNumber: 189,
                                                         columnNumber: 19
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/fact-sheet/page.tsx",
-                                                    lineNumber: 191,
+                                                    lineNumber: 188,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -697,31 +680,31 @@ function FactSheetPage() {
                                                             className: "w-5 h-5 transition-transform group-hover:-translate-y-1"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/fact-sheet/page.tsx",
-                                                            lineNumber: 199,
+                                                            lineNumber: 196,
                                                             columnNumber: 19
                                                         }, this),
                                                         "Download PDF"
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/app/fact-sheet/page.tsx",
-                                                    lineNumber: 194,
+                                                    lineNumber: 191,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/app/fact-sheet/page.tsx",
-                                            lineNumber: 190,
+                                            lineNumber: 187,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/fact-sheet/page.tsx",
-                                    lineNumber: 187,
+                                    lineNumber: 184,
                                     columnNumber: 13
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/src/app/fact-sheet/page.tsx",
-                                lineNumber: 186,
+                                lineNumber: 183,
                                 columnNumber: 11
                             }, this)
                         ]

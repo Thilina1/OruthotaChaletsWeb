@@ -558,7 +558,7 @@ function TableBookingModal({ open, onClose }) {
             children: [
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DialogTitle"], {
                     className: "sr-only",
-                    children: "Book a Buffet – in Oruthota Chalets"
+                    children: "Book a Table – in Oruthota Chalets"
                 }, void 0, false, {
                     fileName: "[project]/src/components/table-booking-modal.tsx",
                     lineNumber: 81,
@@ -612,7 +612,7 @@ function TableBookingModal({ open, onClose }) {
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
                                     className: "font-headline text-3xl md:text-4xl text-white",
-                                    children: "Book a Buffet"
+                                    children: "Book a Table"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/table-booking-modal.tsx",
                                     lineNumber: 97,
@@ -1096,11 +1096,12 @@ var _s = __turbopack_context__.k.signature();
 ;
 ;
 ;
-function BookingForm({ showBuffet = false }) {
+function BookingForm({ showTableBooking = false }) {
     _s();
     const router = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRouter"])();
     const { toast } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$hooks$2f$use$2d$toast$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useToast"])();
     const [activeTab, setActiveTab] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])('stay');
+    const [isMounted, setIsMounted] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
     const [isTableModalOpen, setIsTableModalOpen] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
     const [checkInDate, setCheckInDate] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(undefined);
     const [checkOutDate, setCheckOutDate] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(undefined);
@@ -1115,6 +1116,7 @@ function BookingForm({ showBuffet = false }) {
             const today = new Date();
             setCheckInDate(today);
             setCheckOutDate((0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$date$2d$fns$2f$addDays$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["addDays"])(today, 1));
+            setIsMounted(true);
         }
     }["BookingForm.useEffect"], []);
     const handleGuestChange = (type, operation)=>{
@@ -1153,7 +1155,7 @@ function BookingForm({ showBuffet = false }) {
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         className: "max-w-6xl mx-auto py-4",
         children: [
-            showBuffet && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+            isMounted && showTableBooking && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "flex gap-4 mb-4 px-2",
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -1162,28 +1164,28 @@ function BookingForm({ showBuffet = false }) {
                         children: "Book a Stay"
                     }, void 0, false, {
                         fileName: "[project]/src/components/booking-form.tsx",
-                        lineNumber: 75,
+                        lineNumber: 77,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                        onClick: ()=>setActiveTab('buffet'),
-                        className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["cn"])("pb-2 text-sm font-bold tracking-widest uppercase transition-all border-b-2", activeTab === 'buffet' ? "text-[#283618] border-[#283618]" : "text-muted-foreground border-transparent hover:text-[#283618]"),
-                        children: "Book a Buffet"
+                        onClick: ()=>setActiveTab('table'),
+                        className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["cn"])("pb-2 text-sm font-bold tracking-widest uppercase transition-all border-b-2", activeTab === 'table' ? "text-[#283618] border-[#283618]" : "text-muted-foreground border-transparent hover:text-[#283618]"),
+                        children: "Book a Table"
                     }, void 0, false, {
                         fileName: "[project]/src/components/booking-form.tsx",
-                        lineNumber: 84,
+                        lineNumber: 86,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/components/booking-form.tsx",
-                lineNumber: 74,
+                lineNumber: 76,
                 columnNumber: 9
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "bg-[#FEFAE0]/60 backdrop-blur-sm p-3 rounded-xl shadow-lg border border-white/20",
                 children: [
-                    (!showBuffet || activeTab === 'stay') && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    (!showTableBooking || activeTab === 'stay') && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "mb-3 pb-3 border-b border-stone-100 flex flex-col items-center justify-center gap-4",
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1191,7 +1193,7 @@ function BookingForm({ showBuffet = false }) {
                                 children: "Book via trusted platforms"
                             }, void 0, false, {
                                 fileName: "[project]/src/components/booking-form.tsx",
-                                lineNumber: 100,
+                                lineNumber: 102,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1211,17 +1213,17 @@ function BookingForm({ showBuffet = false }) {
                                                 className: "object-contain"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/booking-form.tsx",
-                                                lineNumber: 109,
+                                                lineNumber: 111,
                                                 columnNumber: 19
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/booking-form.tsx",
-                                            lineNumber: 108,
+                                            lineNumber: 110,
                                             columnNumber: 17
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/booking-form.tsx",
-                                        lineNumber: 102,
+                                        lineNumber: 104,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
@@ -1238,34 +1240,34 @@ function BookingForm({ showBuffet = false }) {
                                                 className: "object-contain"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/booking-form.tsx",
-                                                lineNumber: 124,
+                                                lineNumber: 126,
                                                 columnNumber: 19
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/booking-form.tsx",
-                                            lineNumber: 123,
+                                            lineNumber: 125,
                                             columnNumber: 17
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/booking-form.tsx",
-                                        lineNumber: 117,
+                                        lineNumber: 119,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/components/booking-form.tsx",
-                                lineNumber: 101,
+                                lineNumber: 103,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/components/booking-form.tsx",
-                        lineNumber: 99,
+                        lineNumber: 101,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "grid grid-cols-1 md:grid-cols-4 gap-0.5 overflow-hidden rounded-lg shadow-sm",
-                        children: !showBuffet || activeTab === 'stay' ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
+                        children: !showTableBooking || activeTab === 'stay' ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                     className: "bg-white p-2 md:col-span-1 flex items-center justify-between gap-2 border-r border-stone-100",
@@ -1283,7 +1285,7 @@ function BookingForm({ showBuffet = false }) {
                                                                     children: "Check-in"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/components/booking-form.tsx",
-                                                                    lineNumber: 144,
+                                                                    lineNumber: 146,
                                                                     columnNumber: 25
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1291,31 +1293,31 @@ function BookingForm({ showBuffet = false }) {
                                                                     children: checkInDate ? (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$date$2d$fns$2f$format$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["format"])(checkInDate, 'dd/MM/yyyy') : 'Select date'
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/components/booking-form.tsx",
-                                                                    lineNumber: 145,
+                                                                    lineNumber: 147,
                                                                     columnNumber: 25
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/src/components/booking-form.tsx",
-                                                            lineNumber: 143,
+                                                            lineNumber: 145,
                                                             columnNumber: 23
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$calendar$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Calendar$3e$__["Calendar"], {
                                                             className: "h-6 w-6 text-gray-400"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/booking-form.tsx",
-                                                            lineNumber: 147,
+                                                            lineNumber: 149,
                                                             columnNumber: 23
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/components/booking-form.tsx",
-                                                    lineNumber: 142,
+                                                    lineNumber: 144,
                                                     columnNumber: 21
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/booking-form.tsx",
-                                                lineNumber: 141,
+                                                lineNumber: 143,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$popover$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["PopoverContent"], {
@@ -1336,23 +1338,23 @@ function BookingForm({ showBuffet = false }) {
                                                     }
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/booking-form.tsx",
-                                                    lineNumber: 151,
+                                                    lineNumber: 153,
                                                     columnNumber: 21
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/booking-form.tsx",
-                                                lineNumber: 150,
+                                                lineNumber: 152,
                                                 columnNumber: 19
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/components/booking-form.tsx",
-                                        lineNumber: 140,
+                                        lineNumber: 142,
                                         columnNumber: 17
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/booking-form.tsx",
-                                    lineNumber: 139,
+                                    lineNumber: 141,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1371,7 +1373,7 @@ function BookingForm({ showBuffet = false }) {
                                                                     children: "Check-out"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/components/booking-form.tsx",
-                                                                    lineNumber: 172,
+                                                                    lineNumber: 174,
                                                                     columnNumber: 25
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1379,31 +1381,31 @@ function BookingForm({ showBuffet = false }) {
                                                                     children: checkOutDate ? (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$date$2d$fns$2f$format$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["format"])(checkOutDate, 'dd/MM/yyyy') : 'Select date'
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/components/booking-form.tsx",
-                                                                    lineNumber: 173,
+                                                                    lineNumber: 175,
                                                                     columnNumber: 25
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/src/components/booking-form.tsx",
-                                                            lineNumber: 171,
+                                                            lineNumber: 173,
                                                             columnNumber: 23
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$calendar$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Calendar$3e$__["Calendar"], {
                                                             className: "h-6 w-6 text-gray-400"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/booking-form.tsx",
-                                                            lineNumber: 175,
+                                                            lineNumber: 177,
                                                             columnNumber: 23
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/components/booking-form.tsx",
-                                                    lineNumber: 170,
+                                                    lineNumber: 172,
                                                     columnNumber: 21
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/booking-form.tsx",
-                                                lineNumber: 169,
+                                                lineNumber: 171,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$popover$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["PopoverContent"], {
@@ -1419,23 +1421,23 @@ function BookingForm({ showBuffet = false }) {
                                                     }
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/booking-form.tsx",
-                                                    lineNumber: 179,
+                                                    lineNumber: 181,
                                                     columnNumber: 21
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/booking-form.tsx",
-                                                lineNumber: 178,
+                                                lineNumber: 180,
                                                 columnNumber: 19
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/components/booking-form.tsx",
-                                        lineNumber: 168,
+                                        lineNumber: 170,
                                         columnNumber: 17
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/booking-form.tsx",
-                                    lineNumber: 167,
+                                    lineNumber: 169,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1456,7 +1458,7 @@ function BookingForm({ showBuffet = false }) {
                                                                     children: "Guests"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/components/booking-form.tsx",
-                                                                    lineNumber: 195,
+                                                                    lineNumber: 197,
                                                                     columnNumber: 25
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1469,31 +1471,31 @@ function BookingForm({ showBuffet = false }) {
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/src/components/booking-form.tsx",
-                                                                    lineNumber: 196,
+                                                                    lineNumber: 198,
                                                                     columnNumber: 25
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/src/components/booking-form.tsx",
-                                                            lineNumber: 194,
+                                                            lineNumber: 196,
                                                             columnNumber: 23
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$user$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__User$3e$__["User"], {
                                                             className: "h-6 w-6 text-gray-400"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/booking-form.tsx",
-                                                            lineNumber: 198,
+                                                            lineNumber: 200,
                                                             columnNumber: 23
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/components/booking-form.tsx",
-                                                    lineNumber: 193,
+                                                    lineNumber: 195,
                                                     columnNumber: 21
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/booking-form.tsx",
-                                                lineNumber: 192,
+                                                lineNumber: 194,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$popover$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["PopoverContent"], {
@@ -1509,7 +1511,7 @@ function BookingForm({ showBuffet = false }) {
                                                                     children: "Adults"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/components/booking-form.tsx",
-                                                                    lineNumber: 204,
+                                                                    lineNumber: 206,
                                                                     columnNumber: 25
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1524,12 +1526,12 @@ function BookingForm({ showBuffet = false }) {
                                                                                 className: "h-4 w-4"
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/src/components/booking-form.tsx",
-                                                                                lineNumber: 207,
+                                                                                lineNumber: 209,
                                                                                 columnNumber: 29
                                                                             }, this)
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/src/components/booking-form.tsx",
-                                                                            lineNumber: 206,
+                                                                            lineNumber: 208,
                                                                             columnNumber: 27
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1537,7 +1539,7 @@ function BookingForm({ showBuffet = false }) {
                                                                             children: guests.adults
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/src/components/booking-form.tsx",
-                                                                            lineNumber: 210,
+                                                                            lineNumber: 212,
                                                                             columnNumber: 27
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -1549,24 +1551,24 @@ function BookingForm({ showBuffet = false }) {
                                                                                 className: "h-4 w-4"
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/src/components/booking-form.tsx",
-                                                                                lineNumber: 212,
+                                                                                lineNumber: 214,
                                                                                 columnNumber: 29
                                                                             }, this)
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/src/components/booking-form.tsx",
-                                                                            lineNumber: 211,
+                                                                            lineNumber: 213,
                                                                             columnNumber: 27
                                                                         }, this)
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/src/components/booking-form.tsx",
-                                                                    lineNumber: 205,
+                                                                    lineNumber: 207,
                                                                     columnNumber: 25
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/src/components/booking-form.tsx",
-                                                            lineNumber: 203,
+                                                            lineNumber: 205,
                                                             columnNumber: 23
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1577,7 +1579,7 @@ function BookingForm({ showBuffet = false }) {
                                                                     children: "Children"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/components/booking-form.tsx",
-                                                                    lineNumber: 217,
+                                                                    lineNumber: 219,
                                                                     columnNumber: 25
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1592,12 +1594,12 @@ function BookingForm({ showBuffet = false }) {
                                                                                 className: "h-4 w-4"
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/src/components/booking-form.tsx",
-                                                                                lineNumber: 220,
+                                                                                lineNumber: 222,
                                                                                 columnNumber: 29
                                                                             }, this)
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/src/components/booking-form.tsx",
-                                                                            lineNumber: 219,
+                                                                            lineNumber: 221,
                                                                             columnNumber: 27
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1605,7 +1607,7 @@ function BookingForm({ showBuffet = false }) {
                                                                             children: guests.children
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/src/components/booking-form.tsx",
-                                                                            lineNumber: 222,
+                                                                            lineNumber: 224,
                                                                             columnNumber: 27
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -1617,24 +1619,24 @@ function BookingForm({ showBuffet = false }) {
                                                                                 className: "h-4 w-4"
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/src/components/booking-form.tsx",
-                                                                                lineNumber: 224,
+                                                                                lineNumber: 226,
                                                                                 columnNumber: 29
                                                                             }, this)
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/src/components/booking-form.tsx",
-                                                                            lineNumber: 223,
+                                                                            lineNumber: 225,
                                                                             columnNumber: 27
                                                                         }, this)
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/src/components/booking-form.tsx",
-                                                                    lineNumber: 218,
+                                                                    lineNumber: 220,
                                                                     columnNumber: 25
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/src/components/booking-form.tsx",
-                                                            lineNumber: 216,
+                                                            lineNumber: 218,
                                                             columnNumber: 23
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -1643,38 +1645,38 @@ function BookingForm({ showBuffet = false }) {
                                                             children: "Done"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/booking-form.tsx",
-                                                            lineNumber: 228,
+                                                            lineNumber: 230,
                                                             columnNumber: 23
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/components/booking-form.tsx",
-                                                    lineNumber: 202,
+                                                    lineNumber: 204,
                                                     columnNumber: 21
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/booking-form.tsx",
-                                                lineNumber: 201,
+                                                lineNumber: 203,
                                                 columnNumber: 19
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/components/booking-form.tsx",
-                                        lineNumber: 191,
+                                        lineNumber: 193,
                                         columnNumber: 17
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/booking-form.tsx",
-                                    lineNumber: 190,
+                                    lineNumber: 192,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
                                     onClick: activeTab === 'stay' ? handleFindRoom : ()=>setIsTableModalOpen(true),
                                     className: "bg-[#283618] text-white rounded-none text-xs font-semibold tracking-wider h-full px-4 md:col-span-1 hover:bg-[#3d5324] transition-all hover:scale-[1.02] active:scale-95 shadow-lg",
-                                    children: activeTab === 'stay' ? 'CHECK AVAILABILITY' : 'BOOK A BUFFET'
+                                    children: activeTab === 'stay' ? 'CHECK AVAILABILITY' : 'BOOK A TABLE'
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/booking-form.tsx",
-                                    lineNumber: 233,
+                                    lineNumber: 235,
                                     columnNumber: 15
                                 }, this)
                             ]
@@ -1690,42 +1692,32 @@ function BookingForm({ showBuffet = false }) {
                                                 className: "w-6 h-6 text-[#606C38]"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/booking-form.tsx",
-                                                lineNumber: 244,
+                                                lineNumber: 246,
                                                 columnNumber: 19
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/booking-form.tsx",
-                                            lineNumber: 243,
+                                            lineNumber: 245,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                            children: [
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
-                                                    className: "font-headline text-xl text-[#283618]",
-                                                    children: "Scenic Dining at 360"
-                                                }, void 0, false, {
-                                                    fileName: "[project]/src/components/booking-form.tsx",
-                                                    lineNumber: 247,
-                                                    columnNumber: 19
-                                                }, this),
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                    className: "text-sm text-muted-foreground",
-                                                    children: "Experience Al Fresco dining with magical mountain views."
-                                                }, void 0, false, {
-                                                    fileName: "[project]/src/components/booking-form.tsx",
-                                                    lineNumber: 248,
-                                                    columnNumber: 19
-                                                }, this)
-                                            ]
-                                        }, void 0, true, {
+                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
+                                                className: "font-headline text-xl text-[#283618]",
+                                                children: "Scenic Dining at Oruthota Chalets"
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/components/booking-form.tsx",
+                                                lineNumber: 249,
+                                                columnNumber: 19
+                                            }, this)
+                                        }, void 0, false, {
                                             fileName: "[project]/src/components/booking-form.tsx",
-                                            lineNumber: 246,
+                                            lineNumber: 248,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/booking-form.tsx",
-                                    lineNumber: 242,
+                                    lineNumber: 244,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1738,44 +1730,10 @@ function BookingForm({ showBuffet = false }) {
                                                     className: "w-3 h-3"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/booking-form.tsx",
-                                                    lineNumber: 252,
-                                                    columnNumber: 91
-                                                }, this),
-                                                " Breakfast"
-                                            ]
-                                        }, void 0, true, {
-                                            fileName: "[project]/src/components/booking-form.tsx",
-                                            lineNumber: 252,
-                                            columnNumber: 17
-                                        }, this),
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                            className: "flex items-center gap-2 bg-stone-50 px-3 py-2 rounded-lg",
-                                            children: [
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$clock$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Clock$3e$__["Clock"], {
-                                                    className: "w-3 h-3"
-                                                }, void 0, false, {
-                                                    fileName: "[project]/src/components/booking-form.tsx",
-                                                    lineNumber: 253,
-                                                    columnNumber: 91
-                                                }, this),
-                                                " Lunch"
-                                            ]
-                                        }, void 0, true, {
-                                            fileName: "[project]/src/components/booking-form.tsx",
-                                            lineNumber: 253,
-                                            columnNumber: 17
-                                        }, this),
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                            className: "flex items-center gap-2 bg-stone-50 px-3 py-2 rounded-lg",
-                                            children: [
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$clock$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Clock$3e$__["Clock"], {
-                                                    className: "w-3 h-3"
-                                                }, void 0, false, {
-                                                    fileName: "[project]/src/components/booking-form.tsx",
                                                     lineNumber: 254,
                                                     columnNumber: 91
                                                 }, this),
-                                                " High Tea"
+                                                " Breakfast"
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/components/booking-form.tsx",
@@ -1792,43 +1750,77 @@ function BookingForm({ showBuffet = false }) {
                                                     lineNumber: 255,
                                                     columnNumber: 91
                                                 }, this),
-                                                " Dinner"
+                                                " Lunch"
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/components/booking-form.tsx",
                                             lineNumber: 255,
                                             columnNumber: 17
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            className: "flex items-center gap-2 bg-stone-50 px-3 py-2 rounded-lg",
+                                            children: [
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$clock$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Clock$3e$__["Clock"], {
+                                                    className: "w-3 h-3"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/src/components/booking-form.tsx",
+                                                    lineNumber: 256,
+                                                    columnNumber: 91
+                                                }, this),
+                                                " High Tea"
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "[project]/src/components/booking-form.tsx",
+                                            lineNumber: 256,
+                                            columnNumber: 17
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            className: "flex items-center gap-2 bg-stone-50 px-3 py-2 rounded-lg",
+                                            children: [
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$clock$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Clock$3e$__["Clock"], {
+                                                    className: "w-3 h-3"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/src/components/booking-form.tsx",
+                                                    lineNumber: 257,
+                                                    columnNumber: 91
+                                                }, this),
+                                                " Dinner"
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "[project]/src/components/booking-form.tsx",
+                                            lineNumber: 257,
+                                            columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/booking-form.tsx",
-                                    lineNumber: 251,
+                                    lineNumber: 253,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
                                     onClick: ()=>setIsTableModalOpen(true),
                                     className: "bg-[#283618] text-white rounded-lg px-6 h-10 text-xs hover:bg-[#3d5324] transition-all",
-                                    children: "BOOK A BUFFET"
+                                    children: "BOOK A TABLE"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/booking-form.tsx",
-                                    lineNumber: 257,
+                                    lineNumber: 259,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/booking-form.tsx",
-                            lineNumber: 241,
+                            lineNumber: 243,
                             columnNumber: 13
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/src/components/booking-form.tsx",
-                        lineNumber: 136,
+                        lineNumber: 138,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/components/booking-form.tsx",
-                lineNumber: 96,
+                lineNumber: 98,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$table$2d$booking$2d$modal$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableBookingModal"], {
@@ -1836,17 +1828,17 @@ function BookingForm({ showBuffet = false }) {
                 onClose: ()=>setIsTableModalOpen(false)
             }, void 0, false, {
                 fileName: "[project]/src/components/booking-form.tsx",
-                lineNumber: 268,
+                lineNumber: 270,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/components/booking-form.tsx",
-        lineNumber: 71,
+        lineNumber: 73,
         columnNumber: 5
     }, this);
 }
-_s(BookingForm, "r6v/6uLhwWqSg++rvPChVkW+gR8=", false, function() {
+_s(BookingForm, "5Xp6luBaE4jb4D91OjI8GeZJTzc=", false, function() {
     return [
         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRouter"],
         __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$hooks$2f$use$2d$toast$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useToast"]
@@ -2020,7 +2012,6 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$booking
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/components/ui/button.tsx [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$arrow$2d$right$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__ArrowRight$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/arrow-right.js [app-client] (ecmascript) <export default as ArrowRight>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$utensils$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Utensils$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/utensils.js [app-client] (ecmascript) <export default as Utensils>");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$wine$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Wine$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/wine.js [app-client] (ecmascript) <export default as Wine>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$coffee$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Coffee$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/coffee.js [app-client] (ecmascript) <export default as Coffee>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$sunset$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Sunset$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/sunset.js [app-client] (ecmascript) <export default as Sunset>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$clock$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Clock$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/clock.js [app-client] (ecmascript) <export default as Clock>");
@@ -2046,11 +2037,6 @@ const DINING_FEATURES = [
         icon: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$utensils$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Utensils$3e$__["Utensils"],
         title: "Farm to Table",
         description: "Fresh ingredients sourced directly from local farmers and our own organic gardens."
-    },
-    {
-        icon: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$wine$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Wine$3e$__["Wine"],
-        title: "Curated Cellar",
-        description: "An extensive collection of international wines and premium spirits to pair with your meal."
     },
     {
         icon: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$coffee$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Coffee$3e$__["Coffee"],
@@ -2131,7 +2117,7 @@ function DiningPage() {
                 imageAlt: "Dining at Oruthota Chalets"
             }, void 0, false, {
                 fileName: "[project]/src/app/dining/page.tsx",
-                lineNumber: 91,
+                lineNumber: 86,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2139,20 +2125,20 @@ function DiningPage() {
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                     className: "bg-card rounded-xl shadow-2xl border border-border/50 backdrop-blur-sm overflow-hidden",
                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$booking$2d$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["BookingForm"], {
-                        showBuffet: true
+                        showTableBooking: true
                     }, void 0, false, {
                         fileName: "[project]/src/app/dining/page.tsx",
-                        lineNumber: 102,
+                        lineNumber: 97,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/src/app/dining/page.tsx",
-                    lineNumber: 101,
+                    lineNumber: 96,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/app/dining/page.tsx",
-                lineNumber: 100,
+                lineNumber: 95,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
@@ -2170,7 +2156,7 @@ function DiningPage() {
                                             className: "h-px bg-foreground w-16 mx-4"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/dining/page.tsx",
-                                            lineNumber: 111,
+                                            lineNumber: 106,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2178,20 +2164,20 @@ function DiningPage() {
                                             children: "Culinary Philosophy"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/dining/page.tsx",
-                                            lineNumber: 112,
+                                            lineNumber: 107,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                             className: "h-px bg-foreground w-16 mx-4"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/dining/page.tsx",
-                                            lineNumber: 113,
+                                            lineNumber: 108,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/dining/page.tsx",
-                                    lineNumber: 110,
+                                    lineNumber: 105,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
@@ -2199,25 +2185,25 @@ function DiningPage() {
                                     children: "Exquisite Culinary Journeys"
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/dining/page.tsx",
-                                    lineNumber: 115,
+                                    lineNumber: 110,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                     className: "text-muted-foreground text-sm leading-relaxed max-w-4xl mx-auto",
-                                    children: "Indulge in an array of culinary delights at Oruthota Chalets. Our chefs craft exquisite dishes using the freshest local ingredients, offering a symphony of flavors that range from authentic Sri Lankan specialties to international cuisine. Whether it's a romantic dinner under the stars or a casual family meal, our dining experiences are designed to delight your senses and nourish your soul."
+                                    children: "Indulge in an array of culinary delights at Oruthota Chalets. Our chefs craft exquisite dishes using the freshest local ingredients, offering a symphony of flavors that range from authentic Sri Lankan specialties to international. Whether it's a romantic dinner under the stars or a casual family meal, our dining experiences are designed to delight your senses and nourish your soul."
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/dining/page.tsx",
-                                    lineNumber: 116,
+                                    lineNumber: 111,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/app/dining/page.tsx",
-                            lineNumber: 109,
+                            lineNumber: 104,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "grid grid-cols-2 md:grid-cols-4 gap-8",
+                            className: "grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto",
                             children: DINING_FEATURES.map((feature, idx)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                     className: "flex flex-col items-center p-6 rounded-2xl bg-secondary/30 hover:bg-secondary/60 transition-colors group",
                                     children: [
@@ -2225,7 +2211,7 @@ function DiningPage() {
                                             className: "w-10 h-10 text-primary mb-4 group-hover:scale-110 transition-transform"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/dining/page.tsx",
-                                            lineNumber: 124,
+                                            lineNumber: 119,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
@@ -2233,7 +2219,7 @@ function DiningPage() {
                                             children: feature.title
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/dining/page.tsx",
-                                            lineNumber: 125,
+                                            lineNumber: 120,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2241,29 +2227,29 @@ function DiningPage() {
                                             children: feature.description
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/dining/page.tsx",
-                                            lineNumber: 126,
+                                            lineNumber: 121,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, idx, true, {
                                     fileName: "[project]/src/app/dining/page.tsx",
-                                    lineNumber: 123,
+                                    lineNumber: 118,
                                     columnNumber: 15
                                 }, this))
                         }, void 0, false, {
                             fileName: "[project]/src/app/dining/page.tsx",
-                            lineNumber: 121,
+                            lineNumber: 116,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/app/dining/page.tsx",
-                    lineNumber: 108,
+                    lineNumber: 103,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/app/dining/page.tsx",
-                lineNumber: 107,
+                lineNumber: 102,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
@@ -2284,20 +2270,20 @@ function DiningPage() {
                                                 children: "SCENIC DINING SETTINGS"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/dining/page.tsx",
-                                                lineNumber: 141,
+                                                lineNumber: 136,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                 className: "h-px bg-foreground flex-grow max-w-[100px]"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/dining/page.tsx",
-                                                lineNumber: 142,
+                                                lineNumber: 137,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/dining/page.tsx",
-                                        lineNumber: 140,
+                                        lineNumber: 135,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
@@ -2305,7 +2291,7 @@ function DiningPage() {
                                         children: "By Oruthota Chalets"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/dining/page.tsx",
-                                        lineNumber: 145,
+                                        lineNumber: 140,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2315,20 +2301,20 @@ function DiningPage() {
                                                 children: "At Oruthota Chalets, you're invited to experience Al Fresco dining across distinct settings. Whether you're enjoying panoramic views from the terrace, basking in the golden glow of sunset, or soaking in the serene surroundings by the lake, each dining area offers a unique atmosphere, perfectly blending exquisite cuisine with the breathtaking beauty of the highlands."
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/dining/page.tsx",
-                                                lineNumber: 148,
+                                                lineNumber: 143,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                                 children: "Message our reservations team via Whatsapp to reserve a table at our restaurant with magical mountain views."
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/dining/page.tsx",
-                                                lineNumber: 151,
+                                                lineNumber: 146,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/dining/page.tsx",
-                                        lineNumber: 147,
+                                        lineNumber: 142,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2341,20 +2327,20 @@ function DiningPage() {
                                                         className: "w-4 h-4 mr-3 text-muted-foreground"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/dining/page.tsx",
-                                                        lineNumber: 158,
+                                                        lineNumber: 153,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                         children: "BREAKFAST: 07.30 AM - 10.00 AM"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/dining/page.tsx",
-                                                        lineNumber: 159,
+                                                        lineNumber: 154,
                                                         columnNumber: 19
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/app/dining/page.tsx",
-                                                lineNumber: 157,
+                                                lineNumber: 152,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2364,20 +2350,20 @@ function DiningPage() {
                                                         className: "w-4 h-4 mr-3 text-muted-foreground"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/dining/page.tsx",
-                                                        lineNumber: 162,
+                                                        lineNumber: 157,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                         children: "LUNCH: 12.30 AM - 3.00 PM"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/dining/page.tsx",
-                                                        lineNumber: 163,
+                                                        lineNumber: 158,
                                                         columnNumber: 19
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/app/dining/page.tsx",
-                                                lineNumber: 161,
+                                                lineNumber: 156,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2387,20 +2373,20 @@ function DiningPage() {
                                                         className: "w-4 h-4 mr-3 text-muted-foreground"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/dining/page.tsx",
-                                                        lineNumber: 166,
+                                                        lineNumber: 161,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                         children: "HIGH TEA: 3.00 PM - 5.00 PM"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/dining/page.tsx",
-                                                        lineNumber: 167,
+                                                        lineNumber: 162,
                                                         columnNumber: 19
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/app/dining/page.tsx",
-                                                lineNumber: 165,
+                                                lineNumber: 160,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2410,26 +2396,26 @@ function DiningPage() {
                                                         className: "w-4 h-4 mr-3 text-muted-foreground"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/dining/page.tsx",
-                                                        lineNumber: 170,
+                                                        lineNumber: 165,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                         children: "DINNER: 07.30 PM - 10.30 PM"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/dining/page.tsx",
-                                                        lineNumber: 171,
+                                                        lineNumber: 166,
                                                         columnNumber: 19
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/app/dining/page.tsx",
-                                                lineNumber: 169,
+                                                lineNumber: 164,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/dining/page.tsx",
-                                        lineNumber: 156,
+                                        lineNumber: 151,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2438,34 +2424,34 @@ function DiningPage() {
                                             onClick: ()=>setBookingOpen(true),
                                             className: "bg-[#bd2830] hover:bg-[#9a1e24] text-white rounded-none px-8 py-6 text-xs font-bold tracking-[0.2em] uppercase transition-colors",
                                             children: [
-                                                "BOOK A BUFFET ",
+                                                "BOOK A TABLE ",
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$arrow$2d$right$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__ArrowRight$3e$__["ArrowRight"], {
                                                     className: "w-4 h-4 ml-6"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/dining/page.tsx",
-                                                    lineNumber: 180,
-                                                    columnNumber: 33
+                                                    lineNumber: 175,
+                                                    columnNumber: 32
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/app/dining/page.tsx",
-                                            lineNumber: 176,
+                                            lineNumber: 171,
                                             columnNumber: 17
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/dining/page.tsx",
-                                        lineNumber: 175,
+                                        lineNumber: 170,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/dining/page.tsx",
-                                lineNumber: 138,
+                                lineNumber: 133,
                                 columnNumber: 13
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/src/app/dining/page.tsx",
-                            lineNumber: 137,
+                            lineNumber: 132,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2480,12 +2466,12 @@ function DiningPage() {
                                         className: "object-cover shadow-2xl"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/dining/page.tsx",
-                                        lineNumber: 190,
+                                        lineNumber: 185,
                                         columnNumber: 15
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/dining/page.tsx",
-                                    lineNumber: 189,
+                                    lineNumber: 184,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2495,37 +2481,37 @@ function DiningPage() {
                                             className: "w-2 h-2 rounded-full bg-[#bd2830]"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/dining/page.tsx",
-                                            lineNumber: 199,
+                                            lineNumber: 194,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                             className: "w-2 h-2 rounded-full bg-[#bd2830]"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/dining/page.tsx",
-                                            lineNumber: 200,
+                                            lineNumber: 195,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/dining/page.tsx",
-                                    lineNumber: 198,
+                                    lineNumber: 193,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/app/dining/page.tsx",
-                            lineNumber: 188,
+                            lineNumber: 183,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/app/dining/page.tsx",
-                    lineNumber: 135,
+                    lineNumber: 130,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/app/dining/page.tsx",
-                lineNumber: 134,
+                lineNumber: 129,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
@@ -2543,7 +2529,7 @@ function DiningPage() {
                                             className: "h-px bg-foreground w-16 mx-4"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/dining/page.tsx",
-                                            lineNumber: 211,
+                                            lineNumber: 206,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2551,20 +2537,20 @@ function DiningPage() {
                                             children: "DINING VENUES"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/dining/page.tsx",
-                                            lineNumber: 212,
+                                            lineNumber: 207,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                             className: "h-px bg-foreground w-16 mx-4"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/dining/page.tsx",
-                                            lineNumber: 213,
+                                            lineNumber: 208,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/dining/page.tsx",
-                                    lineNumber: 210,
+                                    lineNumber: 205,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
@@ -2572,7 +2558,7 @@ function DiningPage() {
                                     children: "Our Venues"
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/dining/page.tsx",
-                                    lineNumber: 215,
+                                    lineNumber: 210,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2580,13 +2566,13 @@ function DiningPage() {
                                     children: "Discover unique settings tailored to every mood and occasion."
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/dining/page.tsx",
-                                    lineNumber: 216,
+                                    lineNumber: 211,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/app/dining/page.tsx",
-                            lineNumber: 209,
+                            lineNumber: 204,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2610,14 +2596,14 @@ function DiningPage() {
                                                             className: "object-cover transition-transform duration-700 group-hover:scale-110"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/dining/page.tsx",
-                                                            lineNumber: 235,
+                                                            lineNumber: 230,
                                                             columnNumber: 25
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                             className: "absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-500"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/dining/page.tsx",
-                                                            lineNumber: 242,
+                                                            lineNumber: 237,
                                                             columnNumber: 23
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2628,31 +2614,31 @@ function DiningPage() {
                                                                 children: venue.subtitle
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/app/dining/page.tsx",
-                                                                lineNumber: 244,
+                                                                lineNumber: 239,
                                                                 columnNumber: 25
                                                             }, this)
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/dining/page.tsx",
-                                                            lineNumber: 243,
+                                                            lineNumber: 238,
                                                             columnNumber: 23
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/app/dining/page.tsx",
-                                                    lineNumber: 233,
+                                                    lineNumber: 228,
                                                     columnNumber: 21
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                     className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["cn"])("absolute -bottom-6 -z-10 w-full h-full rounded-2xl border border-primary/20 bg-primary/5 transition-transform duration-500 group-hover:translate-x-2 group-hover:translate-y-2", isEven ? "-right-6" : "-left-6")
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/dining/page.tsx",
-                                                    lineNumber: 250,
+                                                    lineNumber: 245,
                                                     columnNumber: 21
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/app/dining/page.tsx",
-                                            lineNumber: 232,
+                                            lineNumber: 227,
                                             columnNumber: 19
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2663,7 +2649,7 @@ function DiningPage() {
                                                     children: venue.title
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/dining/page.tsx",
-                                                    lineNumber: 258,
+                                                    lineNumber: 253,
                                                     columnNumber: 21
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2673,12 +2659,12 @@ function DiningPage() {
                                                         children: venue.description
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/dining/page.tsx",
-                                                        lineNumber: 263,
+                                                        lineNumber: 258,
                                                         columnNumber: 23
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/dining/page.tsx",
-                                                    lineNumber: 262,
+                                                    lineNumber: 257,
                                                     columnNumber: 21
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2689,12 +2675,12 @@ function DiningPage() {
                                                             children: f
                                                         }, f, false, {
                                                             fileName: "[project]/src/app/dining/page.tsx",
-                                                            lineNumber: 270,
+                                                            lineNumber: 265,
                                                             columnNumber: 25
                                                         }, this))
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/dining/page.tsx",
-                                                    lineNumber: 268,
+                                                    lineNumber: 263,
                                                     columnNumber: 21
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2708,47 +2694,47 @@ function DiningPage() {
                                                                 className: "w-4 h-4 transition-transform duration-300 group-hover/btn:translate-x-1"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/app/dining/page.tsx",
-                                                                lineNumber: 278,
+                                                                lineNumber: 273,
                                                                 columnNumber: 35
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/src/app/dining/page.tsx",
-                                                        lineNumber: 277,
+                                                        lineNumber: 272,
                                                         columnNumber: 23
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/dining/page.tsx",
-                                                    lineNumber: 276,
+                                                    lineNumber: 271,
                                                     columnNumber: 21
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/app/dining/page.tsx",
-                                            lineNumber: 257,
+                                            lineNumber: 252,
                                             columnNumber: 19
                                         }, this)
                                     ]
                                 }, venue.id, true, {
                                     fileName: "[project]/src/app/dining/page.tsx",
-                                    lineNumber: 227,
+                                    lineNumber: 222,
                                     columnNumber: 17
                                 }, this);
                             })
                         }, void 0, false, {
                             fileName: "[project]/src/app/dining/page.tsx",
-                            lineNumber: 221,
+                            lineNumber: 216,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/app/dining/page.tsx",
-                    lineNumber: 208,
+                    lineNumber: 203,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/app/dining/page.tsx",
-                lineNumber: 207,
+                lineNumber: 202,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
@@ -2764,7 +2750,7 @@ function DiningPage() {
                                     children: "Taste the Difference"
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/dining/page.tsx",
-                                    lineNumber: 293,
+                                    lineNumber: 288,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
@@ -2772,13 +2758,13 @@ function DiningPage() {
                                     children: "Signature Creations"
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/dining/page.tsx",
-                                    lineNumber: 294,
+                                    lineNumber: 289,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/app/dining/page.tsx",
-                            lineNumber: 292,
+                            lineNumber: 287,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2790,7 +2776,7 @@ function DiningPage() {
                                             className: "absolute top-0 right-0 w-20 h-20 bg-primary/5 rounded-bl-full -mr-4 -mt-4 transition-transform group-hover:scale-150 duration-500"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/dining/page.tsx",
-                                            lineNumber: 300,
+                                            lineNumber: 295,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2801,7 +2787,7 @@ function DiningPage() {
                                                     children: dish.title
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/dining/page.tsx",
-                                                    lineNumber: 303,
+                                                    lineNumber: 298,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -2809,20 +2795,20 @@ function DiningPage() {
                                                     children: dish.price
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/dining/page.tsx",
-                                                    lineNumber: 304,
+                                                    lineNumber: 299,
                                                     columnNumber: 19
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/app/dining/page.tsx",
-                                            lineNumber: 302,
+                                            lineNumber: 297,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                             className: "w-12 h-0.5 bg-border group-hover:bg-primary/50 mb-6 transition-colors duration-500"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/dining/page.tsx",
-                                            lineNumber: 307,
+                                            lineNumber: 302,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2830,18 +2816,18 @@ function DiningPage() {
                                             children: dish.description
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/dining/page.tsx",
-                                            lineNumber: 309,
+                                            lineNumber: 304,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, idx, true, {
                                     fileName: "[project]/src/app/dining/page.tsx",
-                                    lineNumber: 299,
+                                    lineNumber: 294,
                                     columnNumber: 15
                                 }, this))
                         }, void 0, false, {
                             fileName: "[project]/src/app/dining/page.tsx",
-                            lineNumber: 297,
+                            lineNumber: 292,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2851,23 +2837,23 @@ function DiningPage() {
                                 children: "* Please inform our staff of any allergies or dietary restrictions. We are happy to accommodate vegan and gluten-free requests."
                             }, void 0, false, {
                                 fileName: "[project]/src/app/dining/page.tsx",
-                                lineNumber: 317,
+                                lineNumber: 312,
                                 columnNumber: 13
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/src/app/dining/page.tsx",
-                            lineNumber: 316,
+                            lineNumber: 311,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/app/dining/page.tsx",
-                    lineNumber: 291,
+                    lineNumber: 286,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/app/dining/page.tsx",
-                lineNumber: 290,
+                lineNumber: 285,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
@@ -2877,7 +2863,7 @@ function DiningPage() {
                         className: "absolute inset-0 bg-[url('/noise.png')] opacity-10 mix-blend-overlay"
                     }, void 0, false, {
                         fileName: "[project]/src/app/dining/page.tsx",
-                        lineNumber: 326,
+                        lineNumber: 321,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2888,7 +2874,7 @@ function DiningPage() {
                                 children: "Reserve Your Table"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/dining/page.tsx",
-                                lineNumber: 328,
+                                lineNumber: 323,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2896,7 +2882,7 @@ function DiningPage() {
                                 children: "Whether it's a special celebration or a quiet dinner for two, let us reserve the perfect spot for you."
                             }, void 0, false, {
                                 fileName: "[project]/src/app/dining/page.tsx",
-                                lineNumber: 329,
+                                lineNumber: 324,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -2904,30 +2890,30 @@ function DiningPage() {
                                 onClick: ()=>setBookingOpen(true),
                                 className: "rounded-full px-10 h-14 bg-white text-primary hover:bg-white/90 shadow-2xl hover:shadow-black/20 hover:-translate-y-1 transition-all text-lg font-bold",
                                 children: [
-                                    "Book a Buffet ",
+                                    "Book a Table ",
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$arrow$2d$right$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__ArrowRight$3e$__["ArrowRight"], {
                                         className: "ml-2 w-5 h-5"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/dining/page.tsx",
-                                        lineNumber: 337,
-                                        columnNumber: 27
+                                        lineNumber: 332,
+                                        columnNumber: 26
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/dining/page.tsx",
-                                lineNumber: 332,
+                                lineNumber: 327,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/dining/page.tsx",
-                        lineNumber: 327,
+                        lineNumber: 322,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/dining/page.tsx",
-                lineNumber: 325,
+                lineNumber: 320,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$table$2d$booking$2d$modal$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableBookingModal"], {
@@ -2935,13 +2921,13 @@ function DiningPage() {
                 onClose: ()=>setBookingOpen(false)
             }, void 0, false, {
                 fileName: "[project]/src/app/dining/page.tsx",
-                lineNumber: 342,
+                lineNumber: 337,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/app/dining/page.tsx",
-        lineNumber: 89,
+        lineNumber: 84,
         columnNumber: 5
     }, this);
 }
