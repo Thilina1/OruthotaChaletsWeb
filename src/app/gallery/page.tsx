@@ -101,7 +101,7 @@ export default function GalleryPage() {
 
           <div className="mt-24 text-center">
             <p className="text-stone-400 font-body text-sm italic">
-                Experience the beauty for yourself. <Link href="/booking" className="text-[#606C38] font-bold hover:underline">Book your stay today.</Link>
+                Experience the beauty for yourself. <Link href="/accommodations" className="text-[#606C38] font-bold hover:underline">Book your stay today.</Link>
             </p>
           </div>
         </div>

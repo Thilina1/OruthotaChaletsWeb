@@ -14,11 +14,16 @@ const navLinks = [
   { href: '/', label: 'HOME' },
   { href: '/accommodations', label: 'ACCOMMODATIONS' },
   { href: '/dining', label: 'DINING' },
+  { href: '/events', label: 'EVENTS' },
   { href: '/experiences', label: 'EXPERIENCES' },
   { href: '/gallery', label: 'GALLERY' },
   { href: '/about', label: 'ABOUT US' },
+  { href: '/reviews', label: 'REVIEWS' },
   { href: '/contact', label: 'CONTACT' },
 ];
+
+
+
 
 
 
@@ -114,7 +119,7 @@ export function Header() {
           >
             <span>@KandyChalets</span>
           </a>
-          <div className='flex items-center gap-2'><Phone className="w-4 h-4" /><span>+94 812 375 396</span></div>
+          <div className='flex items-center gap-2'><Phone className="w-4 h-4" /><span>+94 812 375 396, +94 812 376 985</span></div>
           <div className='flex md:hidden items-center gap-2' suppressHydrationWarning>{time}</div>
         </div>
 

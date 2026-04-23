@@ -87,8 +87,9 @@ export default function ContactPage() {
                                     {
                                         icon: Phone,
                                         title: "Phone",
-                                        detail: "+94 81 2 375 396",
-                                        link: "tel:+94776347922"
+                                        detail: "+94 812 375 396, +94 812 376 985",
+                                        link: "tel:+94812375396"
+
                                     },
                                     {
                                         icon: (props: any) => (

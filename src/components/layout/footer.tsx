@@ -19,6 +19,7 @@ const footerNav = [
 
 const footerNavRight = [
   { name: 'Dining', href: '/dining' },
+  { name: 'Events', href: '/events' },
   { name: 'Contact Us', href: '/contact' },
   { name: 'Location', href: '/about#location' },
   { name: 'Reviews', href: '/reviews' },
@@ -86,7 +87,7 @@ export function Footer() {
               </li>
               <li className="flex items-start gap-3">
                 <Phone className="h-5 w-5 mt-0.5 text-white/70" />
-                <a href="tel:+94776347922" className="hover:text-secondary transition-colors text-white/90">+94 812 375 396, +94 812 376 985</a>
+                <a href="tel:+94812375396" className="hover:text-secondary transition-colors text-white/90">+94 812 375 396, +94 812 376 985</a>
               </li>
               <li className="flex items-start gap-3">
                 <div className="h-5 w-5 mt-0.5 text-white/70">

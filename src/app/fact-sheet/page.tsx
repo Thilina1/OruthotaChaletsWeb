@@ -161,7 +161,7 @@ export default function FactSheetPage() {
                 <div className="grid grid-cols-2 gap-4">
                   <div className="space-y-1">
                     <p className="text-xs font-bold uppercase tracking-widest text-stone-400">Check-in</p>
-                    <p className="text-lg font-bold text-[#606C38]">14:00 PM</p>
+                    <p className="text-lg font-bold text-[#606C38]">02:00 PM</p>
                   </div>
                   <div className="space-y-1">
                     <p className="text-xs font-bold uppercase tracking-widest text-stone-400">Check-out</p>

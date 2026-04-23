@@ -167,7 +167,7 @@ function CheckAvailabilityListComponent() {
                       </div>
                       <div className="flex items-center gap-3 p-3 rounded-lg hover:bg-secondary/30 transition-colors">
                         <Wind className="w-5 h-5 text-primary shrink-0" />
-                        <span className="text-sm font-medium text-foreground">Climate Control</span>
+                        <span className="text-sm font-medium text-foreground">Air conditioning</span>
                       </div>
                       <div className="flex items-center gap-3 p-3 rounded-lg hover:bg-secondary/30 transition-colors">
                         <Wifi className="w-5 h-5 text-primary shrink-0" />
