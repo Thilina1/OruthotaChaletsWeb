@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { PageHero } from '@/components/page-hero';
+import { BookingForm } from '@/components/booking-form';
 import {
   Hotel,
   Utensils,
@@ -90,7 +91,7 @@ export default function FactSheetPage() {
         title="Property Fact Sheet"
         subtitle="Essentials"
         description="Every detail carefully curated for your peace of mind. Discover the specifications, facilities, and unique offerings of Oruthota Chalets."
-        imageUrl="/Hero1_new.jpg"
+        imageUrl="/DSCN1973.jpg"
         imageAlt="Oruthota Chalets Property"
         titleClassName="text-5xl md:text-6xl lg:text-7xl"
       />
@@ -184,18 +185,8 @@ export default function FactSheetPage() {
             <div className="inline-flex flex-col items-center gap-6">
               <Sparkles className="w-8 h-8 text-[#DDA15E] animate-pulse" />
               <h2 className="font-headline text-4xl text-[#283618]">Plan Your Stay</h2>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button asChild className="bg-[#606C38] hover:bg-[#283618] text-white rounded-xl h-14 px-10 text-md font-bold tracking-widest uppercase transition-all">
-                  <Link href="/booking">Book a Chalet</Link>
-                </Button>
-                <Button
-                  variant="outline"
-                  className="rounded-xl border-stone-200 h-14 px-10 text-md font-bold tracking-widest uppercase hover:bg-stone-50 flex items-center gap-2 group"
-                  onClick={() => window.print()}
-                >
-                  <Download className="w-5 h-5 transition-transform group-hover:-translate-y-1" />
-                  Download PDF
-                </Button>
+              <div className="w-full max-w-5xl">
+                <BookingForm />
               </div>
             </div>
           </div>

@@ -4975,6 +4975,10 @@ body {
     display: inline-flex;
   }
 
+  .md\:contents {
+    display: contents;
+  }
+
   .md\:hidden {
     display: none;
   }

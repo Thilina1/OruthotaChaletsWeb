@@ -2057,7 +2057,7 @@ const DINING_VENUES = [
         description: `Step back in time at our main restaurant, where colonial elegance meets modern culinary excellence. The high ceilings, antique furniture, and warm lighting create a sophisticated atmosphere perfect for any occasion.
         
         Our daily rotating menu features a fusion of international favorites and Sri Lankan classics, ensuring there is always something new to discover.`,
-        imageId: 'dining-wine',
+        imageUrl: '/Restaurant.png',
         features: [
             'Breakfast',
             'Lunch',
@@ -2067,12 +2067,12 @@ const DINING_VENUES = [
     },
     {
         id: 'terrace-dining',
-        title: 'The River View Terrace',
+        title: 'Reservoir View Terrace',
         subtitle: 'AL FRESCO',
         description: `Immerse yourself in nature while you dine. Our terrace offers panoramic views of the Victoria Reservoir, providing a stunning backdrop for a romantic dinner or a relaxed lunch. 
         
         Enjoy the gentle cool breeze and the sounds of nature as you savor fresh seafood, grilled specialties, and refreshing mocktails.`,
-        imageId: 'experience-hike',
+        imageUrl: '/IMG_3197-Edit.jpg',
         features: [
             'Outdoor Seating',
             'Sunset Views',
@@ -2579,7 +2579,7 @@ function DiningPage() {
                             className: "flex flex-col gap-32",
                             children: DINING_VENUES.map((venue, index)=>{
                                 const isEven = index % 2 === 0;
-                                const image = __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$placeholder$2d$images$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["PlaceHolderImages"].find((p)=>p.id === venue.imageId) || heroImage; // Fallback
+                                const venueImage = venue.imageUrl || __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$placeholder$2d$images$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["PlaceHolderImages"].find((p)=>p.id === venue.imageId)?.imageUrl || heroImage?.imageUrl || '/placeholder.svg';
                                 return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                     className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["cn"])("flex flex-col gap-10 lg:gap-20 items-center", isEven ? "lg:flex-row" : "lg:flex-row-reverse"),
                                     children: [
@@ -2589,8 +2589,8 @@ function DiningPage() {
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                     className: "relative aspect-[4/3] w-full overflow-hidden rounded-2xl shadow-2xl transform transition-transform duration-500 group-hover:rotate-1",
                                                     children: [
-                                                        image && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
-                                                            src: image.imageUrl,
+                                                        venueImage && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
+                                                            src: venueImage,
                                                             alt: venue.title,
                                                             fill: true,
                                                             className: "object-cover transition-transform duration-700 group-hover:scale-110"

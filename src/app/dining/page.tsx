@@ -38,17 +38,17 @@ const DINING_VENUES = [
     description: `Step back in time at our main restaurant, where colonial elegance meets modern culinary excellence. The high ceilings, antique furniture, and warm lighting create a sophisticated atmosphere perfect for any occasion.
         
         Our daily rotating menu features a fusion of international favorites and Sri Lankan classics, ensuring there is always something new to discover.`,
-    imageId: 'dining-wine', // Using existing placeholder
+    imageUrl: '/Restaurant.png',
     features: ['Breakfast', 'Lunch', 'Dinner', 'A la Carte']
   },
   {
     id: 'terrace-dining',
-    title: 'The River View Terrace',
+    title: 'Reservoir View Terrace',
     subtitle: 'AL FRESCO',
     description: `Immerse yourself in nature while you dine. Our terrace offers panoramic views of the Victoria Reservoir, providing a stunning backdrop for a romantic dinner or a relaxed lunch. 
         
         Enjoy the gentle cool breeze and the sounds of nature as you savor fresh seafood, grilled specialties, and refreshing mocktails.`,
-    imageId: 'experience-hike', // Using a scenic image as placeholder for terrace view
+    imageUrl: '/IMG_3197-Edit.jpg',
     features: ['Outdoor Seating', 'Sunset Views', 'Grill & BBQ']
   }
 ];
@@ -216,7 +216,7 @@ export default function DiningPage() {
           <div className="flex flex-col gap-32">
             {DINING_VENUES.map((venue, index) => {
               const isEven = index % 2 === 0;
-              const image = PlaceHolderImages.find(p => p.id === venue.imageId) || heroImage; // Fallback
+              const venueImage = venue.imageUrl || PlaceHolderImages.find(p => p.id === venue.imageId)?.imageUrl || heroImage?.imageUrl || '/placeholder.svg';
 
               return (
                 <div key={venue.id} className={cn(
@@ -226,9 +226,9 @@ export default function DiningPage() {
                   {/* Image Side */}
                   <div className="w-full lg:w-1/2 relative group perspective-1000">
                     <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl shadow-2xl transform transition-transform duration-500 group-hover:rotate-1">
-                      {image && (
+                      {venueImage && (
                         <Image
-                          src={image.imageUrl}
+                          src={venueImage}
                           alt={venue.title}
                           fill
                           className="object-cover transition-transform duration-700 group-hover:scale-110"

@@ -139,7 +139,7 @@ const EVENT_TYPES = [
         ]
     },
     {
-        title: "Conferences and events",
+        title: "Conferences and Events",
         description: "Inspire your team in a serene environment away from city distractions. Perfect for strategy sessions, team building, and intimate executive retreats.",
         icon: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$users$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Users$3e$__["Users"],
         image: "/meetings.jpg",
@@ -193,7 +193,7 @@ function EventsPage() {
                 title: "Unforgettable Events",
                 subtitle: "Memories in the Making",
                 description: "Whether it's a dream wedding, a corporate retreat, or an intimate celebration, Oruthota Chalets offers the perfect canvas for your most significant moments.",
-                imageUrl: "/Hero1_new.jpg",
+                imageUrl: "/DSC09534.jpg",
                 imageAlt: "Oruthota Chalets Events",
                 titleClassName: "text-5xl md:text-6xl lg:text-7xl"
             }, void 0, false, {

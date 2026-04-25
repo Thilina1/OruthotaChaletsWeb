@@ -29,7 +29,7 @@ const EVENT_TYPES = [
     features: ["Lakeside Ceremony Space", "Customizable Decor Themes", "Gourmet Catering Options", "Dedicated Wedding Coordinator"]
   },
   {
-    title: "Conferences and events",
+    title: "Conferences and Events",
     description: "Inspire your team in a serene environment away from city distractions. Perfect for strategy sessions, team building, and intimate executive retreats.",
     icon: Users,
     image: "/meetings.jpg",
@@ -58,7 +58,7 @@ export default function EventsPage() {
         title="Unforgettable Events"
         subtitle="Memories in the Making"
         description="Whether it's a dream wedding, a corporate retreat, or an intimate celebration, Oruthota Chalets offers the perfect canvas for your most significant moments."
-        imageUrl="/Hero1_new.jpg"
+        imageUrl="/DSC09534.jpg"
         imageAlt="Oruthota Chalets Events"
         titleClassName="text-5xl md:text-6xl lg:text-7xl"
       />
