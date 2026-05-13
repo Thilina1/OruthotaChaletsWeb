@@ -209,16 +209,16 @@ export default function BookingPageComponent() {
               <CardContent className="space-y-4 text-sm">
                 <div className="flex justify-between items-center">
                   <span className="text-muted-foreground">Price per night</span>
-                  <span className="font-semibold">${room.pricePerNight.toFixed(2)}</span>
+                  <span className="font-semibold">LKR {room.pricePerNight.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
                 </div>
                 <div className="flex justify-between items-center">
                   <span className="text-muted-foreground">Number of nights</span>
                   <span className="font-semibold">{numberOfNights > 0 ? numberOfNights : '-'}</span>
                 </div>
                 <div className="border-t my-2"></div>
-                <div className="flex justify-between items-center text-lg">
-                  <span className="font-bold text-foreground">Total cost</span>
-                  <span className="font-bold text-primary">${totalCost.toFixed(2)}</span>
+                <div className="flex justify-between items-center pt-3 border-t">
+                  <span className="font-bold">Total Cost</span>
+                  <span className="font-bold text-primary">LKR {totalCost.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
                 </div>
               </CardContent>
             </Card>

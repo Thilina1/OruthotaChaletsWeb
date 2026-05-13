@@ -94,8 +94,8 @@ export function RoomDetailsModal({ room, open, onClose }: RoomDetailsModalProps)
                 <span className="text-sm font-semibold">{room.roomCount} {room.roomCount === 1 ? 'Room' : 'Rooms'}</span>
               </div>
               <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-[#DDA15E]/15 text-[#8B5A2B]">
-                <DollarSign className="w-4 h-4" />
-                <span className="text-sm font-semibold">From ${room.pricePerNight} / night</span>
+                <span className="text-sm font-semibold">LKR</span>
+                <span className="text-sm font-semibold">From LKR {room.pricePerNight.toLocaleString()} / night</span>
               </div>
               {room.view && (
                 <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 text-blue-700">
@@ -163,7 +163,7 @@ export function RoomDetailsModal({ room, open, onClose }: RoomDetailsModalProps)
               <div className="text-center sm:text-left">
                 <p className="text-xs text-muted-foreground tracking-widest uppercase font-semibold">Starting from</p>
                 <div className="flex items-baseline gap-1 mt-1">
-                  <span className="font-headline text-4xl text-[#283618] font-bold">${room.pricePerNight}</span>
+                  <span className="font-headline text-4xl text-[#283618] font-bold">LKR {room.pricePerNight.toLocaleString()}</span>
                   <span className="text-muted-foreground text-sm">/ night</span>
                 </div>
                 <p className="text-xs text-muted-foreground mt-1">Taxes and fees may apply</p>

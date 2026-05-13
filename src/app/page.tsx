@@ -411,7 +411,7 @@ export default function Home() {
             <div className="border bg-[#FEFAE0] flex flex-col items-stretch">
               <div className="relative h-[300px] w-full overflow-hidden">
                 <Image
-                  src={meetingsImage?.imageUrl || "/meetings.jpg"}
+                  src={meetingsImage?.imageUrl || "/Room 1.png"}
                   alt={meetingsImage?.description || "Meetings & Corporate Events"}
                   fill
                   className="object-cover transition-transform duration-500 hover:scale-105"

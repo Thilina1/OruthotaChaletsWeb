@@ -1,13 +1,13 @@
 
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import { PageHero } from '@/components/page-hero';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { BookingForm } from '@/components/booking-form';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Camera, Image as ImageIcon, Sparkles } from 'lucide-react';
+import { Camera, Image as ImageIcon, Sparkles, ChevronLeft, ChevronRight, X } from 'lucide-react';
 
 const GALLERY_IMAGES = [
   { id: 1, url: '/instagram-1.png', category: 'RESORT VIEW', title: 'Sanctuary Mornings' },
@@ -17,14 +17,52 @@ const GALLERY_IMAGES = [
   { id: 5, url: '/Restaurant.png', category: 'DINING', title: 'Wine & Dine' },
   { id: 6, url: '/Room 1.png', category: 'ACCOMMODATION', title: 'Rustic Luxury' },
   { id: 7, url: '/Room 2.png', category: 'SUITE', title: 'Elegant Interiors' },
-  { id: 8, url: '/Hero1_new.jpg', category: 'AERIAL VIEW', title: 'Island Essence' },
   { id: 9, url: '/Hero3.jpg', category: 'EXPLORATION', title: 'Hills of Kandy' },
-  { id: 10, url: '/meetings.jpg', category: 'EVENTS', title: 'Corporate Retreats' },
   { id: 11, url: '/wedding.png', category: 'WEDDINGS', title: 'Magical Celebrations' },
   { id: 12, url: '/DSCN1986.jpg', category: 'NATURE', title: 'Garden Sanctuary' },
+  { id: 13, url: '/DSC09534.jpg', category: 'RESORT VIEW', title: 'Resort Overview' },
+  { id: 14, url: '/DSCN0849.jpg', category: 'LAKEFRONT', title: 'Lake Tranquility' },
+  { id: 15, url: '/DSCN1882.jpg', category: 'NATURE', title: 'Lush Greenery' },
+  { id: 16, url: '/DSCN1910.jpg', category: 'RESORT VIEW', title: 'Morning Mist' },
+  { id: 17, url: '/DSCN1973.jpg', category: 'ARCHITECTURE', title: 'Resort Structure' },
+  { id: 18, url: '/Hero1.jpg', category: 'AERIAL VIEW', title: 'Breathtaking Heights' },
+  { id: 19, url: '/High-Knuckles-Glamping-in-Sri-Lanka.avif', category: 'EXPERIENCE', title: 'Glamping Adventures' },
+  { id: 20, url: '/IMG_3197-Edit.jpg', category: 'INTERIORS', title: 'Cozy Corners' },
+  { id: 21, url: '/IMG_3636.jpg', category: 'DINING', title: 'Gourmet Delights' },
+  { id: 22, url: '/IMG_4022.jpg', category: 'NATURE', title: 'Tropical Flora' },
+  { id: 23, url: '/IMG_8148.PNG', category: 'SNAPSHOT', title: 'Memorable Moments' },
+  { id: 24, url: '/rooms-01.jpg', category: 'ACCOMMODATION', title: 'Standard Room' },
+  { id: 25, url: '/experiences/1/ttd_awitv_3.jpg', category: 'EXPERIENCES', title: 'Adventure in the Valley' },
+  { id: 26, url: '/experiences/2/ttd_ct_3.jpg', category: 'EXPERIENCES', title: 'Cultural Touches' },
+  { id: 27, url: '/experiences/3/ttd_fwcp_1.jpg', category: 'EXPERIENCES', title: 'Wildlife & Nature' },
+  { id: 28, url: '/experiences/4/ttd_dbtr_1.jpg', category: 'EXPERIENCES', title: 'Boating on Victoria' },
+  { id: 29, url: '/experiences/5/ttd_vv_1.jpg', category: 'EXPERIENCES', title: 'Village Vibes' },
+  { id: 30, url: '/experiences/6/ttd_tkmr_1.jpg', category: 'EXPERIENCES', title: 'Trekking Ridges' },
+  { id: 31, url: '/experiences/7/ttd_tmv_4.jpg', category: 'EXPERIENCES', title: 'Temple Visit' },
+  { id: 32, url: '/experiences/8/ttd_vmn_1.jpg', category: 'EXPERIENCES', title: 'Mountain Views' },
+  { id: 33, url: '/experiences/9/ttd_cd_1.jpg', category: 'EXPERIENCES', title: 'Cultural Dance' },
 ];
 
 export default function GalleryPage() {
+  const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null);
+
+  const openModal = (index: number) => setSelectedImageIndex(index);
+  const closeModal = () => setSelectedImageIndex(null);
+  
+  const nextImage = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (selectedImageIndex !== null) {
+      setSelectedImageIndex((selectedImageIndex + 1) % GALLERY_IMAGES.length);
+    }
+  };
+
+  const prevImage = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (selectedImageIndex !== null) {
+      setSelectedImageIndex((selectedImageIndex - 1 + GALLERY_IMAGES.length) % GALLERY_IMAGES.length);
+    }
+  };
+
   return (
     <main className="min-h-screen bg-[#FAFAFA]">
       {/* Hero Section */}
@@ -70,10 +108,11 @@ export default function GalleryPage() {
 
           {/* Masonry Grid */}
           <div className="columns-1 md:columns-2 lg:columns-3 gap-8 space-y-8">
-            {GALLERY_IMAGES.map((img) => (
+            {GALLERY_IMAGES.map((img, index) => (
               <div
                 key={img.id}
-                className="break-inside-avoid relative group rounded-3xl overflow-hidden shadow-[0_4px_25px_rgb(0,0,0,0.05)] hover:shadow-[0_20px_50px_rgb(0,0,0,0.15)] transition-all duration-500 ease-out border border-stone-100"
+                onClick={() => openModal(index)}
+                className="break-inside-avoid relative group rounded-3xl overflow-hidden shadow-[0_4px_25px_rgb(0,0,0,0.05)] hover:shadow-[0_20px_50px_rgb(0,0,0,0.15)] transition-all duration-500 ease-out border border-stone-100 cursor-pointer"
               >
                 <div className="relative w-full overflow-hidden bg-muted">
                   <Image
@@ -81,19 +120,8 @@ export default function GalleryPage() {
                     alt={img.title}
                     width={800}
                     height={800}
-                    className="object-cover w-full h-auto transition-all duration-1000 ease-in-out group-hover:scale-110 group-hover:rotate-1"
+                    className="object-cover w-full h-auto transition-transform duration-1000 ease-in-out group-hover:scale-110"
                   />
-                  
-                  {/* Overlay on hover */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/0 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-8">
-                    <div className="translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                        <div className="flex items-center gap-2 mb-2">
-                            <ImageIcon className="w-4 h-4 text-white/80" />
-                            <span className="text-white/80 text-xs font-bold tracking-widest uppercase">{img.category}</span>
-                        </div>
-                        <p className="text-white text-lg font-headline">{img.title}</p>
-                    </div>
-                  </div>
                 </div>
               </div>
             ))}
@@ -106,6 +134,46 @@ export default function GalleryPage() {
           </div>
         </div>
       </section>
+
+      {/* Lightbox Modal */}
+      {selectedImageIndex !== null && (
+        <div 
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/95 backdrop-blur-sm"
+          onClick={closeModal}
+        >
+          <button 
+            onClick={closeModal}
+            className="absolute top-6 right-6 text-white/70 hover:text-white transition-colors z-50 p-2"
+          >
+            <X className="w-8 h-8" />
+          </button>
+          
+          <button 
+            onClick={prevImage}
+            className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 text-white/70 hover:text-white transition-colors z-50 p-2"
+          >
+            <ChevronLeft className="w-10 h-10 md:w-12 md:h-12" />
+          </button>
+
+          <div className="relative w-full max-w-5xl h-[80vh] px-12 md:px-24" onClick={(e) => e.stopPropagation()}>
+            <Image
+              src={GALLERY_IMAGES[selectedImageIndex].url}
+              alt={GALLERY_IMAGES[selectedImageIndex].title}
+              fill
+              className="object-contain"
+            />
+          </div>
+
+          <button 
+            onClick={nextImage}
+            className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 text-white/70 hover:text-white transition-colors z-50 p-2"
+          >
+            <ChevronRight className="w-10 h-10 md:w-12 md:h-12" />
+          </button>
+          
+
+        </div>
+      )}
     </main>
   );
 }

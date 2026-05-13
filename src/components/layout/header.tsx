@@ -12,7 +12,7 @@ import React, { useState, useEffect } from 'react';
 
 const navLinks = [
   { href: '/', label: 'HOME' },
-  { href: '/accommodations', label: 'ACCOMMODATIONS' },
+  { href: '/accommodations', label: 'ACCOMMODATION' },
   { href: '/dining', label: 'DINING' },
   { href: '/events', label: 'EVENTS' },
   { href: '/experiences', label: 'EXPERIENCES' },

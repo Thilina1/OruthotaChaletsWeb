@@ -65,16 +65,16 @@ export default function ContactPage() {
                 <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-[#DDA15E]/5 rounded-full blur-[100px] translate-y-1/3 -translate-x-1/4 pointer-events-none" />
 
                 <div className="container mx-auto max-w-7xl relative z-10">
+                    <div className="max-w-3xl mx-auto mb-20 text-center">
+                        <h2 className="font-headline text-4xl md:text-5xl text-[#283618] mb-6">Our Sanctuary</h2>
+                        <p className="text-muted-foreground font-body leading-relaxed text-lg border-y-2 border-[#606C38]/20 py-6 italic bg-[#606C38]/5 rounded-2xl px-8">
+                            “Experience the unique concept of Oruthota Chalets surrounded amidst the rural ambiance of typical Sri Lankan culture”
+                        </p>
+                    </div>
+
                     <div className="grid lg:grid-cols-12 gap-16 items-start">
                         {/* Contact Info Side */}
-                        <div className="lg:col-span-5 space-y-10">
-                            <div className="space-y-6">
-                                <h2 className="font-headline text-4xl md:text-5xl text-[#283618]">Our Sanctuary</h2>
-                                <p className="text-muted-foreground font-body leading-relaxed text-lg border-l-4 border-[#606C38] pl-6 py-2 italic bg-[#606C38]/5 rounded-r-lg">
-                                    “Experience the unique concept of Oruthota Chalets surrounded amidst the rural ambiance of typical Sri Lankan culture”
-                                </p>
-                            </div>
-
+                        <div className="lg:col-span-5">
                             <div className="grid gap-6">
                                 {[
                                     {

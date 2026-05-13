@@ -47,7 +47,7 @@ function CheckAvailabilityListComponent() {
               </span>
             </div>
             <h1 className="font-headline text-5xl md:text-7xl lg:text-8xl tracking-tight text-white drop-shadow-xl animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-100">
-              Accommodations
+              Accommodation
             </h1>
             <p className="text-lg md:text-xl text-white/90 font-light tracking-wide max-w-2xl mx-auto animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-200 leading-relaxed">
               Sanctuaries of peace designed to blend seamlessly with nature.
@@ -108,7 +108,7 @@ function CheckAvailabilityListComponent() {
                   !isEven && "lg:flex-row-reverse"
                 )}>
                   {/* Image Side */}
-                  <div className="w-full lg:w-1/2 relative h-[400px] md:h-[500px] lg:h-[600px] rounded-2xl overflow-hidden shadow-2xl transform transition-transform duration-500 group-hover:rotate-1">
+                  <div className="w-full lg:w-1/2 relative h-[400px] md:h-[500px] lg:h-[600px] rounded-2xl overflow-hidden shadow-2xl transition-transform duration-500">
                     {accommodation.imageUrl ? (
                       <Image
                         src={accommodation.imageUrl}
@@ -127,8 +127,10 @@ function CheckAvailabilityListComponent() {
 
                     {/* Price Badge */}
                     <div className="absolute top-6 right-6 bg-white/95 backdrop-blur-md shadow-lg px-6 py-4 rounded-xl flex flex-col items-center z-10 border border-white/40">
-                      <span className="text-[10px] text-muted-foreground uppercase tracking-widest font-semibold mb-1">Starting from</span>
-                      <span className="font-headline text-2xl text-primary font-bold">${accommodation.pricePerNight}</span>
+                      <div className="flex flex-col items-end">
+                        <span className="text-xs font-bold tracking-widest text-muted-foreground uppercase mb-1">From</span>
+                        <span className="font-headline text-2xl text-primary font-bold">LKR {accommodation.pricePerNight.toLocaleString()}</span>
+                      </div>
                     </div>
 
                     {/* View Badge (Mobile/Desktop) */}

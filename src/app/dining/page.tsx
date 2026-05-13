@@ -225,7 +225,7 @@ export default function DiningPage() {
                 )}>
                   {/* Image Side */}
                   <div className="w-full lg:w-1/2 relative group perspective-1000">
-                    <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl shadow-2xl transform transition-transform duration-500 group-hover:rotate-1">
+                    <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl shadow-2xl transition-transform duration-500">
                       {venueImage && (
                         <Image
                           src={venueImage}

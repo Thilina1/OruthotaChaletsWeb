@@ -19,6 +19,7 @@ import {
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import Image from 'next/image';
+import { BookingForm } from '@/components/booking-form';
 
 const EVENT_TYPES = [
   {
@@ -32,7 +33,7 @@ const EVENT_TYPES = [
     title: "Conferences and Events",
     description: "Inspire your team in a serene environment away from city distractions. Perfect for strategy sessions, team building, and intimate executive retreats.",
     icon: Users,
-    image: "/meetings.jpg",
+    image: "/Room 1.png",
     features: ["AV Equipment & Support", "High-Speed connectivity", "Team Building Activities", "Tailored Coffee Breaks"]
   },
   {
@@ -62,6 +63,12 @@ export default function EventsPage() {
         imageAlt="Oruthota Chalets Events"
         titleClassName="text-5xl md:text-6xl lg:text-7xl"
       />
+
+      <div className="relative z-20 px-4 -mt-12 md:-mt-16 w-full max-w-7xl mx-auto flex justify-center">
+        <div className="w-full">
+          <BookingForm />
+        </div>
+      </div>
 
       <section className="py-24 px-4 bg-background relative overflow-hidden">
         {/* Decorative background elements */}
@@ -170,7 +177,7 @@ export default function EventsPage() {
             <Button asChild size="lg" className="bg-[#DDA15E] hover:bg-[#BC6C25] text-white rounded-xl h-16 px-12 text-lg font-bold tracking-widest uppercase">
               <Link href="/contact">Get in Touch</Link>
             </Button>
-            <Button asChild variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-[#283618] rounded-xl h-16 px-12 text-lg font-bold tracking-widest uppercase">
+            <Button asChild size="lg" className="bg-white text-black hover:bg-stone-200 rounded-xl h-16 px-12 text-lg font-bold tracking-widest uppercase">
               <Link href="/gallery">View Gallery</Link>
             </Button>
           </div>

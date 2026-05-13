@@ -17,7 +17,7 @@ export function BookingForm({ showTableBooking = false }: { showTableBooking?: b
   const router = useRouter();
   const { toast } = useToast();
 
-  const [activeTab, setActiveTab] = useState<'stay' | 'table'>('stay');
+  const [activeTab, setActiveTab] = useState<'stay' | 'table'>(showTableBooking ? 'table' : 'stay');
   const [isMounted, setIsMounted] = useState(false);
   const [isTableModalOpen, setIsTableModalOpen] = useState(false);
   const [checkInDate, setCheckInDate] = useState<Date | undefined>(undefined);
@@ -75,15 +75,6 @@ export function BookingForm({ showTableBooking = false }: { showTableBooking?: b
       {isMounted && showTableBooking && (
         <div className="flex gap-4 mb-4 px-2">
           <button
-            onClick={() => setActiveTab('stay')}
-            className={cn(
-              "pb-2 text-sm font-bold tracking-widest uppercase transition-all border-b-2",
-              activeTab === 'stay' ? "text-[#283618] border-[#283618]" : "text-muted-foreground border-transparent hover:text-[#283618]"
-            )}
-          >
-            Book a Stay
-          </button>
-          <button
             onClick={() => setActiveTab('table')}
             className={cn(
               "pb-2 text-sm font-bold tracking-widest uppercase transition-all border-b-2",
@@ -91,6 +82,15 @@ export function BookingForm({ showTableBooking = false }: { showTableBooking?: b
             )}
           >
             Book a Table
+          </button>
+          <button
+            onClick={() => setActiveTab('stay')}
+            className={cn(
+              "pb-2 text-sm font-bold tracking-widest uppercase transition-all border-b-2",
+              activeTab === 'stay' ? "text-[#283618] border-[#283618]" : "text-muted-foreground border-transparent hover:text-[#283618]"
+            )}
+          >
+            Book a Stay
           </button>
         </div>
       )}

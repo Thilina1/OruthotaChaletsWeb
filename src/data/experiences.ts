@@ -25,9 +25,11 @@ export const STATIC_EXPERIENCES: StaticExperience[] = [
   {
     id: 'culinary-tourism',
     title: 'Culinary Tourism',
-    description: `Sri Lankan's are known for their hospitality and the culinary tour is no different. Sri Lanka has long been a multi-cultural society, with its early history in the ancient silk route and trade. Sri Lankan food is diverse and varied. It is an amazing and fascinating experience to share our traditional kitchen with our foreign visitors.
-From early morning, our guests will have the opportunity to see how we select the fresh local vegetables for the day, and then take part in the preparation of the traditional Sri Lankan meal with the family. The aromatic spices and the traditional methods of cooking, on clay pots over the health, gives the food a unique flavour.
-We are proud and happy to share our food and our cooking methods with our visitors to this island.`,
+    description: `At Oruthota Chalets we offer "Tourism with a Difference"!! Taking into advantage the picturesque tranquillity that surrounds the Resort, we offer activities with a difference. Our objective is for our guests to leave Sri Lanka with lasting memories of a different touristic nature. We strongly encourage our guests to blend into the culture and experience a typical Allocentric-type of vacation, as compared to the common Psychocentric-type of travellers.
+
+Oruthota Chalets boasts of a 5 acre landscape surrounded with magnificent scenery as well as a waterfront setting during particular months of the year. Our open restaurant creates the right ambiance to offer our valuable guests a bit of culinary tourism. We suggest that just one hour be set apart from their busy schedule to learn to prepare a typical Sri Lankan dish of their choice. It will be ideal to choose a local product that is available in their home country, so that this experience could be repeated, enjoyed and shared with their families, friends and loved ones. Thus spreading our experience to others, who might be inspired to visit our beautiful island, Sri Lanka.
+
+Cookery demonstrations are a very popular activity at Oruthota Chalets. It is now a popular request from leading International schools in Sri Lanka who make their annual trip to our Resort. Our dedicated Staff is always prepared to demonstrate a simple dish to interested guests on request, even on short notice.`,
     imageId: 'experience-food',
     category: 'CULINARY',
     galleryImages: [
