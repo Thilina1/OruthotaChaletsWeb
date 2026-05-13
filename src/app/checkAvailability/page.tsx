@@ -97,8 +97,9 @@ function CheckAvailabilityListComponent() {
                       <div className="flex items-center justify-center gap-4 text-sm text-foreground my-8">
                         <span>{accommodation.roomCount} Rooms</span>
                         <div className="w-px h-4 bg-border"></div>
-                        <div className="flex justify-between items-center mt-4 pt-4 border-t border-border/50">
-                        <span className="text-sm text-muted-foreground font-medium">Price per night</span>
+                        <span>{accommodation.view}</span>
+                      </div>
+                      <div className="mb-8">
                         <span className="font-bold text-lg text-primary">LKR {accommodation.pricePerNight.toLocaleString()}</span>
                         <span className="text-sm text-muted-foreground"> / night</span>
                       </div>
