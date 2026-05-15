@@ -1114,6 +1114,10 @@ body {
   height: 800px;
 }
 
+.h-\[80vh\] {
+  height: 80vh;
+}
+
 .h-\[var\(--radix-select-trigger-height\)\] {
   height: var(--radix-select-trigger-height);
 }
@@ -1136,10 +1140,6 @@ body {
 
 .h-svh {
   height: 100svh;
-}
-
-.h-\[80vh\] {
-  height: 80vh;
 }
 
 .max-h-96 {
@@ -2386,6 +2386,10 @@ body {
   background-color: rgba(0, 0, 0, .8);
 }
 
+.bg-black\/95 {
+  background-color: rgba(0, 0, 0, .95);
+}
+
 .bg-blue-50 {
   --tw-bg-opacity: 1;
   background-color: rgba(239, 246, 255, var(--tw-bg-opacity, 1));
@@ -2524,10 +2528,6 @@ body {
   background-color: rgba(255, 255, 255, .95);
 }
 
-.bg-black\/95 {
-  background-color: rgba(0, 0, 0, .95);
-}
-
 .bg-\[url\(\'\/noise\.png\'\)\] {
   background-image: url("/noise.png");
 }
@@ -2578,11 +2578,6 @@ body {
   --tw-gradient-from: hsl(var(--primary) / .05) var(--tw-gradient-from-position);
   --tw-gradient-to: hsl(var(--primary) / 0) var(--tw-gradient-to-position);
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
-}
-
-.via-black\/0 {
-  --tw-gradient-to: rgba(0, 0, 0, 0) var(--tw-gradient-to-position);
-  --tw-gradient-stops: var(--tw-gradient-from), rgba(0, 0, 0, 0) var(--tw-gradient-via-position), var(--tw-gradient-to);
 }
 
 .via-black\/20 {
@@ -5119,6 +5114,10 @@ body {
     aspect-ratio: 16 / 9;
   }
 
+  .md\:h-12 {
+    height: 3rem;
+  }
+
   .md\:h-14 {
     height: 3.5rem;
   }
@@ -5151,12 +5150,12 @@ body {
     height: 100%;
   }
 
-  .md\:h-12 {
-    height: 3rem;
-  }
-
   .md\:w-1\/2 {
     width: 50%;
+  }
+
+  .md\:w-12 {
+    width: 3rem;
   }
 
   .md\:w-14 {
@@ -5181,10 +5180,6 @@ body {
 
   .md\:w-auto {
     width: auto;
-  }
-
-  .md\:w-12 {
-    width: 3rem;
   }
 
   .md\:max-w-\[420px\] {
@@ -5272,6 +5267,11 @@ body {
     padding: 2rem;
   }
 
+  .md\:px-24 {
+    padding-left: 6rem;
+    padding-right: 6rem;
+  }
+
   .md\:px-4 {
     padding-left: 1rem;
     padding-right: 1rem;
@@ -5280,11 +5280,6 @@ body {
   .md\:px-6 {
     padding-left: 1.5rem;
     padding-right: 1.5rem;
-  }
-
-  .md\:px-24 {
-    padding-left: 6rem;
-    padding-right: 6rem;
   }
 
   .md\:pl-4 {
