@@ -2008,7 +2008,7 @@ const EVENT_TYPES = [
         title: "Conferences and Events",
         description: "Inspire your team in a serene environment away from city distractions. Perfect for strategy sessions, team building, and intimate executive retreats.",
         icon: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$users$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Users$3e$__["Users"],
-        image: "/Room 1.png",
+        image: "/Conference Hall.png",
         features: [
             "AV Equipment & Support",
             "High-Speed connectivity",
@@ -2020,7 +2020,7 @@ const EVENT_TYPES = [
         title: "Private Parties",
         description: "Celebrate life's milestones with elegance. From intimate birthdays to grand anniversaries, we create personalized experiences that last a lifetime.",
         icon: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$sparkles$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Sparkles$3e$__["Sparkles"],
-        image: "/instagram-1.png",
+        image: "/Private Parties.png",
         features: [
             "Private Dining Venues",
             "Live Music Arrangements",

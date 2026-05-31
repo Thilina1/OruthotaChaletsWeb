@@ -48,7 +48,7 @@ const DINING_VENUES = [
     description: `Immerse yourself in nature while you dine. Our terrace offers panoramic views of the Victoria Reservoir, providing a stunning backdrop for a romantic dinner or a relaxed lunch. 
         
         Enjoy the gentle cool breeze and the sounds of nature as you savor fresh seafood, grilled specialties, and refreshing mocktails.`,
-    imageUrl: '/IMG_3197-Edit.jpg',
+    imageUrl: '/DSC00159.jpg',
     features: ['Outdoor Seating', 'Sunset Views', 'Grill & BBQ']
   }
 ];

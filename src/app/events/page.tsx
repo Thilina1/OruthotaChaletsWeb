@@ -33,14 +33,14 @@ const EVENT_TYPES = [
     title: "Conferences and Events",
     description: "Inspire your team in a serene environment away from city distractions. Perfect for strategy sessions, team building, and intimate executive retreats.",
     icon: Users,
-    image: "/Room 1.png",
+    image: "/Conference Hall.png",
     features: ["AV Equipment & Support", "High-Speed connectivity", "Team Building Activities", "Tailored Coffee Breaks"]
   },
   {
     title: "Private Parties",
     description: "Celebrate life's milestones with elegance. From intimate birthdays to grand anniversaries, we create personalized experiences that last a lifetime.",
     icon: Sparkles,
-    image: "/instagram-1.png",
+    image: "/Private Parties.png",
     features: ["Private Dining Venues", "Live Music Arrangements", "Themed Decorations", "Exclusive Property Hire"]
   }
 ];

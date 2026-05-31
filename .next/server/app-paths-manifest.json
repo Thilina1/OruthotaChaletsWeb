@@ -5,6 +5,8 @@
   "/dining/page": "app/dining/page.js",
   "/events/page": "app/events/page.js",
   "/experiences/page": "app/experiences/page.js",
+  "/gallery/page": "app/gallery/page.js",
   "/manifest.webmanifest/route": "app/manifest.webmanifest/route.js",
-  "/page": "app/page.js"
+  "/page": "app/page.js",
+  "/reviews/page": "app/reviews/page.js"
 }
