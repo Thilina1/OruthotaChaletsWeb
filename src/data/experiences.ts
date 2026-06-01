@@ -33,11 +33,11 @@ Cookery demonstrations are a very popular activity at Oruthota Chalets. It is no
     imageId: 'experience-food',
     category: 'CULINARY',
     galleryImages: [
-      '/experiences/2/1.jpg',
-      '/experiences/2/2.jpg',
-      '/experiences/2/3.jpg',
-      '/experiences/2/4.jpg',
-      '/experiences/2/5.jpg',
+      '/experiences/2/1.JPG',
+      '/experiences/2/2.JPG',
+      '/experiences/2/3.JPG',
+      '/experiences/2/4.JPG',
+      '/experiences/2/5.JPG',
     ]
   },
   {
@@ -49,7 +49,7 @@ Cookery demonstrations are a very popular activity at Oruthota Chalets. It is no
     galleryImages: [
       '/experiences/3/474177944_1189614085898449_1430028404525991780_n.jpg',
       '/experiences/3/474144798_1189613685898489_1988140828303246620_n.jpg',
-      '/experiences/3/ttd_fwcp_2.jpg',
+      '/experiences/3/ttd_fwcp_1.jpg',
       '/experiences/3/ttd_fwcp_4.jpg',
       '/experiences/3/ttd_fwcp_5.jpg',
     ]
