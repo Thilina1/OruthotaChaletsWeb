@@ -1142,6 +1142,10 @@ body {
   height: 100svh;
 }
 
+.h-\[25px\] {
+  height: 25px;
+}
+
 .max-h-96 {
   max-height: 24rem;
 }
@@ -1384,6 +1388,15 @@ body {
 
 .w-px {
   width: 1px;
+}
+
+.w-\[160px\] {
+  width: 160px;
+}
+
+.w-fit {
+  width: -moz-fit-content;
+  width: fit-content;
 }
 
 .min-w-0 {
@@ -2204,6 +2217,10 @@ body {
   border-color: rgba(255, 255, 255, .05);
 }
 
+.border-primary\/40 {
+  border-color: hsl(var(--primary) / .4);
+}
+
 .border-l-transparent {
   border-left-color: rgba(0, 0, 0, 0);
 }
@@ -2526,6 +2543,10 @@ body {
 
 .bg-white\/95 {
   background-color: rgba(255, 255, 255, .95);
+}
+
+.bg-secondary\/10 {
+  background-color: hsl(var(--secondary) / .1);
 }
 
 .bg-\[url\(\'\/noise\.png\'\)\] {
@@ -5484,6 +5505,10 @@ body {
 
   .lg\:p-24 {
     padding: 6rem;
+  }
+
+  .lg\:pt-8 {
+    padding-top: 2rem;
   }
 
   .lg\:text-left {

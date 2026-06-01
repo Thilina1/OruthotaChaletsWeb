@@ -11,6 +11,8 @@ import { cn } from '@/lib/utils';
 import { Badge } from '@/components/ui/badge';
 import { PageHero } from '@/components/page-hero';
 import { TableBookingModal } from '@/components/table-booking-modal';
+import { ExperienceGallery } from '@/components/experience-gallery';
+import { STATIC_EXPERIENCES } from '@/data/experiences';
 
 const DINING_FEATURES = [
   {
@@ -44,7 +46,7 @@ const DINING_VENUES = [
   {
     id: 'terrace-dining',
     title: 'Reservoir View Terrace',
-    subtitle: 'AL FRESCO',
+    subtitle: 'Reservoir View Terrace',
     description: `Immerse yourself in nature while you dine. Our terrace offers panoramic views of the Victoria Reservoir, providing a stunning backdrop for a romantic dinner or a relaxed lunch. 
         
         Enjoy the gentle cool breeze and the sounds of nature as you savor fresh seafood, grilled specialties, and refreshing mocktails.`,
@@ -198,6 +200,52 @@ export default function DiningPage() {
         </div>
       </section>
 
+      {/* Culinary Tourism */}
+      {(() => {
+        const culinaryExp = STATIC_EXPERIENCES.find(e => e.id === 'culinary-tourism');
+        if (!culinaryExp) return null;
+        return (
+          <section className="py-24 bg-secondary/10">
+            <div className="container mx-auto px-4">
+              <div className="text-center mb-16 max-w-4xl mx-auto space-y-4">
+                <div className="flex items-center justify-center">
+                  <div className="h-px bg-foreground w-16 mx-4"></div>
+                  <p className="text-xs tracking-[0.3em] font-semibold text-muted-foreground uppercase">Culinary Experiences</p>
+                  <div className="h-px bg-foreground w-16 mx-4"></div>
+                </div>
+                <h2 className="font-headline text-4xl md:text-5xl text-foreground">Culinary Tourism</h2>
+              </div>
+
+              <div className="flex flex-col lg:flex-row gap-12 lg:gap-20 items-start max-w-7xl mx-auto">
+                <div className="w-full lg:w-1/2">
+                  {culinaryExp.galleryImages && (
+                    <ExperienceGallery images={culinaryExp.galleryImages} alt={culinaryExp.title} />
+                  )}
+                </div>
+                <div className="w-full lg:w-1/2 flex flex-col justify-center space-y-6 lg:pt-8">
+                  <Badge variant="outline" className="w-fit border-primary/40 text-primary px-3 py-1.5 text-xs uppercase tracking-widest">
+                    {culinaryExp.category}
+                  </Badge>
+                  <div className="text-muted-foreground text-sm leading-relaxed space-y-4">
+                    {culinaryExp.description.split('\n\n').map((para, i) => (
+                      <p key={i}>{para}</p>
+                    ))}
+                  </div>
+                  <div className="pt-4">
+                    <Button
+                      onClick={() => setBookingOpen(true)}
+                      className="bg-[#bd2830] hover:bg-[#9a1e24] text-white rounded-none px-8 py-6 text-xs font-bold tracking-[0.2em] uppercase transition-colors"
+                    >
+                      BOOK THIS EXPERIENCE <ArrowRight className="w-4 h-4 ml-6" />
+                    </Button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        );
+      })()}
+
       {/* Venues */}
       <section className="py-24 bg-background">
         <div className="container mx-auto px-4">
@@ -216,7 +264,7 @@ export default function DiningPage() {
           <div className="flex flex-col gap-32">
             {DINING_VENUES.map((venue, index) => {
               const isEven = index % 2 === 0;
-              const venueImage = venue.imageUrl || PlaceHolderImages.find(p => p.id === venue.imageId)?.imageUrl || heroImage?.imageUrl || '/placeholder.svg';
+              const venueImage = venue.imageUrl || heroImage?.imageUrl || '/placeholder.svg';
 
               return (
                 <div key={venue.id} className={cn(

@@ -1960,7 +1960,7 @@ const DINING_VENUES = [
     {
         id: 'terrace-dining',
         title: 'Reservoir View Terrace',
-        subtitle: 'AL FRESCO',
+        subtitle: 'Reservoir View Terrace',
         description: `Immerse yourself in nature while you dine. Our terrace offers panoramic views of the Victoria Reservoir, providing a stunning backdrop for a romantic dinner or a relaxed lunch. 
         
         Enjoy the gentle cool breeze and the sounds of nature as you savor fresh seafood, grilled specialties, and refreshing mocktails.`,

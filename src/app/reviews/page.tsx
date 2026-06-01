@@ -182,17 +182,17 @@ export default function ReviewsPage() {
                   <div className="bg-[#FEFAE0]/40 rounded-[2rem] p-6 md:p-10 text-center border border-[#606C38]/10 shadow-[0_15px_40px_rgba(96,108,56,0.05)] relative group overflow-hidden flex flex-col justify-between h-full min-h-[400px]">
                     {/* Decorative background logo */}
                     <div className="absolute -right-10 -bottom-10 opacity-[0.03] group-hover:scale-110 group-hover:-rotate-12 transition-all duration-700 pointer-events-none">
-                      <Image src="/logotipo-tripadvisor.png" alt="" width={200} height={200} className="object-contain grayscale" />
+                      <Image src="/wordmark.svg" alt="" width={200} height={31} className="object-contain grayscale" />
                     </div>
 
                     <div className="relative z-10 space-y-6">
                       <div className="flex justify-center">
-                        <div className="relative w-[120px] h-[28px] transition-transform duration-300 hover:scale-110">
-                          <Image 
-                            src="/logotipo-tripadvisor.png" 
-                            alt="TripAdvisor" 
-                            fill 
-                            className="object-contain" 
+                        <div className="relative w-[160px] h-[25px] transition-transform duration-300 hover:scale-110">
+                          <Image
+                            src="/wordmark.svg"
+                            alt="TripAdvisor"
+                            fill
+                            className="object-contain"
                           />
                         </div>
                       </div>
