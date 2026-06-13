@@ -1066,6 +1066,10 @@ body {
   height: 1px;
 }
 
+.h-\[25px\] {
+  height: 25px;
+}
+
 .h-\[280px\] {
   height: 280px;
 }
@@ -1140,10 +1144,6 @@ body {
 
 .h-svh {
   height: 100svh;
-}
-
-.h-\[25px\] {
-  height: 25px;
 }
 
 .max-h-96 {
@@ -1346,6 +1346,10 @@ body {
   width: 150px;
 }
 
+.w-\[160px\] {
+  width: 160px;
+}
+
 .w-\[1px\] {
   width: 1px;
 }
@@ -1382,21 +1386,17 @@ body {
   width: auto;
 }
 
+.w-fit {
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
 .w-full {
   width: 100%;
 }
 
 .w-px {
   width: 1px;
-}
-
-.w-\[160px\] {
-  width: 160px;
-}
-
-.w-fit {
-  width: -moz-fit-content;
-  width: fit-content;
 }
 
 .min-w-0 {
@@ -2165,6 +2165,10 @@ body {
   border-color: hsl(var(--primary) / .3);
 }
 
+.border-primary\/40 {
+  border-color: hsl(var(--primary) / .4);
+}
+
 .border-sidebar-border {
   border-color: hsl(var(--sidebar-border));
 }
@@ -2215,10 +2219,6 @@ body {
 
 .border-white\/5 {
   border-color: rgba(255, 255, 255, .05);
-}
-
-.border-primary\/40 {
-  border-color: hsl(var(--primary) / .4);
 }
 
 .border-l-transparent {
@@ -2482,6 +2482,10 @@ body {
   background-color: hsl(var(--secondary));
 }
 
+.bg-secondary\/10 {
+  background-color: hsl(var(--secondary) / .1);
+}
+
 .bg-secondary\/20 {
   background-color: hsl(var(--secondary) / .2);
 }
@@ -2543,10 +2547,6 @@ body {
 
 .bg-white\/95 {
   background-color: rgba(255, 255, 255, .95);
-}
-
-.bg-secondary\/10 {
-  background-color: hsl(var(--secondary) / .1);
 }
 
 .bg-\[url\(\'\/noise\.png\'\)\] {

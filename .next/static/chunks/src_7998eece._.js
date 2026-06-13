@@ -2291,11 +2291,11 @@ const STATIC_EXPERIENCES = [
         imageId: 'experience-food',
         category: 'CULINARY',
         galleryImages: [
-            '/experiences/2/1.jpg',
-            '/experiences/2/2.jpg',
-            '/experiences/2/3.jpg',
-            '/experiences/2/4.jpg',
-            '/experiences/2/5.jpg'
+            '/experiences/2/1.JPG',
+            '/experiences/2/2.JPG',
+            '/experiences/2/3.JPG',
+            '/experiences/2/4.JPG',
+            '/experiences/2/5.JPG'
         ]
     },
     {
@@ -2307,7 +2307,7 @@ const STATIC_EXPERIENCES = [
         galleryImages: [
             '/experiences/3/474177944_1189614085898449_1430028404525991780_n.jpg',
             '/experiences/3/474144798_1189613685898489_1988140828303246620_n.jpg',
-            '/experiences/3/ttd_fwcp_2.jpg',
+            '/experiences/3/ttd_fwcp_1.jpg',
             '/experiences/3/ttd_fwcp_4.jpg',
             '/experiences/3/ttd_fwcp_5.jpg'
         ]
@@ -3131,9 +3131,8 @@ function DiningPage() {
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                             className: "flex flex-col gap-32",
                             children: DINING_VENUES.map((venue, index)=>{
-                                var _PlaceHolderImages_find;
                                 const isEven = index % 2 === 0;
-                                const venueImage = venue.imageUrl || ((_PlaceHolderImages_find = __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$placeholder$2d$images$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["PlaceHolderImages"].find((p)=>p.id === venue.imageId)) === null || _PlaceHolderImages_find === void 0 ? void 0 : _PlaceHolderImages_find.imageUrl) || (heroImage === null || heroImage === void 0 ? void 0 : heroImage.imageUrl) || '/placeholder.svg';
+                                const venueImage = venue.imageUrl || (heroImage === null || heroImage === void 0 ? void 0 : heroImage.imageUrl) || '/placeholder.svg';
                                 return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                     className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["cn"])("flex flex-col gap-10 lg:gap-20 items-center", isEven ? "lg:flex-row" : "lg:flex-row-reverse"),
                                     children: [

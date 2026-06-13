@@ -2139,11 +2139,11 @@ Cookery demonstrations are a very popular activity at Oruthota Chalets. It is no
         imageId: 'experience-food',
         category: 'CULINARY',
         galleryImages: [
-            '/experiences/2/1.jpg',
-            '/experiences/2/2.jpg',
-            '/experiences/2/3.jpg',
-            '/experiences/2/4.jpg',
-            '/experiences/2/5.jpg'
+            '/experiences/2/1.JPG',
+            '/experiences/2/2.JPG',
+            '/experiences/2/3.JPG',
+            '/experiences/2/4.JPG',
+            '/experiences/2/5.JPG'
         ]
     },
     {
@@ -2155,7 +2155,7 @@ Cookery demonstrations are a very popular activity at Oruthota Chalets. It is no
         galleryImages: [
             '/experiences/3/474177944_1189614085898449_1430028404525991780_n.jpg',
             '/experiences/3/474144798_1189613685898489_1988140828303246620_n.jpg',
-            '/experiences/3/ttd_fwcp_2.jpg',
+            '/experiences/3/ttd_fwcp_1.jpg',
             '/experiences/3/ttd_fwcp_4.jpg',
             '/experiences/3/ttd_fwcp_5.jpg'
         ]
@@ -2979,7 +2979,7 @@ function DiningPage() {
                             className: "flex flex-col gap-32",
                             children: DINING_VENUES.map((venue, index)=>{
                                 const isEven = index % 2 === 0;
-                                const venueImage = venue.imageUrl || __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$placeholder$2d$images$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["PlaceHolderImages"].find((p)=>p.id === venue.imageId)?.imageUrl || heroImage?.imageUrl || '/placeholder.svg';
+                                const venueImage = venue.imageUrl || heroImage?.imageUrl || '/placeholder.svg';
                                 return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                     className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["cn"])("flex flex-col gap-10 lg:gap-20 items-center", isEven ? "lg:flex-row" : "lg:flex-row-reverse"),
                                     children: [
