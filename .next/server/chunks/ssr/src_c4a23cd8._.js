@@ -1904,12 +1904,6 @@ const GALLERY_IMAGES = [
         title: 'Elegant Interiors'
     },
     {
-        id: 9,
-        url: '/Hero3.jpg',
-        category: 'EXPLORATION',
-        title: 'Hills of Kandy'
-    },
-    {
         id: 11,
         url: '/wedding.png',
         category: 'WEDDINGS',
@@ -1952,34 +1946,16 @@ const GALLERY_IMAGES = [
         title: 'Breathtaking Heights'
     },
     {
-        id: 19,
-        url: '/High-Knuckles-Glamping-in-Sri-Lanka.avif',
-        category: 'EXPERIENCE',
-        title: 'Glamping Adventures'
-    },
-    {
         id: 20,
         url: '/IMG_3197-Edit.jpg',
         category: 'INTERIORS',
         title: 'Cozy Corners'
     },
     {
-        id: 21,
-        url: '/IMG_3636.jpg',
-        category: 'DINING',
-        title: 'Gourmet Delights'
-    },
-    {
         id: 22,
         url: '/IMG_4022.jpg',
         category: 'NATURE',
         title: 'Tropical Flora'
-    },
-    {
-        id: 23,
-        url: '/IMG_8148.PNG',
-        category: 'SNAPSHOT',
-        title: 'Memorable Moments'
     },
     {
         id: 24,
@@ -2006,58 +1982,16 @@ const GALLERY_IMAGES = [
         title: 'Private Parties'
     },
     {
-        id: 25,
-        url: '/experiences/1/ttd_awitv_3.jpg',
-        category: 'EXPERIENCES',
-        title: 'Adventure in the Valley'
-    },
-    {
         id: 26,
         url: '/experiences/2/1.JPG',
         category: 'EXPERIENCES',
         title: 'Cultural Touches'
     },
     {
-        id: 27,
-        url: '/experiences/3/ttd_fwcp_1.jpg',
-        category: 'EXPERIENCES',
-        title: 'Wildlife & Nature'
-    },
-    {
-        id: 28,
-        url: '/experiences/4/ttd_dbtr_1.jpg',
-        category: 'EXPERIENCES',
-        title: 'Boating on Victoria'
-    },
-    {
         id: 29,
         url: '/experiences/5/ttd_vv_1.jpg',
         category: 'EXPERIENCES',
         title: 'Village Vibes'
-    },
-    {
-        id: 30,
-        url: '/experiences/6/1.jpeg',
-        category: 'EXPERIENCES',
-        title: 'Trekking Ridges'
-    },
-    {
-        id: 31,
-        url: '/experiences/7/ttd_tmv_4.jpg',
-        category: 'EXPERIENCES',
-        title: 'Temple Visit'
-    },
-    {
-        id: 32,
-        url: '/experiences/8/ttd_vmn_1.jpg',
-        category: 'EXPERIENCES',
-        title: 'Mountain Views'
-    },
-    {
-        id: 33,
-        url: '/experiences/9/ttd_cd_1.jpg',
-        category: 'EXPERIENCES',
-        title: 'Cultural Dance'
     }
 ];
 function GalleryPage() {
@@ -2088,7 +2022,7 @@ function GalleryPage() {
                 titleClassName: "text-5xl md:text-6xl lg:text-7xl"
             }, void 0, false, {
                 fileName: "[project]/src/app/gallery/page.tsx",
-                lineNumber: 71,
+                lineNumber: 60,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2097,17 +2031,17 @@ function GalleryPage() {
                     className: "bg-white rounded-2xl shadow-[0_20px_50px_rgb(0,0,0,0.1)] border border-stone-100 overflow-hidden backdrop-blur-sm",
                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$booking$2d$form$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["BookingForm"], {}, void 0, false, {
                         fileName: "[project]/src/app/gallery/page.tsx",
-                        lineNumber: 83,
+                        lineNumber: 72,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/src/app/gallery/page.tsx",
-                    lineNumber: 82,
+                    lineNumber: 71,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/app/gallery/page.tsx",
-                lineNumber: 81,
+                lineNumber: 70,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
@@ -2117,14 +2051,14 @@ function GalleryPage() {
                         className: "absolute top-0 left-0 w-[800px] h-[800px] bg-[#606C38]/5 rounded-full blur-[120px] -translate-y-1/2 -translate-x-1/4 pointer-events-none"
                     }, void 0, false, {
                         fileName: "[project]/src/app/gallery/page.tsx",
-                        lineNumber: 89,
+                        lineNumber: 78,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "absolute bottom-0 right-0 w-[600px] h-[600px] bg-[#DDA15E]/5 rounded-full blur-[100px] translate-y-1/3 translate-x-1/4 pointer-events-none"
                     }, void 0, false, {
                         fileName: "[project]/src/app/gallery/page.tsx",
-                        lineNumber: 90,
+                        lineNumber: 79,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2140,7 +2074,7 @@ function GalleryPage() {
                                                 className: "w-5 h-5 text-[#606C38]"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/gallery/page.tsx",
-                                                lineNumber: 96,
+                                                lineNumber: 85,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -2148,20 +2082,20 @@ function GalleryPage() {
                                                 children: "A Glimpse of Paradise"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/gallery/page.tsx",
-                                                lineNumber: 97,
+                                                lineNumber: 86,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$sparkles$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Sparkles$3e$__["Sparkles"], {
                                                 className: "w-4 h-4 text-[#DDA15E]"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/gallery/page.tsx",
-                                                lineNumber: 100,
+                                                lineNumber: 89,
                                                 columnNumber: 15
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/gallery/page.tsx",
-                                        lineNumber: 95,
+                                        lineNumber: 84,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
@@ -2169,14 +2103,14 @@ function GalleryPage() {
                                         children: "Captured Moments"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/gallery/page.tsx",
-                                        lineNumber: 102,
+                                        lineNumber: 91,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                         className: "w-24 h-1 bg-[#606C38]/20 mx-auto rounded-full"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/gallery/page.tsx",
-                                        lineNumber: 105,
+                                        lineNumber: 94,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2184,13 +2118,13 @@ function GalleryPage() {
                                         children: "Explore the unique blend of nature and luxury at Oruthota Chalets through our curated lens."
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/gallery/page.tsx",
-                                        lineNumber: 106,
+                                        lineNumber: 95,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/gallery/page.tsx",
-                                lineNumber: 94,
+                                lineNumber: 83,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2208,22 +2142,22 @@ function GalleryPage() {
                                                 className: "object-cover w-full h-auto transition-transform duration-1000 ease-in-out group-hover:scale-110"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/gallery/page.tsx",
-                                                lineNumber: 120,
+                                                lineNumber: 109,
                                                 columnNumber: 19
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/gallery/page.tsx",
-                                            lineNumber: 119,
+                                            lineNumber: 108,
                                             columnNumber: 17
                                         }, this)
                                     }, img.id, false, {
                                         fileName: "[project]/src/app/gallery/page.tsx",
-                                        lineNumber: 114,
+                                        lineNumber: 103,
                                         columnNumber: 15
                                     }, this))
                             }, void 0, false, {
                                 fileName: "[project]/src/app/gallery/page.tsx",
-                                lineNumber: 112,
+                                lineNumber: 101,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2238,30 +2172,30 @@ function GalleryPage() {
                                             children: "Book your stay today."
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/gallery/page.tsx",
-                                            lineNumber: 134,
+                                            lineNumber: 123,
                                             columnNumber: 53
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/gallery/page.tsx",
-                                    lineNumber: 133,
+                                    lineNumber: 122,
                                     columnNumber: 13
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/src/app/gallery/page.tsx",
-                                lineNumber: 132,
+                                lineNumber: 121,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/gallery/page.tsx",
-                        lineNumber: 92,
+                        lineNumber: 81,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/gallery/page.tsx",
-                lineNumber: 87,
+                lineNumber: 76,
                 columnNumber: 7
             }, this),
             selectedImageIndex !== null && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2275,12 +2209,12 @@ function GalleryPage() {
                             className: "w-8 h-8"
                         }, void 0, false, {
                             fileName: "[project]/src/app/gallery/page.tsx",
-                            lineNumber: 150,
+                            lineNumber: 139,
                             columnNumber: 13
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/src/app/gallery/page.tsx",
-                        lineNumber: 146,
+                        lineNumber: 135,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -2290,12 +2224,12 @@ function GalleryPage() {
                             className: "w-10 h-10 md:w-12 md:h-12"
                         }, void 0, false, {
                             fileName: "[project]/src/app/gallery/page.tsx",
-                            lineNumber: 157,
+                            lineNumber: 146,
                             columnNumber: 13
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/src/app/gallery/page.tsx",
-                        lineNumber: 153,
+                        lineNumber: 142,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2308,12 +2242,12 @@ function GalleryPage() {
                             className: "object-contain"
                         }, void 0, false, {
                             fileName: "[project]/src/app/gallery/page.tsx",
-                            lineNumber: 161,
+                            lineNumber: 150,
                             columnNumber: 13
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/src/app/gallery/page.tsx",
-                        lineNumber: 160,
+                        lineNumber: 149,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -2323,24 +2257,24 @@ function GalleryPage() {
                             className: "w-10 h-10 md:w-12 md:h-12"
                         }, void 0, false, {
                             fileName: "[project]/src/app/gallery/page.tsx",
-                            lineNumber: 173,
+                            lineNumber: 162,
                             columnNumber: 13
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/src/app/gallery/page.tsx",
-                        lineNumber: 169,
+                        lineNumber: 158,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/gallery/page.tsx",
-                lineNumber: 142,
+                lineNumber: 131,
                 columnNumber: 9
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/app/gallery/page.tsx",
-        lineNumber: 69,
+        lineNumber: 58,
         columnNumber: 5
     }, this);
 }
