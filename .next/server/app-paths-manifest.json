@@ -6,6 +6,7 @@
   "/events/page": "app/events/page.js",
   "/favicon.ico/route": "app/favicon.ico/route.js",
   "/gallery/page": "app/gallery/page.js",
+  "/hrms/page": "app/hrms/page.js",
   "/manifest.webmanifest/route": "app/manifest.webmanifest/route.js",
   "/page": "app/page.js",
   "/reviews/page": "app/reviews/page.js"

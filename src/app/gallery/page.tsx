@@ -34,6 +34,8 @@ const GALLERY_IMAGES = [
   { id: 29, url: '/experiences/5/ttd_vv_1.jpg', category: 'EXPERIENCES', title: 'Village Vibes' },
 ];
 
+
+
 export default function GalleryPage() {
   const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null);
 
