@@ -1101,9 +1101,6 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$b
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$popover$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/components/ui/popover.tsx [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$calendar$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/components/ui/calendar.tsx [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$calendar$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Calendar$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/calendar.js [app-client] (ecmascript) <export default as Calendar>");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$user$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__User$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/user.js [app-client] (ecmascript) <export default as User>");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$plus$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Plus$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/plus.js [app-client] (ecmascript) <export default as Plus>");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$minus$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Minus$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/minus.js [app-client] (ecmascript) <export default as Minus>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$utensils$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Utensils$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/utensils.js [app-client] (ecmascript) <export default as Utensils>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$clock$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Clock$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/clock.js [app-client] (ecmascript) <export default as Clock>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$date$2d$fns$2f$format$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__ = __turbopack_context__.i("[project]/node_modules/date-fns/format.mjs [app-client] (ecmascript) <locals>");
@@ -1112,9 +1109,11 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navi
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/lib/utils.ts [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$hooks$2f$use$2d$toast$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/hooks/use-toast.ts [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$table$2d$booking$2d$modal$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/components/table-booking-modal.tsx [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$supabase$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/lib/supabase.ts [app-client] (ecmascript)");
 ;
 var _s = __turbopack_context__.k.signature();
 'use client';
+;
 ;
 ;
 ;
@@ -1136,38 +1135,36 @@ function BookingForm(param) {
     const [isTableModalOpen, setIsTableModalOpen] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
     const [checkInDate, setCheckInDate] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(undefined);
     const [checkOutDate, setCheckOutDate] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(undefined);
-    const [guests, setGuests] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])({
-        adults: 2,
-        children: 0
-    });
-    const [isGuestsPopoverOpen, setIsGuestsPopoverOpen] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
+    // Chalet package & occupancy
+    const [packages, setPackages] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])([]);
+    const [occupancyTypes, setOccupancyTypes] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])([]);
+    const [selectedPackage, setSelectedPackage] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])('');
+    const [selectedOccupancy, setSelectedOccupancy] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])('');
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
         "BookingForm.useEffect": ()=>{
-            // Set initial dates only on the client to avoid hydration mismatch
             const today = new Date();
             setCheckInDate(today);
             setCheckOutDate((0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$date$2d$fns$2f$addDays$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["addDays"])(today, 1));
             setIsMounted(true);
+            // Fetch chalet packages and occupancy types
+            Promise.all([
+                __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$supabase$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["supabase"].from('chalet_packages').select('id, name, description').order('name'),
+                __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$supabase$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["supabase"].from('chalet_occupancy_types').select('id, name, max_guests').order('name')
+            ]).then({
+                "BookingForm.useEffect": (param)=>{
+                    let [pkgRes, occRes] = param;
+                    if (pkgRes.data) {
+                        setPackages(pkgRes.data);
+                        if (pkgRes.data.length > 0) setSelectedPackage(pkgRes.data[0].id);
+                    }
+                    if (occRes.data) {
+                        setOccupancyTypes(occRes.data);
+                        if (occRes.data.length > 0) setSelectedOccupancy(occRes.data[0].id);
+                    }
+                }
+            }["BookingForm.useEffect"]);
         }
     }["BookingForm.useEffect"], []);
-    const handleGuestChange = (type, operation)=>{
-        setGuests((prev)=>{
-            const currentValue = prev[type];
-            if (operation === 'increment') {
-                return {
-                    ...prev,
-                    [type]: currentValue + 1
-                };
-            }
-            if (operation === 'decrement' && currentValue > (type === 'adults' ? 1 : 0)) {
-                return {
-                    ...prev,
-                    [type]: currentValue - 1
-                };
-            }
-            return prev;
-        });
-    };
     const handleFindRoom = ()=>{
         if (!checkInDate || !checkOutDate) {
             toast({
@@ -1177,11 +1174,17 @@ function BookingForm(param) {
             });
             return;
         }
+        if (!selectedPackage || !selectedOccupancy) {
+            toast({
+                variant: 'destructive',
+                title: 'Please select a package',
+                description: 'Choose a package and occupancy type to continue.'
+            });
+            return;
+        }
         const checkInString = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$date$2d$fns$2f$format$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["format"])(checkInDate, 'yyyy-MM-dd');
         const checkOutString = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$date$2d$fns$2f$format$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["format"])(checkOutDate, 'yyyy-MM-dd');
-        const adults = guests.adults;
-        const children = guests.children;
-        router.push("/bookings?checkIn=".concat(checkInString, "&checkOut=").concat(checkOutString, "&adults=").concat(adults, "&children=").concat(children));
+        router.push("/chalet-booking?checkIn=".concat(checkInString, "&checkOut=").concat(checkOutString, "&packageId=").concat(selectedPackage, "&occupancyTypeId=").concat(selectedOccupancy));
     };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         className: "max-w-6xl mx-auto py-4",
@@ -1195,7 +1198,7 @@ function BookingForm(param) {
                         children: "Book a Table"
                     }, void 0, false, {
                         fileName: "[project]/src/components/booking-form.tsx",
-                        lineNumber: 77,
+                        lineNumber: 90,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -1204,13 +1207,13 @@ function BookingForm(param) {
                         children: "Book a Stay"
                     }, void 0, false, {
                         fileName: "[project]/src/components/booking-form.tsx",
-                        lineNumber: 86,
+                        lineNumber: 99,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/components/booking-form.tsx",
-                lineNumber: 76,
+                lineNumber: 89,
                 columnNumber: 9
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1224,7 +1227,7 @@ function BookingForm(param) {
                                 children: "Book via trusted platforms"
                             }, void 0, false, {
                                 fileName: "[project]/src/components/booking-form.tsx",
-                                lineNumber: 102,
+                                lineNumber: 115,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1244,17 +1247,17 @@ function BookingForm(param) {
                                                 className: "object-contain"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/booking-form.tsx",
-                                                lineNumber: 111,
+                                                lineNumber: 124,
                                                 columnNumber: 19
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/booking-form.tsx",
-                                            lineNumber: 110,
+                                            lineNumber: 123,
                                             columnNumber: 17
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/booking-form.tsx",
-                                        lineNumber: 104,
+                                        lineNumber: 117,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
@@ -1271,33 +1274,33 @@ function BookingForm(param) {
                                                 className: "object-contain"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/booking-form.tsx",
-                                                lineNumber: 126,
+                                                lineNumber: 139,
                                                 columnNumber: 19
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/booking-form.tsx",
-                                            lineNumber: 125,
+                                            lineNumber: 138,
                                             columnNumber: 17
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/booking-form.tsx",
-                                        lineNumber: 119,
+                                        lineNumber: 132,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/components/booking-form.tsx",
-                                lineNumber: 103,
+                                lineNumber: 116,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/components/booking-form.tsx",
-                        lineNumber: 101,
+                        lineNumber: 114,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "grid grid-cols-1 md:grid-cols-4 gap-0.5 overflow-hidden rounded-lg shadow-sm",
+                        className: "grid grid-cols-1 md:grid-cols-5 gap-0.5 overflow-hidden rounded-lg shadow-sm",
                         children: !showTableBooking || activeTab === 'stay' ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1316,7 +1319,7 @@ function BookingForm(param) {
                                                                     children: "Check-in"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/components/booking-form.tsx",
-                                                                    lineNumber: 146,
+                                                                    lineNumber: 160,
                                                                     columnNumber: 25
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1324,31 +1327,31 @@ function BookingForm(param) {
                                                                     children: checkInDate ? (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$date$2d$fns$2f$format$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["format"])(checkInDate, 'dd/MM/yyyy') : 'Select date'
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/components/booking-form.tsx",
-                                                                    lineNumber: 147,
+                                                                    lineNumber: 161,
                                                                     columnNumber: 25
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/src/components/booking-form.tsx",
-                                                            lineNumber: 145,
+                                                            lineNumber: 159,
                                                             columnNumber: 23
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$calendar$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Calendar$3e$__["Calendar"], {
                                                             className: "h-6 w-6 text-gray-400"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/booking-form.tsx",
-                                                            lineNumber: 149,
+                                                            lineNumber: 163,
                                                             columnNumber: 23
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/components/booking-form.tsx",
-                                                    lineNumber: 144,
+                                                    lineNumber: 158,
                                                     columnNumber: 21
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/booking-form.tsx",
-                                                lineNumber: 143,
+                                                lineNumber: 157,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$popover$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["PopoverContent"], {
@@ -1369,23 +1372,23 @@ function BookingForm(param) {
                                                     }
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/booking-form.tsx",
-                                                    lineNumber: 153,
+                                                    lineNumber: 167,
                                                     columnNumber: 21
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/booking-form.tsx",
-                                                lineNumber: 152,
+                                                lineNumber: 166,
                                                 columnNumber: 19
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/components/booking-form.tsx",
-                                        lineNumber: 142,
+                                        lineNumber: 156,
                                         columnNumber: 17
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/booking-form.tsx",
-                                    lineNumber: 141,
+                                    lineNumber: 155,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1404,7 +1407,7 @@ function BookingForm(param) {
                                                                     children: "Check-out"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/components/booking-form.tsx",
-                                                                    lineNumber: 174,
+                                                                    lineNumber: 189,
                                                                     columnNumber: 25
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1412,31 +1415,31 @@ function BookingForm(param) {
                                                                     children: checkOutDate ? (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$date$2d$fns$2f$format$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["format"])(checkOutDate, 'dd/MM/yyyy') : 'Select date'
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/components/booking-form.tsx",
-                                                                    lineNumber: 175,
+                                                                    lineNumber: 190,
                                                                     columnNumber: 25
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/src/components/booking-form.tsx",
-                                                            lineNumber: 173,
+                                                            lineNumber: 188,
                                                             columnNumber: 23
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$calendar$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Calendar$3e$__["Calendar"], {
                                                             className: "h-6 w-6 text-gray-400"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/booking-form.tsx",
-                                                            lineNumber: 177,
+                                                            lineNumber: 192,
                                                             columnNumber: 23
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/components/booking-form.tsx",
-                                                    lineNumber: 172,
+                                                    lineNumber: 187,
                                                     columnNumber: 21
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/booking-form.tsx",
-                                                lineNumber: 171,
+                                                lineNumber: 186,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$popover$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["PopoverContent"], {
@@ -1452,253 +1455,128 @@ function BookingForm(param) {
                                                     }
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/booking-form.tsx",
-                                                    lineNumber: 181,
+                                                    lineNumber: 196,
                                                     columnNumber: 21
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/booking-form.tsx",
-                                                lineNumber: 180,
+                                                lineNumber: 195,
                                                 columnNumber: 19
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/components/booking-form.tsx",
-                                        lineNumber: 170,
+                                        lineNumber: 185,
                                         columnNumber: 17
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/booking-form.tsx",
-                                    lineNumber: 169,
+                                    lineNumber: 184,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: "bg-white p-2 md:col-span-1 flex items-center justify-between gap-2",
-                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$popover$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Popover"], {
-                                        open: isGuestsPopoverOpen,
-                                        onOpenChange: setIsGuestsPopoverOpen,
+                                    className: "bg-white p-2 md:col-span-1 flex items-center gap-2 border-r border-stone-100",
+                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: "w-full",
                                         children: [
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$popover$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["PopoverTrigger"], {
-                                                asChild: true,
-                                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                                    className: "w-full flex items-center justify-between text-left",
-                                                    children: [
-                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                            children: [
-                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
-                                                                    className: "text-[10px] text-gray-500 block",
-                                                                    children: "Guests"
-                                                                }, void 0, false, {
-                                                                    fileName: "[project]/src/components/booking-form.tsx",
-                                                                    lineNumber: 197,
-                                                                    columnNumber: 25
-                                                                }, this),
-                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                                    className: "text-sm text-black truncate w-32",
-                                                                    children: [
-                                                                        guests.adults,
-                                                                        " adults, ",
-                                                                        guests.children,
-                                                                        " children"
-                                                                    ]
-                                                                }, void 0, true, {
-                                                                    fileName: "[project]/src/components/booking-form.tsx",
-                                                                    lineNumber: 198,
-                                                                    columnNumber: 25
-                                                                }, this)
-                                                            ]
-                                                        }, void 0, true, {
-                                                            fileName: "[project]/src/components/booking-form.tsx",
-                                                            lineNumber: 196,
-                                                            columnNumber: 23
-                                                        }, this),
-                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$user$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__User$3e$__["User"], {
-                                                            className: "h-6 w-6 text-gray-400"
-                                                        }, void 0, false, {
-                                                            fileName: "[project]/src/components/booking-form.tsx",
-                                                            lineNumber: 200,
-                                                            columnNumber: 23
-                                                        }, this)
-                                                    ]
-                                                }, void 0, true, {
-                                                    fileName: "[project]/src/components/booking-form.tsx",
-                                                    lineNumber: 195,
-                                                    columnNumber: 21
-                                                }, this)
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                                className: "text-[10px] text-gray-500 block",
+                                                children: "Package"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/booking-form.tsx",
-                                                lineNumber: 194,
+                                                lineNumber: 210,
                                                 columnNumber: 19
                                             }, this),
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$popover$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["PopoverContent"], {
-                                                className: "w-64 p-4",
-                                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                    className: "space-y-4",
-                                                    children: [
-                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                            className: "flex items-center justify-between",
-                                                            children: [
-                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
-                                                                    className: "text-sm",
-                                                                    children: "Adults"
-                                                                }, void 0, false, {
-                                                                    fileName: "[project]/src/components/booking-form.tsx",
-                                                                    lineNumber: 206,
-                                                                    columnNumber: 25
-                                                                }, this),
-                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                    className: "flex items-center gap-2",
-                                                                    children: [
-                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
-                                                                            variant: "outline",
-                                                                            size: "icon",
-                                                                            className: "h-6 w-6",
-                                                                            onClick: ()=>handleGuestChange('adults', 'decrement'),
-                                                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$minus$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Minus$3e$__["Minus"], {
-                                                                                className: "h-4 w-4"
-                                                                            }, void 0, false, {
-                                                                                fileName: "[project]/src/components/booking-form.tsx",
-                                                                                lineNumber: 209,
-                                                                                columnNumber: 29
-                                                                            }, this)
-                                                                        }, void 0, false, {
-                                                                            fileName: "[project]/src/components/booking-form.tsx",
-                                                                            lineNumber: 208,
-                                                                            columnNumber: 27
-                                                                        }, this),
-                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                                            className: "w-6 text-center",
-                                                                            children: guests.adults
-                                                                        }, void 0, false, {
-                                                                            fileName: "[project]/src/components/booking-form.tsx",
-                                                                            lineNumber: 212,
-                                                                            columnNumber: 27
-                                                                        }, this),
-                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
-                                                                            variant: "outline",
-                                                                            size: "icon",
-                                                                            className: "h-6 w-6",
-                                                                            onClick: ()=>handleGuestChange('adults', 'increment'),
-                                                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$plus$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Plus$3e$__["Plus"], {
-                                                                                className: "h-4 w-4"
-                                                                            }, void 0, false, {
-                                                                                fileName: "[project]/src/components/booking-form.tsx",
-                                                                                lineNumber: 214,
-                                                                                columnNumber: 29
-                                                                            }, this)
-                                                                        }, void 0, false, {
-                                                                            fileName: "[project]/src/components/booking-form.tsx",
-                                                                            lineNumber: 213,
-                                                                            columnNumber: 27
-                                                                        }, this)
-                                                                    ]
-                                                                }, void 0, true, {
-                                                                    fileName: "[project]/src/components/booking-form.tsx",
-                                                                    lineNumber: 207,
-                                                                    columnNumber: 25
-                                                                }, this)
-                                                            ]
-                                                        }, void 0, true, {
-                                                            fileName: "[project]/src/components/booking-form.tsx",
-                                                            lineNumber: 205,
-                                                            columnNumber: 23
-                                                        }, this),
-                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                            className: "flex items-center justify-between",
-                                                            children: [
-                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
-                                                                    className: "text-sm",
-                                                                    children: "Children"
-                                                                }, void 0, false, {
-                                                                    fileName: "[project]/src/components/booking-form.tsx",
-                                                                    lineNumber: 219,
-                                                                    columnNumber: 25
-                                                                }, this),
-                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                    className: "flex items-center gap-2",
-                                                                    children: [
-                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
-                                                                            variant: "outline",
-                                                                            size: "icon",
-                                                                            className: "h-6 w-6",
-                                                                            onClick: ()=>handleGuestChange('children', 'decrement'),
-                                                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$minus$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Minus$3e$__["Minus"], {
-                                                                                className: "h-4 w-4"
-                                                                            }, void 0, false, {
-                                                                                fileName: "[project]/src/components/booking-form.tsx",
-                                                                                lineNumber: 222,
-                                                                                columnNumber: 29
-                                                                            }, this)
-                                                                        }, void 0, false, {
-                                                                            fileName: "[project]/src/components/booking-form.tsx",
-                                                                            lineNumber: 221,
-                                                                            columnNumber: 27
-                                                                        }, this),
-                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                                            className: "w-6 text-center",
-                                                                            children: guests.children
-                                                                        }, void 0, false, {
-                                                                            fileName: "[project]/src/components/booking-form.tsx",
-                                                                            lineNumber: 224,
-                                                                            columnNumber: 27
-                                                                        }, this),
-                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
-                                                                            variant: "outline",
-                                                                            size: "icon",
-                                                                            className: "h-6 w-6",
-                                                                            onClick: ()=>handleGuestChange('children', 'increment'),
-                                                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$plus$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Plus$3e$__["Plus"], {
-                                                                                className: "h-4 w-4"
-                                                                            }, void 0, false, {
-                                                                                fileName: "[project]/src/components/booking-form.tsx",
-                                                                                lineNumber: 226,
-                                                                                columnNumber: 29
-                                                                            }, this)
-                                                                        }, void 0, false, {
-                                                                            fileName: "[project]/src/components/booking-form.tsx",
-                                                                            lineNumber: 225,
-                                                                            columnNumber: 27
-                                                                        }, this)
-                                                                    ]
-                                                                }, void 0, true, {
-                                                                    fileName: "[project]/src/components/booking-form.tsx",
-                                                                    lineNumber: 220,
-                                                                    columnNumber: 25
-                                                                }, this)
-                                                            ]
-                                                        }, void 0, true, {
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("select", {
+                                                value: selectedPackage,
+                                                onChange: (e)=>setSelectedPackage(e.target.value),
+                                                className: "text-sm text-black bg-transparent border-0 outline-none w-full cursor-pointer appearance-none",
+                                                children: [
+                                                    packages.length === 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
+                                                        value: "",
+                                                        children: "Loading..."
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/src/components/booking-form.tsx",
+                                                        lineNumber: 216,
+                                                        columnNumber: 47
+                                                    }, this),
+                                                    packages.map((p)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
+                                                            value: p.id,
+                                                            children: p.name
+                                                        }, p.id, false, {
                                                             fileName: "[project]/src/components/booking-form.tsx",
                                                             lineNumber: 218,
                                                             columnNumber: 23
-                                                        }, this),
-                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
-                                                            className: "w-full",
-                                                            onClick: ()=>setIsGuestsPopoverOpen(false),
-                                                            children: "Done"
-                                                        }, void 0, false, {
-                                                            fileName: "[project]/src/components/booking-form.tsx",
-                                                            lineNumber: 230,
-                                                            columnNumber: 23
-                                                        }, this)
-                                                    ]
-                                                }, void 0, true, {
-                                                    fileName: "[project]/src/components/booking-form.tsx",
-                                                    lineNumber: 204,
-                                                    columnNumber: 21
-                                                }, this)
-                                            }, void 0, false, {
+                                                        }, this))
+                                                ]
+                                            }, void 0, true, {
                                                 fileName: "[project]/src/components/booking-form.tsx",
-                                                lineNumber: 203,
+                                                lineNumber: 211,
                                                 columnNumber: 19
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/components/booking-form.tsx",
-                                        lineNumber: 193,
+                                        lineNumber: 209,
                                         columnNumber: 17
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/booking-form.tsx",
-                                    lineNumber: 192,
+                                    lineNumber: 208,
+                                    columnNumber: 15
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    className: "bg-white p-2 md:col-span-1 flex items-center gap-2 border-r border-stone-100",
+                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: "w-full",
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                                className: "text-[10px] text-gray-500 block",
+                                                children: "Occupancy"
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/components/booking-form.tsx",
+                                                lineNumber: 227,
+                                                columnNumber: 19
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("select", {
+                                                value: selectedOccupancy,
+                                                onChange: (e)=>setSelectedOccupancy(e.target.value),
+                                                className: "text-sm text-black bg-transparent border-0 outline-none w-full cursor-pointer appearance-none",
+                                                children: [
+                                                    occupancyTypes.length === 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
+                                                        value: "",
+                                                        children: "Loading..."
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/src/components/booking-form.tsx",
+                                                        lineNumber: 233,
+                                                        columnNumber: 53
+                                                    }, this),
+                                                    occupancyTypes.map((o)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
+                                                            value: o.id,
+                                                            children: [
+                                                                o.name,
+                                                                o.max_guests ? " · Max ".concat(o.max_guests) : ''
+                                                            ]
+                                                        }, o.id, true, {
+                                                            fileName: "[project]/src/components/booking-form.tsx",
+                                                            lineNumber: 235,
+                                                            columnNumber: 23
+                                                        }, this))
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/src/components/booking-form.tsx",
+                                                lineNumber: 228,
+                                                columnNumber: 19
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/src/components/booking-form.tsx",
+                                        lineNumber: 226,
+                                        columnNumber: 17
+                                    }, this)
+                                }, void 0, false, {
+                                    fileName: "[project]/src/components/booking-form.tsx",
+                                    lineNumber: 225,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -1707,12 +1585,12 @@ function BookingForm(param) {
                                     children: activeTab === 'stay' ? 'CHECK AVAILABILITY' : 'BOOK A TABLE'
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/booking-form.tsx",
-                                    lineNumber: 235,
+                                    lineNumber: 244,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "col-span-4 bg-white p-3 flex flex-col md:flex-row items-center justify-between gap-4",
+                            className: "col-span-6 bg-white p-3 flex flex-col md:flex-row items-center justify-between gap-4",
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                     className: "flex items-center gap-4",
@@ -1723,12 +1601,12 @@ function BookingForm(param) {
                                                 className: "w-6 h-6 text-[#606C38]"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/booking-form.tsx",
-                                                lineNumber: 246,
+                                                lineNumber: 255,
                                                 columnNumber: 19
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/booking-form.tsx",
-                                            lineNumber: 245,
+                                            lineNumber: 254,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1737,18 +1615,18 @@ function BookingForm(param) {
                                                 children: "Scenic Dining at Oruthota Chalets"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/booking-form.tsx",
-                                                lineNumber: 249,
+                                                lineNumber: 258,
                                                 columnNumber: 19
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/booking-form.tsx",
-                                            lineNumber: 248,
+                                            lineNumber: 257,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/booking-form.tsx",
-                                    lineNumber: 244,
+                                    lineNumber: 253,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1761,14 +1639,14 @@ function BookingForm(param) {
                                                     className: "w-3 h-3"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/booking-form.tsx",
-                                                    lineNumber: 254,
+                                                    lineNumber: 263,
                                                     columnNumber: 91
                                                 }, this),
                                                 " Breakfast"
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/components/booking-form.tsx",
-                                            lineNumber: 254,
+                                            lineNumber: 263,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1778,14 +1656,14 @@ function BookingForm(param) {
                                                     className: "w-3 h-3"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/booking-form.tsx",
-                                                    lineNumber: 255,
+                                                    lineNumber: 264,
                                                     columnNumber: 91
                                                 }, this),
                                                 " Lunch"
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/components/booking-form.tsx",
-                                            lineNumber: 255,
+                                            lineNumber: 264,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1795,14 +1673,14 @@ function BookingForm(param) {
                                                     className: "w-3 h-3"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/booking-form.tsx",
-                                                    lineNumber: 256,
+                                                    lineNumber: 265,
                                                     columnNumber: 91
                                                 }, this),
                                                 " High Tea"
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/components/booking-form.tsx",
-                                            lineNumber: 256,
+                                            lineNumber: 265,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1812,20 +1690,20 @@ function BookingForm(param) {
                                                     className: "w-3 h-3"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/booking-form.tsx",
-                                                    lineNumber: 257,
+                                                    lineNumber: 266,
                                                     columnNumber: 91
                                                 }, this),
                                                 " Dinner"
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/components/booking-form.tsx",
-                                            lineNumber: 257,
+                                            lineNumber: 266,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/booking-form.tsx",
-                                    lineNumber: 253,
+                                    lineNumber: 262,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -1834,24 +1712,24 @@ function BookingForm(param) {
                                     children: "BOOK A TABLE"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/booking-form.tsx",
-                                    lineNumber: 259,
+                                    lineNumber: 268,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/booking-form.tsx",
-                            lineNumber: 243,
+                            lineNumber: 252,
                             columnNumber: 13
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/src/components/booking-form.tsx",
-                        lineNumber: 138,
+                        lineNumber: 151,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/components/booking-form.tsx",
-                lineNumber: 98,
+                lineNumber: 111,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$table$2d$booking$2d$modal$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableBookingModal"], {
@@ -1859,17 +1737,17 @@ function BookingForm(param) {
                 onClose: ()=>setIsTableModalOpen(false)
             }, void 0, false, {
                 fileName: "[project]/src/components/booking-form.tsx",
-                lineNumber: 270,
+                lineNumber: 279,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/components/booking-form.tsx",
-        lineNumber: 73,
+        lineNumber: 86,
         columnNumber: 5
     }, this);
 }
-_s(BookingForm, "ds0MEyzBMHItOO/E9A5jatSCJp4=", false, function() {
+_s(BookingForm, "SBezGs2kfOgDOafdE4/MGPEgarc=", false, function() {
     return [
         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRouter"],
         __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$hooks$2f$use$2d$toast$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useToast"]
@@ -2675,14 +2553,14 @@ function CheckAvailabilityListComponent() {
                         priority: true
                     }, void 0, false, {
                         fileName: "[project]/src/app/accommodations/page.tsx",
-                        lineNumber: 34,
+                        lineNumber: 35,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-background/90"
                     }, void 0, false, {
                         fileName: "[project]/src/app/accommodations/page.tsx",
-                        lineNumber: 41,
+                        lineNumber: 42,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2697,12 +2575,12 @@ function CheckAvailabilityListComponent() {
                                         children: "Private Havens"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/accommodations/page.tsx",
-                                        lineNumber: 45,
+                                        lineNumber: 46,
                                         columnNumber: 15
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/accommodations/page.tsx",
-                                    lineNumber: 44,
+                                    lineNumber: 45,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
@@ -2710,7 +2588,7 @@ function CheckAvailabilityListComponent() {
                                     children: "Accommodation"
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/accommodations/page.tsx",
-                                    lineNumber: 49,
+                                    lineNumber: 50,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2718,24 +2596,24 @@ function CheckAvailabilityListComponent() {
                                     children: "Sanctuaries of peace designed to blend seamlessly with nature."
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/accommodations/page.tsx",
-                                    lineNumber: 52,
+                                    lineNumber: 53,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/app/accommodations/page.tsx",
-                            lineNumber: 43,
+                            lineNumber: 44,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/src/app/accommodations/page.tsx",
-                        lineNumber: 42,
+                        lineNumber: 43,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/accommodations/page.tsx",
-                lineNumber: 33,
+                lineNumber: 34,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2744,17 +2622,17 @@ function CheckAvailabilityListComponent() {
                     className: "bg-card rounded-xl shadow-2xl border border-border/50 backdrop-blur-sm overflow-hidden",
                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$booking$2d$form$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["BookingForm"], {}, void 0, false, {
                         fileName: "[project]/src/app/accommodations/page.tsx",
-                        lineNumber: 62,
+                        lineNumber: 63,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/src/app/accommodations/page.tsx",
-                    lineNumber: 61,
+                    lineNumber: 62,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/app/accommodations/page.tsx",
-                lineNumber: 60,
+                lineNumber: 61,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
@@ -2770,7 +2648,7 @@ function CheckAvailabilityListComponent() {
                                     children: "Your Private Sanctuary"
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/accommodations/page.tsx",
-                                    lineNumber: 70,
+                                    lineNumber: 71,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
@@ -2778,14 +2656,14 @@ function CheckAvailabilityListComponent() {
                                     children: "Eco-Friendly Comfort by the Reservoir"
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/accommodations/page.tsx",
-                                    lineNumber: 71,
+                                    lineNumber: 72,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                     className: "w-24 h-1 bg-primary mx-auto rounded-full opacity-60"
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/accommodations/page.tsx",
-                                    lineNumber: 72,
+                                    lineNumber: 73,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2793,13 +2671,13 @@ function CheckAvailabilityListComponent() {
                                     children: "Discover our thoughtfully designed chalets and rooms with breathtaking views of the Victoria Reservoir and surrounding hill country landscapes. Just 18 kilometres from the historic city of Kandy, each space blends rustic charm with modern comforts for a truly peaceful retreat."
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/accommodations/page.tsx",
-                                    lineNumber: 73,
+                                    lineNumber: 74,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/app/accommodations/page.tsx",
-                            lineNumber: 69,
+                            lineNumber: 70,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2813,12 +2691,12 @@ function CheckAvailabilityListComponent() {
                                                 className: "h-6 w-6 text-primary group-hover:scale-110 transition-transform duration-300"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/accommodations/page.tsx",
-                                                lineNumber: 82,
+                                                lineNumber: 83,
                                                 columnNumber: 19
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/accommodations/page.tsx",
-                                            lineNumber: 81,
+                                            lineNumber: 82,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -2826,29 +2704,29 @@ function CheckAvailabilityListComponent() {
                                             children: item.label
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/accommodations/page.tsx",
-                                            lineNumber: 84,
+                                            lineNumber: 85,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, idx, true, {
                                     fileName: "[project]/src/app/accommodations/page.tsx",
-                                    lineNumber: 80,
+                                    lineNumber: 81,
                                     columnNumber: 15
                                 }, this))
                         }, void 0, false, {
                             fileName: "[project]/src/app/accommodations/page.tsx",
-                            lineNumber: 78,
+                            lineNumber: 79,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/app/accommodations/page.tsx",
-                    lineNumber: 68,
+                    lineNumber: 69,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/app/accommodations/page.tsx",
-                lineNumber: 67,
+                lineNumber: 68,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
@@ -2865,7 +2743,7 @@ function CheckAvailabilityListComponent() {
                                         className: "w-16 h-16 border-4 border-primary/30 border-t-primary rounded-full animate-spin"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/accommodations/page.tsx",
-                                        lineNumber: 97,
+                                        lineNumber: 98,
                                         columnNumber: 17
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2873,13 +2751,13 @@ function CheckAvailabilityListComponent() {
                                         children: "Loading your sanctuary..."
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/accommodations/page.tsx",
-                                        lineNumber: 98,
+                                        lineNumber: 99,
                                         columnNumber: 17
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/accommodations/page.tsx",
-                                lineNumber: 96,
+                                lineNumber: 97,
                                 columnNumber: 15
                             }, this),
                             rooms === null || rooms === void 0 ? void 0 : rooms.map((accommodation, index)=>{
@@ -2897,21 +2775,21 @@ function CheckAvailabilityListComponent() {
                                                     className: "object-cover transition-transform duration-700 group-hover:scale-110"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/accommodations/page.tsx",
-                                                    lineNumber: 113,
+                                                    lineNumber: 114,
                                                     columnNumber: 23
                                                 }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                     className: "h-full w-full bg-muted flex items-center justify-center text-muted-foreground",
                                                     children: "No Image Available"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/accommodations/page.tsx",
-                                                    lineNumber: 120,
+                                                    lineNumber: 121,
                                                     columnNumber: 23
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                     className: "absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-60 transition-opacity duration-500"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/accommodations/page.tsx",
-                                                    lineNumber: 126,
+                                                    lineNumber: 127,
                                                     columnNumber: 21
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2924,7 +2802,7 @@ function CheckAvailabilityListComponent() {
                                                                 children: "From"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/app/accommodations/page.tsx",
-                                                                lineNumber: 131,
+                                                                lineNumber: 132,
                                                                 columnNumber: 25
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -2935,18 +2813,18 @@ function CheckAvailabilityListComponent() {
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/src/app/accommodations/page.tsx",
-                                                                lineNumber: 132,
+                                                                lineNumber: 133,
                                                                 columnNumber: 25
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/src/app/accommodations/page.tsx",
-                                                        lineNumber: 130,
+                                                        lineNumber: 131,
                                                         columnNumber: 23
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/accommodations/page.tsx",
-                                                    lineNumber: 129,
+                                                    lineNumber: 130,
                                                     columnNumber: 21
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2957,18 +2835,18 @@ function CheckAvailabilityListComponent() {
                                                         children: accommodation.view || 'Scenic View'
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/accommodations/page.tsx",
-                                                        lineNumber: 138,
+                                                        lineNumber: 139,
                                                         columnNumber: 23
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/accommodations/page.tsx",
-                                                    lineNumber: 137,
+                                                    lineNumber: 138,
                                                     columnNumber: 21
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/app/accommodations/page.tsx",
-                                            lineNumber: 111,
+                                            lineNumber: 112,
                                             columnNumber: 19
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2982,7 +2860,7 @@ function CheckAvailabilityListComponent() {
                                                             children: accommodation.title
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/accommodations/page.tsx",
-                                                            lineNumber: 147,
+                                                            lineNumber: 148,
                                                             columnNumber: 23
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2994,13 +2872,13 @@ function CheckAvailabilityListComponent() {
                                                             }
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/accommodations/page.tsx",
-                                                            lineNumber: 150,
+                                                            lineNumber: 151,
                                                             columnNumber: 23
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/app/accommodations/page.tsx",
-                                                    lineNumber: 146,
+                                                    lineNumber: 147,
                                                     columnNumber: 21
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -3008,7 +2886,7 @@ function CheckAvailabilityListComponent() {
                                                     children: accommodation.description
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/accommodations/page.tsx",
-                                                    lineNumber: 157,
+                                                    lineNumber: 158,
                                                     columnNumber: 21
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3021,7 +2899,7 @@ function CheckAvailabilityListComponent() {
                                                                     className: "w-5 h-5 text-primary shrink-0"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/app/accommodations/page.tsx",
-                                                                    lineNumber: 163,
+                                                                    lineNumber: 164,
                                                                     columnNumber: 25
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -3032,13 +2910,13 @@ function CheckAvailabilityListComponent() {
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/src/app/accommodations/page.tsx",
-                                                                    lineNumber: 164,
+                                                                    lineNumber: 165,
                                                                     columnNumber: 25
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/src/app/accommodations/page.tsx",
-                                                            lineNumber: 162,
+                                                            lineNumber: 163,
                                                             columnNumber: 23
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3048,7 +2926,7 @@ function CheckAvailabilityListComponent() {
                                                                     className: "w-5 h-5 text-primary shrink-0"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/app/accommodations/page.tsx",
-                                                                    lineNumber: 167,
+                                                                    lineNumber: 168,
                                                                     columnNumber: 25
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -3056,13 +2934,13 @@ function CheckAvailabilityListComponent() {
                                                                     children: "Luxury Suite"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/app/accommodations/page.tsx",
-                                                                    lineNumber: 168,
+                                                                    lineNumber: 169,
                                                                     columnNumber: 25
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/src/app/accommodations/page.tsx",
-                                                            lineNumber: 166,
+                                                            lineNumber: 167,
                                                             columnNumber: 23
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3072,7 +2950,7 @@ function CheckAvailabilityListComponent() {
                                                                     className: "w-5 h-5 text-primary shrink-0"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/app/accommodations/page.tsx",
-                                                                    lineNumber: 171,
+                                                                    lineNumber: 172,
                                                                     columnNumber: 25
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -3080,13 +2958,13 @@ function CheckAvailabilityListComponent() {
                                                                     children: "Air conditioning"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/app/accommodations/page.tsx",
-                                                                    lineNumber: 172,
+                                                                    lineNumber: 173,
                                                                     columnNumber: 25
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/src/app/accommodations/page.tsx",
-                                                            lineNumber: 170,
+                                                            lineNumber: 171,
                                                             columnNumber: 23
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3096,7 +2974,7 @@ function CheckAvailabilityListComponent() {
                                                                     className: "w-5 h-5 text-primary shrink-0"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/app/accommodations/page.tsx",
-                                                                    lineNumber: 175,
+                                                                    lineNumber: 176,
                                                                     columnNumber: 25
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -3104,57 +2982,37 @@ function CheckAvailabilityListComponent() {
                                                                     children: "Free Wifi"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/app/accommodations/page.tsx",
-                                                                    lineNumber: 176,
+                                                                    lineNumber: 177,
                                                                     columnNumber: 25
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/src/app/accommodations/page.tsx",
-                                                            lineNumber: 174,
+                                                            lineNumber: 175,
                                                             columnNumber: 23
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/app/accommodations/page.tsx",
-                                                    lineNumber: 161,
+                                                    lineNumber: 162,
                                                     columnNumber: 21
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                     className: "flex flex-col sm:flex-row gap-4 w-full sm:w-auto pt-4",
-                                                    children: [
-                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
-                                                            href: "/booking?roomId=".concat(accommodation.id),
-                                                            passHref: true,
-                                                            className: "w-full sm:w-auto",
-                                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
-                                                                size: "lg",
-                                                                className: "w-full sm:w-auto bg-[#283618] text-white rounded-full px-8 h-12 shadow-lg hover:shadow-[#283618]/25 hover:-translate-y-0.5 transition-all text-base tracking-wide font-semibold",
-                                                                children: "Check Availability"
-                                                            }, void 0, false, {
-                                                                fileName: "[project]/src/app/accommodations/page.tsx",
-                                                                lineNumber: 182,
-                                                                columnNumber: 25
-                                                            }, this)
-                                                        }, void 0, false, {
-                                                            fileName: "[project]/src/app/accommodations/page.tsx",
-                                                            lineNumber: 181,
-                                                            columnNumber: 23
-                                                        }, this),
-                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
-                                                            variant: "outline",
-                                                            size: "lg",
-                                                            className: "w-full sm:w-auto rounded-full h-12 border-primary/30 text-foreground hover:bg-primary/5 hover:text-primary transition-all text-base tracking-wide font-semibold",
-                                                            onClick: ()=>setSelectedRoom(accommodation),
-                                                            children: "Room Details"
-                                                        }, void 0, false, {
-                                                            fileName: "[project]/src/app/accommodations/page.tsx",
-                                                            lineNumber: 186,
-                                                            columnNumber: 23
-                                                        }, this)
-                                                    ]
-                                                }, void 0, true, {
+                                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
+                                                        variant: "outline",
+                                                        size: "lg",
+                                                        className: "w-full sm:w-auto rounded-full h-12 border-primary/30 text-foreground hover:bg-primary/5 hover:text-primary transition-all text-base tracking-wide font-semibold",
+                                                        onClick: ()=>setSelectedRoom(accommodation),
+                                                        children: "Room Details"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/src/app/accommodations/page.tsx",
+                                                        lineNumber: 182,
+                                                        columnNumber: 23
+                                                    }, this)
+                                                }, void 0, false, {
                                                     fileName: "[project]/src/app/accommodations/page.tsx",
-                                                    lineNumber: 180,
+                                                    lineNumber: 181,
                                                     columnNumber: 21
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3165,7 +3023,7 @@ function CheckAvailabilityListComponent() {
                                                             children: "Also Bookable Via"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/accommodations/page.tsx",
-                                                            lineNumber: 198,
+                                                            lineNumber: 194,
                                                             columnNumber: 23
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3185,17 +3043,17 @@ function CheckAvailabilityListComponent() {
                                                                             className: "object-contain"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/src/app/accommodations/page.tsx",
-                                                                            lineNumber: 207,
+                                                                            lineNumber: 203,
                                                                             columnNumber: 29
                                                                         }, this)
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/app/accommodations/page.tsx",
-                                                                        lineNumber: 206,
+                                                                        lineNumber: 202,
                                                                         columnNumber: 27
                                                                     }, this)
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/app/accommodations/page.tsx",
-                                                                    lineNumber: 200,
+                                                                    lineNumber: 196,
                                                                     columnNumber: 25
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
@@ -3212,58 +3070,58 @@ function CheckAvailabilityListComponent() {
                                                                             className: "object-contain"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/src/app/accommodations/page.tsx",
-                                                                            lineNumber: 217,
+                                                                            lineNumber: 213,
                                                                             columnNumber: 29
                                                                         }, this)
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/app/accommodations/page.tsx",
-                                                                        lineNumber: 216,
+                                                                        lineNumber: 212,
                                                                         columnNumber: 27
                                                                     }, this)
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/app/accommodations/page.tsx",
-                                                                    lineNumber: 210,
+                                                                    lineNumber: 206,
                                                                     columnNumber: 25
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/src/app/accommodations/page.tsx",
-                                                            lineNumber: 199,
+                                                            lineNumber: 195,
                                                             columnNumber: 23
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/app/accommodations/page.tsx",
-                                                    lineNumber: 197,
+                                                    lineNumber: 193,
                                                     columnNumber: 21
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/app/accommodations/page.tsx",
-                                            lineNumber: 145,
+                                            lineNumber: 146,
                                             columnNumber: 19
                                         }, this)
                                     ]
                                 }, accommodation.id, true, {
                                     fileName: "[project]/src/app/accommodations/page.tsx",
-                                    lineNumber: 106,
+                                    lineNumber: 107,
                                     columnNumber: 17
                                 }, this);
                             })
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/accommodations/page.tsx",
-                        lineNumber: 94,
+                        lineNumber: 95,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/src/app/accommodations/page.tsx",
-                    lineNumber: 93,
+                    lineNumber: 94,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/app/accommodations/page.tsx",
-                lineNumber: 92,
+                lineNumber: 93,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
@@ -3273,7 +3131,7 @@ function CheckAvailabilityListComponent() {
                         className: "absolute inset-0 bg-[url('/noise.png')] opacity-10 mix-blend-overlay"
                     }, void 0, false, {
                         fileName: "[project]/src/app/accommodations/page.tsx",
-                        lineNumber: 232,
+                        lineNumber: 228,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3284,7 +3142,7 @@ function CheckAvailabilityListComponent() {
                                 children: "Not sure which sanctuary to choose?"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/accommodations/page.tsx",
-                                lineNumber: 234,
+                                lineNumber: 230,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -3292,7 +3150,7 @@ function CheckAvailabilityListComponent() {
                                 children: "Our dedicated team is happy to help you select the perfect accommodation for your tropical getaway."
                             }, void 0, false, {
                                 fileName: "[project]/src/app/accommodations/page.tsx",
-                                lineNumber: 235,
+                                lineNumber: 231,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
@@ -3305,24 +3163,24 @@ function CheckAvailabilityListComponent() {
                                     children: "Contact Us Today"
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/accommodations/page.tsx",
-                                    lineNumber: 239,
+                                    lineNumber: 235,
                                     columnNumber: 13
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/src/app/accommodations/page.tsx",
-                                lineNumber: 238,
+                                lineNumber: 234,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/accommodations/page.tsx",
-                        lineNumber: 233,
+                        lineNumber: 229,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/accommodations/page.tsx",
-                lineNumber: 231,
+                lineNumber: 227,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$room$2d$details$2d$modal$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["RoomDetailsModal"], {
@@ -3331,13 +3189,13 @@ function CheckAvailabilityListComponent() {
                 onClose: ()=>setSelectedRoom(null)
             }, void 0, false, {
                 fileName: "[project]/src/app/accommodations/page.tsx",
-                lineNumber: 247,
+                lineNumber: 243,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/app/accommodations/page.tsx",
-        lineNumber: 31,
+        lineNumber: 32,
         columnNumber: 5
     }, this);
 }
@@ -3354,17 +3212,17 @@ function AccommodationsPage() {
             children: "Loading..."
         }, void 0, false, {
             fileName: "[project]/src/app/accommodations/page.tsx",
-            lineNumber: 258,
+            lineNumber: 254,
             columnNumber: 25
         }, void 0),
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(CheckAvailabilityListComponent, {}, void 0, false, {
             fileName: "[project]/src/app/accommodations/page.tsx",
-            lineNumber: 259,
+            lineNumber: 255,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/src/app/accommodations/page.tsx",
-        lineNumber: 258,
+        lineNumber: 254,
         columnNumber: 5
     }, this);
 }

@@ -1,11 +1,9 @@
 'use client';
 
 import Image from 'next/image';
-import Link from 'next/link';
 import { Dialog, DialogContent, DialogTitle } from '@/components/ui/dialog';
-import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { Bed, Wind, Wifi, Coffee, Utensils, Waves, Car, MountainSnow, X, Star, Users, DollarSign } from 'lucide-react';
+import { Bed, Wind, Wifi, Coffee, Utensils, Waves, Car, MountainSnow, X, Star } from 'lucide-react';
 import type { Room } from '@/types/room';
 
 interface RoomDetailsModalProps {
@@ -158,36 +156,6 @@ export function RoomDetailsModal({ room, open, onClose }: RoomDetailsModalProps)
                 </div>
             </div>
 
-            {/* Pricing */}
-            <div className="flex flex-col sm:flex-row items-center justify-between gap-6 pt-4 border-t border-border/50">
-              <div className="text-center sm:text-left">
-                <p className="text-xs text-muted-foreground tracking-widest uppercase font-semibold">Starting from</p>
-                <div className="flex items-baseline gap-1 mt-1">
-                  <span className="font-headline text-4xl text-[#283618] font-bold">LKR {room.pricePerNight.toLocaleString()}</span>
-                  <span className="text-muted-foreground text-sm">/ night</span>
-                </div>
-                <p className="text-xs text-muted-foreground mt-1">Taxes and fees may apply</p>
-              </div>
-
-              <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
-                <Button
-                  variant="outline"
-                  onClick={onClose}
-                  className="rounded-full h-12 px-8 border-[#606C38]/30 text-[#283618] hover:bg-[#606C38]/5 font-semibold tracking-wide"
-                >
-                  Close
-                </Button>
-                <Link href={`/booking?roomId=${room.id}`} passHref>
-                  <Button
-                    size="lg"
-                    className="w-full sm:w-auto rounded-full h-12 px-10 bg-[#283618] text-white hover:bg-[#3a4e22] shadow-lg hover:shadow-[#283618]/30 hover:-translate-y-0.5 transition-all font-semibold tracking-wide"
-                    onClick={onClose}
-                  >
-                    Book This Room
-                  </Button>
-                </Link>
-              </div>
-            </div>
           </div>
         </div>
       </DialogContent>

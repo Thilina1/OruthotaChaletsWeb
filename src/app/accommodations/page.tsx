@@ -12,6 +12,7 @@ import { Suspense, useState } from 'react';
 import { cn } from '@/lib/utils';
 import { Badge } from '@/components/ui/badge';
 import { RoomDetailsModal } from '@/components/room-details-modal';
+import { RoomRatesPackages } from '@/components/room-rates-packages';
 
 const RESORT_AMENITIES = [
   { icon: Wifi, label: "High-Speed Wifi" },
@@ -178,11 +179,6 @@ function CheckAvailabilityListComponent() {
                     </div>
 
                     <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto pt-4">
-                      <Link href={`/booking?roomId=${accommodation.id}`} passHref className="w-full sm:w-auto">
-                        <Button size="lg" className="w-full sm:w-auto bg-[#283618] text-white rounded-full px-8 h-12 shadow-lg hover:shadow-[#283618]/25 hover:-translate-y-0.5 transition-all text-base tracking-wide font-semibold">
-                          Check Availability
-                        </Button>
-                      </Link>
                       <Button
                         variant="outline"
                         size="lg"
@@ -226,6 +222,9 @@ function CheckAvailabilityListComponent() {
           </div>
         </div>
       </section>
+
+      {/* Room Rates & Packages */}
+      <RoomRatesPackages />
 
       {/* Bottom CTA */}
       <section className="py-24 bg-[#DDA15E] relative overflow-hidden text-[#283618] text-center">
