@@ -89,6 +89,9 @@ function CheckAvailabilityListComponent() {
         </div>
       </section>
 
+      {/* Room Rates & Packages */}
+      <RoomRatesPackages />
+
       {/* Rooms List */}
       <section className="pb-24 bg-background">
         <div className="container mx-auto px-4">
@@ -104,8 +107,8 @@ function CheckAvailabilityListComponent() {
               const isEven = index % 2 === 0;
 
               return (
-                <div key={accommodation.id} className={cn(
-                  "flex flex-col lg:flex-row gap-10 lg:gap-20 items-center group perspective-1000",
+                <div key={accommodation.id} id={`room-${accommodation.id}`} className={cn(
+                  "flex flex-col lg:flex-row gap-10 lg:gap-20 items-center group perspective-1000 scroll-mt-24",
                   !isEven && "lg:flex-row-reverse"
                 )}>
                   {/* Image Side */}
@@ -222,9 +225,6 @@ function CheckAvailabilityListComponent() {
           </div>
         </div>
       </section>
-
-      {/* Room Rates & Packages */}
-      <RoomRatesPackages />
 
       {/* Bottom CTA */}
       <section className="py-24 bg-[#DDA15E] relative overflow-hidden text-[#283618] text-center">

@@ -277,7 +277,7 @@ export default function Home() {
                             >
                               MORE DETAILS
                             </Button>
-                            <Link href={`/booking?roomId=${accommodation.id}`} passHref>
+                            <Link href={`/accommodations#room-${accommodation.id}`} passHref>
                               <Button className="bg-primary text-primary-foreground rounded-sm font-semibold tracking-wider hover:bg-primary/90">
                                 BOOK NOW
                               </Button>

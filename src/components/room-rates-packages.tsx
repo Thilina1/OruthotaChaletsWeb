@@ -4,7 +4,6 @@ import { useState, useEffect, useCallback } from 'react';
 import { supabase } from '@/lib/supabase';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Skeleton } from '@/components/ui/skeleton';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { useToast } from '@/hooks/use-toast';
 import { Coffee, UtensilsCrossed } from 'lucide-react';
@@ -87,70 +86,13 @@ export function RoomRatesPackages() {
           <p className="text-muted-foreground mt-2">Chalet rate matrix and meal packages</p>
         </div>
 
-        <Tabs defaultValue="rates">
-          <TabsList className="mb-4">
-            <TabsTrigger value="rates">Rate Matrix</TabsTrigger>
-            <TabsTrigger value="packages">Packages</TabsTrigger>
-          </TabsList>
-
-          {/* Rate Matrix */}
-          <TabsContent value="rates">
+        <div className="space-y-10">
+          {/* Packages */}
+          <div>
             <Card>
               <CardHeader>
-                <CardTitle>Rate Matrix</CardTitle>
-                <CardDescription>
-                  Rates per night (LKR) for each package × occupancy combination. A +10% service charge applies.
-                </CardDescription>
+                <CardTitle>Packages</CardTitle>
               </CardHeader>
-              <CardContent>
-                {loading ? (
-                  <div className="space-y-2">
-                    {Array.from({ length: 4 }).map((_, i) => <Skeleton key={i} className="h-10 w-full" />)}
-                  </div>
-                ) : (
-                  <div className="overflow-x-auto">
-                    <Table>
-                      <TableHeader>
-                        <TableRow>
-                          <TableHead className="w-40">Occupancy</TableHead>
-                          {packages.map(pkg => (
-                            <TableHead key={pkg.id} className="text-center min-w-36">
-                              <div>{pkg.name}</div>
-                              <div className="text-xs font-normal text-muted-foreground">Meals: {mealLabel(pkg)}</div>
-                            </TableHead>
-                          ))}
-                        </TableRow>
-                      </TableHeader>
-                      <TableBody>
-                        {occupancyTypes.map(ot => (
-                          <TableRow key={ot.id}>
-                            <TableCell className="font-medium">
-                              {ot.name}
-                              {ot.max_guests && (
-                                <span className="text-xs text-muted-foreground ml-1">(max {ot.max_guests})</span>
-                              )}
-                            </TableCell>
-                            {packages.map(pkg => (
-                              <TableCell key={pkg.id} className="text-center text-sm">
-                                {formatLKR(rateMatrix[ot.id]?.[pkg.id] ?? 0)}
-                              </TableCell>
-                            ))}
-                          </TableRow>
-                        ))}
-                      </TableBody>
-                    </Table>
-                    <p className="text-xs text-muted-foreground mt-3 text-right">
-                      * All rates are per night (LKR). A 10% service charge will be added on bookings.
-                    </p>
-                  </div>
-                )}
-              </CardContent>
-            </Card>
-          </TabsContent>
-
-          {/* Packages */}
-          <TabsContent value="packages">
-            <Card>
               <CardContent className="p-0">
                 {loading ? (
                   <div className="p-4 space-y-2">
@@ -203,8 +145,63 @@ export function RoomRatesPackages() {
                 )}
               </CardContent>
             </Card>
-          </TabsContent>
-        </Tabs>
+          </div>
+
+          {/* Rate Matrix */}
+          <div>
+            <Card>
+              <CardHeader>
+                <CardTitle>Rate Matrix</CardTitle>
+                <CardDescription>
+                  Rates per night (LKR) for each package × occupancy combination. A +10% service charge applies.
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                {loading ? (
+                  <div className="space-y-2">
+                    {Array.from({ length: 4 }).map((_, i) => <Skeleton key={i} className="h-10 w-full" />)}
+                  </div>
+                ) : (
+                  <div className="overflow-x-auto">
+                    <Table>
+                      <TableHeader>
+                        <TableRow>
+                          <TableHead className="w-40">Occupancy</TableHead>
+                          {packages.map(pkg => (
+                            <TableHead key={pkg.id} className="text-center min-w-36">
+                              <div>{pkg.name}</div>
+                              <div className="text-xs font-normal text-muted-foreground">Meals: {mealLabel(pkg)}</div>
+                            </TableHead>
+                          ))}
+                        </TableRow>
+                      </TableHeader>
+                      <TableBody>
+                        {occupancyTypes.map(ot => (
+                          <TableRow key={ot.id}>
+                            <TableCell className="font-medium">
+                              {ot.name}
+                              {ot.max_guests && (
+                                <span className="text-xs text-muted-foreground ml-1">(max {ot.max_guests})</span>
+                              )}
+                            </TableCell>
+                            {packages.map(pkg => (
+                              <TableCell key={pkg.id} className="text-center text-sm">
+                                {formatLKR(rateMatrix[ot.id]?.[pkg.id] ?? 0)}
+                              </TableCell>
+                            ))}
+                          </TableRow>
+                        ))}
+                      </TableBody>
+                    </Table>
+                    <p className="text-xs text-muted-foreground mt-3 text-right">
+                      * All rates are per night (LKR). A 10% service charge will be added on bookings.
+                    </p>
+                  </div>
+                )}
+              </CardContent>
+            </Card>
+          </div>
+        </div>
       </div>
     </section>
   );

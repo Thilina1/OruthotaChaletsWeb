@@ -245,7 +245,7 @@ export function BookingForm({ showTableBooking = false }: { showTableBooking?: b
                 onClick={activeTab === 'stay' ? handleFindRoom : () => setIsTableModalOpen(true)}
                 className="bg-[#283618] text-white rounded-none text-xs font-semibold tracking-wider h-full px-4 md:col-span-1 hover:bg-[#3d5324] transition-all hover:scale-[1.02] active:scale-95 shadow-lg"
               >
-                {activeTab === 'stay' ? 'CHECK AVAILABILITY' : 'BOOK A TABLE'}
+                {activeTab === 'stay' ? 'BOOK NOW' : 'BOOK A TABLE'}
               </Button>
             </>
           ) : (
