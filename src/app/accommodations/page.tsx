@@ -1,18 +1,11 @@
 'use client';
 
 import Image from 'next/image';
-import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { BookingForm } from '@/components/booking-form';
 import { Button } from '@/components/ui/button';
-import { Bed, Building2, Wind, Wifi, Car, Coffee, Utensils, Waves } from 'lucide-react';
-import { useSupabaseCollection } from '@/hooks/use-supabase';
-import type { Room } from '@/types/room';
+import { Wind, Wifi, Car, Coffee, Utensils, Waves } from 'lucide-react';
 import Link from 'next/link';
-import { Suspense, useState } from 'react';
-import { cn } from '@/lib/utils';
-import { Badge } from '@/components/ui/badge';
-import { RoomDetailsModal } from '@/components/room-details-modal';
-import { RoomRatesPackages } from '@/components/room-rates-packages';
+import { Suspense } from 'react';
 
 const RESORT_AMENITIES = [
   { icon: Wifi, label: "High-Speed Wifi" },
@@ -24,10 +17,6 @@ const RESORT_AMENITIES = [
 ];
 
 function CheckAvailabilityListComponent() {
-  const heroImage = PlaceHolderImages.find((p) => p.id === 'hero-estate');
-  const { data: rooms, isLoading } = useSupabaseCollection<Room>('rooms');
-  const [selectedRoom, setSelectedRoom] = useState<Room | null>(null);
-
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
@@ -86,142 +75,32 @@ function CheckAvailabilityListComponent() {
               </div>
             ))}
           </div>
-        </div>
-      </section>
 
-      {/* Room Rates & Packages */}
-      <RoomRatesPackages />
-
-      {/* Rooms List */}
-      <section className="pb-24 bg-background">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col gap-32">
-            {isLoading && (
-              <div className="text-center py-20 flex flex-col items-center gap-4">
-                <div className="w-16 h-16 border-4 border-primary/30 border-t-primary rounded-full animate-spin" />
-                <p className="text-muted-foreground animate-pulse">Loading your sanctuary...</p>
-              </div>
-            )}
-
-            {rooms?.map((accommodation, index) => {
-              const isEven = index % 2 === 0;
-
-              return (
-                <div key={accommodation.id} id={`room-${accommodation.id}`} className={cn(
-                  "flex flex-col lg:flex-row gap-10 lg:gap-20 items-center group perspective-1000 scroll-mt-24",
-                  !isEven && "lg:flex-row-reverse"
-                )}>
-                  {/* Image Side */}
-                  <div className="w-full lg:w-1/2 relative h-[400px] md:h-[500px] lg:h-[600px] rounded-2xl overflow-hidden shadow-2xl transition-transform duration-500">
-                    {accommodation.imageUrl ? (
-                      <Image
-                        src={accommodation.imageUrl}
-                        alt={accommodation.title}
-                        fill
-                        className="object-cover transition-transform duration-700 group-hover:scale-110"
-                      />
-                    ) : (
-                      <div className="h-full w-full bg-muted flex items-center justify-center text-muted-foreground">
-                        No Image Available
-                      </div>
-                    )}
-
-                    {/* Gradient Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-60 transition-opacity duration-500" />
-
-                    {/* Price Badge */}
-                    <div className="absolute top-6 right-6 bg-white/95 backdrop-blur-md shadow-lg px-6 py-4 rounded-xl flex flex-col items-center z-10 border border-white/40">
-                      <div className="flex flex-col items-end">
-                        <span className="text-xs font-bold tracking-widest text-muted-foreground uppercase mb-1">From</span>
-                        <span className="font-headline text-2xl text-primary font-bold">LKR {accommodation.pricePerNight.toLocaleString()}</span>
-                      </div>
-                    </div>
-
-                    {/* View Badge (Mobile/Desktop) */}
-                    <div className="absolute top-6 left-6">
-                      <Badge variant="secondary" className="bg-black/40 hover:bg-black/60 text-white backdrop-blur-sm border-0 uppercase tracking-wider font-semibold text-xs px-3 py-1.5">
-                        {accommodation.view || 'Scenic View'}
-                      </Badge>
-                    </div>
-                  </div>
-
-                  {/* Content Side */}
-                  <div className="w-full lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left space-y-8">
-                    <div className="space-y-4 w-full">
-                      <h3 className="font-headline text-4xl md:text-5xl lg:text-6xl text-foreground leading-tight">
-                        {accommodation.title}
-                      </h3>
-                      <div className={cn(
-                        "w-20 h-1 bg-border rounded-full",
-                        isEven ? "mx-auto lg:mx-0" : "mx-auto lg:ml-auto lg:mr-0" // Align based on layout side if strictly following zig-zag, but standard left align is usually cleaner for text block. Let's keep visually consistent with content block alignment.
-                      )} style={{ marginLeft: isEven ? '0' : 'auto', marginRight: isEven ? 'auto' : '0' }} />
-                      {/* ^ Inline style override for specific zig-zag text alignment if desired, or just simplify to left-align always for readability. Let's simplify and keep text left-aligned in desktop for better readability, or align with the block direction. */}
-                    </div>
-
-                    <p className="text-muted-foreground leading-relaxed text-lg font-light max-w-xl">
-                      {accommodation.description}
-                    </p>
-
-                    <div className="grid grid-cols-2 gap-x-8 gap-y-4 w-full max-w-sm">
-                      <div className="flex items-center gap-3 p-3 rounded-lg hover:bg-secondary/30 transition-colors">
-                        <Bed className="w-5 h-5 text-primary shrink-0" />
-                        <span className="text-sm font-medium text-foreground">{accommodation.roomCount} Rooms</span>
-                      </div>
-                      <div className="flex items-center gap-3 p-3 rounded-lg hover:bg-secondary/30 transition-colors">
-                        <Building2 className="w-5 h-5 text-primary shrink-0" />
-                        <span className="text-sm font-medium text-foreground">Luxury Suite</span>
-                      </div>
-                      <div className="flex items-center gap-3 p-3 rounded-lg hover:bg-secondary/30 transition-colors">
-                        <Wind className="w-5 h-5 text-primary shrink-0" />
-                        <span className="text-sm font-medium text-foreground">Air conditioning</span>
-                      </div>
-                      <div className="flex items-center gap-3 p-3 rounded-lg hover:bg-secondary/30 transition-colors">
-                        <Wifi className="w-5 h-5 text-primary shrink-0" />
-                        <span className="text-sm font-medium text-foreground">Free Wifi</span>
-                      </div>
-                    </div>
-
-                    <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto pt-4">
-                      <Button
-                        variant="outline"
-                        size="lg"
-                        className="w-full sm:w-auto rounded-full h-12 border-primary/30 text-foreground hover:bg-primary/5 hover:text-primary transition-all text-base tracking-wide font-semibold"
-                        onClick={() => setSelectedRoom(accommodation)}
-                      >
-                        Room Details
-                      </Button>
-                    </div>
-
-                    {/* Partner Booking Logos */}
-                    <div className="pt-4 flex flex-col items-center lg:items-start gap-4">
-                      <p className="text-[10px] tracking-[0.2em] font-bold text-muted-foreground uppercase">Also Bookable Via</p>
-                      <div className="flex items-center gap-6 opacity-70 hover:opacity-100 transition-opacity">
-                        <a
-                          href="https://www.booking.com/hotel/lk/oruthota-chalets.en-gb.html"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="grayscale hover:grayscale-0 transition-all hover:scale-110"
-                        >
-                          <div className="relative w-24 h-6">
-                            <Image src="/booking-logo.svg" alt="Booking.com" fill className="object-contain" />
-                          </div>
-                        </a>
-                        <a
-                          href="https://www.agoda.com/oruthota-chalets/hotel/kandy-lk.html"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="grayscale hover:grayscale-0 transition-all hover:scale-110"
-                        >
-                          <div className="relative w-20 h-6">
-                            <Image src="/color-default.svg" alt="Agoda" fill className="object-contain" />
-                          </div>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
+          {/* Partner Booking Logos */}
+          <div className="pt-4 flex flex-col items-center gap-4">
+            <p className="text-[10px] tracking-[0.2em] font-bold text-muted-foreground uppercase">Bookable Via</p>
+            <div className="flex items-center gap-6 opacity-70 hover:opacity-100 transition-opacity">
+              <a
+                href="https://www.booking.com/hotel/lk/oruthota-chalets.en-gb.html"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="grayscale hover:grayscale-0 transition-all hover:scale-110"
+              >
+                <div className="relative w-24 h-6">
+                  <Image src="/booking-logo.svg" alt="Booking.com" fill className="object-contain" />
                 </div>
-              )
-            })}
+              </a>
+              <a
+                href="https://www.agoda.com/oruthota-chalets/hotel/kandy-lk.html"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="grayscale hover:grayscale-0 transition-all hover:scale-110"
+              >
+                <div className="relative w-20 h-6">
+                  <Image src="/color-default.svg" alt="Agoda" fill className="object-contain" />
+                </div>
+              </a>
+            </div>
           </div>
         </div>
       </section>
@@ -242,12 +121,6 @@ function CheckAvailabilityListComponent() {
         </div>
       </section>
 
-      {/* Room Details Modal */}
-      <RoomDetailsModal
-        room={selectedRoom}
-        open={!!selectedRoom}
-        onClose={() => setSelectedRoom(null)}
-      />
     </div>
   );
 }

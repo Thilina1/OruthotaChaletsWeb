@@ -20,7 +20,6 @@ const footerNav = [
 const footerNavRight = [
   { name: 'Dining', href: '/dining' },
   { name: 'Events', href: '/events' },
-  { name: 'Contact Us', href: '/contact' },
   { name: 'Location', href: '/about#location' },
   { name: 'Reviews', href: '/reviews' },
   { name: 'Sustainability', href: '/sustainability' },

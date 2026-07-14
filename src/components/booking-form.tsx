@@ -41,7 +41,7 @@ export function BookingForm({ showTableBooking = false }: { showTableBooking?: b
 
     // Fetch chalet packages and occupancy types
     Promise.all([
-      supabase.from('chalet_packages').select('id, name, description').order('name'),
+      supabase.from('chalet_packages').select('id, name, description').order('sort_order'),
       supabase.from('chalet_occupancy_types').select('id, name, max_guests').order('name'),
     ]).then(([pkgRes, occRes]) => {
       if (pkgRes.data) {
@@ -207,7 +207,7 @@ export function BookingForm({ showTableBooking = false }: { showTableBooking?: b
               {/* Package */}
               <div className="bg-white p-2 md:col-span-1 flex items-center gap-2 border-r border-stone-100">
                 <div className="w-full">
-                  <label className="text-[10px] text-gray-500 block">Package</label>
+                  <label className="text-[10px] text-gray-500 block">Basis</label>
                   <select
                     value={selectedPackage}
                     onChange={e => setSelectedPackage(e.target.value)}
@@ -224,7 +224,7 @@ export function BookingForm({ showTableBooking = false }: { showTableBooking?: b
               {/* Occupancy Type */}
               <div className="bg-white p-2 md:col-span-1 flex items-center gap-2 border-r border-stone-100">
                 <div className="w-full">
-                  <label className="text-[10px] text-gray-500 block">Occupancy</label>
+                  <label className="text-[10px] text-gray-500 block">Guests</label>
                   <select
                     value={selectedOccupancy}
                     onChange={e => setSelectedOccupancy(e.target.value)}

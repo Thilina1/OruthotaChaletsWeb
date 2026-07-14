@@ -1177,7 +1177,7 @@ function BookingForm({ showTableBooking = false }) {
         setIsMounted(true);
         // Fetch chalet packages and occupancy types
         Promise.all([
-            __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$supabase$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["supabase"].from('chalet_packages').select('id, name, description').order('name'),
+            __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$supabase$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["supabase"].from('chalet_packages').select('id, name, description').order('sort_order'),
             __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$supabase$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["supabase"].from('chalet_occupancy_types').select('id, name, max_guests').order('name')
         ]).then(([pkgRes, occRes])=>{
             if (pkgRes.data) {
@@ -1506,7 +1506,7 @@ function BookingForm({ showTableBooking = false }) {
                                         children: [
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
                                                 className: "text-[10px] text-gray-500 block",
-                                                children: "Package"
+                                                children: "Basis"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/booking-form.tsx",
                                                 lineNumber: 210,
@@ -1557,7 +1557,7 @@ function BookingForm({ showTableBooking = false }) {
                                         children: [
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
                                                 className: "text-[10px] text-gray-500 block",
-                                                children: "Occupancy"
+                                                children: "Guests"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/booking-form.tsx",
                                                 lineNumber: 227,

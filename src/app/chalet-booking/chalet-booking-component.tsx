@@ -159,8 +159,8 @@ export default function ChaletBookingComponent() {
   }
 
   return (
-    <div className="max-w-5xl mx-auto px-4 py-8 pt-16">
-      <div className="mb-6">
+    <div className="max-w-5xl mx-auto px-4 py-8 pt-40">
+      <div className="mb-6 text-center">
         <h1 className="text-3xl font-bold text-[#283618]">Complete Your Booking</h1>
         <p className="text-muted-foreground mt-1">Fill in your details below to request a reservation.</p>
       </div>
@@ -290,7 +290,7 @@ export default function ChaletBookingComponent() {
                       />
                     </div>
                     <div className="space-y-1.5">
-                      <Label htmlFor="children">Children</Label>
+                      <Label htmlFor="children">Children under 12</Label>
                       <Input
                         id="children"
                         type="number"
