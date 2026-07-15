@@ -1132,7 +1132,7 @@ function BookingForm(param) {
             // Fetch chalet packages and occupancy types
             Promise.all([
                 __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$supabase$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["supabase"].from('chalet_packages').select('id, name, description').order('sort_order'),
-                __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$supabase$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["supabase"].from('chalet_occupancy_types').select('id, name, max_guests').order('name')
+                __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$supabase$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["supabase"].from('chalet_occupancy_types').select('id, name, max_guests').order('sort_order')
             ]).then({
                 "BookingForm.useEffect": (param)=>{
                     let [pkgRes, occRes] = param;

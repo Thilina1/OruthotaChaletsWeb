@@ -42,7 +42,7 @@ export function BookingForm({ showTableBooking = false }: { showTableBooking?: b
     // Fetch chalet packages and occupancy types
     Promise.all([
       supabase.from('chalet_packages').select('id, name, description').order('sort_order'),
-      supabase.from('chalet_occupancy_types').select('id, name, max_guests').order('name'),
+      supabase.from('chalet_occupancy_types').select('id, name, max_guests').order('sort_order'),
     ]).then(([pkgRes, occRes]) => {
       if (pkgRes.data) {
         setPackages(pkgRes.data as ChaletPackage[]);
