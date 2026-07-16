@@ -5165,6 +5165,10 @@ body {
     height: 2rem;
   }
 
+  .md\:h-80 {
+    height: 20rem;
+  }
+
   .md\:h-\[380px\] {
     height: 380px;
   }

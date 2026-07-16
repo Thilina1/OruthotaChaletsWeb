@@ -7,6 +7,13 @@ import { Wind, Wifi, Car, Coffee, Utensils, Waves } from 'lucide-react';
 import Link from 'next/link';
 import { Suspense } from 'react';
 
+const ROOM_GALLERY_IMAGES = [
+  '/rooms/DSCN1695.jpg',
+  '/rooms/IMG_5676.jpg',
+  '/Room 1.png',
+  '/Room 2.png',
+];
+
 const RESORT_AMENITIES = [
   { icon: Wifi, label: "High-Speed Wifi" },
   { icon: Wind, label: "Air Conditioning" },
@@ -101,6 +108,28 @@ function CheckAvailabilityListComponent() {
                 </div>
               </a>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Room Gallery */}
+      <section className="pb-24 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-10">
+            <p className="text-xs font-bold tracking-[0.3em] text-primary uppercase mb-2">Gallery</p>
+            <h2 className="font-headline text-3xl md:text-4xl text-foreground">A Glimpse Inside Our Rooms</h2>
+          </div>
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+            {ROOM_GALLERY_IMAGES.map((src, idx) => (
+              <div key={src} className="relative h-64 md:h-80 rounded-xl overflow-hidden shadow-lg group">
+                <Image
+                  src={src}
+                  alt={`Room gallery photo ${idx + 1}`}
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+              </div>
+            ))}
           </div>
         </div>
       </section>
