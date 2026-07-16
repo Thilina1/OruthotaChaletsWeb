@@ -323,9 +323,6 @@ function ChaletBookingComponent() {
                     special_requests: form.special_requests.trim() || null,
                     rate_per_night: details.ratePerNight,
                     total_nights: details.nights,
-                    subtotal: details.subtotal,
-                    service_charge: details.serviceCharge,
-                    total_amount: details.total,
                     status: 'pending'
                 }
             ]);
@@ -351,7 +348,7 @@ function ChaletBookingComponent() {
                         className: "w-16 h-16 text-green-500 mx-auto mb-4"
                     }, void 0, false, {
                         fileName: "[project]/src/app/chalet-booking/chalet-booking-component.tsx",
-                        lineNumber: 148,
+                        lineNumber: 145,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
@@ -359,7 +356,7 @@ function ChaletBookingComponent() {
                         children: "Booking Request Sent!"
                     }, void 0, false, {
                         fileName: "[project]/src/app/chalet-booking/chalet-booking-component.tsx",
-                        lineNumber: 149,
+                        lineNumber: 146,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -367,7 +364,7 @@ function ChaletBookingComponent() {
                         children: "Thank you for choosing Oruthota Chalets. We will contact you shortly to confirm your reservation."
                     }, void 0, false, {
                         fileName: "[project]/src/app/chalet-booking/chalet-booking-component.tsx",
-                        lineNumber: 150,
+                        lineNumber: 147,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
@@ -376,18 +373,18 @@ function ChaletBookingComponent() {
                         children: "Back to Home"
                     }, void 0, false, {
                         fileName: "[project]/src/app/chalet-booking/chalet-booking-component.tsx",
-                        lineNumber: 153,
+                        lineNumber: 150,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/chalet-booking/chalet-booking-component.tsx",
-                lineNumber: 147,
+                lineNumber: 144,
                 columnNumber: 9
             }, this)
         }, void 0, false, {
             fileName: "[project]/src/app/chalet-booking/chalet-booking-component.tsx",
-            lineNumber: 146,
+            lineNumber: 143,
             columnNumber: 7
         }, this);
     }
@@ -402,7 +399,7 @@ function ChaletBookingComponent() {
                         children: "Complete Your Booking"
                     }, void 0, false, {
                         fileName: "[project]/src/app/chalet-booking/chalet-booking-component.tsx",
-                        lineNumber: 164,
+                        lineNumber: 161,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -410,13 +407,13 @@ function ChaletBookingComponent() {
                         children: "Fill in your details below to request a reservation."
                     }, void 0, false, {
                         fileName: "[project]/src/app/chalet-booking/chalet-booking-component.tsx",
-                        lineNumber: 165,
+                        lineNumber: 162,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/chalet-booking/chalet-booking-component.tsx",
-                lineNumber: 163,
+                lineNumber: 160,
                 columnNumber: 7
             }, this),
             loadingDetails ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -426,20 +423,20 @@ function ChaletBookingComponent() {
                         className: "h-5 w-5 animate-spin"
                     }, void 0, false, {
                         fileName: "[project]/src/app/chalet-booking/chalet-booking-component.tsx",
-                        lineNumber: 170,
+                        lineNumber: 167,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                         children: "Loading pricing details..."
                     }, void 0, false, {
                         fileName: "[project]/src/app/chalet-booking/chalet-booking-component.tsx",
-                        lineNumber: 171,
+                        lineNumber: 168,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/chalet-booking/chalet-booking-component.tsx",
-                lineNumber: 169,
+                lineNumber: 166,
                 columnNumber: 9
             }, this) : rateError ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "rounded-md border border-red-200 bg-red-50 p-4 text-red-700",
@@ -452,13 +449,13 @@ function ChaletBookingComponent() {
                         children: "Go back"
                     }, void 0, false, {
                         fileName: "[project]/src/app/chalet-booking/chalet-booking-component.tsx",
-                        lineNumber: 176,
+                        lineNumber: 173,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/chalet-booking/chalet-booking-component.tsx",
-                lineNumber: 174,
+                lineNumber: 171,
                 columnNumber: 9
             }, this) : details && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "grid grid-cols-1 lg:grid-cols-3 gap-6",
@@ -478,12 +475,12 @@ function ChaletBookingComponent() {
                                                 children: "Booking Summary"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/chalet-booking/chalet-booking-component.tsx",
-                                                lineNumber: 185,
+                                                lineNumber: 182,
                                                 columnNumber: 19
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/chalet-booking/chalet-booking-component.tsx",
-                                            lineNumber: 184,
+                                            lineNumber: 181,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["CardContent"], {
@@ -496,7 +493,7 @@ function ChaletBookingComponent() {
                                                             className: "h-4 w-4 mt-0.5 text-[#606C38]"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/chalet-booking/chalet-booking-component.tsx",
-                                                            lineNumber: 189,
+                                                            lineNumber: 186,
                                                             columnNumber: 21
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -510,7 +507,7 @@ function ChaletBookingComponent() {
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/src/app/chalet-booking/chalet-booking-component.tsx",
-                                                                    lineNumber: 191,
+                                                                    lineNumber: 188,
                                                                     columnNumber: 23
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -522,19 +519,19 @@ function ChaletBookingComponent() {
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/src/app/chalet-booking/chalet-booking-component.tsx",
-                                                                    lineNumber: 192,
+                                                                    lineNumber: 189,
                                                                     columnNumber: 23
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/src/app/chalet-booking/chalet-booking-component.tsx",
-                                                            lineNumber: 190,
+                                                            lineNumber: 187,
                                                             columnNumber: 21
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/app/chalet-booking/chalet-booking-component.tsx",
-                                                    lineNumber: 188,
+                                                    lineNumber: 185,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -544,7 +541,7 @@ function ChaletBookingComponent() {
                                                             className: "h-4 w-4 mt-0.5 text-[#606C38]"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/chalet-booking/chalet-booking-component.tsx",
-                                                            lineNumber: 196,
+                                                            lineNumber: 193,
                                                             columnNumber: 21
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -556,13 +553,13 @@ function ChaletBookingComponent() {
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/src/app/chalet-booking/chalet-booking-component.tsx",
-                                                            lineNumber: 197,
+                                                            lineNumber: 194,
                                                             columnNumber: 21
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/app/chalet-booking/chalet-booking-component.tsx",
-                                                    lineNumber: 195,
+                                                    lineNumber: 192,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -573,7 +570,7 @@ function ChaletBookingComponent() {
                                                             children: details.packageName
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/chalet-booking/chalet-booking-component.tsx",
-                                                            lineNumber: 200,
+                                                            lineNumber: 197,
                                                             columnNumber: 21
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -581,13 +578,13 @@ function ChaletBookingComponent() {
                                                             children: details.occupancyName
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/chalet-booking/chalet-booking-component.tsx",
-                                                            lineNumber: 201,
+                                                            lineNumber: 198,
                                                             columnNumber: 21
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/app/chalet-booking/chalet-booking-component.tsx",
-                                                    lineNumber: 199,
+                                                    lineNumber: 196,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -607,7 +604,7 @@ function ChaletBookingComponent() {
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/src/app/chalet-booking/chalet-booking-component.tsx",
-                                                                    lineNumber: 205,
+                                                                    lineNumber: 202,
                                                                     columnNumber: 23
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -617,13 +614,13 @@ function ChaletBookingComponent() {
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/src/app/chalet-booking/chalet-booking-component.tsx",
-                                                                    lineNumber: 206,
+                                                                    lineNumber: 203,
                                                                     columnNumber: 23
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/src/app/chalet-booking/chalet-booking-component.tsx",
-                                                            lineNumber: 204,
+                                                            lineNumber: 201,
                                                             columnNumber: 21
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -633,7 +630,7 @@ function ChaletBookingComponent() {
                                                                     children: "Service charge (10%)"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/app/chalet-booking/chalet-booking-component.tsx",
-                                                                    lineNumber: 209,
+                                                                    lineNumber: 206,
                                                                     columnNumber: 23
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -643,13 +640,13 @@ function ChaletBookingComponent() {
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/src/app/chalet-booking/chalet-booking-component.tsx",
-                                                                    lineNumber: 210,
+                                                                    lineNumber: 207,
                                                                     columnNumber: 23
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/src/app/chalet-booking/chalet-booking-component.tsx",
-                                                            lineNumber: 208,
+                                                            lineNumber: 205,
                                                             columnNumber: 21
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -659,7 +656,7 @@ function ChaletBookingComponent() {
                                                                     children: "Total"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/app/chalet-booking/chalet-booking-component.tsx",
-                                                                    lineNumber: 213,
+                                                                    lineNumber: 210,
                                                                     columnNumber: 23
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -669,31 +666,31 @@ function ChaletBookingComponent() {
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/src/app/chalet-booking/chalet-booking-component.tsx",
-                                                                    lineNumber: 214,
+                                                                    lineNumber: 211,
                                                                     columnNumber: 23
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/src/app/chalet-booking/chalet-booking-component.tsx",
-                                                            lineNumber: 212,
+                                                            lineNumber: 209,
                                                             columnNumber: 21
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/app/chalet-booking/chalet-booking-component.tsx",
-                                                    lineNumber: 203,
+                                                    lineNumber: 200,
                                                     columnNumber: 19
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/app/chalet-booking/chalet-booking-component.tsx",
-                                            lineNumber: 187,
+                                            lineNumber: 184,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/chalet-booking/chalet-booking-component.tsx",
-                                    lineNumber: 183,
+                                    lineNumber: 180,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -701,18 +698,18 @@ function ChaletBookingComponent() {
                                     children: "This is a booking request. Our team will confirm availability and contact you to finalise payment."
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/chalet-booking/chalet-booking-component.tsx",
-                                    lineNumber: 220,
+                                    lineNumber: 217,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/app/chalet-booking/chalet-booking-component.tsx",
-                            lineNumber: 182,
+                            lineNumber: 179,
                             columnNumber: 13
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/src/app/chalet-booking/chalet-booking-component.tsx",
-                        lineNumber: 181,
+                        lineNumber: 178,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -726,12 +723,12 @@ function ChaletBookingComponent() {
                                         children: "Guest Details"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/chalet-booking/chalet-booking-component.tsx",
-                                        lineNumber: 230,
+                                        lineNumber: 227,
                                         columnNumber: 17
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/chalet-booking/chalet-booking-component.tsx",
-                                    lineNumber: 229,
+                                    lineNumber: 226,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["CardContent"], {
@@ -752,13 +749,13 @@ function ChaletBookingComponent() {
                                                                     children: "*"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/app/chalet-booking/chalet-booking-component.tsx",
-                                                                    lineNumber: 235,
+                                                                    lineNumber: 232,
                                                                     columnNumber: 53
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/src/app/chalet-booking/chalet-booking-component.tsx",
-                                                            lineNumber: 235,
+                                                            lineNumber: 232,
                                                             columnNumber: 21
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -771,13 +768,13 @@ function ChaletBookingComponent() {
                                                                     }))
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/chalet-booking/chalet-booking-component.tsx",
-                                                            lineNumber: 236,
+                                                            lineNumber: 233,
                                                             columnNumber: 21
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/app/chalet-booking/chalet-booking-component.tsx",
-                                                    lineNumber: 234,
+                                                    lineNumber: 231,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -792,13 +789,13 @@ function ChaletBookingComponent() {
                                                                     children: "*"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/app/chalet-booking/chalet-booking-component.tsx",
-                                                                    lineNumber: 244,
+                                                                    lineNumber: 241,
                                                                     columnNumber: 57
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/src/app/chalet-booking/chalet-booking-component.tsx",
-                                                            lineNumber: 244,
+                                                            lineNumber: 241,
                                                             columnNumber: 21
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -812,13 +809,13 @@ function ChaletBookingComponent() {
                                                                     }))
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/chalet-booking/chalet-booking-component.tsx",
-                                                            lineNumber: 245,
+                                                            lineNumber: 242,
                                                             columnNumber: 21
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/app/chalet-booking/chalet-booking-component.tsx",
-                                                    lineNumber: 243,
+                                                    lineNumber: 240,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -829,7 +826,7 @@ function ChaletBookingComponent() {
                                                             children: "Email Address"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/chalet-booking/chalet-booking-component.tsx",
-                                                            lineNumber: 254,
+                                                            lineNumber: 251,
                                                             columnNumber: 21
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -843,13 +840,13 @@ function ChaletBookingComponent() {
                                                                     }))
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/chalet-booking/chalet-booking-component.tsx",
-                                                            lineNumber: 255,
+                                                            lineNumber: 252,
                                                             columnNumber: 21
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/app/chalet-booking/chalet-booking-component.tsx",
-                                                    lineNumber: 253,
+                                                    lineNumber: 250,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -860,7 +857,7 @@ function ChaletBookingComponent() {
                                                             children: "NIC / Passport No."
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/chalet-booking/chalet-booking-component.tsx",
-                                                            lineNumber: 264,
+                                                            lineNumber: 261,
                                                             columnNumber: 21
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -873,13 +870,13 @@ function ChaletBookingComponent() {
                                                                     }))
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/chalet-booking/chalet-booking-component.tsx",
-                                                            lineNumber: 265,
+                                                            lineNumber: 262,
                                                             columnNumber: 21
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/app/chalet-booking/chalet-booking-component.tsx",
-                                                    lineNumber: 263,
+                                                    lineNumber: 260,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -890,7 +887,7 @@ function ChaletBookingComponent() {
                                                             children: "Nationality"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/chalet-booking/chalet-booking-component.tsx",
-                                                            lineNumber: 273,
+                                                            lineNumber: 270,
                                                             columnNumber: 21
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -903,13 +900,13 @@ function ChaletBookingComponent() {
                                                                     }))
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/chalet-booking/chalet-booking-component.tsx",
-                                                            lineNumber: 274,
+                                                            lineNumber: 271,
                                                             columnNumber: 21
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/app/chalet-booking/chalet-booking-component.tsx",
-                                                    lineNumber: 272,
+                                                    lineNumber: 269,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -923,7 +920,7 @@ function ChaletBookingComponent() {
                                                                     children: "Adults"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/app/chalet-booking/chalet-booking-component.tsx",
-                                                                    lineNumber: 283,
+                                                                    lineNumber: 280,
                                                                     columnNumber: 23
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -937,13 +934,13 @@ function ChaletBookingComponent() {
                                                                             }))
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/app/chalet-booking/chalet-booking-component.tsx",
-                                                                    lineNumber: 284,
+                                                                    lineNumber: 281,
                                                                     columnNumber: 23
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/src/app/chalet-booking/chalet-booking-component.tsx",
-                                                            lineNumber: 282,
+                                                            lineNumber: 279,
                                                             columnNumber: 21
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -954,7 +951,7 @@ function ChaletBookingComponent() {
                                                                     children: "Children under 12"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/app/chalet-booking/chalet-booking-component.tsx",
-                                                                    lineNumber: 293,
+                                                                    lineNumber: 290,
                                                                     columnNumber: 23
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -968,25 +965,25 @@ function ChaletBookingComponent() {
                                                                             }))
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/app/chalet-booking/chalet-booking-component.tsx",
-                                                                    lineNumber: 294,
+                                                                    lineNumber: 291,
                                                                     columnNumber: 23
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/src/app/chalet-booking/chalet-booking-component.tsx",
-                                                            lineNumber: 292,
+                                                            lineNumber: 289,
                                                             columnNumber: 21
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/app/chalet-booking/chalet-booking-component.tsx",
-                                                    lineNumber: 281,
+                                                    lineNumber: 278,
                                                     columnNumber: 19
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/app/chalet-booking/chalet-booking-component.tsx",
-                                            lineNumber: 233,
+                                            lineNumber: 230,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -997,7 +994,7 @@ function ChaletBookingComponent() {
                                                     children: "Special Requests"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/chalet-booking/chalet-booking-component.tsx",
-                                                    lineNumber: 305,
+                                                    lineNumber: 302,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$textarea$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Textarea"], {
@@ -1011,13 +1008,13 @@ function ChaletBookingComponent() {
                                                             }))
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/chalet-booking/chalet-booking-component.tsx",
-                                                    lineNumber: 306,
+                                                    lineNumber: 303,
                                                     columnNumber: 19
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/app/chalet-booking/chalet-booking-component.tsx",
-                                            lineNumber: 304,
+                                            lineNumber: 301,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
@@ -1030,7 +1027,7 @@ function ChaletBookingComponent() {
                                                         className: "h-4 w-4 animate-spin mr-2"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/chalet-booking/chalet-booking-component.tsx",
-                                                        lineNumber: 321,
+                                                        lineNumber: 318,
                                                         columnNumber: 23
                                                     }, this),
                                                     " Submitting..."
@@ -1038,36 +1035,36 @@ function ChaletBookingComponent() {
                                             }, void 0, true) : `Request Booking — Rs ${details.total.toLocaleString()}`
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/chalet-booking/chalet-booking-component.tsx",
-                                            lineNumber: 315,
+                                            lineNumber: 312,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/chalet-booking/chalet-booking-component.tsx",
-                                    lineNumber: 232,
+                                    lineNumber: 229,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/app/chalet-booking/chalet-booking-component.tsx",
-                            lineNumber: 228,
+                            lineNumber: 225,
                             columnNumber: 13
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/src/app/chalet-booking/chalet-booking-component.tsx",
-                        lineNumber: 227,
+                        lineNumber: 224,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/chalet-booking/chalet-booking-component.tsx",
-                lineNumber: 179,
+                lineNumber: 176,
                 columnNumber: 9
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/app/chalet-booking/chalet-booking-component.tsx",
-        lineNumber: 162,
+        lineNumber: 159,
         columnNumber: 5
     }, this);
 }

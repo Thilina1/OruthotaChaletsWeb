@@ -126,9 +126,6 @@ export default function ChaletBookingComponent() {
         special_requests: form.special_requests.trim() || null,
         rate_per_night: details.ratePerNight,
         total_nights: details.nights,
-        subtotal: details.subtotal,
-        service_charge: details.serviceCharge,
-        total_amount: details.total,
         status: 'pending',
       }]);
 
