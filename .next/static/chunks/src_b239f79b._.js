@@ -446,7 +446,7 @@ function ChaletBookingComponent() {
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                         className: "text-muted-foreground mb-6",
-                        children: "Thank you for choosing Oruthota Chalets. We will contact you shortly to confirm your reservation."
+                        children: "Thank you for choosing Oruthota Chalets. Our representative will contact you soon via email and mobile to confirm your reservation — stay tuned!"
                     }, void 0, false, {
                         fileName: "[project]/src/app/chalet-booking/chalet-booking-component.tsx",
                         lineNumber: 147,
@@ -454,7 +454,7 @@ function ChaletBookingComponent() {
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
                         onClick: ()=>router.push('/'),
-                        className: "bg-[#283618] hover:bg-[#3d5324]",
+                        className: "bg-[#283618] hover:bg-[#3d5324] text-white",
                         children: "Back to Home"
                     }, void 0, false, {
                         fileName: "[project]/src/app/chalet-booking/chalet-booking-component.tsx",
@@ -680,7 +680,7 @@ function ChaletBookingComponent() {
                                                             children: [
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                                     children: [
-                                                                        "Rs ",
+                                                                        "LKR ",
                                                                         details.ratePerNight.toLocaleString(),
                                                                         " × ",
                                                                         details.nights,
@@ -694,7 +694,7 @@ function ChaletBookingComponent() {
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                                     children: [
-                                                                        "Rs ",
+                                                                        "LKR ",
                                                                         details.subtotal.toLocaleString()
                                                                     ]
                                                                 }, void 0, true, {
@@ -720,7 +720,7 @@ function ChaletBookingComponent() {
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                                     children: [
-                                                                        "Rs ",
+                                                                        "LKR ",
                                                                         details.serviceCharge.toLocaleString()
                                                                     ]
                                                                 }, void 0, true, {
@@ -746,7 +746,7 @@ function ChaletBookingComponent() {
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                                     children: [
-                                                                        "Rs ",
+                                                                        "LKR ",
                                                                         details.total.toLocaleString()
                                                                     ]
                                                                 }, void 0, true, {
@@ -993,77 +993,6 @@ function ChaletBookingComponent() {
                                                     fileName: "[project]/src/app/chalet-booking/chalet-booking-component.tsx",
                                                     lineNumber: 269,
                                                     columnNumber: 19
-                                                }, this),
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                    className: "grid grid-cols-2 gap-3",
-                                                    children: [
-                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                            className: "space-y-1.5",
-                                                            children: [
-                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$label$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Label"], {
-                                                                    htmlFor: "adults",
-                                                                    children: "Adults"
-                                                                }, void 0, false, {
-                                                                    fileName: "[project]/src/app/chalet-booking/chalet-booking-component.tsx",
-                                                                    lineNumber: 280,
-                                                                    columnNumber: 23
-                                                                }, this),
-                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
-                                                                    id: "adults",
-                                                                    type: "number",
-                                                                    min: 1,
-                                                                    value: form.adults,
-                                                                    onChange: (e)=>setForm((p)=>({
-                                                                                ...p,
-                                                                                adults: parseInt(e.target.value) || 1
-                                                                            }))
-                                                                }, void 0, false, {
-                                                                    fileName: "[project]/src/app/chalet-booking/chalet-booking-component.tsx",
-                                                                    lineNumber: 281,
-                                                                    columnNumber: 23
-                                                                }, this)
-                                                            ]
-                                                        }, void 0, true, {
-                                                            fileName: "[project]/src/app/chalet-booking/chalet-booking-component.tsx",
-                                                            lineNumber: 279,
-                                                            columnNumber: 21
-                                                        }, this),
-                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                            className: "space-y-1.5",
-                                                            children: [
-                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$label$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Label"], {
-                                                                    htmlFor: "children",
-                                                                    children: "Children under 12"
-                                                                }, void 0, false, {
-                                                                    fileName: "[project]/src/app/chalet-booking/chalet-booking-component.tsx",
-                                                                    lineNumber: 290,
-                                                                    columnNumber: 23
-                                                                }, this),
-                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
-                                                                    id: "children",
-                                                                    type: "number",
-                                                                    min: 0,
-                                                                    value: form.children,
-                                                                    onChange: (e)=>setForm((p)=>({
-                                                                                ...p,
-                                                                                children: parseInt(e.target.value) || 0
-                                                                            }))
-                                                                }, void 0, false, {
-                                                                    fileName: "[project]/src/app/chalet-booking/chalet-booking-component.tsx",
-                                                                    lineNumber: 291,
-                                                                    columnNumber: 23
-                                                                }, this)
-                                                            ]
-                                                        }, void 0, true, {
-                                                            fileName: "[project]/src/app/chalet-booking/chalet-booking-component.tsx",
-                                                            lineNumber: 289,
-                                                            columnNumber: 21
-                                                        }, this)
-                                                    ]
-                                                }, void 0, true, {
-                                                    fileName: "[project]/src/app/chalet-booking/chalet-booking-component.tsx",
-                                                    lineNumber: 278,
-                                                    columnNumber: 19
                                                 }, this)
                                             ]
                                         }, void 0, true, {
@@ -1079,7 +1008,7 @@ function ChaletBookingComponent() {
                                                     children: "Special Requests"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/chalet-booking/chalet-booking-component.tsx",
-                                                    lineNumber: 302,
+                                                    lineNumber: 280,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$textarea$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Textarea"], {
@@ -1093,13 +1022,13 @@ function ChaletBookingComponent() {
                                                             }))
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/chalet-booking/chalet-booking-component.tsx",
-                                                    lineNumber: 303,
+                                                    lineNumber: 281,
                                                     columnNumber: 19
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/app/chalet-booking/chalet-booking-component.tsx",
-                                            lineNumber: 301,
+                                            lineNumber: 279,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -1112,15 +1041,15 @@ function ChaletBookingComponent() {
                                                         className: "h-4 w-4 animate-spin mr-2"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/chalet-booking/chalet-booking-component.tsx",
-                                                        lineNumber: 318,
+                                                        lineNumber: 296,
                                                         columnNumber: 23
                                                     }, this),
                                                     " Submitting..."
                                                 ]
-                                            }, void 0, true) : "Request Booking — Rs ".concat(details.total.toLocaleString())
+                                            }, void 0, true) : "Request Booking — LKR ".concat(details.total.toLocaleString())
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/chalet-booking/chalet-booking-component.tsx",
-                                            lineNumber: 312,
+                                            lineNumber: 290,
                                             columnNumber: 17
                                         }, this)
                                     ]

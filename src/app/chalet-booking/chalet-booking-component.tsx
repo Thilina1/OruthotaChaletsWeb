@@ -145,9 +145,9 @@ export default function ChaletBookingComponent() {
           <CheckCircle2 className="w-16 h-16 text-green-500 mx-auto mb-4" />
           <h1 className="text-2xl font-bold text-[#283618] mb-2">Booking Request Sent!</h1>
           <p className="text-muted-foreground mb-6">
-            Thank you for choosing Oruthota Chalets. We will contact you shortly to confirm your reservation.
+            Thank you for choosing Oruthota Chalets. Our representative will contact you soon via email and mobile to confirm your reservation — stay tuned!
           </p>
-          <Button onClick={() => router.push('/')} className="bg-[#283618] hover:bg-[#3d5324]">
+          <Button onClick={() => router.push('/')} className="bg-[#283618] hover:bg-[#3d5324] text-white">
             Back to Home
           </Button>
         </div>
@@ -199,16 +199,16 @@ export default function ChaletBookingComponent() {
                   </div>
                   <div className="border-t pt-3 space-y-2">
                     <div className="flex justify-between text-muted-foreground">
-                      <span>Rs {details.ratePerNight.toLocaleString()} × {details.nights} night{details.nights !== 1 ? 's' : ''}</span>
-                      <span>Rs {details.subtotal.toLocaleString()}</span>
+                      <span>LKR {details.ratePerNight.toLocaleString()} × {details.nights} night{details.nights !== 1 ? 's' : ''}</span>
+                      <span>LKR {details.subtotal.toLocaleString()}</span>
                     </div>
                     <div className="flex justify-between text-muted-foreground">
                       <span>Service charge (10%)</span>
-                      <span>Rs {details.serviceCharge.toLocaleString()}</span>
+                      <span>LKR {details.serviceCharge.toLocaleString()}</span>
                     </div>
                     <div className="flex justify-between font-semibold text-base text-[#283618] border-t pt-2">
                       <span>Total</span>
-                      <span>Rs {details.total.toLocaleString()}</span>
+                      <span>LKR {details.total.toLocaleString()}</span>
                     </div>
                   </div>
                 </CardContent>
@@ -275,28 +275,6 @@ export default function ChaletBookingComponent() {
                       onChange={e => setForm(p => ({ ...p, nationality: e.target.value }))}
                     />
                   </div>
-                  <div className="grid grid-cols-2 gap-3">
-                    <div className="space-y-1.5">
-                      <Label htmlFor="adults">Adults</Label>
-                      <Input
-                        id="adults"
-                        type="number"
-                        min={1}
-                        value={form.adults}
-                        onChange={e => setForm(p => ({ ...p, adults: parseInt(e.target.value) || 1 }))}
-                      />
-                    </div>
-                    <div className="space-y-1.5">
-                      <Label htmlFor="children">Children under 12</Label>
-                      <Input
-                        id="children"
-                        type="number"
-                        min={0}
-                        value={form.children}
-                        onChange={e => setForm(p => ({ ...p, children: parseInt(e.target.value) || 0 }))}
-                      />
-                    </div>
-                  </div>
                 </div>
                 <div className="space-y-1.5">
                   <Label htmlFor="special">Special Requests</Label>
@@ -317,7 +295,7 @@ export default function ChaletBookingComponent() {
                   {submitting ? (
                     <><Loader2 className="h-4 w-4 animate-spin mr-2" /> Submitting...</>
                   ) : (
-                    `Request Booking — Rs ${details.total.toLocaleString()}`
+                    `Request Booking — LKR ${details.total.toLocaleString()}`
                   )}
                 </Button>
               </CardContent>
