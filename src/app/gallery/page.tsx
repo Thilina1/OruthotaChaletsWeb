@@ -17,7 +17,7 @@ const GALLERY_IMAGES = [
   { id: 5, url: '/Restaurant.png', category: 'DINING', title: 'Wine & Dine' },
   { id: 6, url: '/Room 1.png', category: 'ACCOMMODATION', title: 'Rustic Luxury' },
   { id: 7, url: '/Room 2.png', category: 'SUITE', title: 'Elegant Interiors' },
-  { id: 11, url: '/wedding.png', category: 'WEDDINGS', title: 'Magical Celebrations' },
+  { id: 11, url: '/instagram-2.png', category: 'WEDDINGS', title: 'Magical Celebrations' },
   { id: 12, url: '/DSCN1986.jpg', category: 'NATURE', title: 'Garden Sanctuary' },
   { id: 13, url: '/DSC09534.jpg', category: 'RESORT VIEW', title: 'Resort Overview' },
   { id: 14, url: '/DSCN0849.jpg', category: 'LAKEFRONT', title: 'Lake Tranquility' },

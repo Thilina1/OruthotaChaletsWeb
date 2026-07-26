@@ -6,13 +6,12 @@ import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { STATIC_EXPERIENCES } from '@/data/experiences';
 import { BookingForm } from '@/components/booking-form';
 import { Button } from '@/components/ui/button';
-import { Utensils, BedDouble, MountainSnow, Map, Tag, Bed, Building2, RefreshCw, Star, ArrowRight, MapPin, ChevronLeft, ChevronRight, Quote, User, Download, Facebook, Instagram } from 'lucide-react';
+import { Utensils, BedDouble, MountainSnow, Map, Tag, Bed, Building2, RefreshCw, Star, ArrowRight, MapPin, ChevronLeft, ChevronRight, Quote, User, Download, Facebook, Instagram, Wind, Wifi, Car, Coffee, Waves } from 'lucide-react';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import Link from 'next/link';
 import { useSupabaseCollection } from '@/hooks/use-supabase';
 import type { Room } from '@/types/room';
 import type { Experience } from '@/types/experience';
-import { RoomDetailsModal } from '@/components/room-details-modal';
 
 const TikTokIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg {...props} viewBox="0 0 24 24" fill="currentColor">
@@ -47,6 +46,14 @@ const testimonials = [
   }
 ];
 
+const RESORT_AMENITIES = [
+  { icon: Wifi, label: "High-Speed Wifi" },
+  { icon: Wind, label: "Air Conditioning" },
+  { icon: Car, label: "Free Parking" },
+  { icon: Coffee, label: "Tea/Coffee Maker" },
+  { icon: Utensils, label: "In-Room Dining" },
+  { icon: Waves, label: "Pool Access" }
+];
 
 export default function Home() {
   const heroImage = PlaceHolderImages.find((p) => p.id === 'hero-estate');
@@ -57,7 +64,6 @@ export default function Home() {
 
   const { data: rooms, isLoading: roomsLoading } = useSupabaseCollection<Room>('rooms');
   const { data: experiences, isLoading: experiencesLoading } = useSupabaseCollection<Experience>('experiences');
-  const [selectedRoom, setSelectedRoom] = useState<Room | null>(null);
 
   return (
     <div className="flex flex-col">
@@ -124,7 +130,7 @@ export default function Home() {
                     <Facebook className="h-5 w-5" />
                   </Button>
                 </Link>
-                <Link href="https://www.instagram.com/kandychalets/" target="_blank" rel="noopener noreferrer" title="Follow us on Instagram">
+                <Link href="https://www.instagram.com/kandychalets?igsh=enQzcmNqODJubHU=" target="_blank" rel="noopener noreferrer" title="Follow us on Instagram">
                   <Button variant="ghost" size="icon" className="rounded-full text-primary hover:text-white hover:bg-primary transition-all duration-300 hover:scale-110 shadow-sm border border-transparent hover:border-primary">
                     <Instagram className="h-5 w-5" />
                   </Button>
@@ -215,7 +221,7 @@ export default function Home() {
           <p className="text-primary tracking-widest mb-4">ACCOMMODATION</p>
           <h2 className="font-headline text-4xl text-foreground mb-3">Eco-Friendly Comfort by the Reservoir</h2>
 
-          <div className="flex justify-center items-center gap-8">
+          <div className="flex justify-center items-center gap-8 mb-8">
             <div className="flex items-center gap-3">
               <Bed className="h-8 w-8 text-primary" />
               <span className="text-foreground font-semibold">Chalets</span>
@@ -224,6 +230,21 @@ export default function Home() {
               <Building2 className="h-8 w-8 text-primary" />
               <span className="text-foreground font-semibold">Rooms</span>
             </div>
+          </div>
+
+          <p className="text-muted-foreground leading-relaxed text-lg font-light mb-10">
+            Discover our thoughtfully designed chalets and rooms with breathtaking views of the Victoria Reservoir and surrounding hill country landscapes. Just 18 kilometres from the historic city of Kandy, each space blends rustic charm with modern comforts for a truly peaceful retreat.
+          </p>
+
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 md:gap-8">
+            {RESORT_AMENITIES.map((item, idx) => (
+              <div key={idx} className="flex flex-col items-center gap-3 group">
+                <div className="p-4 bg-background/50 rounded-2xl group-hover:bg-primary/10 transition-colors duration-300">
+                  <item.icon className="h-6 w-6 text-primary group-hover:scale-110 transition-transform duration-300" />
+                </div>
+                <span className="text-xs md:text-sm font-medium text-muted-foreground group-hover:text-foreground transition-colors">{item.label}</span>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -245,7 +266,7 @@ export default function Home() {
                 return (
                   <CarouselItem key={accommodation.id} className="md:basis-1/2 lg:basis-1/3">
                     <div className="p-1">
-                      <div className="bg-background">
+                      <Link href={`/accommodations#room-${accommodation.id}`} className="block">
                         {accommodation.imageUrl && (
                           <div className="relative h-80">
                             <Image
@@ -256,35 +277,7 @@ export default function Home() {
                             />
                           </div>
                         )}
-                        <div className="p-8 text-left md:text-center">
-                          <h3 className="font-headline text-3xl text-foreground relative inline-block">
-                            {accommodation.title}
-                            <div className="absolute bottom-[-10px] left-0 md:left-1/2 md:-translate-x-1/2 w-1/4 border-b-2 border-primary"></div>
-                          </h3>
-                          <p className="text-muted-foreground mt-8 text-sm leading-relaxed min-h-[120px]">
-                            {accommodation.description}
-                          </p>
-                          <div className="flex items-center justify-start md:justify-center gap-4 text-sm text-foreground my-8">
-                            <span>{accommodation.roomCount} Rooms</span>
-                            <div className="w-px h-4 bg-border"></div>
-                            <span>{accommodation.view}</span>
-                          </div>
-                          <div className="flex gap-2 justify-start md:justify-center">
-                            <Button
-                              variant="link"
-                              className="text-foreground font-semibold tracking-wider hover:text-primary pl-0 md:pl-4"
-                              onClick={() => setSelectedRoom(accommodation)}
-                            >
-                              MORE DETAILS
-                            </Button>
-                            <Link href={`/accommodations#room-${accommodation.id}`} passHref>
-                              <Button className="bg-primary text-primary-foreground rounded-sm font-semibold tracking-wider hover:bg-primary/90">
-                                BOOK NOW
-                              </Button>
-                            </Link>
-                          </div>
-                        </div>
-                      </div>
+                      </Link>
                     </div>
                   </CarouselItem>
                 );
@@ -304,6 +297,33 @@ export default function Home() {
               VIEW ACCOMMODATIONS <RefreshCw className="w-4 h-4 ml-2" />
             </Button>
           </Link>
+        </div>
+
+        {/* Partner Booking Logos */}
+        <div className="pt-10 flex flex-col items-center gap-4">
+          <p className="text-[10px] tracking-[0.2em] font-bold text-muted-foreground uppercase">Bookable Via</p>
+          <div className="flex items-center gap-6 opacity-70 hover:opacity-100 transition-opacity">
+            <a
+              href="https://www.booking.com/hotel/lk/oruthota-chalets.en-gb.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="grayscale hover:grayscale-0 transition-all hover:scale-110"
+            >
+              <div className="relative w-24 h-6">
+                <Image src="/booking-logo.svg" alt="Booking.com" fill className="object-contain" />
+              </div>
+            </a>
+            <a
+              href="https://www.agoda.com/oruthota-chalets/hotel/kandy-lk.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="grayscale hover:grayscale-0 transition-all hover:scale-110"
+            >
+              <div className="relative w-20 h-6">
+                <Image src="/color-default.svg" alt="Agoda" fill className="object-contain" />
+              </div>
+            </a>
+          </div>
         </div>
       </section>
 
@@ -431,7 +451,7 @@ export default function Home() {
             <div className="border bg-[#FEFAE0] flex flex-col">
               <div className="relative h-[300px] w-full overflow-hidden">
                 <Image
-                  src="/wedding.png"
+                  src="/instagram-2.png"
                   alt="Weddings and Celebrations"
                   fill
                   className="object-cover transition-transform duration-500 hover:scale-105"
@@ -719,13 +739,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      {/* Room Details Modal */}
-      <RoomDetailsModal
-        room={selectedRoom}
-        open={!!selectedRoom}
-        onClose={() => setSelectedRoom(null)}
-      />
     </div>
   );
 

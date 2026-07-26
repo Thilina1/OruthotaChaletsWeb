@@ -108,7 +108,7 @@ export function Footer() {
                   <Facebook className="h-5 w-5" />
                 </Button>
               </Link>
-              <Link href="https://www.instagram.com/kandychalets/" target="_blank" rel="noopener noreferrer">
+              <Link href="https://www.instagram.com/kandychalets?igsh=enQzcmNqODJubHU=" target="_blank" rel="noopener noreferrer">
                 <Button variant="outline" size="icon" className="rounded-full border-white/30 bg-background text-[#283618] hover:bg-white hover:text-[#606C38]">
                   <Instagram className="h-5 w-5" />
                 </Button>

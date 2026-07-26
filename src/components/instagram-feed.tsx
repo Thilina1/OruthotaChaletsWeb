@@ -17,14 +17,14 @@ export function InstagramFeed() {
                     #KANDYCHALETS
                 </h2>
                 <p className="text-muted-foreground max-w-2xl mx-auto mb-16 text-sm leading-relaxed">
-                    Visit <Link href="https://www.instagram.com/kandychalets/" className="font-bold text-foreground border-b border-transparent hover:border-foreground transition-all">@KANDYCHALETS</Link> to discover unforgettable experiences at Oruthota Chalets, Kandy - Official Site.
+                    Visit <Link href="https://www.instagram.com/kandychalets?igsh=enQzcmNqODJubHU=" className="font-bold text-foreground border-b border-transparent hover:border-foreground transition-all">@KANDYCHALETS</Link> to discover unforgettable experiences at Oruthota Chalets, Kandy - Official Site.
                 </p>
 
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-6xl mx-auto">
                     {instagramPosts.map((post, index) => (
                         <Link
                             key={index}
-                            href="https://www.instagram.com/kandychalets/"
+                            href="https://www.instagram.com/kandychalets?igsh=enQzcmNqODJubHU="
                             target="_blank"
                             rel="noopener noreferrer"
                             className="flex flex-col group cursor-pointer"

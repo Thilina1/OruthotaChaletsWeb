@@ -26,7 +26,7 @@ const EVENT_TYPES = [
     title: "Weddings & Celebrations",
     description: "Exchange your vows against the breathtaking backdrop of the Victoria Reservoir. Our lakeside gardens provide a romantic sanctuary for your special day.",
     icon: Heart,
-    image: "/wedding.png",
+    image: "/instagram-2.png",
     features: ["Lakeside Ceremony Space", "Customizable Decor Themes", "Gourmet Catering Options", "Dedicated Wedding Coordinator"]
   },
   {

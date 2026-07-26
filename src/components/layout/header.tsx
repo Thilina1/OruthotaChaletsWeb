@@ -112,7 +112,7 @@ export function Header() {
             {time}
           </div>
           <a
-            href="https://www.instagram.com/kandychalets/"
+            href="https://www.instagram.com/kandychalets?igsh=enQzcmNqODJubHU="
             target="_blank"
             rel="noopener noreferrer"
             className="hidden md:flex items-center gap-2 hover:text-primary transition-colors"
