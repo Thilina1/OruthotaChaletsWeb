@@ -36,20 +36,28 @@ export function TableBookingModal({ open, onClose }: TableBookingModalProps) {
       toast({ variant: 'destructive', title: 'Please select a meal type.' });
       return;
     }
-    setIsSubmitting(true);
 
     const formData = new FormData(e.currentTarget);
+    const email = formData.get('email') as string;
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(email)) {
+      toast({ variant: 'destructive', title: 'Please enter a valid email address.' });
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    const phone = formData.get('phone') as string;
     const data: Record<string, any> = {
       name: formData.get('name') as string,
-      email: formData.get('email') as string,
+      email,
+      phone,
       date: formData.get('date') as string,
       meal_type: selectedMeal,
       guests: parseInt(formData.get('guests') as string, 10) || 2,
     };
 
-    const phone = formData.get('phone') as string;
     const comments = formData.get('comments') as string;
-    if (phone) data.phone = phone;
     if (comments) data.comments = comments;
 
     try {
@@ -77,7 +85,7 @@ export function TableBookingModal({ open, onClose }: TableBookingModalProps) {
 
   return (
     <Dialog open={open} onOpenChange={onClose}>
-      <DialogContent className="max-w-2xl w-full p-0 overflow-hidden rounded-2xl border-0 shadow-2xl bg-white">
+      <DialogContent hideCloseButton className="max-w-2xl w-full p-0 overflow-hidden rounded-2xl border-0 shadow-2xl bg-white">
         <DialogTitle className="sr-only">Book a Table – in Oruthota Chalets</DialogTitle>
 
         <div className="flex flex-col max-h-[92vh] overflow-y-auto">
@@ -168,9 +176,9 @@ export function TableBookingModal({ open, onClose }: TableBookingModalProps) {
             {/* Phone */}
             <div className="space-y-2">
               <Label htmlFor="phone" className="text-sm font-semibold text-[#283618]">
-                Phone <span className="text-muted-foreground font-normal text-xs">(optional)</span>
+                Phone <span className="text-red-500">*</span>
               </Label>
-              <Input id="phone" name="phone" type="tel" placeholder="+94 77 123 4567" className="rounded-xl border-stone-200 focus:ring-[#606C38] focus:border-[#606C38]" />
+              <Input id="phone" name="phone" type="tel" placeholder="+94 77 123 4567" required className="rounded-xl border-stone-200 focus:ring-[#606C38] focus:border-[#606C38]" />
             </div>
 
             {/* Comments */}

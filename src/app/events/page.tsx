@@ -54,7 +54,7 @@ const AMENITIES = [
 
 export default function EventsPage() {
   return (
-    <main className="min-h-screen bg-[#FAFAFA]">
+    <main className="min-h-screen bg-background">
       <PageHero
         title="Unforgettable Events"
         subtitle="Memories in the Making"
@@ -64,8 +64,8 @@ export default function EventsPage() {
         titleClassName="text-5xl md:text-6xl lg:text-7xl"
       />
 
-      <div className="relative z-20 px-4 -mt-12 md:-mt-16 w-full max-w-7xl mx-auto flex justify-center">
-        <div className="w-full">
+      <div className="relative z-20 px-4 -mt-12 md:-mt-16 mb-16 w-full max-w-7xl mx-auto flex justify-center">
+        <div className="w-full bg-card rounded-xl shadow-2xl border border-border/50 backdrop-blur-sm overflow-hidden">
           <BookingForm />
         </div>
       </div>
@@ -163,7 +163,7 @@ export default function EventsPage() {
       <section className="py-24 relative overflow-hidden">
         <div className="absolute inset-0 bg-[#283618]" />
         <Image
-          src="/Hero3.jpg"
+          src="/For Gallery/DSC00122.jpg"
           alt="Oruthota Events"
           fill
           className="object-cover opacity-20 mix-blend-overlay"

@@ -111,20 +111,6 @@ Cookery demonstrations are a very popular activity at Oruthota Chalets. It is no
     ]
   },
   {
-    id: 'madaram-nuwara',
-    title: 'Visit the Village of Madaram Nuwara',
-    description: `Madaram Nuwara is a small village situated at the foot of the Pidurutalagala Mountain. It's a hidden gem in Sri Lanka, surrounded by lush green mountains and misty landscapes. The village is famous for its waterfalls and agriculture, primarily tea and vegetables. Exploring Madaram Nuwara offers a peaceful escape and a chance to experience the authentic rural life of the Sri Lankan hill country.`,
-    imageId: 'experience-hike',
-    category: 'CULTURAL',
-    galleryImages: [
-      '/experiences/8/ttd_vmn_1.jpg',
-      '/experiences/8/ttd_vmn_3.jpg',
-      '/experiences/8/ttd_vmn_4.jpg',
-      '/experiences/8/ttd_vmn_7.jpg',
-      '/experiences/8/ttd_vmn_8.jpg',
-    ]
-  },
-  {
     id: 'cultural-dance',
     title: 'Cultural Dance with a Special Cause',
     description: `Oruthota Chalets offers this activity with pride. This dance is performed by students and their Dance Master from a local school in the neighborhood. These children have no opportunity to show their talents, as they cannot compete with those who hold the monopoly of this art in the bigger cities.`,

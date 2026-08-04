@@ -124,20 +124,6 @@ Cookery demonstrations are a very popular activity at Oruthota Chalets. It is no
         ]
     },
     {
-        id: 'madaram-nuwara',
-        title: 'Visit the Village of Madaram Nuwara',
-        description: `Madaram Nuwara is a small village situated at the foot of the Pidurutalagala Mountain. It's a hidden gem in Sri Lanka, surrounded by lush green mountains and misty landscapes. The village is famous for its waterfalls and agriculture, primarily tea and vegetables. Exploring Madaram Nuwara offers a peaceful escape and a chance to experience the authentic rural life of the Sri Lankan hill country.`,
-        imageId: 'experience-hike',
-        category: 'CULTURAL',
-        galleryImages: [
-            '/experiences/8/ttd_vmn_1.jpg',
-            '/experiences/8/ttd_vmn_3.jpg',
-            '/experiences/8/ttd_vmn_4.jpg',
-            '/experiences/8/ttd_vmn_7.jpg',
-            '/experiences/8/ttd_vmn_8.jpg'
-        ]
-    },
-    {
         id: 'cultural-dance',
         title: 'Cultural Dance with a Special Cause',
         description: `Oruthota Chalets offers this activity with pride. This dance is performed by students and their Dance Master from a local school in the neighborhood. These children have no opportunity to show their talents, as they cannot compete with those who hold the monopoly of this art in the bigger cities.`,
@@ -324,7 +310,7 @@ const DialogOverlay = /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5
         columnNumber: 3
     }, ("TURBOPACK compile-time value", void 0)));
 DialogOverlay.displayName = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$radix$2d$ui$2f$react$2d$dialog$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Overlay"].displayName;
-const DialogContent = /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["forwardRef"](({ className, children, ...props }, ref)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(DialogPortal, {
+const DialogContent = /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["forwardRef"](({ className, children, hideCloseButton, ...props }, ref)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(DialogPortal, {
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(DialogOverlay, {}, void 0, false, {
                 fileName: "[project]/src/components/ui/dialog.tsx",
@@ -337,29 +323,29 @@ const DialogContent = /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5
                 ...props,
                 children: [
                     children,
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$radix$2d$ui$2f$react$2d$dialog$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Close"], {
+                    !hideCloseButton && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$radix$2d$ui$2f$react$2d$dialog$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Close"], {
                         className: "absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground",
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$x$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__X$3e$__["X"], {
                                 className: "h-4 w-4"
                             }, void 0, false, {
                                 fileName: "[project]/src/components/ui/dialog.tsx",
-                                lineNumber: 48,
-                                columnNumber: 9
+                                lineNumber: 49,
+                                columnNumber: 11
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                 className: "sr-only",
                                 children: "Close"
                             }, void 0, false, {
                                 fileName: "[project]/src/components/ui/dialog.tsx",
-                                lineNumber: 49,
-                                columnNumber: 9
+                                lineNumber: 50,
+                                columnNumber: 11
                             }, ("TURBOPACK compile-time value", void 0))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/components/ui/dialog.tsx",
-                        lineNumber: 47,
-                        columnNumber: 7
+                        lineNumber: 48,
+                        columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0))
                 ]
             }, void 0, true, {
@@ -379,7 +365,7 @@ const DialogHeader = ({ className, ...props })=>/*#__PURE__*/ (0, __TURBOPACK__i
         ...props
     }, void 0, false, {
         fileName: "[project]/src/components/ui/dialog.tsx",
-        lineNumber: 60,
+        lineNumber: 62,
         columnNumber: 3
     }, ("TURBOPACK compile-time value", void 0));
 DialogHeader.displayName = "DialogHeader";
@@ -388,7 +374,7 @@ const DialogFooter = ({ className, ...props })=>/*#__PURE__*/ (0, __TURBOPACK__i
         ...props
     }, void 0, false, {
         fileName: "[project]/src/components/ui/dialog.tsx",
-        lineNumber: 74,
+        lineNumber: 76,
         columnNumber: 3
     }, ("TURBOPACK compile-time value", void 0));
 DialogFooter.displayName = "DialogFooter";
@@ -398,7 +384,7 @@ const DialogTitle = /*#__PURE__*/ __TURBOPACK__imported__module__$5b$project$5d2
         ...props
     }, void 0, false, {
         fileName: "[project]/src/components/ui/dialog.tsx",
-        lineNumber: 88,
+        lineNumber: 90,
         columnNumber: 3
     }, ("TURBOPACK compile-time value", void 0)));
 DialogTitle.displayName = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$radix$2d$ui$2f$react$2d$dialog$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Title"].displayName;
@@ -408,7 +394,7 @@ const DialogDescription = /*#__PURE__*/ __TURBOPACK__imported__module__$5b$proje
         ...props
     }, void 0, false, {
         fileName: "[project]/src/components/ui/dialog.tsx",
-        lineNumber: 103,
+        lineNumber: 105,
         columnNumber: 3
     }, ("TURBOPACK compile-time value", void 0)));
 DialogDescription.displayName = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$radix$2d$ui$2f$react$2d$dialog$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Description"].displayName;
@@ -589,18 +575,27 @@ function TableBookingModal({ open, onClose }) {
             });
             return;
         }
-        setIsSubmitting(true);
         const formData = new FormData(e.currentTarget);
+        const email = formData.get('email');
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailPattern.test(email)) {
+            toast({
+                variant: 'destructive',
+                title: 'Please enter a valid email address.'
+            });
+            return;
+        }
+        setIsSubmitting(true);
+        const phone = formData.get('phone');
         const data = {
             name: formData.get('name'),
-            email: formData.get('email'),
+            email,
+            phone,
             date: formData.get('date'),
             meal_type: selectedMeal,
             guests: parseInt(formData.get('guests'), 10) || 2
         };
-        const phone = formData.get('phone');
         const comments = formData.get('comments');
-        if (phone) data.phone = phone;
         if (comments) data.comments = comments;
         try {
             const { error } = await __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$supabase$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["supabase"].from('table_bookings').insert([
@@ -629,6 +624,7 @@ function TableBookingModal({ open, onClose }) {
         open: open,
         onOpenChange: onClose,
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["DialogContent"], {
+            hideCloseButton: true,
             className: "max-w-2xl w-full p-0 overflow-hidden rounded-2xl border-0 shadow-2xl bg-white",
             children: [
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["DialogTitle"], {
@@ -636,7 +632,7 @@ function TableBookingModal({ open, onClose }) {
                     children: "Book a Table – in Oruthota Chalets"
                 }, void 0, false, {
                     fileName: "[project]/src/components/table-booking-modal.tsx",
-                    lineNumber: 81,
+                    lineNumber: 89,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -653,12 +649,12 @@ function TableBookingModal({ open, onClose }) {
                                         className: "w-4 h-4"
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/table-booking-modal.tsx",
-                                        lineNumber: 91,
+                                        lineNumber: 99,
                                         columnNumber: 15
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/table-booking-modal.tsx",
-                                    lineNumber: 86,
+                                    lineNumber: 94,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -668,7 +664,7 @@ function TableBookingModal({ open, onClose }) {
                                             className: "w-5 h-5 text-[#DDA15E]"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/table-booking-modal.tsx",
-                                            lineNumber: 94,
+                                            lineNumber: 102,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -676,13 +672,13 @@ function TableBookingModal({ open, onClose }) {
                                             children: "Oruthota Chalets"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/table-booking-modal.tsx",
-                                            lineNumber: 95,
+                                            lineNumber: 103,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/table-booking-modal.tsx",
-                                    lineNumber: 93,
+                                    lineNumber: 101,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
@@ -690,7 +686,7 @@ function TableBookingModal({ open, onClose }) {
                                     children: "Book a Table"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/table-booking-modal.tsx",
-                                    lineNumber: 97,
+                                    lineNumber: 105,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -698,13 +694,13 @@ function TableBookingModal({ open, onClose }) {
                                     children: "Reserve your spot at our scenic Al Fresco dining experience."
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/table-booking-modal.tsx",
-                                    lineNumber: 98,
+                                    lineNumber: 106,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/table-booking-modal.tsx",
-                            lineNumber: 85,
+                            lineNumber: 93,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("form", {
@@ -723,13 +719,13 @@ function TableBookingModal({ open, onClose }) {
                                                     children: "*"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/table-booking-modal.tsx",
-                                                    lineNumber: 108,
+                                                    lineNumber: 116,
                                                     columnNumber: 83
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/components/table-booking-modal.tsx",
-                                            lineNumber: 108,
+                                            lineNumber: 116,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -744,7 +740,7 @@ function TableBookingModal({ open, onClose }) {
                                                             children: meal.icon
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/table-booking-modal.tsx",
-                                                            lineNumber: 122,
+                                                            lineNumber: 130,
                                                             columnNumber: 21
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -752,7 +748,7 @@ function TableBookingModal({ open, onClose }) {
                                                             children: meal.label
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/table-booking-modal.tsx",
-                                                            lineNumber: 123,
+                                                            lineNumber: 131,
                                                             columnNumber: 21
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -760,24 +756,24 @@ function TableBookingModal({ open, onClose }) {
                                                             children: meal.time
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/table-booking-modal.tsx",
-                                                            lineNumber: 124,
+                                                            lineNumber: 132,
                                                             columnNumber: 21
                                                         }, this)
                                                     ]
                                                 }, meal.label, true, {
                                                     fileName: "[project]/src/components/table-booking-modal.tsx",
-                                                    lineNumber: 111,
+                                                    lineNumber: 119,
                                                     columnNumber: 19
                                                 }, this))
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/table-booking-modal.tsx",
-                                            lineNumber: 109,
+                                            lineNumber: 117,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/table-booking-modal.tsx",
-                                    lineNumber: 107,
+                                    lineNumber: 115,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -794,7 +790,7 @@ function TableBookingModal({ open, onClose }) {
                                                             className: "w-3.5 h-3.5"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/table-booking-modal.tsx",
-                                                            lineNumber: 134,
+                                                            lineNumber: 142,
                                                             columnNumber: 19
                                                         }, this),
                                                         " Date ",
@@ -803,13 +799,13 @@ function TableBookingModal({ open, onClose }) {
                                                             children: "*"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/table-booking-modal.tsx",
-                                                            lineNumber: 134,
+                                                            lineNumber: 142,
                                                             columnNumber: 61
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/components/table-booking-modal.tsx",
-                                                    lineNumber: 133,
+                                                    lineNumber: 141,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -821,13 +817,13 @@ function TableBookingModal({ open, onClose }) {
                                                     className: "rounded-xl border-stone-200 focus:ring-[#606C38] focus:border-[#606C38]"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/table-booking-modal.tsx",
-                                                    lineNumber: 136,
+                                                    lineNumber: 144,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/components/table-booking-modal.tsx",
-                                            lineNumber: 132,
+                                            lineNumber: 140,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -841,7 +837,7 @@ function TableBookingModal({ open, onClose }) {
                                                             className: "w-3.5 h-3.5"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/table-booking-modal.tsx",
-                                                            lineNumber: 145,
+                                                            lineNumber: 153,
                                                             columnNumber: 19
                                                         }, this),
                                                         " Guests ",
@@ -850,13 +846,13 @@ function TableBookingModal({ open, onClose }) {
                                                             children: "*"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/table-booking-modal.tsx",
-                                                            lineNumber: 145,
+                                                            lineNumber: 153,
                                                             columnNumber: 60
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/components/table-booking-modal.tsx",
-                                                    lineNumber: 144,
+                                                    lineNumber: 152,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -870,19 +866,19 @@ function TableBookingModal({ open, onClose }) {
                                                     className: "rounded-xl border-stone-200 focus:ring-[#606C38] focus:border-[#606C38]"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/table-booking-modal.tsx",
-                                                    lineNumber: 147,
+                                                    lineNumber: 155,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/components/table-booking-modal.tsx",
-                                            lineNumber: 143,
+                                            lineNumber: 151,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/table-booking-modal.tsx",
-                                    lineNumber: 131,
+                                    lineNumber: 139,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -901,13 +897,13 @@ function TableBookingModal({ open, onClose }) {
                                                             children: "*"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/table-booking-modal.tsx",
-                                                            lineNumber: 159,
+                                                            lineNumber: 167,
                                                             columnNumber: 98
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/components/table-booking-modal.tsx",
-                                                    lineNumber: 159,
+                                                    lineNumber: 167,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -918,13 +914,13 @@ function TableBookingModal({ open, onClose }) {
                                                     className: "rounded-xl border-stone-200 focus:ring-[#606C38] focus:border-[#606C38]"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/table-booking-modal.tsx",
-                                                    lineNumber: 160,
+                                                    lineNumber: 168,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/components/table-booking-modal.tsx",
-                                            lineNumber: 158,
+                                            lineNumber: 166,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -940,13 +936,13 @@ function TableBookingModal({ open, onClose }) {
                                                             children: "*"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/table-booking-modal.tsx",
-                                                            lineNumber: 163,
+                                                            lineNumber: 171,
                                                             columnNumber: 95
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/components/table-booking-modal.tsx",
-                                                    lineNumber: 163,
+                                                    lineNumber: 171,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -958,19 +954,19 @@ function TableBookingModal({ open, onClose }) {
                                                     className: "rounded-xl border-stone-200 focus:ring-[#606C38] focus:border-[#606C38]"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/table-booking-modal.tsx",
-                                                    lineNumber: 164,
+                                                    lineNumber: 172,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/components/table-booking-modal.tsx",
-                                            lineNumber: 162,
+                                            lineNumber: 170,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/table-booking-modal.tsx",
-                                    lineNumber: 157,
+                                    lineNumber: 165,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -982,17 +978,17 @@ function TableBookingModal({ open, onClose }) {
                                             children: [
                                                 "Phone ",
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                    className: "text-muted-foreground font-normal text-xs",
-                                                    children: "(optional)"
+                                                    className: "text-red-500",
+                                                    children: "*"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/table-booking-modal.tsx",
-                                                    lineNumber: 171,
+                                                    lineNumber: 179,
                                                     columnNumber: 23
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/components/table-booking-modal.tsx",
-                                            lineNumber: 170,
+                                            lineNumber: 178,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -1000,16 +996,17 @@ function TableBookingModal({ open, onClose }) {
                                             name: "phone",
                                             type: "tel",
                                             placeholder: "+94 77 123 4567",
+                                            required: true,
                                             className: "rounded-xl border-stone-200 focus:ring-[#606C38] focus:border-[#606C38]"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/table-booking-modal.tsx",
-                                            lineNumber: 173,
+                                            lineNumber: 181,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/table-booking-modal.tsx",
-                                    lineNumber: 169,
+                                    lineNumber: 177,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1025,13 +1022,13 @@ function TableBookingModal({ open, onClose }) {
                                                     children: "(optional)"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/table-booking-modal.tsx",
-                                                    lineNumber: 179,
+                                                    lineNumber: 187,
                                                     columnNumber: 45
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/components/table-booking-modal.tsx",
-                                            lineNumber: 178,
+                                            lineNumber: 186,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$textarea$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Textarea"], {
@@ -1041,13 +1038,13 @@ function TableBookingModal({ open, onClose }) {
                                             className: "min-h-[100px] rounded-xl border-stone-200 focus:ring-[#606C38] focus:border-[#606C38] resize-none"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/table-booking-modal.tsx",
-                                            lineNumber: 181,
+                                            lineNumber: 189,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/table-booking-modal.tsx",
-                                    lineNumber: 177,
+                                    lineNumber: 185,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1063,7 +1060,7 @@ function TableBookingModal({ open, onClose }) {
                                             children: "WhatsApp"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/table-booking-modal.tsx",
-                                            lineNumber: 191,
+                                            lineNumber: 199,
                                             columnNumber: 15
                                         }, this),
                                         ' ',
@@ -1071,7 +1068,7 @@ function TableBookingModal({ open, onClose }) {
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/table-booking-modal.tsx",
-                                    lineNumber: 189,
+                                    lineNumber: 197,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
@@ -1084,7 +1081,7 @@ function TableBookingModal({ open, onClose }) {
                                                 className: "w-4 h-4"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/table-booking-modal.tsx",
-                                                lineNumber: 203,
+                                                lineNumber: 211,
                                                 columnNumber: 50
                                             }, this),
                                             " Confirm Reservation"
@@ -1092,30 +1089,30 @@ function TableBookingModal({ open, onClose }) {
                                     }, void 0, true)
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/table-booking-modal.tsx",
-                                    lineNumber: 198,
+                                    lineNumber: 206,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/table-booking-modal.tsx",
-                            lineNumber: 104,
+                            lineNumber: 112,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/components/table-booking-modal.tsx",
-                    lineNumber: 83,
+                    lineNumber: 91,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/src/components/table-booking-modal.tsx",
-            lineNumber: 80,
+            lineNumber: 88,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/src/components/table-booking-modal.tsx",
-        lineNumber: 79,
+        lineNumber: 87,
         columnNumber: 5
     }, this);
 }
@@ -2891,7 +2888,7 @@ function Home() {
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: "absolute -bottom-10 left-1/2 -translate-x-1/2 flex items-center gap-4",
+                                    className: "absolute -bottom-10 left-1/2 -translate-x-1/2 flex items-center gap-4 md:hidden",
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$carousel$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["CarouselPrevious"], {
                                             className: "static -translate-y-0 rounded-none border-primary text-primary hover:bg-primary hover:text-primary-foreground"

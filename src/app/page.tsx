@@ -283,7 +283,7 @@ export default function Home() {
                 );
               })}
             </CarouselContent>
-            <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 flex items-center gap-4">
+            <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 flex items-center gap-4 md:hidden">
               <CarouselPrevious className="static -translate-y-0 rounded-none border-primary text-primary hover:bg-primary hover:text-primary-foreground" />
               <CarouselNext className="static -translate-y-0 rounded-none border-primary text-primary hover:bg-primary hover:text-primary-foreground" />
             </div>

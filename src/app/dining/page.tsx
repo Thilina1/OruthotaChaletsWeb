@@ -3,6 +3,7 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { BookingForm } from '@/components/booking-form';
 import { Button } from '@/components/ui/button';
@@ -52,29 +53,6 @@ const DINING_VENUES = [
         Enjoy the gentle cool breeze and the sounds of nature as you savor fresh seafood, grilled specialties, and refreshing mocktails.`,
     imageUrl: '/DSC00159.jpg',
     features: ['Outdoor Seating', 'Sunset Views', 'Grill & BBQ']
-  }
-];
-
-const SIGNATURE_DISHES = [
-  {
-    title: "Traditional Rice & Curry",
-    description: "A feast of heirloom red rice served with 15 different vegetable curries, clay-pot fish, and papadum.",
-    price: "$$",
-  },
-  {
-    title: "Victoria Lake Fish",
-    description: "Freshly caught seasoned fillet, pan-seared with garlic butter and served with organic steamed vegetables.",
-    price: "$$$",
-  },
-  {
-    title: "Smoked Up-country Pork",
-    description: "Slow-smoked pork lover's delight, marinated in local spices and served with a spicy pineapple chutney.",
-    price: "$$$",
-  },
-  {
-    title: "Watalappam Tart",
-    description: "A modern twist on a classic Sri Lankan dessert. Coconut custard pudding with kitul jaggery and cashews.",
-    price: "$",
   }
 ];
 
@@ -191,11 +169,6 @@ export default function DiningPage() {
                 className="object-cover shadow-2xl"
               />
             </div>
-            {/* Carousel Dots placeholder */}
-            <div className="absolute bottom-4 lg:bottom-0 left-0 right-0 lg:right-12 flex justify-center gap-2 pb-4">
-              <div className="w-2 h-2 rounded-full bg-[#bd2830]"></div>
-              <div className="w-2 h-2 rounded-full bg-[#bd2830]"></div>
-            </div>
           </div>
         </div>
       </section>
@@ -233,10 +206,12 @@ export default function DiningPage() {
                   </div>
                   <div className="pt-4">
                     <Button
-                      onClick={() => setBookingOpen(true)}
+                      asChild
                       className="bg-[#bd2830] hover:bg-[#9a1e24] text-white rounded-none px-8 py-6 text-xs font-bold tracking-[0.2em] uppercase transition-colors"
                     >
-                      BOOK THIS EXPERIENCE <ArrowRight className="w-4 h-4 ml-6" />
+                      <Link href="/contact">
+                        BOOK THIS EXPERIENCE <ArrowRight className="w-4 h-4 ml-6" />
+                      </Link>
                     </Button>
                   </div>
                 </div>
@@ -316,50 +291,10 @@ export default function DiningPage() {
                       ))}
                     </div>
 
-                    <div className="pt-4 mt-2">
-                      <Button variant="link" className="p-0 h-auto text-primary font-bold tracking-widest hover:text-primary/80 hover:no-underline group/btn flex items-center gap-2 text-sm">
-                        VIEW MENU <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover/btn:translate-x-1" />
-                      </Button>
-                    </div>
                   </div>
                 </div>
               )
             })}
-          </div>
-        </div>
-      </section>
-
-      {/* Signature Dishes Grid */}
-      <section className="py-24 bg-secondary/20">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16 space-y-4">
-            <p className="text-xs font-bold tracking-[0.3em] text-primary uppercase">Taste the Difference</p>
-            <h2 className="font-headline text-4xl md:text-5xl text-foreground">Signature Creations</h2>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-            {SIGNATURE_DISHES.map((dish, idx) => (
-              <div key={idx} className="group p-8 md:p-10 border border-border/60 hover:border-primary/30 transition-all duration-300 bg-background hover:shadow-xl hover:-translate-y-1 rounded-2xl relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-20 h-20 bg-primary/5 rounded-bl-full -mr-4 -mt-4 transition-transform group-hover:scale-150 duration-500" />
-
-                <div className="flex justify-between items-baseline mb-4 relative z-10">
-                  <h4 className="font-headline text-2xl md:text-3xl text-foreground group-hover:text-primary transition-colors">{dish.title}</h4>
-                  <span className="text-muted-foreground font-serif italic text-lg">{dish.price}</span>
-                </div>
-
-                <div className="w-12 h-0.5 bg-border group-hover:bg-primary/50 mb-6 transition-colors duration-500" />
-
-                <p className="text-muted-foreground leading-relaxed text-lg font-light relative z-10">
-                  {dish.description}
-                </p>
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-16 text-center">
-            <p className="text-muted-foreground italic max-w-2xl mx-auto text-sm">
-              * Please inform our staff of any allergies or dietary restrictions. We are happy to accommodate vegan and gluten-free requests.
-            </p>
           </div>
         </div>
       </section>

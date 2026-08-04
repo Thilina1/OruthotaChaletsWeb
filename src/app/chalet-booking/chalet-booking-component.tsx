@@ -45,7 +45,6 @@ export default function ChaletBookingComponent() {
     customer_email: '',
     customer_phone: '',
     customer_nic: '',
-    nationality: '',
     adults: defaultAdults,
     children: defaultChildren,
     special_requests: '',
@@ -103,8 +102,14 @@ export default function ChaletBookingComponent() {
   }, [checkIn, checkOut, packageId, occupancyTypeId]);
 
   const handleSubmit = async () => {
-    if (!form.customer_name.trim() || !form.customer_phone.trim()) {
-      toast({ variant: 'destructive', title: 'Required fields missing', description: 'Name and phone number are required.' });
+    if (!form.customer_name.trim() || !form.customer_phone.trim() || !form.customer_nic.trim()) {
+      toast({ variant: 'destructive', title: 'Required fields missing', description: 'Name, phone number, and NIC/Passport No. are required.' });
+      return;
+    }
+    const email = form.customer_email.trim();
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (email && !emailPattern.test(email)) {
+      toast({ variant: 'destructive', title: 'Invalid email', description: 'Please enter a valid email address.' });
       return;
     }
     if (!details) return;
@@ -120,7 +125,6 @@ export default function ChaletBookingComponent() {
         customer_email: form.customer_email.trim() || null,
         customer_phone: form.customer_phone.trim(),
         customer_nic: form.customer_nic.trim() || null,
-        nationality: form.nationality.trim() || null,
         adults: form.adults,
         children: form.children,
         special_requests: form.special_requests.trim() || null,
@@ -232,7 +236,7 @@ export default function ChaletBookingComponent() {
                     <Label htmlFor="name">Full Name <span className="text-red-500">*</span></Label>
                     <Input
                       id="name"
-                      placeholder="John Silva"
+                      placeholder="John Doe"
                       value={form.customer_name}
                       onChange={e => setForm(p => ({ ...p, customer_name: e.target.value }))}
                     />
@@ -258,21 +262,12 @@ export default function ChaletBookingComponent() {
                     />
                   </div>
                   <div className="space-y-1.5">
-                    <Label htmlFor="nic">NIC / Passport No.</Label>
+                    <Label htmlFor="nic">NIC / Passport No. <span className="text-red-500">*</span></Label>
                     <Input
                       id="nic"
                       placeholder="123456789V"
                       value={form.customer_nic}
                       onChange={e => setForm(p => ({ ...p, customer_nic: e.target.value }))}
-                    />
-                  </div>
-                  <div className="space-y-1.5">
-                    <Label htmlFor="nationality">Nationality</Label>
-                    <Input
-                      id="nationality"
-                      placeholder="Sri Lankan"
-                      value={form.nationality}
-                      onChange={e => setForm(p => ({ ...p, nationality: e.target.value }))}
                     />
                   </div>
                 </div>

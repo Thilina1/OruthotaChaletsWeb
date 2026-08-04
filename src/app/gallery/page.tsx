@@ -89,7 +89,7 @@ export default function GalleryPage() {
   };
 
   return (
-    <main className="min-h-screen bg-[#FAFAFA]">
+    <main className="min-h-screen bg-background">
       {/* Hero Section */}
       <PageHero
         title="Visual Journey"

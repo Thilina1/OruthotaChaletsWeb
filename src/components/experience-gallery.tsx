@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
-import { ChevronLeft, ChevronRight, Maximize2 } from 'lucide-react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 interface ExperienceGalleryProps {
@@ -93,13 +93,6 @@ export function ExperienceGallery({ images, alt, autoPlayInterval = 5000 }: Expe
           </div>
         </div>
 
-        {/* View Fullscreen Indicator (Visual only for now) */}
-        <div className="absolute bottom-6 left-6 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-           <div className="flex items-center gap-2 text-white/90 text-sm font-medium">
-             <Maximize2 className="w-4 h-4" />
-             <span className="hidden md:inline">Experience the moment</span>
-           </div>
-        </div>
       </div>
 
       {/* Interactive Thumbnails Row */}

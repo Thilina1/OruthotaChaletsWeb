@@ -41,7 +41,7 @@ export default function GDPRCompliancePage() {
             <PageHero 
                 title="GDPR Compliance" 
                 subtitle="Your data rights and our obligations"
-                imageUrl="/Hero3.jpg"
+                imageUrl="/For Gallery/DSC09515.jpg"
                 imageAlt="GDPR Compliance Hero Image"
                 titleClassName="text-5xl md:text-6xl lg:text-7xl"
             />

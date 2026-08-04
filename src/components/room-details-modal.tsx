@@ -28,7 +28,7 @@ export function RoomDetailsModal({ room, open, onClose }: RoomDetailsModalProps)
 
   return (
     <Dialog open={open} onOpenChange={onClose}>
-      <DialogContent className="max-w-4xl w-full p-0 overflow-hidden rounded-2xl border-0 shadow-2xl bg-white">
+      <DialogContent hideCloseButton className="max-w-4xl w-full p-0 overflow-hidden rounded-2xl border-0 shadow-2xl bg-white">
         {/* Visually hidden title for accessibility */}
         <DialogTitle className="sr-only">{room.title} – Room Details</DialogTitle>
 
