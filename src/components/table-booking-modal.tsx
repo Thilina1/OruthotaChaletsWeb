@@ -10,6 +10,7 @@ import { supabase } from '@/lib/supabase';
 import { useToast } from '@/hooks/use-toast';
 import { Clock, Users, Calendar, Send, Utensils, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { PhoneNumberInput } from '@/components/phone-number-input';
 
 const MEAL_TYPES = [
   { label: 'Breakfast', time: '07:30 AM – 10:00 AM', icon: '🌅' },
@@ -27,6 +28,7 @@ export function TableBookingModal({ open, onClose }: TableBookingModalProps) {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [selectedMeal, setSelectedMeal] = useState('');
+  const [phone, setPhone] = useState('');
 
   const today = new Date().toISOString().split('T')[0];
 
@@ -47,7 +49,6 @@ export function TableBookingModal({ open, onClose }: TableBookingModalProps) {
 
     setIsSubmitting(true);
 
-    const phone = formData.get('phone') as string;
     const data: Record<string, any> = {
       name: formData.get('name') as string,
       email,
@@ -70,6 +71,7 @@ export function TableBookingModal({ open, onClose }: TableBookingModalProps) {
       });
       (e.target as HTMLFormElement).reset();
       setSelectedMeal('');
+      setPhone('');
       onClose();
     } catch (error: any) {
       console.warn('Table booking error:', error);
@@ -178,7 +180,7 @@ export function TableBookingModal({ open, onClose }: TableBookingModalProps) {
               <Label htmlFor="phone" className="text-sm font-semibold text-[#283618]">
                 Phone <span className="text-red-500">*</span>
               </Label>
-              <Input id="phone" name="phone" type="tel" placeholder="+94 77 123 4567" required className="rounded-xl border-stone-200 focus:ring-[#606C38] focus:border-[#606C38]" />
+              <PhoneNumberInput id="phone" name="phone" value={phone} onChange={setPhone} required />
             </div>
 
             {/* Comments */}

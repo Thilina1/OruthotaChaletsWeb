@@ -1,7 +1,7 @@
 'use client';
 
 import { PageHero } from '@/components/page-hero';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { MapPin, Phone, Mail, Clock, Send, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -13,6 +13,18 @@ import { useToast } from '@/hooks/use-toast';
 export default function ContactPage() {
     const { toast } = useToast();
     const [isSubmitting, setIsSubmitting] = useState(false);
+    const [selectedExperience, setSelectedExperience] = useState('');
+    const [subject, setSubject] = useState('');
+    const [message, setMessage] = useState('');
+
+    useEffect(() => {
+        const experience = new URLSearchParams(window.location.search).get('experience');
+        if (experience === 'culinary-tourism') {
+            setSelectedExperience('Culinary Tourism');
+            setSubject('Culinary Tourism Booking Inquiry');
+            setMessage('I would like to book the Culinary Tourism experience. Please share the available dates, times, and booking details.');
+        }
+    }, []);
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -36,6 +48,9 @@ export default function ContactPage() {
                 description: "We'll get back to you shortly.",
             });
             (e.target as HTMLFormElement).reset();
+            setSelectedExperience('');
+            setSubject('');
+            setMessage('');
         } catch (error: any) {
             console.warn('Error submitting form:', error);
             toast({
@@ -144,11 +159,17 @@ export default function ContactPage() {
                         </div>
 
                         {/* Form Side */}
-                        <div className="lg:col-span-7 bg-white p-8 md:p-12 rounded-3xl shadow-[0_10px_50px_rgb(0,0,0,0.05)] border border-stone-100">
+                        <div id="contact-form" className="lg:col-span-7 scroll-mt-24 bg-white p-8 md:p-12 rounded-3xl shadow-[0_10px_50px_rgb(0,0,0,0.05)] border border-stone-100">
                             <div className="mb-10">
                                 <h2 className="font-headline text-3xl text-[#283618] mb-4">Send us a message</h2>
                                 <p className="text-muted-foreground font-body">Fill out the form below and our team will get back to you as soon as possible.</p>
                             </div>
+
+                            {selectedExperience && (
+                                <div className="mb-6 rounded-xl border border-[#606C38]/30 bg-[#606C38]/10 px-4 py-3 text-sm text-[#283618]">
+                                    <span className="font-semibold">Experience booking:</span> {selectedExperience}
+                                </div>
+                            )}
 
                             <form onSubmit={handleSubmit} className="space-y-6">
                                 <div className="grid md:grid-cols-2 gap-6">
@@ -163,11 +184,11 @@ export default function ContactPage() {
                                 </div>
                                 <div className="space-y-2">
                                     <Label htmlFor="subject" className="text-sm font-semibold text-[#283618]">Subject</Label>
-                                    <Input id="subject" name="subject" placeholder="Reservation Inquiry" required className="rounded-xl border-stone-200 focus:ring-[#606C38] focus:border-[#606C38]" />
+                                    <Input id="subject" name="subject" value={subject} onChange={(event) => setSubject(event.target.value)} placeholder="Reservation Inquiry" required className="rounded-xl border-stone-200 focus:ring-[#606C38] focus:border-[#606C38]" />
                                 </div>
                                 <div className="space-y-2">
                                     <Label htmlFor="message" className="text-sm font-semibold text-[#283618]">Message</Label>
-                                    <Textarea id="message" name="message" placeholder="How can we help you?" required className="min-h-[150px] rounded-xl border-stone-200 focus:ring-[#606C38] focus:border-[#606C38]" />
+                                    <Textarea id="message" name="message" value={message} onChange={(event) => setMessage(event.target.value)} placeholder="How can we help you?" required className="min-h-[150px] rounded-xl border-stone-200 focus:ring-[#606C38] focus:border-[#606C38]" />
                                 </div>
                                 <Button 
                                     type="submit" 

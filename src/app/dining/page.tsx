@@ -209,7 +209,7 @@ export default function DiningPage() {
                       asChild
                       className="bg-[#bd2830] hover:bg-[#9a1e24] text-white rounded-none px-8 py-6 text-xs font-bold tracking-[0.2em] uppercase transition-colors"
                     >
-                      <Link href="/contact">
+                      <Link href="/contact?experience=culinary-tourism#contact-form">
                         BOOK THIS EXPERIENCE <ArrowRight className="w-4 h-4 ml-6" />
                       </Link>
                     </Button>

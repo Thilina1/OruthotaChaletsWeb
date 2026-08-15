@@ -16,6 +16,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Calendar as CalendarIcon, Star } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { supabase } from '@/lib/supabase';
+import { PhoneNumberInput } from '@/components/phone-number-input';
 
 
 export default function BookingPageComponent() {
@@ -309,7 +310,7 @@ export default function BookingPageComponent() {
                     </div>
                     <div className="space-y-2">
                       <Label htmlFor="phone">Phone Number</Label>
-                      <Input id="phone" type="tel" value={phone} onChange={(e) => setPhone(e.target.value)} required />
+                      <PhoneNumberInput id="phone" value={phone} onChange={setPhone} required />
                     </div>
                   </div>
                   <div className="space-y-2">

@@ -11,6 +11,7 @@ import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
 import { CalendarIcon, Users, Loader2, CheckCircle2 } from 'lucide-react';
+import { PhoneNumberInput } from '@/components/phone-number-input';
 
 const SERVICE_CHARGE_RATE = 0.1; // 10%
 
@@ -243,12 +244,11 @@ export default function ChaletBookingComponent() {
                   </div>
                   <div className="space-y-1.5">
                     <Label htmlFor="phone">Phone Number <span className="text-red-500">*</span></Label>
-                    <Input
+                    <PhoneNumberInput
                       id="phone"
-                      type="tel"
-                      placeholder="+94 71 234 5678"
                       value={form.customer_phone}
-                      onChange={e => setForm(p => ({ ...p, customer_phone: e.target.value }))}
+                      onChange={value => setForm(p => ({ ...p, customer_phone: value }))}
+                      required
                     />
                   </div>
                   <div className="space-y-1.5">
