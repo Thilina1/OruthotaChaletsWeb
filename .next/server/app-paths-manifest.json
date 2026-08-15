@@ -1,5 +1,6 @@
 {
   "/_not-found/page": "app/_not-found/page.js",
+  "/about/page": "app/about/page.js",
   "/accommodations/page": "app/accommodations/page.js",
   "/booking/page": "app/booking/page.js",
   "/chalet-booking/page": "app/chalet-booking/page.js",
@@ -8,6 +9,8 @@
   "/events/page": "app/events/page.js",
   "/experiences/page": "app/experiences/page.js",
   "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/gallery/page": "app/gallery/page.js",
   "/manifest.webmanifest/route": "app/manifest.webmanifest/route.js",
-  "/page": "app/page.js"
+  "/page": "app/page.js",
+  "/reviews/page": "app/reviews/page.js"
 }

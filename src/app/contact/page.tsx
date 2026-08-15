@@ -9,18 +9,20 @@ import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import { supabase } from '@/lib/supabase';
 import { useToast } from '@/hooks/use-toast';
+import { PhoneNumberInput } from '@/components/phone-number-input';
 
 export default function ContactPage() {
     const { toast } = useToast();
     const [isSubmitting, setIsSubmitting] = useState(false);
-    const [selectedExperience, setSelectedExperience] = useState('');
+    const [experienceType, setExperienceType] = useState<string | null>(null);
     const [subject, setSubject] = useState('');
     const [message, setMessage] = useState('');
+    const [phoneNumber, setPhoneNumber] = useState('');
 
     useEffect(() => {
         const experience = new URLSearchParams(window.location.search).get('experience');
         if (experience === 'culinary-tourism') {
-            setSelectedExperience('Culinary Tourism');
+            setExperienceType('culinary_tourism');
             setSubject('Culinary Tourism Booking Inquiry');
             setMessage('I would like to book the Culinary Tourism experience. Please share the available dates, times, and booking details.');
         }
@@ -34,8 +36,12 @@ export default function ContactPage() {
         const data: Record<string, any> = {
             name: formData.get('name') as string,
             email: formData.get('email') as string,
+            phone: phoneNumber,
             subject: formData.get('subject') as string,
             message: formData.get('message') as string,
+            inquiry_type: experienceType === 'culinary_tourism' ? 'experience' : 'general',
+            experience_type: experienceType,
+            status: 'pending',
         };
 
         try {
@@ -48,9 +54,10 @@ export default function ContactPage() {
                 description: "We'll get back to you shortly.",
             });
             (e.target as HTMLFormElement).reset();
-            setSelectedExperience('');
+            setExperienceType(null);
             setSubject('');
             setMessage('');
+            setPhoneNumber('');
         } catch (error: any) {
             console.warn('Error submitting form:', error);
             toast({
@@ -165,9 +172,9 @@ export default function ContactPage() {
                                 <p className="text-muted-foreground font-body">Fill out the form below and our team will get back to you as soon as possible.</p>
                             </div>
 
-                            {selectedExperience && (
+                            {experienceType === 'culinary_tourism' && (
                                 <div className="mb-6 rounded-xl border border-[#606C38]/30 bg-[#606C38]/10 px-4 py-3 text-sm text-[#283618]">
-                                    <span className="font-semibold">Experience booking:</span> {selectedExperience}
+                                    <span className="font-semibold">Experience booking:</span> Culinary Tourism
                                 </div>
                             )}
 
@@ -181,6 +188,16 @@ export default function ContactPage() {
                                         <Label htmlFor="email" className="text-sm font-semibold text-[#283618]">Email Address</Label>
                                         <Input id="email" name="email" type="email" placeholder="john@example.com" required className="rounded-xl border-stone-200 focus:ring-[#606C38] focus:border-[#606C38]" />
                                     </div>
+                                </div>
+                                <div className="space-y-2">
+                                    <Label htmlFor="phone-number" className="text-sm font-semibold text-[#283618]">Phone Number</Label>
+                                    <PhoneNumberInput
+                                        id="phone-number"
+                                        value={phoneNumber}
+                                        onChange={setPhoneNumber}
+                                        required
+                                        className="w-full"
+                                    />
                                 </div>
                                 <div className="space-y-2">
                                     <Label htmlFor="subject" className="text-sm font-semibold text-[#283618]">Subject</Label>
