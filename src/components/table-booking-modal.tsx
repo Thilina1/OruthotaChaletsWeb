@@ -11,6 +11,7 @@ import { useToast } from '@/hooks/use-toast';
 import { Clock, Users, Calendar, Send, Utensils, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { PhoneNumberInput } from '@/components/phone-number-input';
+import { isValidEmail, isValidInternationalPhone } from '@/lib/contact-validation';
 
 const MEAL_TYPES = [
   { label: 'Breakfast', time: '07:30 AM – 10:00 AM', icon: '🌅' },
@@ -40,10 +41,13 @@ export function TableBookingModal({ open, onClose }: TableBookingModalProps) {
     }
 
     const formData = new FormData(e.currentTarget);
-    const email = formData.get('email') as string;
-    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailPattern.test(email)) {
+    const email = (formData.get('email') as string).trim();
+    if (!isValidEmail(email)) {
       toast({ variant: 'destructive', title: 'Please enter a valid email address.' });
+      return;
+    }
+    if (!isValidInternationalPhone(phone)) {
+      toast({ variant: 'destructive', title: 'Please enter a valid phone number for the selected country.' });
       return;
     }
 

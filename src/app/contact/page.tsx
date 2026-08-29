@@ -10,6 +10,7 @@ import { Label } from '@/components/ui/label';
 import { supabase } from '@/lib/supabase';
 import { useToast } from '@/hooks/use-toast';
 import { PhoneNumberInput } from '@/components/phone-number-input';
+import { isValidEmail, isValidInternationalPhone } from '@/lib/contact-validation';
 
 export default function ContactPage() {
     const { toast } = useToast();
@@ -30,12 +31,22 @@ export default function ContactPage() {
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+        const formData = new FormData(e.currentTarget);
+        const email = (formData.get('email') as string).trim();
+        if (!isValidEmail(email)) {
+            toast({ variant: 'destructive', title: 'Invalid email', description: 'Please enter a valid email address.' });
+            return;
+        }
+        if (!isValidInternationalPhone(phoneNumber)) {
+            toast({ variant: 'destructive', title: 'Invalid phone number', description: 'Please enter a valid phone number for the selected country.' });
+            return;
+        }
+
         setIsSubmitting(true);
 
-        const formData = new FormData(e.currentTarget);
         const data: Record<string, any> = {
-            name: formData.get('name') as string,
-            email: formData.get('email') as string,
+            name: (formData.get('name') as string).trim(),
+            email,
             phone: phoneNumber,
             subject: formData.get('subject') as string,
             message: formData.get('message') as string,

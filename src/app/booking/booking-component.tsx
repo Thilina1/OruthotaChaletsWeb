@@ -17,6 +17,7 @@ import { Calendar as CalendarIcon, Star } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { supabase } from '@/lib/supabase';
 import { PhoneNumberInput } from '@/components/phone-number-input';
+import { isValidEmail, isValidInternationalPhone } from '@/lib/contact-validation';
 
 
 export default function BookingPageComponent() {
@@ -98,6 +99,16 @@ export default function BookingPageComponent() {
       return;
     }
 
+    if (!isValidEmail(email)) {
+      toast({ variant: 'destructive', title: 'Invalid Email', description: 'Please enter a valid email address.' });
+      return;
+    }
+
+    if (!isValidInternationalPhone(phone)) {
+      toast({ variant: 'destructive', title: 'Invalid Phone Number', description: 'Please enter a valid phone number for the selected country.' });
+      return;
+    }
+
     try {
       // Check for overlapping bookings one last time before submitting
       const { data: existingBookings, error: checkError } = await supabase
@@ -126,7 +137,7 @@ export default function BookingPageComponent() {
       const guestData = {
         first_name: firstName,
         last_name: lastName,
-        email,
+        email: email.trim(),
         phone_number: phone,
         id_card_number: idCardNumber,
       };

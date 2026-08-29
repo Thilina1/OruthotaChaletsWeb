@@ -12,6 +12,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
 import { CalendarIcon, Users, Loader2, CheckCircle2 } from 'lucide-react';
 import { PhoneNumberInput } from '@/components/phone-number-input';
+import { isValidEmail, isValidInternationalPhone } from '@/lib/contact-validation';
 
 const SERVICE_CHARGE_RATE = 0.1; // 10%
 
@@ -108,9 +109,12 @@ export default function ChaletBookingComponent() {
       return;
     }
     const email = form.customer_email.trim();
-    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (email && !emailPattern.test(email)) {
+    if (email && !isValidEmail(email)) {
       toast({ variant: 'destructive', title: 'Invalid email', description: 'Please enter a valid email address.' });
+      return;
+    }
+    if (!isValidInternationalPhone(form.customer_phone)) {
+      toast({ variant: 'destructive', title: 'Invalid phone number', description: 'Please enter a valid phone number for the selected country.' });
       return;
     }
     if (!details) return;
