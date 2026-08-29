@@ -13,9 +13,11 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
-import { Calendar as CalendarIcon } from 'lucide-react';
+import { Calendar as CalendarIcon, Star } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { supabase } from '@/lib/supabase';
+import { PhoneNumberInput } from '@/components/phone-number-input';
+import { isValidEmail, isValidInternationalPhone } from '@/lib/contact-validation';
 
 
 export default function BookingPageComponent() {
@@ -97,13 +99,45 @@ export default function BookingPageComponent() {
       return;
     }
 
+    if (!isValidEmail(email)) {
+      toast({ variant: 'destructive', title: 'Invalid Email', description: 'Please enter a valid email address.' });
+      return;
+    }
+
+    if (!isValidInternationalPhone(phone)) {
+      toast({ variant: 'destructive', title: 'Invalid Phone Number', description: 'Please enter a valid phone number for the selected country.' });
+      return;
+    }
+
     try {
+      // Check for overlapping bookings one last time before submitting
+      const { data: existingBookings, error: checkError } = await supabase
+        .from('reservations')
+        .select('id')
+        .eq('room_id', roomId)
+        .eq('status', 'confirmed')
+        .lt('check_in_date', format(checkOutDate, 'yyyy-MM-dd'))
+        .gt('check_out_date', format(checkInDate, 'yyyy-MM-dd'));
+
+      if (checkError) {
+        console.error('Error checking availability:', checkError);
+      }
+
+      if (existingBookings && existingBookings.length > 0) {
+        toast({
+          variant: 'destructive',
+          title: 'Room No Longer Available',
+          description: 'This room has just been booked for the selected dates. Please choose another date or room. Please contact our team.'
+        });
+        return;
+      }
+
       // Create or update guest information - simplified for guest checkout
       // In a real app, you'd check if guest exists by email
       const guestData = {
         first_name: firstName,
         last_name: lastName,
-        email,
+        email: email.trim(),
         phone_number: phone,
         id_card_number: idCardNumber,
       };
@@ -130,7 +164,7 @@ export default function BookingPageComponent() {
         status: 'confirmed',
         special_requests: specialRequests,
         id_card_number: idCardNumber,
-        guest_phone: phone
+        guest_phone: phone,
       };
 
       const { error: reservationError } = await supabase
@@ -143,8 +177,18 @@ export default function BookingPageComponent() {
       router.push('/');
 
     } catch (error: any) {
-      console.error('Booking failed:', error);
-      toast({ variant: 'destructive', title: 'Booking Failed', description: error.message });
+      console.error('Booking submission failed:', {
+        message: error.message,
+        details: error.details,
+        hint: error.hint,
+        code: error.code,
+        error: error
+      });
+      toast({ 
+        variant: 'destructive', 
+        title: 'Booking Failed', 
+        description: error.message || 'There was a problem submitting your booking. Please try again.' 
+      });
     }
   };
 
@@ -177,17 +221,60 @@ export default function BookingPageComponent() {
               <CardContent className="space-y-4 text-sm">
                 <div className="flex justify-between items-center">
                   <span className="text-muted-foreground">Price per night</span>
-                  <span className="font-semibold">${room.pricePerNight.toFixed(2)}</span>
+                  <span className="font-semibold">LKR {room.pricePerNight.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
                 </div>
                 <div className="flex justify-between items-center">
                   <span className="text-muted-foreground">Number of nights</span>
                   <span className="font-semibold">{numberOfNights > 0 ? numberOfNights : '-'}</span>
                 </div>
                 <div className="border-t my-2"></div>
-                <div className="flex justify-between items-center text-lg">
-                  <span className="font-bold text-foreground">Total cost</span>
-                  <span className="font-bold text-primary">${totalCost.toFixed(2)}</span>
+                <div className="flex justify-between items-center pt-3 border-t">
+                  <span className="font-bold">Total Cost</span>
+                  <span className="font-bold text-primary">LKR {totalCost.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
                 </div>
+              </CardContent>
+            </Card>
+
+            {/* Partner Booking Options */}
+            <Card className="mt-8 border-dashed border-2 hover:bg-white/40 transition-colors">
+              <CardHeader className="pb-4">
+                <CardTitle className="text-lg font-headline text-[#283618]">Also Available On</CardTitle>
+                <CardDescription className="text-xs">Prefer your favorite booking platform?</CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-6">
+                <a 
+                  href="https://www.booking.com/hotel/lk/oruthota-chalets.en-gb.html" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-between p-4 rounded-xl border border-stone-100 bg-white shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all group"
+                >
+                  <div className="relative w-28 h-8">
+                    <Image src="/booking-logo.svg" alt="Booking.com" fill className="object-contain" />
+                  </div>
+                  <div className="flex flex-col items-end">
+                    <div className="bg-[#003580] text-white px-2 py-0.5 rounded text-[10px] font-bold">9.1</div>
+                    <span className="text-[10px] text-muted-foreground mt-1 uppercase tracking-tighter">Superb</span>
+                  </div>
+                </a>
+
+                <a 
+                  href="https://www.agoda.com/oruthota-chalets/hotel/kandy-lk.html" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-between p-4 rounded-xl border border-stone-100 bg-white shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all group"
+                >
+                  <div className="relative w-24 h-8">
+                    <Image src="/color-default.svg" alt="Agoda" fill className="object-contain" />
+                  </div>
+                  <div className="flex flex-col items-end">
+                    <div className="flex gap-0.5">
+                      {[...Array(5)].map((_, i) => (
+                        <Star key={i} className="w-2.5 h-2.5 text-yellow-400 fill-yellow-400" />
+                      ))}
+                    </div>
+                    <span className="text-[10px] text-muted-foreground mt-1 uppercase tracking-tighter">Top Rated</span>
+                  </div>
+                </a>
               </CardContent>
             </Card>
           </div>
@@ -234,7 +321,7 @@ export default function BookingPageComponent() {
                     </div>
                     <div className="space-y-2">
                       <Label htmlFor="phone">Phone Number</Label>
-                      <Input id="phone" type="tel" value={phone} onChange={(e) => setPhone(e.target.value)} required />
+                      <PhoneNumberInput id="phone" value={phone} onChange={setPhone} required />
                     </div>
                   </div>
                   <div className="space-y-2">

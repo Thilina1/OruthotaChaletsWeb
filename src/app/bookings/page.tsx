@@ -45,11 +45,11 @@ function BookingsListComponent() {
 
     return rooms.map(room => {
       const roomReservations = (reservations || [])
-        .filter(res => res.roomId === room.id && res.status === 'confirmed')
+        .filter(res => res.room_id === room.id && res.status === 'confirmed')
         .map(res => {
           // By appending 'T00:00:00Z', we ensure parsing happens in UTC, avoiding timezone issues.
-          const checkInDate = parseISO(res.checkInDate + 'T00:00:00Z');
-          const checkOutDate = parseISO(res.checkOutDate + 'T00:00:00Z');
+          const checkInDate = parseISO(res.check_in_date + 'T00:00:00Z');
+          const checkOutDate = parseISO(res.check_out_date + 'T00:00:00Z');
           return {
             start: checkInDate,
             end: checkOutDate
@@ -96,23 +96,29 @@ function BookingsListComponent() {
 
   return (
     <div className="flex flex-col">
-      <section className="relative h-[50vh] min-h-[400px] w-full">
-        {heroImage && (
-          <Image
-            src={heroImage.imageUrl}
-            alt={heroImage.description}
-            fill
-            className="object-cover"
-            priority
-            data-ai-hint={heroImage.imageHint}
-          />
-        )}
-        <div className="absolute inset-0 bg-black/40" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center text-white z-10 w-full px-4 flex items-center justify-center">
-          <div className="flex flex-col items-center justify-center">
-            <h1 className="font-headline text-5xl md:text-7xl tracking-wider font-normal text-white/90">
+      {/* Hero Section */}
+      <section className="relative h-[60vh] min-h-[500px] w-full flex items-center justify-center overflow-hidden">
+        <Image
+          src="/IMG_4022.jpg"
+          alt="Available Rooms at Oruthota Chalets"
+          fill
+          className="object-cover transition-transform duration-1000 hover:scale-105"
+          priority
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-background/90" />
+        <div className="absolute inset-0 flex items-center justify-center z-10 p-4">
+          <div className="text-center space-y-6 max-w-4xl mx-auto">
+            <div className="inline-block animate-in fade-in slide-in-from-bottom-2 duration-700">
+              <span className="py-1 px-4 rounded-full bg-white/10 backdrop-blur-md text-white text-xs md:text-sm font-bold tracking-[0.2em] uppercase border border-white/20">
+                Your Sanctuary
+              </span>
+            </div>
+            <h1 className="font-headline text-5xl md:text-7xl lg:text-8xl tracking-tight text-white drop-shadow-xl animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-100 uppercase">
               Available Rooms
             </h1>
+            <p className="text-lg md:text-xl text-white/90 font-light tracking-wide max-w-2xl mx-auto animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-200 leading-relaxed">
+              Find the perfect space for your peaceful retreat at Oruthota Chalets.
+            </p>
           </div>
         </div>
       </section>
@@ -191,7 +197,7 @@ function BookingsListComponent() {
                         <span>{accommodation.view}</span>
                       </div>
                       <div className="mb-8">
-                        <span className="font-bold text-lg text-primary">${accommodation.pricePerNight}</span>
+                        <span className="font-bold text-lg text-primary">LKR {accommodation.pricePerNight.toLocaleString()}</span>
                         <span className="text-sm text-muted-foreground"> / night</span>
                       </div>
                       <div className="flex gap-2 justify-center items-center">
@@ -224,6 +230,33 @@ function BookingsListComponent() {
                             BOOK NOW
                           </Button>
                         </Link>
+                      </div>
+
+                      {/* Partner Booking Logos */}
+                      <div className="pt-8 flex flex-col items-center gap-4">
+                        <p className="text-[10px] tracking-[0.2em] font-bold text-muted-foreground uppercase">Also Bookable Via</p>
+                        <div className="flex items-center gap-6 opacity-70 hover:opacity-100 transition-opacity">
+                          <a 
+                            href="https://www.booking.com/hotel/lk/oruthota-chalets.en-gb.html" 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className="grayscale hover:grayscale-0 transition-all hover:scale-110"
+                          >
+                            <div className="relative w-24 h-6">
+                              <Image src="/booking-logo.svg" alt="Booking.com" fill className="object-contain" />
+                            </div>
+                          </a>
+                          <a 
+                            href="https://www.agoda.com/oruthota-chalets/hotel/kandy-lk.html" 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className="grayscale hover:grayscale-0 transition-all hover:scale-110"
+                          >
+                            <div className="relative w-20 h-6">
+                              <Image src="/color-default.svg" alt="Agoda" fill className="object-contain" />
+                            </div>
+                          </a>
+                        </div>
                       </div>
                     </div>
                   </div>

@@ -1,26 +1,25 @@
 
 'use client';
 
+import { useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { BookingForm } from '@/components/booking-form';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Utensils, Wine, Coffee, Sunset, Clock } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Badge } from '@/components/ui/badge';
-
 import { PageHero } from '@/components/page-hero';
+import { TableBookingModal } from '@/components/table-booking-modal';
+import { ExperienceGallery } from '@/components/experience-gallery';
+import { STATIC_EXPERIENCES } from '@/data/experiences';
 
 const DINING_FEATURES = [
   {
     icon: Utensils,
     title: "Farm to Table",
     description: "Fresh ingredients sourced directly from local farmers and our own organic gardens."
-  },
-  {
-    icon: Wine,
-    title: "Curated Cellar",
-    description: "An extensive collection of international wines and premium spirits to pair with your meal."
   },
   {
     icon: Coffee,
@@ -42,46 +41,24 @@ const DINING_VENUES = [
     description: `Step back in time at our main restaurant, where colonial elegance meets modern culinary excellence. The high ceilings, antique furniture, and warm lighting create a sophisticated atmosphere perfect for any occasion.
         
         Our daily rotating menu features a fusion of international favorites and Sri Lankan classics, ensuring there is always something new to discover.`,
-    imageId: 'dining-wine', // Using existing placeholder
+    imageUrl: '/Restaurant.png',
     features: ['Breakfast', 'Lunch', 'Dinner', 'A la Carte']
   },
   {
     id: 'terrace-dining',
-    title: 'The River View Terrace',
-    subtitle: 'AL FRESCO',
+    title: 'Reservoir View Terrace',
+    subtitle: 'Reservoir View Terrace',
     description: `Immerse yourself in nature while you dine. Our terrace offers panoramic views of the Victoria Reservoir, providing a stunning backdrop for a romantic dinner or a relaxed lunch. 
         
         Enjoy the gentle cool breeze and the sounds of nature as you savor fresh seafood, grilled specialties, and refreshing mocktails.`,
-    imageId: 'experience-hike', // Using a scenic image as placeholder for terrace view
+    imageUrl: '/DSC00159.jpg',
     features: ['Outdoor Seating', 'Sunset Views', 'Grill & BBQ']
-  }
-];
-
-const SIGNATURE_DISHES = [
-  {
-    title: "Traditional Rice & Curry",
-    description: "A feast of heirloom red rice served with 15 different vegetable curries, clay-pot fish, and papadum.",
-    price: "$$",
-  },
-  {
-    title: "Victoria Lake Fish",
-    description: "Freshly caught seasoned fillet, pan-seared with garlic butter and served with organic steamed vegetables.",
-    price: "$$$",
-  },
-  {
-    title: "Smoked Up-country Pork",
-    description: "Slow-smoked pork lover's delight, marinated in local spices and served with a spicy pineapple chutney.",
-    price: "$$$",
-  },
-  {
-    title: "Watalappam Tart",
-    description: "A modern twist on a classic Sri Lankan dessert. Coconut custard pudding with kitul jaggery and cashews.",
-    price: "$",
   }
 ];
 
 export default function DiningPage() {
   const heroImage = PlaceHolderImages.find((p) => p.id === 'dining-wine');
+  const [bookingOpen, setBookingOpen] = useState(false);
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -90,15 +67,14 @@ export default function DiningPage() {
         title="Wine & Dine"
         subtitle="Culinary Journeys"
         description="A symphony of flavors tailored to your palate, set against the backdrop of mist-covered mountains."
-        imageUrl={heroImage?.imageUrl || ''}
-        imageAlt={heroImage?.description || 'Dining at Oruthota Chalets'}
-        imageHint={heroImage?.imageHint}
+        imageUrl="/Restaurant.png"
+        imageAlt="Dining at Oruthota Chalets"
       />
 
       {/* Booking Form Integration */}
       <div className="relative z-20 -mt-16 container mx-auto px-4 mb-16">
         <div className="bg-card rounded-xl shadow-2xl border border-border/50 backdrop-blur-sm overflow-hidden">
-          <BookingForm />
+          <BookingForm showTableBooking={true} />
         </div>
       </div>
 
@@ -113,11 +89,11 @@ export default function DiningPage() {
             </div>
             <h2 className="font-headline text-4xl md:text-5xl text-foreground">Exquisite Culinary Journeys</h2>
             <p className="text-muted-foreground text-sm leading-relaxed max-w-4xl mx-auto">
-              Indulge in an array of culinary delights at Oruthota Chalets. Our chefs craft exquisite dishes using the freshest local ingredients, offering a symphony of flavors that range from authentic Sri Lankan specialties to international cuisine. Whether it&apos;s a romantic dinner under the stars or a casual family meal, our dining experiences are designed to delight your senses and nourish your soul.
+              Indulge in an array of culinary delights at Oruthota Chalets. Our chefs craft exquisite dishes using the freshest local ingredients, offering a symphony of flavors that range from authentic Sri Lankan specialties to international. Whether it&apos;s a romantic dinner under the stars or a casual family meal, our dining experiences are designed to delight your senses and nourish your soul.
             </p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             {DINING_FEATURES.map((feature, idx) => (
               <div key={idx} className="flex flex-col items-center p-6 rounded-2xl bg-secondary/30 hover:bg-secondary/60 transition-colors group">
                 <feature.icon className="w-10 h-10 text-primary mb-4 group-hover:scale-110 transition-transform" />
@@ -141,7 +117,7 @@ export default function DiningPage() {
                 <div className="h-px bg-foreground flex-grow max-w-[100px]"></div>
               </div>
 
-              <h2 className="font-headline text-4xl md:text-5xl text-foreground">360 by Oruthota Chalets</h2>
+              <h2 className="font-headline text-4xl md:text-5xl text-foreground">By Oruthota Chalets</h2>
 
               <div className="space-y-6 text-muted-foreground text-sm leading-loose">
                 <p>
@@ -172,7 +148,10 @@ export default function DiningPage() {
               </div>
 
               <div className="pt-6">
-                <Button className="bg-[#bd2830] hover:bg-[#9a1e24] text-white rounded-none px-8 py-6 text-xs font-bold tracking-[0.2em] uppercase transition-colors">
+                <Button
+                  onClick={() => setBookingOpen(true)}
+                  className="bg-[#bd2830] hover:bg-[#9a1e24] text-white rounded-none px-8 py-6 text-xs font-bold tracking-[0.2em] uppercase transition-colors"
+                >
                   BOOK A TABLE <ArrowRight className="w-4 h-4 ml-6" />
                 </Button>
               </div>
@@ -183,23 +162,64 @@ export default function DiningPage() {
           {/* Right Image Area */}
           <div className="w-full lg:w-1/2 relative min-h-[400px] lg:min-h-full">
             <div className="absolute inset-0 lg:inset-y-12 lg:right-12 lg:left-0 z-10">
-              {heroImage && (
-                <Image
-                  src={heroImage.imageUrl}
-                  alt="Scenic Dining"
-                  fill
-                  className="object-cover shadow-2xl"
-                />
-              )}
-            </div>
-            {/* Carousel Dots placeholder */}
-            <div className="absolute bottom-4 lg:bottom-0 left-0 right-0 lg:right-12 flex justify-center gap-2 pb-4">
-              <div className="w-2 h-2 rounded-full bg-[#bd2830]"></div>
-              <div className="w-2 h-2 rounded-full bg-[#bd2830]"></div>
+              <Image
+                src="/Restaurant.png"
+                alt="Scenic Dining"
+                fill
+                className="object-cover shadow-2xl"
+              />
             </div>
           </div>
         </div>
       </section>
+
+      {/* Culinary Tourism */}
+      {(() => {
+        const culinaryExp = STATIC_EXPERIENCES.find(e => e.id === 'culinary-tourism');
+        if (!culinaryExp) return null;
+        return (
+          <section className="py-24 bg-secondary/10">
+            <div className="container mx-auto px-4">
+              <div className="text-center mb-16 max-w-4xl mx-auto space-y-4">
+                <div className="flex items-center justify-center">
+                  <div className="h-px bg-foreground w-16 mx-4"></div>
+                  <p className="text-xs tracking-[0.3em] font-semibold text-muted-foreground uppercase">Culinary Experiences</p>
+                  <div className="h-px bg-foreground w-16 mx-4"></div>
+                </div>
+                <h2 className="font-headline text-4xl md:text-5xl text-foreground">Culinary Tourism</h2>
+              </div>
+
+              <div className="flex flex-col lg:flex-row gap-12 lg:gap-20 items-start max-w-7xl mx-auto">
+                <div className="w-full lg:w-1/2">
+                  {culinaryExp.galleryImages && (
+                    <ExperienceGallery images={culinaryExp.galleryImages} alt={culinaryExp.title} />
+                  )}
+                </div>
+                <div className="w-full lg:w-1/2 flex flex-col justify-center space-y-6 lg:pt-8">
+                  <Badge variant="outline" className="w-fit border-primary/40 text-primary px-3 py-1.5 text-xs uppercase tracking-widest">
+                    {culinaryExp.category}
+                  </Badge>
+                  <div className="text-muted-foreground text-sm leading-relaxed space-y-4">
+                    {culinaryExp.description.split('\n\n').map((para, i) => (
+                      <p key={i}>{para}</p>
+                    ))}
+                  </div>
+                  <div className="pt-4">
+                    <Button
+                      asChild
+                      className="bg-[#bd2830] hover:bg-[#9a1e24] text-white rounded-none px-8 py-6 text-xs font-bold tracking-[0.2em] uppercase transition-colors"
+                    >
+                      <Link href="/contact?experience=culinary-tourism#contact-form">
+                        BOOK THIS EXPERIENCE <ArrowRight className="w-4 h-4 ml-6" />
+                      </Link>
+                    </Button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        );
+      })()}
 
       {/* Venues */}
       <section className="py-24 bg-background">
@@ -219,7 +239,7 @@ export default function DiningPage() {
           <div className="flex flex-col gap-32">
             {DINING_VENUES.map((venue, index) => {
               const isEven = index % 2 === 0;
-              const image = PlaceHolderImages.find(p => p.id === venue.imageId) || heroImage; // Fallback
+              const venueImage = venue.imageUrl || heroImage?.imageUrl || '/placeholder.svg';
 
               return (
                 <div key={venue.id} className={cn(
@@ -228,10 +248,10 @@ export default function DiningPage() {
                 )}>
                   {/* Image Side */}
                   <div className="w-full lg:w-1/2 relative group perspective-1000">
-                    <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl shadow-2xl transform transition-transform duration-500 group-hover:rotate-1">
-                      {image && (
+                    <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl shadow-2xl transition-transform duration-500">
+                      {venueImage && (
                         <Image
-                          src={image.imageUrl}
+                          src={venueImage}
                           alt={venue.title}
                           fill
                           className="object-cover transition-transform duration-700 group-hover:scale-110"
@@ -271,50 +291,10 @@ export default function DiningPage() {
                       ))}
                     </div>
 
-                    <div className="pt-4 mt-2">
-                      <Button variant="link" className="p-0 h-auto text-primary font-bold tracking-widest hover:text-primary/80 hover:no-underline group/btn flex items-center gap-2 text-sm">
-                        VIEW MENU <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover/btn:translate-x-1" />
-                      </Button>
-                    </div>
                   </div>
                 </div>
               )
             })}
-          </div>
-        </div>
-      </section>
-
-      {/* Signature Dishes Grid */}
-      <section className="py-24 bg-secondary/20">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16 space-y-4">
-            <p className="text-xs font-bold tracking-[0.3em] text-primary uppercase">Taste the Difference</p>
-            <h2 className="font-headline text-4xl md:text-5xl text-foreground">Signature Creations</h2>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-            {SIGNATURE_DISHES.map((dish, idx) => (
-              <div key={idx} className="group p-8 md:p-10 border border-border/60 hover:border-primary/30 transition-all duration-300 bg-background hover:shadow-xl hover:-translate-y-1 rounded-2xl relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-20 h-20 bg-primary/5 rounded-bl-full -mr-4 -mt-4 transition-transform group-hover:scale-150 duration-500" />
-
-                <div className="flex justify-between items-baseline mb-4 relative z-10">
-                  <h4 className="font-headline text-2xl md:text-3xl text-foreground group-hover:text-primary transition-colors">{dish.title}</h4>
-                  <span className="text-muted-foreground font-serif italic text-lg">{dish.price}</span>
-                </div>
-
-                <div className="w-12 h-0.5 bg-border group-hover:bg-primary/50 mb-6 transition-colors duration-500" />
-
-                <p className="text-muted-foreground leading-relaxed text-lg font-light relative z-10">
-                  {dish.description}
-                </p>
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-16 text-center">
-            <p className="text-muted-foreground italic max-w-2xl mx-auto text-sm">
-              * Please inform our staff of any allergies or dietary restrictions. We are happy to accommodate vegan and gluten-free requests.
-            </p>
           </div>
         </div>
       </section>
@@ -327,11 +307,17 @@ export default function DiningPage() {
           <p className="text-primary-foreground/90 mb-10 text-xl font-light leading-relaxed">
             Whether it&apos;s a special celebration or a quiet dinner for two, let us reserve the perfect spot for you.
           </p>
-          <Button size="lg" className="rounded-full px-10 h-14 bg-white text-primary hover:bg-white/90 shadow-2xl hover:shadow-black/20 hover:-translate-y-1 transition-all text-lg font-bold">
+          <Button
+            size="lg"
+            onClick={() => setBookingOpen(true)}
+            className="rounded-full px-10 h-14 bg-white text-primary hover:bg-white/90 shadow-2xl hover:shadow-black/20 hover:-translate-y-1 transition-all text-lg font-bold"
+          >
             Book a Table <ArrowRight className="ml-2 w-5 h-5" />
           </Button>
         </div>
       </section>
+
+      <TableBookingModal open={bookingOpen} onClose={() => setBookingOpen(false)} />
     </div>
   );
 }

@@ -32,7 +32,7 @@ export function useSupabaseCollection<T = any>(tableName: string): UseSupabaseCo
                 }
             } catch (err: any) {
                 if (mounted) {
-                    console.error(`Supabase fetch error for ${tableName}:`, err);
+                    console.warn(`Supabase fetch error for ${tableName}:`, err);
                     setError(err);
                 }
             } finally {
