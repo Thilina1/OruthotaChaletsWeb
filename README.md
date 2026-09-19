@@ -1,5 +1,5 @@
-# Firebase Studio
+# Oruthota Chalets
 
-This is a NextJS starter in Firebase Studio.
+Next.js application for the Oruthota Chalets website.
 
 To get started, take a look at src/app/page.tsx.

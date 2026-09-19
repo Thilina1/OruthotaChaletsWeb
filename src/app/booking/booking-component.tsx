@@ -5,8 +5,6 @@ import { useSearchParams, useRouter } from 'next/navigation';
 import Image from 'next/image';
 import { differenceInCalendarDays, format, addDays, startOfDay } from 'date-fns';
 import type { Room } from '@/types/room';
-import type { Guest } from '@/types/guest';
-import type { Reservation } from '@/types/reservation';
 
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -18,6 +16,7 @@ import { useToast } from '@/hooks/use-toast';
 import { supabase } from '@/lib/supabase';
 import { PhoneNumberInput } from '@/components/phone-number-input';
 import { isValidEmail, isValidInternationalPhone } from '@/lib/contact-validation';
+import { readJsonResponse } from '@/lib/fetch-json';
 
 
 export default function BookingPageComponent() {
@@ -110,68 +109,26 @@ export default function BookingPageComponent() {
     }
 
     try {
-      // Check for overlapping bookings one last time before submitting
-      const { data: existingBookings, error: checkError } = await supabase
-        .from('reservations')
-        .select('id')
-        .eq('room_id', roomId)
-        .eq('status', 'confirmed')
-        .lt('check_in_date', format(checkOutDate, 'yyyy-MM-dd'))
-        .gt('check_out_date', format(checkInDate, 'yyyy-MM-dd'));
+      const response = await fetch('/api/bookings/room', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          roomId: room.id,
+          checkIn: format(checkInDate, 'yyyy-MM-dd'),
+          checkOut: format(checkOutDate, 'yyyy-MM-dd'),
+          adults,
+          children,
+          firstName,
+          lastName,
+          email,
+          phone,
+          idCardNumber,
+          specialRequests,
+        }),
+      });
 
-      if (checkError) {
-        console.error('Error checking availability:', checkError);
-      }
-
-      if (existingBookings && existingBookings.length > 0) {
-        toast({
-          variant: 'destructive',
-          title: 'Room No Longer Available',
-          description: 'This room has just been booked for the selected dates. Please choose another date or room. Please contact our team.'
-        });
-        return;
-      }
-
-      // Create or update guest information - simplified for guest checkout
-      // In a real app, you'd check if guest exists by email
-      const guestData = {
-        first_name: firstName,
-        last_name: lastName,
-        email: email.trim(),
-        phone_number: phone,
-        id_card_number: idCardNumber,
-      };
-
-      const { data: guest, error: guestError } = await supabase
-        .from('guests')
-        .upsert([guestData], { onConflict: 'email' }) // Assuming email is unique/primary key for guest lookup
-        .select()
-        .single();
-
-      if (guestError) throw guestError;
-
-      // Create reservation
-      const reservationData = {
-        guest_id: guest.id, // Supabase generated UUID
-        room_id: room.id,
-        room_title: room.title,
-        guest_name: `${firstName} ${lastName}`,
-        guest_email: email,
-        check_in_date: format(checkInDate, 'yyyy-MM-dd'),
-        check_out_date: format(checkOutDate, 'yyyy-MM-dd'),
-        number_of_guests: numberOfGuests,
-        total_cost: totalCost,
-        status: 'confirmed',
-        special_requests: specialRequests,
-        id_card_number: idCardNumber,
-        guest_phone: phone,
-      };
-
-      const { error: reservationError } = await supabase
-        .from('reservations')
-        .insert([reservationData]);
-
-      if (reservationError) throw reservationError;
+      const result = await readJsonResponse(response);
+      if (!response.ok) throw new Error(result.error || 'Booking failed');
 
       toast({ title: 'Booking Request Sent!', description: 'We have received your request and will confirm shortly.' });
       router.push('/');

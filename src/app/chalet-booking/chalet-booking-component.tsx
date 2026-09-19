@@ -13,8 +13,24 @@ import { useToast } from '@/hooks/use-toast';
 import { CalendarIcon, Users, Loader2, CheckCircle2 } from 'lucide-react';
 import { PhoneNumberInput } from '@/components/phone-number-input';
 import { isValidEmail, isValidInternationalPhone } from '@/lib/contact-validation';
+import { readJsonResponse } from '@/lib/fetch-json';
 
 const SERVICE_CHARGE_RATE = 0.1; // 10%
+
+function parseGuestCount(value: string | null, fallback: number) {
+  const parsed = Number.parseInt(value ?? '', 10);
+  return Number.isFinite(parsed) ? parsed : fallback;
+}
+
+function inferGuestCountsFromOccupancy(name: string) {
+  const adults = Number.parseInt(name.match(/(\d+)\s*adult/i)?.[1] ?? '', 10);
+  const children = Number.parseInt(name.match(/(\d+)\s*(?:child|children)/i)?.[1] ?? '', 10);
+
+  return {
+    adults: Number.isFinite(adults) ? adults : 1,
+    children: Number.isFinite(children) ? children : 0,
+  };
+}
 
 type BookingDetails = {
   packageName: string;
@@ -35,8 +51,10 @@ export default function ChaletBookingComponent() {
   const checkOut = searchParams.get('checkOut') ?? '';
   const packageId = searchParams.get('packageId') ?? '';
   const occupancyTypeId = searchParams.get('occupancyTypeId') ?? '';
-  const defaultAdults = parseInt(searchParams.get('adults') ?? '2', 10);
-  const defaultChildren = parseInt(searchParams.get('children') ?? '0', 10);
+  const adultsParam = searchParams.get('adults');
+  const childrenParam = searchParams.get('children');
+  const defaultAdults = parseGuestCount(adultsParam, 1);
+  const defaultChildren = parseGuestCount(childrenParam, 0);
 
   const [details, setDetails] = useState<BookingDetails | null>(null);
   const [loadingDetails, setLoadingDetails] = useState(true);
@@ -90,18 +108,27 @@ export default function ChaletBookingComponent() {
       const serviceCharge = subtotal * SERVICE_CHARGE_RATE;
       const total = subtotal + serviceCharge;
 
+      const occupancyName = occRes.data?.name ?? 'Occupancy';
+
       setDetails({
         packageName: pkgRes.data?.name ?? 'Package',
-        occupancyName: occRes.data?.name ?? 'Occupancy',
+        occupancyName,
         ratePerNight,
         nights,
         subtotal,
         serviceCharge,
         total,
       });
+
+      if (!adultsParam && !childrenParam) {
+        setForm((previous) => ({
+          ...previous,
+          ...inferGuestCountsFromOccupancy(occupancyName),
+        }));
+      }
       setLoadingDetails(false);
     });
-  }, [checkIn, checkOut, packageId, occupancyTypeId]);
+  }, [adultsParam, checkIn, checkOut, childrenParam, packageId, occupancyTypeId]);
 
   const handleSubmit = async () => {
     if (!form.customer_name.trim() || !form.customer_phone.trim() || !form.customer_nic.trim()) {
@@ -121,24 +148,26 @@ export default function ChaletBookingComponent() {
 
     setSubmitting(true);
     try {
-      const { error } = await supabase.from('chalet_bookings').insert([{
-        check_in_date: checkIn,
-        check_out_date: checkOut,
-        package_id: packageId,
-        occupancy_type_id: occupancyTypeId,
-        customer_name: form.customer_name.trim(),
-        customer_email: form.customer_email.trim() || null,
-        customer_phone: form.customer_phone.trim(),
-        customer_nic: form.customer_nic.trim() || null,
-        adults: form.adults,
-        children: form.children,
-        special_requests: form.special_requests.trim() || null,
-        rate_per_night: details.ratePerNight,
-        total_nights: details.nights,
-        status: 'pending',
-      }]);
+      const response = await fetch('/api/bookings/chalet', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          checkIn,
+          checkOut,
+          packageId,
+          occupancyTypeId,
+          customerName: form.customer_name,
+          customerEmail: form.customer_email,
+          customerPhone: form.customer_phone,
+          customerNic: form.customer_nic,
+          adults: form.adults,
+          children: form.children,
+          specialRequests: form.special_requests,
+        }),
+      });
 
-      if (error) throw error;
+      const result = await readJsonResponse(response);
+      if (!response.ok) throw new Error(result.error || 'Booking failed');
       setSubmitted(true);
     } catch (err) {
       toast({ variant: 'destructive', title: 'Booking failed', description: (err as Error).message });
@@ -151,7 +180,7 @@ export default function ChaletBookingComponent() {
     return (
       <div className="min-h-[60vh] flex items-center justify-center px-4">
         <div className="text-center max-w-md">
-          <CheckCircle2 className="w-16 h-16 text-green-500 mx-auto mb-4" />
+          <CheckCircle2 className="w-16 h-16 text-green-500 mx-auto mt-[0.5cm] mb-4" />
           <h1 className="text-2xl font-bold text-[#283618] mb-2">Booking Request Sent!</h1>
           <p className="text-muted-foreground mb-6">
             Thank you for choosing Oruthota Chalets. Our representative will contact you soon via email and mobile to confirm your reservation — stay tuned!
@@ -200,11 +229,10 @@ export default function ChaletBookingComponent() {
                   </div>
                   <div className="flex gap-2 items-start">
                     <Users className="h-4 w-4 mt-0.5 text-[#606C38]" />
-                    <div>{form.adults} adult{form.adults !== 1 ? 's' : ''}{form.children > 0 ? `, ${form.children} child${form.children !== 1 ? 'ren' : ''}` : ''}</div>
+                    <div>{details.occupancyName}</div>
                   </div>
                   <div className="border-t pt-3 space-y-1.5">
                     <div className="text-muted-foreground">{details.packageName}</div>
-                    <div className="text-muted-foreground">{details.occupancyName}</div>
                   </div>
                   <div className="border-t pt-3 space-y-2">
                     <div className="flex justify-between text-muted-foreground">

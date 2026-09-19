@@ -897,6 +897,10 @@ body {
   margin-top: 2rem;
 }
 
+.mt-\[0\.5cm\] {
+  margin-top: .5cm;
+}
+
 .mt-auto {
   margin-top: auto;
 }

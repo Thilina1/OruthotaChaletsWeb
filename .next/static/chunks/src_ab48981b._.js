@@ -444,8 +444,8 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$supabase$2
 ;
 // Use safe fallbacks to prevent build/runtime crashes.
 // If env vars are missing, the client will be created but requests will fail (which is handled in the UI).
-const supabaseUrl = ("TURBOPACK compile-time value", "https://ysejulbuvunfhodersjr.supabase.co") || 'https://placeholder-url.supabase.co';
-const supabaseAnonKey = ("TURBOPACK compile-time value", "sb_publishable_nn7GsENQXU_YmbYO7S8bUA_s8P4SVW5") || 'placeholder-key';
+const supabaseUrl = ("TURBOPACK compile-time value", "https://bkfeucuxexgfpjqbvlly.supabase.co") || 'https://placeholder-url.supabase.co';
+const supabaseAnonKey = ("TURBOPACK compile-time value", "sb_publishable_sxMh_mzJZZlH2WU-b9m5eg_At1BmmKG") || __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].env.NEXT_PUBLIC_SUPABASE_ANON_KEY || 'placeholder-key';
 if ("TURBOPACK compile-time falsy", 0) //TURBOPACK unreachable
 ;
 if ("TURBOPACK compile-time falsy", 0) //TURBOPACK unreachable

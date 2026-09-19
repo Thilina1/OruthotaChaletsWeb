@@ -5,18 +5,24 @@ import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { BookingForm } from '@/components/booking-form';
 import { Button } from '@/components/ui/button';
 import { useSupabaseCollection } from '@/hooks/use-supabase';
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import type { Room } from '@/types/room';
-import type { Reservation } from '@/types/reservation';
 import Link from 'next/link';
 import { Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
-import { parseISO, addDays, format, differenceInCalendarDays, eachDayOfInterval } from 'date-fns';
+import { parseISO, format } from 'date-fns';
 import { Badge } from '@/components/ui/badge';
 import { Calendar as CalendarIcon } from 'lucide-react';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import { Calendar } from '@/components/ui/calendar';
+import { readJsonResponse } from '@/lib/fetch-json';
 
+type RoomAvailability = {
+  roomId: string;
+  isAvailable: boolean;
+  bookedDates: string[];
+  nextAvailableDates: string[];
+};
 
 function BookingsListComponent() {
   const heroImage = PlaceHolderImages.find((p) => p.id === 'hero-estate');
@@ -29,70 +35,56 @@ function BookingsListComponent() {
   const guests = (parseInt(adults || '0') + parseInt(children || '0')).toString();
 
   const { data: rooms, isLoading: isLoadingRooms } = useSupabaseCollection<Room>('rooms');
-  const { data: reservations, isLoading: isLoadingReservations } = useSupabaseCollection<Reservation>('reservations');
+  const [availability, setAvailability] = useState<RoomAvailability[]>([]);
+  const [isLoadingAvailability, setIsLoadingAvailability] = useState(false);
+
+  useEffect(() => {
+    let mounted = true;
+
+    async function fetchAvailability() {
+      if (!checkIn || !checkOut) {
+        setAvailability([]);
+        return;
+      }
+
+      setIsLoadingAvailability(true);
+      try {
+        const response = await fetch(`/api/bookings/availability?checkIn=${encodeURIComponent(checkIn)}&checkOut=${encodeURIComponent(checkOut)}`);
+        const result = await readJsonResponse(response);
+        if (!response.ok) throw new Error(result.error || 'Could not load availability');
+        if (mounted) setAvailability(result.rooms ?? []);
+      } catch (error) {
+        console.warn('Availability lookup failed:', error);
+        if (mounted) setAvailability([]);
+      } finally {
+        if (mounted) setIsLoadingAvailability(false);
+      }
+    }
+
+    fetchAvailability();
+
+    return () => {
+      mounted = false;
+    };
+  }, [checkIn, checkOut]);
 
   const processedRooms = useMemo(() => {
-    if (isLoadingReservations || !rooms || !checkIn || !checkOut) {
+    if (isLoadingAvailability || !rooms || !checkIn || !checkOut) {
       return rooms?.map(room => ({ ...room, isAvailable: false, nextAvailableDates: [], bookedDates: [] })) || [];
     }
 
-    if (!reservations) { // Still loading or no reservations found
-      return rooms.map(room => ({ ...room, isAvailable: true, nextAvailableDates: [], bookedDates: [] }));
-    }
-
-    const selectedStart = parseISO(checkIn);
-    const selectedEnd = parseISO(checkOut);
-
     return rooms.map(room => {
-      const roomReservations = (reservations || [])
-        .filter(res => res.room_id === room.id && res.status === 'confirmed')
-        .map(res => {
-          // By appending 'T00:00:00Z', we ensure parsing happens in UTC, avoiding timezone issues.
-          const checkInDate = parseISO(res.check_in_date + 'T00:00:00Z');
-          const checkOutDate = parseISO(res.check_out_date + 'T00:00:00Z');
-          return {
-            start: checkInDate,
-            end: checkOutDate
-          }
-        })
-        .sort((a, b) => a.start.getTime() - b.start.getTime());
-
-      const isUnavailable = roomReservations.some(res =>
-        selectedStart < res.end && res.start < selectedEnd
-      );
-
-      const bookedDates = roomReservations.flatMap(res =>
-        eachDayOfInterval({ start: res.start, end: addDays(res.end, -1) })
-      );
-
-      if (!isUnavailable) {
-        return { ...room, isAvailable: true, nextAvailableDates: [], bookedDates };
-      }
-
-      // Logic to find next 7 available individual days
-      const nextAvailableDates: Date[] = [];
-      let currentDate = addDays(new Date(), 1); // Start checking from tomorrow
-
-      while (nextAvailableDates.length < 7) {
-        const isBlocked = roomReservations.some(res =>
-          currentDate >= res.start && currentDate < res.end
-        );
-
-        if (!isBlocked) {
-          nextAvailableDates.push(new Date(currentDate));
-        }
-
-        currentDate = addDays(currentDate, 1);
-
-        // Safety break to prevent infinite loops
-        if (differenceInCalendarDays(currentDate, new Date()) > 365 * 2) break;
-      }
-
-      return { ...room, isAvailable: false, nextAvailableDates, bookedDates };
+      const roomAvailability = availability.find((item) => item.roomId === room.id);
+      return {
+        ...room,
+        isAvailable: roomAvailability?.isAvailable ?? true,
+        nextAvailableDates: (roomAvailability?.nextAvailableDates ?? []).map((date) => parseISO(date)),
+        bookedDates: (roomAvailability?.bookedDates ?? []).map((date) => parseISO(date)),
+      };
     });
-  }, [rooms, reservations, checkIn, checkOut, isLoadingReservations]);
+  }, [rooms, availability, checkIn, checkOut, isLoadingAvailability]);
 
-  const isLoading = isLoadingRooms || isLoadingReservations;
+  const isLoading = isLoadingRooms || isLoadingAvailability;
 
   return (
     <div className="flex flex-col">
