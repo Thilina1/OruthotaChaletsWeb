@@ -2,20 +2,16 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import { Calendar } from '@/components/ui/calendar';
-import { Calendar as CalendarIcon, Utensils, Clock } from 'lucide-react';
-import { format, addDays } from 'date-fns';
+import { Calendar as CalendarIcon, ChevronDown, Utensils, Clock, Globe, Tag } from 'lucide-react';
+import { format, differenceInCalendarDays } from 'date-fns';
 import { useRouter } from 'next/navigation';
+import type { DateRange } from 'react-day-picker';
 import { cn } from '@/lib/utils';
 import { useToast } from '@/hooks/use-toast';
 import { TableBookingModal } from './table-booking-modal';
-import { supabase } from '@/lib/supabase';
-
-type ChaletPackage = { id: string; name: string; description?: string };
-type OccupancyType = { id: string; name: string; max_guests?: number };
 
 export function BookingForm({ showTableBooking = false }: { showTableBooking?: boolean }) {
   const router = useRouter();
@@ -24,40 +20,47 @@ export function BookingForm({ showTableBooking = false }: { showTableBooking?: b
   const [activeTab, setActiveTab] = useState<'stay' | 'table'>(showTableBooking ? 'table' : 'stay');
   const [isMounted, setIsMounted] = useState(false);
   const [isTableModalOpen, setIsTableModalOpen] = useState(false);
-  const [checkInDate, setCheckInDate] = useState<Date | undefined>(undefined);
-  const [checkOutDate, setCheckOutDate] = useState<Date | undefined>(undefined);
-
-  // Chalet package & occupancy
-  const [packages, setPackages] = useState<ChaletPackage[]>([]);
-  const [occupancyTypes, setOccupancyTypes] = useState<OccupancyType[]>([]);
-  const [selectedPackage, setSelectedPackage] = useState('');
-  const [selectedOccupancy, setSelectedOccupancy] = useState('');
+  const [isDatePopoverOpen, setIsDatePopoverOpen] = useState(false);
+  const [dateRange, setDateRange] = useState<DateRange | undefined>(undefined);
+  const [hoveredCheckoutDate, setHoveredCheckoutDate] = useState<Date | undefined>(undefined);
+  const [nationality, setNationality] = useState<'Sri Lankan' | 'Non Sri Lankan' | ''>('');
+  const [promoCode, setPromoCode] = useState('');
+  // One calendar month on phones, two side by side on wider screens.
+  const [isWideScreen, setIsWideScreen] = useState(true);
 
   useEffect(() => {
-    const today = new Date();
-    setCheckInDate(today);
-    setCheckOutDate(addDays(today, 1));
     setIsMounted(true);
-
-    // Fetch chalet packages and occupancy types
-    Promise.all([
-      supabase.from('chalet_packages').select('id, name, description').order('sort_order'),
-      supabase.from('chalet_occupancy_types').select('id, name, max_guests').order('sort_order'),
-    ]).then(([pkgRes, occRes]) => {
-      if (pkgRes.data) {
-        setPackages(pkgRes.data as ChaletPackage[]);
-        if (pkgRes.data.length > 0) setSelectedPackage(pkgRes.data[0].id);
-      }
-      if (occRes.data) {
-        setOccupancyTypes(occRes.data as OccupancyType[]);
-        if (occRes.data.length > 0) setSelectedOccupancy(occRes.data[0].id);
-      }
-    });
+    const query = window.matchMedia('(min-width: 768px)');
+    const update = () => setIsWideScreen(query.matches);
+    update();
+    query.addEventListener('change', update);
+    return () => query.removeEventListener('change', update);
   }, []);
 
+  const hasValidRange = Boolean(dateRange?.from && dateRange.to && dateRange.to > dateRange.from);
+  const nights = hasValidRange && dateRange?.from && dateRange.to ? differenceInCalendarDays(dateRange.to, dateRange.from) : 0;
+
+  const handleDateRangeSelect = (range: DateRange | undefined) => {
+    if (range?.from && range.to && range.to <= range.from) {
+      setDateRange({ from: range.from, to: undefined });
+      setHoveredCheckoutDate(undefined);
+      return;
+    }
+
+    setDateRange(range);
+    if (range?.from && range.to) {
+      setHoveredCheckoutDate(undefined);
+      setIsDatePopoverOpen(false);
+    }
+  };
+
+  const isPreviewRangeDay = (date: Date) => {
+    if (!dateRange?.from || dateRange.to || !hoveredCheckoutDate) return false;
+    return date > dateRange.from && date <= hoveredCheckoutDate;
+  };
 
   const handleFindRoom = () => {
-    if (!checkInDate || !checkOutDate) {
+    if (!dateRange?.from || !dateRange.to || dateRange.to <= dateRange.from) {
       toast({
         variant: 'destructive',
         title: 'Please select dates',
@@ -65,25 +68,31 @@ export function BookingForm({ showTableBooking = false }: { showTableBooking?: b
       });
       return;
     }
-    if (!selectedPackage || !selectedOccupancy) {
+    if (!nationality) {
       toast({
         variant: 'destructive',
-        title: 'Please select a package',
-        description: 'Choose a package and occupancy type to continue.',
+        title: 'Please select nationality',
+        description: 'You must select your nationality before booking.',
       });
       return;
     }
+    const checkInString = format(dateRange.from, 'yyyy-MM-dd');
+    const checkOutString = format(dateRange.to, 'yyyy-MM-dd');
+    const bookingParams = new URLSearchParams({
+      checkIn: checkInString,
+      checkOut: checkOutString,
+      nationality,
+    });
 
-    const checkInString = format(checkInDate, 'yyyy-MM-dd');
-    const checkOutString = format(checkOutDate, 'yyyy-MM-dd');
+    if (promoCode.trim()) {
+      bookingParams.set('promoCode', promoCode.trim());
+    }
 
-    router.push(
-      `/chalet-booking?checkIn=${checkInString}&checkOut=${checkOutString}&packageId=${selectedPackage}&occupancyTypeId=${selectedOccupancy}`
-    );
+    router.push(`/chalet-booking?${bookingParams.toString()}`);
   };
 
   return (
-    <div className="max-w-6xl mx-auto py-4">
+    <div className="mx-auto max-w-7xl py-3">
       {/* Tab Switcher */}
       {isMounted && showTableBooking && (
         <div className="flex gap-4 mb-4 px-2">
@@ -108,148 +117,120 @@ export function BookingForm({ showTableBooking = false }: { showTableBooking?: b
         </div>
       )}
 
-      <div className="bg-[#FEFAE0]/60 backdrop-blur-sm p-3 rounded-xl shadow-lg border border-white/20">
-        {/* Third-party Booking Platforms */}
-        {(!showTableBooking || activeTab === 'stay') && (
-          <div className="mb-3 pb-3 border-b border-stone-100 flex flex-col items-center justify-center gap-4">
-            <span className="text-[10px] tracking-[0.2em] font-bold text-[#606C38]/60 uppercase">Book via trusted platforms</span>
-            <div className="flex gap-6 items-center">
-              <a
-                href="https://www.booking.com/hotel/lk/oruthota-chalets.en-gb.html"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="transition-all duration-300 hover:scale-110"
-              >
-                <div className="relative w-24 h-6">
-                  <Image
-                    src="/booking-logo.svg"
-                    alt="Booking.com"
-                    fill
-                    className="object-contain"
-                  />
-                </div>
-              </a>
-              <a
-                href="https://www.agoda.com/oruthota-chalets/hotel/kandy-lk.html?cid=1844104&ds=r0%2FnkB5pGgAzoCui"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="transition-all duration-300 hover:scale-110"
-              >
-                <div className="relative w-20 h-6">
-                  <Image
-                    src="/color-default.svg"
-                    alt="Agoda"
-                    fill
-                    className="object-contain"
-                  />
-                </div>
-              </a>
-            </div>
-          </div>
-        )}
-
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-0.5 overflow-hidden rounded-lg shadow-sm">
+      <div className="mx-auto max-w-6xl rounded-2xl border border-white/40 bg-white/90 p-2.5 shadow-lg backdrop-blur-md md:max-w-7xl md:rounded-3xl md:p-3">
+        <div className="grid w-full grid-cols-2 items-stretch gap-1 md:grid-cols-[1fr_1fr_1fr_1fr_auto] md:gap-0">
           {(!showTableBooking || activeTab === 'stay') ? (
             <>
-              {/* Check-in */}
-              <div className="bg-white p-2 md:col-span-1 flex items-center justify-between gap-2 border-r border-stone-100">
-                <Popover>
-                  <PopoverTrigger asChild>
-                    <button className="w-full flex items-center justify-between text-left">
-                      <div>
-                        <label className="text-[10px] text-gray-500 block">Check-in</label>
-                        <span className="text-sm text-black">{checkInDate ? format(checkInDate, 'dd/MM/yyyy') : 'Select date'}</span>
-                      </div>
-                      <CalendarIcon className="h-6 w-6 text-gray-400" />
-                    </button>
-                  </PopoverTrigger>
-                  <PopoverContent className="w-auto p-0" align="start">
-                    <Calendar
-                      mode="single"
-                      selected={checkInDate}
-                      onSelect={(date) => {
-                        setCheckInDate(date);
-                        if (date && checkOutDate && date >= checkOutDate) {
-                          setCheckOutDate(addDays(date, 1));
-                        }
-                      }}
-                      initialFocus
-                      disabled={{ before: new Date() }}
-                    />
-                  </PopoverContent>
-                </Popover>
-              </div>
+              {/* Check-in / Check-out */}
+              <Popover open={isDatePopoverOpen} onOpenChange={setIsDatePopoverOpen}>
+                <PopoverTrigger asChild>
+                  <button type="button" className="col-span-2 grid grid-cols-2 rounded-xl text-left transition-colors hover:bg-stone-100/80 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#283618]/40">
+                    <span className="flex items-center gap-3 px-5 py-3.5 md:px-7 md:py-5">
+                      <CalendarIcon className="h-5 w-5 shrink-0 text-[#283618] md:h-6 md:w-6" />
+                      <span className="min-w-0">
+                        <span className="block text-[11px] font-semibold uppercase tracking-[0.16em] text-stone-500 md:text-xs">Check-in</span>
+                        <span className={cn('block truncate text-base font-semibold md:mt-0.5 md:text-lg', dateRange?.from ? 'text-stone-900' : 'text-stone-400')}>
+                          {dateRange?.from ? format(dateRange.from, 'EEE, dd MMM') : 'Add date'}
+                        </span>
+                      </span>
+                    </span>
+                    <span className="flex items-center gap-3 border-l border-stone-200 px-5 py-3.5 md:px-7 md:py-5">
+                      <CalendarIcon className="h-5 w-5 shrink-0 text-[#283618] md:h-6 md:w-6" />
+                      <span className="min-w-0">
+                        <span className="block text-[11px] font-semibold uppercase tracking-[0.16em] text-stone-500 md:text-xs">
+                          Check-out{nights > 0 ? <span className="ml-1 normal-case tracking-normal text-[#606C38]">· {nights} night{nights === 1 ? '' : 's'}</span> : null}
+                        </span>
+                        <span className={cn('block truncate text-base font-semibold md:mt-0.5 md:text-lg', hasValidRange ? 'text-stone-900' : 'text-stone-400')}>
+                          {hasValidRange && dateRange?.to ? format(dateRange.to, 'EEE, dd MMM') : 'Add date'}
+                        </span>
+                      </span>
+                    </span>
+                  </button>
+                </PopoverTrigger>
+                <PopoverContent className="w-auto overflow-hidden rounded-2xl border border-stone-200 bg-white p-0 shadow-2xl" align="start">
+                  <Calendar
+                    mode="range"
+                    selected={dateRange}
+                    onSelect={handleDateRangeSelect}
+                    onDayMouseEnter={setHoveredCheckoutDate}
+                    onDayMouseLeave={() => setHoveredCheckoutDate(undefined)}
+                    numberOfMonths={isWideScreen ? 2 : 1}
+                    initialFocus
+                    disabled={{ before: new Date() }}
+                    modifiers={{ previewRange: isPreviewRangeDay }}
+                    modifiersClassNames={{
+                      previewRange: 'bg-[#ff9900]/25 text-stone-950 rounded-none',
+                    }}
+                    className="rounded-2xl bg-white p-4"
+                    classNames={{
+                      months: 'flex flex-col gap-6 md:flex-row',
+                      month: 'space-y-4',
+                      caption: 'relative flex items-center justify-center pt-1',
+                      caption_label: 'text-base font-semibold tracking-wide text-stone-950',
+                      head_cell: 'w-10 rounded-md text-xs font-medium text-stone-500',
+                      row: 'mt-1.5 flex w-full',
+                      cell: 'h-10 w-10 p-0 text-center text-sm relative [&:has([aria-selected])]:bg-[#ff9900]/25 first:[&:has([aria-selected])]:rounded-l-full last:[&:has([aria-selected])]:rounded-r-full',
+                      day: 'h-10 w-10 rounded-full p-0 text-sm font-medium text-stone-950 hover:bg-[#ff9900]/20 hover:text-stone-950 focus:bg-[#ff9900]/20 focus:text-stone-950',
+                      day_selected: 'bg-[#ff9900] text-white hover:bg-[#ff9900] hover:text-white focus:bg-[#ff9900] focus:text-white',
+                      day_range_middle: 'rounded-none bg-[#ff9900]/25 text-stone-950 hover:bg-[#ff9900]/25 hover:text-stone-950',
+                      day_range_end: 'day-range-end rounded-full bg-[#ff9900] text-white hover:bg-[#ff9900] hover:text-white',
+                      day_disabled: 'text-stone-300 opacity-60',
+                      nav_button: 'h-8 w-8 rounded-full bg-transparent p-0 text-stone-950 opacity-80 hover:bg-stone-100 hover:opacity-100',
+                      nav_button_previous: 'absolute left-1',
+                      nav_button_next: 'absolute right-1',
+                    }}
+                  />
+                </PopoverContent>
+              </Popover>
 
-              {/* Check-out */}
-              <div className="bg-white p-2 md:col-span-1 flex items-center justify-between gap-2 border-r border-stone-100">
-                <Popover>
-                  <PopoverTrigger asChild>
-                    <button className="w-full flex items-center justify-between text-left">
-                      <div>
-                        <label className="text-[10px] text-gray-500 block">Check-out</label>
-                        <span className="text-sm text-black">{checkOutDate ? format(checkOutDate, 'dd/MM/yyyy') : 'Select date'}</span>
-                      </div>
-                      <CalendarIcon className="h-6 w-6 text-gray-400" />
-                    </button>
-                  </PopoverTrigger>
-                  <PopoverContent className="w-auto p-0" align="start">
-                    <Calendar
-                      mode="single"
-                      selected={checkOutDate}
-                      onSelect={setCheckOutDate}
-                      initialFocus
-                      disabled={{ before: checkInDate ? addDays(checkInDate, 1) : addDays(new Date(), 1) }}
-                    />
-                  </PopoverContent>
-                </Popover>
-              </div>
-
-              {/* Package */}
-              <div className="bg-white p-2 md:col-span-1 flex items-center gap-2 border-r border-stone-100">
-                <div className="w-full">
-                  <label className="text-[10px] text-gray-500 block">Basis</label>
+              {/* Nationality */}
+              <label className="relative flex cursor-pointer items-center gap-3 rounded-xl px-5 py-3.5 md:px-7 md:py-5 transition-colors hover:bg-stone-100/80 md:rounded-none md:border-l md:border-stone-200">
+                <Globe className="h-5 w-5 shrink-0 text-[#283618] md:h-6 md:w-6" />
+                <span className="min-w-0 flex-1">
+                  <span className="block text-[11px] font-semibold uppercase tracking-[0.16em] text-stone-500 md:text-xs">Nationality</span>
                   <select
-                    value={selectedPackage}
-                    onChange={e => setSelectedPackage(e.target.value)}
-                    className="text-sm text-black bg-transparent border-0 outline-none w-full cursor-pointer appearance-none"
+                    value={nationality}
+                    onChange={e => setNationality(e.target.value as 'Sri Lankan' | 'Non Sri Lankan' | '')}
+                    className={cn(
+                      'w-full cursor-pointer appearance-none truncate border-0 bg-transparent p-0 pr-6 text-base font-semibold outline-none md:mt-0.5 md:text-lg',
+                      nationality ? 'text-stone-900' : 'text-stone-400'
+                    )}
                   >
-                    {packages.length === 0 && <option value="">Loading...</option>}
-                    {packages.map(p => (
-                      <option key={p.id} value={p.id}>{p.name}</option>
-                    ))}
+                    <option value="" disabled>Select</option>
+                    <option value="Sri Lankan">Sri Lankan</option>
+                    <option value="Non Sri Lankan">Non Sri Lankan</option>
                   </select>
-                </div>
-              </div>
+                </span>
+                <ChevronDown className="pointer-events-none absolute bottom-4 right-3 h-5 w-5 text-stone-400 md:bottom-6 md:right-6" />
+              </label>
 
-              {/* Occupancy Type */}
-              <div className="bg-white p-2 md:col-span-1 flex items-center gap-2 border-r border-stone-100">
-                <div className="w-full">
-                  <label className="text-[10px] text-gray-500 block">Guests</label>
-                  <select
-                    value={selectedOccupancy}
-                    onChange={e => setSelectedOccupancy(e.target.value)}
-                    className="text-sm text-black bg-transparent border-0 outline-none w-full cursor-pointer appearance-none"
-                  >
-                    {occupancyTypes.length === 0 && <option value="">Loading...</option>}
-                    {occupancyTypes.map(o => (
-                      <option key={o.id} value={o.id}>
-                        {o.name}{o.max_guests ? ` · Max ${o.max_guests}` : ''}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-              </div>
+              {/* Promo Code */}
+              <label htmlFor="promo-code" className="flex cursor-text items-center gap-3 rounded-xl px-5 py-3.5 md:px-7 md:py-5 transition-colors hover:bg-stone-100/80 md:rounded-none md:border-l md:border-stone-200">
+                <Tag className="h-5 w-5 shrink-0 text-[#283618] md:h-6 md:w-6" />
+                <span className="min-w-0 flex-1">
+                  <span className="block text-[11px] font-semibold uppercase tracking-[0.16em] text-stone-500 md:text-xs">Promo code</span>
+                  <input
+                    id="promo-code"
+                    type="text"
+                    value={promoCode}
+                    onChange={e => setPromoCode(e.target.value.toUpperCase())}
+                    placeholder="Optional"
+                    autoComplete="off"
+                    className="w-full border-0 bg-transparent p-0 text-base font-semibold uppercase md:mt-0.5 md:text-lg text-stone-900 outline-none placeholder:normal-case placeholder:font-normal placeholder:text-stone-400"
+                  />
+                </span>
+              </label>
 
-              {/* Check Availability button */}
+              {/* Book button */}
               <Button
                 onClick={activeTab === 'stay' ? handleFindRoom : () => setIsTableModalOpen(true)}
-                className="bg-[#283618] text-white rounded-none text-xs font-semibold tracking-wider h-full px-4 md:col-span-1 hover:bg-[#3d5324] transition-all hover:scale-[1.02] active:scale-95 shadow-lg"
+                className="col-span-2 h-14 rounded-xl bg-[#283618] px-9 text-base font-semibold tracking-wide text-white shadow-sm transition-all hover:bg-[#3d5324] active:scale-[0.98] md:col-span-1 md:ml-3 md:h-auto md:rounded-2xl md:px-12 md:text-lg"
               >
-                {activeTab === 'stay' ? 'BOOK NOW' : 'BOOK A TABLE'}
+                {activeTab === 'stay' ? 'Book Now' : 'Book a Table'}
               </Button>
             </>
           ) : (
-            <div className="col-span-6 bg-white p-3 flex flex-col md:flex-row items-center justify-between gap-4">
+            <div className="col-span-2 md:col-span-5 bg-white p-3 flex flex-col md:flex-row items-center justify-between gap-4">
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 rounded-full bg-[#606C38]/10 flex items-center justify-center">
                   <Utensils className="w-6 h-6 text-[#606C38]" />
