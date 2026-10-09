@@ -5,18 +5,24 @@ import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { BookingForm } from '@/components/booking-form';
 import { Button } from '@/components/ui/button';
 import { useSupabaseCollection } from '@/hooks/use-supabase';
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import type { Room } from '@/types/room';
-import type { Reservation } from '@/types/reservation';
 import Link from 'next/link';
 import { Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
-import { parseISO, addDays, format, differenceInCalendarDays, eachDayOfInterval } from 'date-fns';
+import { parseISO, format } from 'date-fns';
 import { Badge } from '@/components/ui/badge';
 import { Calendar as CalendarIcon } from 'lucide-react';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import { Calendar } from '@/components/ui/calendar';
+import { readJsonResponse } from '@/lib/fetch-json';
 
+type RoomAvailability = {
+  roomId: string;
+  isAvailable: boolean;
+  bookedDates: string[];
+  nextAvailableDates: string[];
+};
 
 function BookingsListComponent() {
   const heroImage = PlaceHolderImages.find((p) => p.id === 'hero-estate');
@@ -29,90 +35,82 @@ function BookingsListComponent() {
   const guests = (parseInt(adults || '0') + parseInt(children || '0')).toString();
 
   const { data: rooms, isLoading: isLoadingRooms } = useSupabaseCollection<Room>('rooms');
-  const { data: reservations, isLoading: isLoadingReservations } = useSupabaseCollection<Reservation>('reservations');
+  const [availability, setAvailability] = useState<RoomAvailability[]>([]);
+  const [isLoadingAvailability, setIsLoadingAvailability] = useState(false);
+
+  useEffect(() => {
+    let mounted = true;
+
+    async function fetchAvailability() {
+      if (!checkIn || !checkOut) {
+        setAvailability([]);
+        return;
+      }
+
+      setIsLoadingAvailability(true);
+      try {
+        const response = await fetch(`/api/bookings/availability?checkIn=${encodeURIComponent(checkIn)}&checkOut=${encodeURIComponent(checkOut)}`);
+        const result = await readJsonResponse(response);
+        if (!response.ok) throw new Error(result.error || 'Could not load availability');
+        if (mounted) setAvailability(result.rooms ?? []);
+      } catch (error) {
+        console.warn('Availability lookup failed:', error);
+        if (mounted) setAvailability([]);
+      } finally {
+        if (mounted) setIsLoadingAvailability(false);
+      }
+    }
+
+    fetchAvailability();
+
+    return () => {
+      mounted = false;
+    };
+  }, [checkIn, checkOut]);
 
   const processedRooms = useMemo(() => {
-    if (isLoadingReservations || !rooms || !checkIn || !checkOut) {
+    if (isLoadingAvailability || !rooms || !checkIn || !checkOut) {
       return rooms?.map(room => ({ ...room, isAvailable: false, nextAvailableDates: [], bookedDates: [] })) || [];
     }
 
-    if (!reservations) { // Still loading or no reservations found
-      return rooms.map(room => ({ ...room, isAvailable: true, nextAvailableDates: [], bookedDates: [] }));
-    }
-
-    const selectedStart = parseISO(checkIn);
-    const selectedEnd = parseISO(checkOut);
-
     return rooms.map(room => {
-      const roomReservations = (reservations || [])
-        .filter(res => res.roomId === room.id && res.status === 'confirmed')
-        .map(res => {
-          // By appending 'T00:00:00Z', we ensure parsing happens in UTC, avoiding timezone issues.
-          const checkInDate = parseISO(res.checkInDate + 'T00:00:00Z');
-          const checkOutDate = parseISO(res.checkOutDate + 'T00:00:00Z');
-          return {
-            start: checkInDate,
-            end: checkOutDate
-          }
-        })
-        .sort((a, b) => a.start.getTime() - b.start.getTime());
-
-      const isUnavailable = roomReservations.some(res =>
-        selectedStart < res.end && res.start < selectedEnd
-      );
-
-      const bookedDates = roomReservations.flatMap(res =>
-        eachDayOfInterval({ start: res.start, end: addDays(res.end, -1) })
-      );
-
-      if (!isUnavailable) {
-        return { ...room, isAvailable: true, nextAvailableDates: [], bookedDates };
-      }
-
-      // Logic to find next 7 available individual days
-      const nextAvailableDates: Date[] = [];
-      let currentDate = addDays(new Date(), 1); // Start checking from tomorrow
-
-      while (nextAvailableDates.length < 7) {
-        const isBlocked = roomReservations.some(res =>
-          currentDate >= res.start && currentDate < res.end
-        );
-
-        if (!isBlocked) {
-          nextAvailableDates.push(new Date(currentDate));
-        }
-
-        currentDate = addDays(currentDate, 1);
-
-        // Safety break to prevent infinite loops
-        if (differenceInCalendarDays(currentDate, new Date()) > 365 * 2) break;
-      }
-
-      return { ...room, isAvailable: false, nextAvailableDates, bookedDates };
+      const roomAvailability = availability.find((item) => item.roomId === room.id);
+      return {
+        ...room,
+        isAvailable: roomAvailability?.isAvailable ?? true,
+        nextAvailableDates: (roomAvailability?.nextAvailableDates ?? []).map((date) => parseISO(date)),
+        bookedDates: (roomAvailability?.bookedDates ?? []).map((date) => parseISO(date)),
+      };
     });
-  }, [rooms, reservations, checkIn, checkOut, isLoadingReservations]);
+  }, [rooms, availability, checkIn, checkOut, isLoadingAvailability]);
 
-  const isLoading = isLoadingRooms || isLoadingReservations;
+  const isLoading = isLoadingRooms || isLoadingAvailability;
 
   return (
     <div className="flex flex-col">
-      <section className="relative h-[50vh] min-h-[400px] w-full">
-        {heroImage && (
-          <Image
-            src={heroImage.imageUrl}
-            alt={heroImage.description}
-            fill
-            className="object-cover"
-            priority
-            data-ai-hint={heroImage.imageHint}
-          />
-        )}
-        <div className="absolute inset-0 bg-black/40" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center text-white z-10 w-full px-4 flex items-center justify-center">
-          <div className="flex flex-col items-center justify-center">
-            <h1 className="font-headline text-5xl md:text-7xl tracking-wider font-normal text-white/90">
+      {/* Hero Section */}
+      <section className="relative h-[60vh] min-h-[500px] w-full flex items-center justify-center overflow-hidden">
+        <Image
+          src="/IMG_4022.jpg"
+          alt="Available Rooms at Oruthota Chalets"
+          fill
+          className="object-cover transition-transform duration-1000 hover:scale-105"
+          priority
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-background/90" />
+        <div className="absolute inset-0 flex items-center justify-center z-10 p-4">
+          <div className="text-center space-y-6 max-w-4xl mx-auto">
+            <div className="inline-block animate-in fade-in slide-in-from-bottom-2 duration-700">
+              <span className="py-1 px-4 rounded-full bg-white/10 backdrop-blur-md text-white text-xs md:text-sm font-bold tracking-[0.2em] uppercase border border-white/20">
+                Your Sanctuary
+              </span>
+            </div>
+            <h1 className="font-headline text-5xl md:text-7xl lg:text-8xl tracking-tight text-white drop-shadow-xl animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-100 uppercase">
               Available Rooms
             </h1>
+            <p className="text-lg md:text-xl text-white/90 font-light tracking-wide max-w-2xl mx-auto animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-200 leading-relaxed">
+              Find the perfect space for your peaceful retreat at Oruthota Chalets.
+            </p>
           </div>
         </div>
       </section>
@@ -191,7 +189,7 @@ function BookingsListComponent() {
                         <span>{accommodation.view}</span>
                       </div>
                       <div className="mb-8">
-                        <span className="font-bold text-lg text-primary">${accommodation.pricePerNight}</span>
+                        <span className="font-bold text-lg text-primary">LKR {accommodation.pricePerNight.toLocaleString()}</span>
                         <span className="text-sm text-muted-foreground"> / night</span>
                       </div>
                       <div className="flex gap-2 justify-center items-center">
@@ -224,6 +222,33 @@ function BookingsListComponent() {
                             BOOK NOW
                           </Button>
                         </Link>
+                      </div>
+
+                      {/* Partner Booking Logos */}
+                      <div className="pt-8 flex flex-col items-center gap-4">
+                        <p className="text-[10px] tracking-[0.2em] font-bold text-muted-foreground uppercase">Also Bookable Via</p>
+                        <div className="flex items-center gap-6 opacity-70 hover:opacity-100 transition-opacity">
+                          <a 
+                            href="https://www.booking.com/hotel/lk/oruthota-chalets.en-gb.html" 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className="grayscale hover:grayscale-0 transition-all hover:scale-110"
+                          >
+                            <div className="relative w-24 h-6">
+                              <Image src="/booking-logo.svg" alt="Booking.com" fill className="object-contain" />
+                            </div>
+                          </a>
+                          <a 
+                            href="https://www.agoda.com/oruthota-chalets/hotel/kandy-lk.html" 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className="grayscale hover:grayscale-0 transition-all hover:scale-110"
+                          >
+                            <div className="relative w-20 h-6">
+                              <Image src="/color-default.svg" alt="Agoda" fill className="object-contain" />
+                            </div>
+                          </a>
+                        </div>
                       </div>
                     </div>
                   </div>

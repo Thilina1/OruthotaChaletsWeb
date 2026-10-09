@@ -2,18 +2,18 @@ export type ReservationStatus = 'pending' | 'confirmed' | 'cancelled' | 'Booked'
 
 export interface Reservation {
   id: string;
-  guestId: string;
-  roomId: string;
-  roomTitle: string;
-  guestName: string;
-  guestEmail: string;
-  idCardNumber: string;
-  guestPhone: string;
-  checkInDate: string;
-  checkOutDate: string;
-  numberOfGuests: number;
-  totalCost: number;
-  bookingDate: string;
+  guest_id: string;
+  room_id: string;
+  room_title: string;
+  guest_name: string;
+  guest_email: string;
+  id_card_number: string;
+  guest_phone: string;
+  check_in_date: string;
+  check_out_date: string;
+  number_of_guests: number;
+  total_cost: number;
   status: ReservationStatus;
-  specialRequests?: string;
+  special_requests?: string;
+  created_at?: string;
 }

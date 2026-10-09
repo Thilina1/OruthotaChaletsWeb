@@ -9,6 +9,7 @@ interface PageHeroProps {
     imageAlt: string;
     subtitle?: string;
     imageHint?: string;
+    titleClassName?: string;
 }
 
 export function PageHero({
@@ -18,6 +19,7 @@ export function PageHero({
     imageAlt,
     subtitle,
     imageHint,
+    titleClassName,
 }: PageHeroProps) {
     return (
         <section className="relative h-[60vh] min-h-[500px] w-full flex items-center justify-center overflow-hidden">
@@ -44,7 +46,7 @@ export function PageHero({
                         </div>
                     )}
 
-                    <h1 className="font-headline text-5xl md:text-7xl lg:text-8xl tracking-tight text-white drop-shadow-xl animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-100">
+                    <h1 className={`font-headline tracking-tight text-white drop-shadow-xl animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-100 ${titleClassName || 'text-5xl md:text-7xl lg:text-8xl'}`}>
                         {title}
                     </h1>
 
