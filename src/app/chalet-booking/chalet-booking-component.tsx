@@ -1691,17 +1691,11 @@ export default function ChaletBookingComponent() {
                     onChange={event => updateCartGuestDetails(item.id, { specialRequest: event.target.value })}
                     className="h-14 text-base"
                   />
-                  <select
-                    value={item.arrivalTime}
-                    onChange={event => updateCartGuestDetails(item.id, { arrivalTime: event.target.value })}
-                    className="h-14 w-full rounded-md border border-input bg-white px-4 text-base text-stone-600"
-                  >
-                    <option>01:00 pm</option>
-                    <option>01:30 pm</option>
-                    <option>02:00 pm</option>
-                    <option>02:30 pm</option>
-                    <option>03:00 pm</option>
-                  </select>
+                  {/* Check-in is always 2:00 pm (item.arrivalTime stays '02:00 pm'). */}
+                  <div className="flex h-14 items-center gap-2 rounded-md border border-input bg-stone-50 px-4 text-base text-stone-700">
+                    <CalendarIcon className="h-4 w-4 text-stone-500" />
+                    <span>Check-in time: <span className="font-semibold text-stone-900">2:00 pm</span></span>
+                  </div>
                 </div>
               </section>
             ))}
