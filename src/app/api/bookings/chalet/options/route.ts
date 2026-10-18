@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
 import { addDays, format, parseISO, startOfDay } from 'date-fns';
 import { fetchCheckoutHolds } from '@/lib/chalet-availability';
+import { combinedGuestLimitSource, roomGuestLimits } from '@/lib/chalet-guest-limits';
 
 function createReadClient() {
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
@@ -25,12 +26,19 @@ function createReadClient() {
 type RoomCategory = {
   id: string;
   room_count?: number | null;
+  max_adults?: number | null;
+  max_children?: number | null;
+  max_guests?: number | null;
 };
 
 type ChaletRoom = {
   id: string;
   category_id?: string | null;
   status?: string | null;
+  min_adults?: number | null;
+  max_adults?: number | null;
+  max_children?: number | null;
+  max_guests?: number | null;
 };
 
 type ChaletBookingWindow = {
@@ -110,11 +118,13 @@ export async function GET(request: Request) {
       .order('sort_order'),
     supabase
       .from('chalet_rates')
-      .select('package_id, room_category_id, rate_per_night, usd_rate_per_night, usd_to_lkr_rate, offer_name, discount_percent, lkr_discount_value, lkr_discount_fixed_value, usd_discount_value, usd_discount_fixed_value')
+      // All columns, so the adult/child rates are included once their migration is run.
+      .select('*')
       .is('occupancy_type_id', null),
     supabase
       .from('chalet_rooms')
-      .select('id, category_id, status'),
+      // All columns, so min_adults is included once its migration is run.
+      .select('*'),
     supabase
       .from('chalet_bookings')
       .select('room_id, room_ids, room_category_id, room_allocations, check_in_date, check_out_date')
@@ -145,7 +155,8 @@ export async function GET(request: Request) {
 
   const rooms = (roomsRes.data ?? []) as ChaletRoom[];
   // Online checkouts waiting for payment hold their room types too.
-  const checkoutHolds = await fetchCheckoutHolds(supabase, bookingWindowStart, bookingWindowEnd);
+  // The viewing guest's own unpaid checkout does not count against them.
+  const checkoutHolds = await fetchCheckoutHolds(supabase, bookingWindowStart, bookingWindowEnd, searchParams.get('ownCheckout'));
   const bookings = [...(bookingsRes.data ?? []), ...checkoutHolds] as ChaletBookingWindow[];
   const categoryData = (categoryRes.data ?? []) as RoomCategory[];
   const availableRoomCountForCategory = (category: RoomCategory, checkInDate: string, checkOutDate: string) => {
@@ -170,11 +181,20 @@ export async function GET(request: Request) {
     const categoryRooms = rooms.filter(room => room.category_id === category.id);
     const physicalRoomCount = categoryRooms.length;
     const availableRoomCount = availableRoomCountForCategory(category, availabilityCheckIn, availabilityCheckOut);
+    // Guests are limited per room, not per room type. The website shows the
+    // biggest room's limits and checks each party against the free rooms.
+    const overlappingBookings = bookings.filter(booking => bookingOverlapsDateRange(booking, availabilityCheckIn, availabilityCheckOut));
+    const freeRoomGuestLimits = categoryRooms
+      .filter(room => room.status === 'available' && !overlappingBookings.some(booking => bookingUsesRoom(booking, room.id)))
+      .map(room => roomGuestLimits(room, category));
+    const combinedLimits = combinedGuestLimitSource(categoryRooms.map(room => roomGuestLimits(room, category)));
 
     return {
       ...category,
+      ...(combinedLimits ?? {}),
       physical_room_count: physicalRoomCount,
       available_room_count: availableRoomCount,
+      room_guest_limits: freeRoomGuestLimits,
     };
   });
   const availabilityDates = flexibleDateStrings.map(date => {

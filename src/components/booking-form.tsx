@@ -183,26 +183,28 @@ export function BookingForm({ showTableBooking = false }: { showTableBooking?: b
                 </PopoverContent>
               </Popover>
 
-              {/* Nationality */}
-              <label className="relative flex cursor-pointer items-center gap-3 rounded-xl px-5 py-3.5 md:px-7 md:py-5 transition-colors hover:bg-stone-100/80 md:rounded-none md:border-l md:border-stone-200">
+              {/* Nationality: the (invisible) select covers the whole field, so a
+                  click anywhere on it opens the dropdown. */}
+              <div className="relative flex cursor-pointer items-center gap-3 rounded-xl px-5 py-3.5 transition-colors hover:bg-stone-100/80 focus-within:bg-stone-100/80 focus-within:ring-2 focus-within:ring-[#283618]/30 md:rounded-none md:border-l md:border-stone-200 md:px-7 md:py-5">
                 <Globe className="h-5 w-5 shrink-0 text-[#283618] md:h-6 md:w-6" />
                 <span className="min-w-0 flex-1">
                   <span className="block text-[11px] font-semibold uppercase tracking-[0.16em] text-stone-500 md:text-xs">Nationality</span>
-                  <select
-                    value={nationality}
-                    onChange={e => setNationality(e.target.value as 'Sri Lankan' | 'Non Sri Lankan' | '')}
-                    className={cn(
-                      'w-full cursor-pointer appearance-none truncate border-0 bg-transparent p-0 pr-6 text-base font-semibold outline-none md:mt-0.5 md:text-lg',
-                      nationality ? 'text-stone-900' : 'text-stone-400'
-                    )}
-                  >
-                    <option value="" disabled>Select</option>
-                    <option value="Sri Lankan">Sri Lankan</option>
-                    <option value="Non Sri Lankan">Non Sri Lankan</option>
-                  </select>
+                  <span className={cn('block truncate pr-6 text-base font-semibold md:mt-0.5 md:text-lg', nationality ? 'text-stone-900' : 'text-stone-400')}>
+                    {nationality || 'Select'}
+                  </span>
                 </span>
                 <ChevronDown className="pointer-events-none absolute bottom-4 right-3 h-5 w-5 text-stone-400 md:bottom-6 md:right-6" />
-              </label>
+                <select
+                  aria-label="Nationality"
+                  value={nationality}
+                  onChange={e => setNationality(e.target.value as 'Sri Lankan' | 'Non Sri Lankan' | '')}
+                  className="absolute inset-0 h-full w-full cursor-pointer appearance-none opacity-0"
+                >
+                  <option value="" disabled>Select</option>
+                  <option value="Sri Lankan">Sri Lankan</option>
+                  <option value="Non Sri Lankan">Non Sri Lankan</option>
+                </select>
+              </div>
 
               {/* Promo Code */}
               <label htmlFor="promo-code" className="flex cursor-text items-center gap-3 rounded-xl px-5 py-3.5 md:px-7 md:py-5 transition-colors hover:bg-stone-100/80 md:rounded-none md:border-l md:border-stone-200">

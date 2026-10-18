@@ -10,10 +10,10 @@ import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover
 import { Calendar } from '@/components/ui/calendar';
 import { Dialog, DialogContent, DialogTitle } from '@/components/ui/dialog';
 import { useToast } from '@/hooks/use-toast';
-import { CalendarIcon, BedDouble, Loader2, CheckCircle2, Maximize2, UserRound, Utensils, X, Wifi, ShowerHead, Tv, Wind, Check, ChevronLeft, ChevronRight, Coffee, CircleUserRound, Trash2, BadgePercent, Search, ShieldCheck, Download } from 'lucide-react';
+import { CalendarIcon, BedDouble, Loader2, CheckCircle2, Maximize2, UserRound, Utensils, X, Wifi, ShowerHead, Tv, Wind, Check, ChevronLeft, ChevronRight, Coffee, CircleUserRound, Trash2, BadgePercent, Search, ShieldCheck, Download, Minus, Plus, Users } from 'lucide-react';
 import { PhoneNumberInput } from '@/components/phone-number-input';
 import { downloadChaletBookingBill, type ChaletBookingBill } from '@/lib/chalet-booking-bill-pdf';
-import { chaletGuestLimits, clampChaletGuests, maxChildrenFor } from '@/lib/chalet-guest-limits';
+import { chaletGuestLimits, clampChaletGuests, guestsFitLimits, maxChildrenFor, type ChaletGuestLimits } from '@/lib/chalet-guest-limits';
 import { isValidEmail, isValidInternationalPhone } from '@/lib/contact-validation';
 import { readJsonResponse } from '@/lib/fetch-json';
 import type { DateRange } from 'react-day-picker';
@@ -82,6 +82,47 @@ function itemGuestLimits(item: Pick<BookingDetails, 'maxAdults' | 'maxChildren' 
 }
 
 const PAYHERE_BILL_KEY = 'oruthota-chalet-bill-';
+// This tab's unpaid online checkout: its room hold is not counted against the
+// same guest when they come back to choose rooms again.
+const OWN_CHECKOUT_KEY = 'oruthota-chalet-own-checkout';
+
+const MAX_SEARCH_ROOMS = 10;
+const MAX_ROOM_ADULTS = 10;
+const MAX_ROOM_CHILDREN = 10;
+
+type RoomGuests = { adults: number; children: number };
+
+function clampInt(value: string | null, min: number, max: number, fallback: number) {
+  const parsed = Number.parseInt(value ?? '', 10);
+  return Number.isFinite(parsed) ? Math.min(max, Math.max(min, parsed)) : fallback;
+}
+
+// Splits a guest count across rooms as evenly as possible, earlier rooms
+// first (e.g. 3 adults in 2 rooms -> [2, 1]).
+function splitAcrossRooms(total: number, rooms: number) {
+  const count = Math.max(1, rooms);
+  return Array.from({ length: count }, (_, index) => Math.floor(total / count) + (index < total % count ? 1 : 0));
+}
+
+// Rooms and guests from the URL: guests=3-0,2-1 (adults-children per room).
+// Older links with rooms/adults/children are split across the rooms.
+function parseSearchRoomGuests(params: { get: (name: string) => string | null }): RoomGuests[] {
+  const encoded = params.get('guests');
+  if (encoded) {
+    const rooms = encoded.split(',').slice(0, MAX_SEARCH_ROOMS).map(part => {
+      const [adults, children] = part.split('-');
+      return { adults: clampInt(adults, 1, MAX_ROOM_ADULTS, 1), children: clampInt(children ?? '0', 0, MAX_ROOM_CHILDREN, 0) };
+    });
+    if (rooms.length > 0) return rooms;
+  }
+  if (params.get('rooms') || params.get('adults') || params.get('children')) {
+    const roomCount = clampInt(params.get('rooms'), 1, MAX_SEARCH_ROOMS, 1);
+    const adults = splitAcrossRooms(Math.max(roomCount, clampInt(params.get('adults'), 1, MAX_SEARCH_ROOMS * MAX_ROOM_ADULTS, 2)), roomCount);
+    const children = splitAcrossRooms(clampInt(params.get('children'), 0, MAX_SEARCH_ROOMS * MAX_ROOM_CHILDREN, 0), roomCount);
+    return adults.map((count, index) => ({ adults: Math.min(MAX_ROOM_ADULTS, count), children: Math.min(MAX_ROOM_CHILDREN, children[index]) }));
+  }
+  return [{ adults: 2, children: 0 }];
+}
 
 type PayHereCheckout = {
   actionUrl: string;
@@ -129,6 +170,8 @@ type RoomCategory = {
   max_adults?: number | null;
   max_children?: number | null;
   max_guests?: number | null;
+  // Guest limits of each free room of this type (rooms can differ from the type).
+  room_guest_limits?: ChaletGuestLimits[] | null;
   bed_configurations?: string[] | null;
   bathroom_features?: Array<string | { name: string; icon?: string }> | null;
   entertainment_features?: Array<string | { name: string; icon?: string }> | null;
@@ -173,6 +216,11 @@ type ChaletRate = {
   lkr_discount_fixed_value?: number | null;
   usd_discount_value?: number | null;
   usd_discount_fixed_value?: number | null;
+  // Per guest per night, added to the room rate (admin Rates page).
+  adult_rate?: number | null;
+  child_rate?: number | null;
+  usd_adult_rate?: number | null;
+  usd_child_rate?: number | null;
 };
 
 type FlexibleAvailabilityDate = {
@@ -211,21 +259,27 @@ function discountAmount(amount: number, percent?: number | null, fixedValue?: nu
   return amount * Math.min(100, Math.max(0, Number(percent || 0))) / 100;
 }
 
-function resolveRateForNationality(rate: ChaletRate, nationality: string): ResolvedRate {
+// guestChargePerNight: the room's adult/child charges per night, in the bill
+// currency (USD for non Sri Lankan guests). The rate's discount is applied
+// after them: its share of the room rate is taken off the whole nightly total
+// (unchanged prices when there are no guest charges).
+function resolveRateForNationality(rate: ChaletRate, nationality: string, guestChargePerNight = 0): ResolvedRate {
+  const extra = Math.max(0, guestChargePerNight);
+  const discountOnTotal = (roomRate: number, roomDiscount: number) => (roomRate > 0 ? roomDiscount / roomRate : 0) * (roomRate + extra);
   if (nationality === 'Non Sri Lankan') {
     const usdRate = Number(rate.usd_rate_per_night || 0);
     const exchangeRate = Number(rate.usd_to_lkr_rate || 0);
     if (usdRate > 0) {
-      const discount = discountAmount(usdRate, rate.usd_discount_value ?? rate.discount_percent ?? 0, rate.usd_discount_fixed_value);
-      const ratePerNightUsd = Math.max(0, usdRate - discount);
+      const discount = discountOnTotal(usdRate, discountAmount(usdRate, rate.usd_discount_value ?? rate.discount_percent ?? 0, rate.usd_discount_fixed_value));
+      const ratePerNightUsd = Math.max(0, usdRate + extra - discount);
       const amountMultiplier = exchangeRate > 0 ? exchangeRate : 1;
       return {
         currency: 'USD' as const,
-        displayOriginalRatePerNight: usdRate,
+        displayOriginalRatePerNight: usdRate + extra,
         displayRatePerNight: ratePerNightUsd,
         displayDiscountPerNight: discount,
         usdToLkrRate: exchangeRate,
-        originalRatePerNight: usdRate * amountMultiplier,
+        originalRatePerNight: (usdRate + extra) * amountMultiplier,
         ratePerNight: ratePerNightUsd * amountMultiplier,
         discountPerNight: discount * amountMultiplier,
         missingRate: false,
@@ -246,15 +300,15 @@ function resolveRateForNationality(rate: ChaletRate, nationality: string): Resol
   }
 
   const lkrRate = Number(rate.rate_per_night || 0);
-  const discount = discountAmount(lkrRate, rate.lkr_discount_value ?? rate.discount_percent ?? 0, rate.lkr_discount_fixed_value);
+  const discount = discountOnTotal(lkrRate, discountAmount(lkrRate, rate.lkr_discount_value ?? rate.discount_percent ?? 0, rate.lkr_discount_fixed_value));
   return {
     currency: 'LKR' as const,
-    displayOriginalRatePerNight: lkrRate,
-    displayRatePerNight: Math.max(0, lkrRate - discount),
+    displayOriginalRatePerNight: lkrRate + extra,
+    displayRatePerNight: Math.max(0, lkrRate + extra - discount),
     displayDiscountPerNight: discount,
     usdToLkrRate: Number(rate.usd_to_lkr_rate || 0),
-    originalRatePerNight: lkrRate,
-    ratePerNight: Math.max(0, lkrRate - discount),
+    originalRatePerNight: lkrRate + extra,
+    ratePerNight: Math.max(0, lkrRate + extra - discount),
     discountPerNight: discount,
     missingRate: lkrRate <= 0,
   };
@@ -345,7 +399,6 @@ export default function ChaletBookingComponent() {
   } | null>(null);
   const [checkoutOpen, setCheckoutOpen] = useState(false);
   const [bookingCart, setBookingCart] = useState<BookingCartItem[]>([]);
-  const [roomQuantities, setRoomQuantities] = useState<Record<string, number>>({});
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [bookingForSomeoneElse, setBookingForSomeoneElse] = useState(false);
@@ -360,6 +413,88 @@ export default function ChaletBookingComponent() {
     children: 0,
     special_requests: '',
   });
+  // Rooms chosen in the search bar, each with its own adults and children.
+  const [searchRoomGuests, setSearchRoomGuests] = useState<RoomGuests[]>(() => parseSearchRoomGuests(searchParams));
+  const [guestsPopoverOpen, setGuestsPopoverOpen] = useState(false);
+  const searchRooms = searchRoomGuests.length;
+
+  // The search bar scrolls away under the fixed site header, so its pop-ups
+  // close once the page scrolls instead of floating over the room list.
+  useEffect(() => {
+    if (!guestsPopoverOpen && !isDatePopoverOpen) return;
+    const openedAt = window.scrollY;
+    const closeOnScroll = () => {
+      if (Math.abs(window.scrollY - openedAt) < 40) return;
+      setGuestsPopoverOpen(false);
+      setIsDatePopoverOpen(false);
+    };
+    window.addEventListener('scroll', closeOnScroll, { passive: true });
+    return () => window.removeEventListener('scroll', closeOnScroll);
+  }, [guestsPopoverOpen, isDatePopoverOpen]);
+  const searchAdults = searchRoomGuests.reduce((sum, room) => sum + room.adults, 0);
+  const searchChildren = searchRoomGuests.reduce((sum, room) => sum + room.children, 0);
+  const updateSearchRoom = (index: number, patch: Partial<RoomGuests>) => {
+    setSearchRoomGuests(prev => prev.map((room, roomIndex) => roomIndex === index
+      ? {
+        adults: Math.min(MAX_ROOM_ADULTS, Math.max(1, patch.adults ?? room.adults)),
+        children: Math.min(MAX_ROOM_CHILDREN, Math.max(0, patch.children ?? room.children)),
+      }
+      : room));
+  };
+  // The search bar only allows parties some free room can take: each room has
+  // its own min/max adults, max children and max guests. Until the rooms load
+  // (or when none are free) the general limits above apply.
+  const searchRoomLimits = roomCategories.flatMap(category => category.room_guest_limits ?? (
+    Number(category.available_room_count ?? 0) > 0 ? [chaletGuestLimits(category)] : []
+  ));
+  const freeRoomTotal = roomCategories.reduce((sum, category) => sum + Number(category.available_room_count ?? 0), 0);
+  const maxSearchRooms = searchRoomLimits.length > 0 ? Math.min(MAX_SEARCH_ROOMS, freeRoomTotal) : MAX_SEARCH_ROOMS;
+  // Only the max limits apply here. A room's min adults is left to the Room
+  // dropdowns, which then show how many rooms take that party (maybe 0).
+  const searchPartyFits = (adults: number, children: number) => (
+    searchRoomLimits.length === 0
+      ? adults >= 1 && adults <= MAX_ROOM_ADULTS && children >= 0 && children <= MAX_ROOM_CHILDREN
+      : searchRoomLimits.some(limits => guestsFitLimits({ ...limits, minAdults: 1 }, adults, children))
+  );
+  const addSearchRoom = () => setSearchRoomGuests(prev => prev.length >= maxSearchRooms ? prev : [...prev, { adults: 1, children: 0 }]);
+  const removeSearchRoom = (index: number) => setSearchRoomGuests(prev => prev.length <= 1 ? prev : prev.filter((_, roomIndex) => roomIndex !== index));
+  const guestsSummary = `${searchRooms} Room${searchRooms === 1 ? '' : 's'}, ${searchAdults} Adult${searchAdults === 1 ? '' : 's'}, ${searchChildren} Child${searchChildren === 1 ? '' : 'ren'}`;
+  // Adult/child charges for one room per night from the rate (room type x
+  // package), in the bill currency.
+  const guestChargePerNight = (rate: ChaletRate, nationality: string, adults: number, children: number) => (
+    nationality === 'Non Sri Lankan'
+      ? Number(rate.usd_adult_rate || 0) * adults + Number(rate.usd_child_rate || 0) * children
+      : Number(rate.adult_rate || 0) * adults + Number(rate.child_rate || 0) * children
+  );
+  const guestsLabel = (adults: number, children: number) => (
+    `${adults} Adult${adults === 1 ? '' : 's'}${children ? `, ${children} Child${children === 1 ? '' : 'ren'}` : ''}`
+  );
+  // How many free rooms of this type take these guests. Each room has its own
+  // limits; without room details the room type's limits apply to every room.
+  const roomsFittingGuests = (category: RoomCategory, adults: number, children: number) => {
+    if (!category.room_guest_limits) {
+      return guestsFitLimits(chaletGuestLimits(category), adults, children) ? Infinity : 0;
+    }
+    return category.room_guest_limits.filter(limits => guestsFitLimits(limits, adults, children)).length;
+  };
+  // The searched rooms grouped by guests (e.g. 3 adults x1, 2 adults x2); a
+  // price line is shown for each, and its Room dropdown only counts the rooms
+  // whose min/max limits take that party (0 when none do).
+  const occupancyLinesFor = (category: RoomCategory) => {
+    const limits = category.room_guest_limits?.[0] ?? chaletGuestLimits(category);
+    const groups = new Map<string, { adults: number; children: number; count: number }>();
+    searchRoomGuests.forEach(room => {
+      const key = `${room.adults}-${room.children}`;
+      const group = groups.get(key) ?? { adults: room.adults, children: room.children, count: 0 };
+      group.count += 1;
+      groups.set(key, group);
+    });
+    if (groups.size === 0) {
+      const fallback = clampChaletGuests(limits, searchRoomGuests[0]?.adults ?? 1, searchRoomGuests[0]?.children ?? 0);
+      return [{ ...fallback, count: 1 }];
+    }
+    return [...groups.values()].sort((a, b) => (b.adults + b.children) - (a.adults + a.children));
+  };
 
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
@@ -388,6 +523,8 @@ export default function ChaletBookingComponent() {
       setCheckoutState('confirming');
       setSubmitted(true);
     } else if (payment === 'cancelled') {
+      // Free the rooms held for that payment so the guest can book again.
+      fetch(`/api/bookings/chalet/checkout?id=${encodeURIComponent(returnedCheckoutId)}`, { method: 'POST' }).catch(() => undefined);
       toast({
         variant: 'destructive',
         title: 'Payment not completed',
@@ -518,6 +655,7 @@ export default function ChaletBookingComponent() {
       checkIn: format(selectedDateRange.from, 'yyyy-MM-dd'),
       checkOut: format(selectedDateRange.to, 'yyyy-MM-dd'),
       nationality: selectedNationality,
+      guests: searchRoomGuests.map(room => `${room.adults}-${room.children}`).join(','),
     });
 
     if (enteredPromoCode.trim()) params.set('promoCode', enteredPromoCode.trim());
@@ -543,6 +681,12 @@ export default function ChaletBookingComponent() {
     }
 
     const optionsParams = new URLSearchParams({ checkIn, checkOut });
+    try {
+      const ownCheckout = sessionStorage.getItem(OWN_CHECKOUT_KEY);
+      if (ownCheckout) optionsParams.set('ownCheckout', ownCheckout);
+    } catch {
+      // Without it the guest's own hold just counts until it expires.
+    }
     if (flexibleDatesParam) optionsParams.set('flexibleDates', 'true');
 
     fetch(`/api/bookings/chalet/options?${optionsParams.toString()}`)
@@ -607,12 +751,17 @@ export default function ChaletBookingComponent() {
     if (defaultRate && rateHasMatrixValue(defaultRate, targetNationality)) return defaultRate;
     return categoryRate || defaultRate;
   };
-  const buildDetails = (categoryId: string, pkgId: string, targetNationality = selectedNationality): BookingDetails | null => {
+  const buildDetails = (
+    categoryId: string,
+    pkgId: string,
+    targetNationality = selectedNationality,
+    guests: RoomGuests = searchRoomGuests[0] ?? { adults: 1, children: 0 },
+  ): BookingDetails | null => {
     const category = roomCategories.find(item => item.id === categoryId);
     const pkg = packages.find(item => item.id === pkgId);
     const rate = findRate(categoryId, pkgId, targetNationality);
     if (!category || !pkg || !rate || nights < 1) return null;
-    const resolvedRate = resolveRateForNationality(rate, targetNationality);
+    const resolvedRate = resolveRateForNationality(rate, targetNationality, guestChargePerNight(rate, targetNationality, guests.adults, guests.children));
     if ('missingRate' in resolvedRate && resolvedRate.missingRate) return null;
     const { currency, usdToLkrRate, originalRatePerNight, ratePerNight, discountPerNight } = resolvedRate;
     const subtotal = ratePerNight * nights;
@@ -653,54 +802,138 @@ export default function ChaletBookingComponent() {
 
   useEffect(() => {
     setBookingCart(prev => prev.map(item => {
-      const nextDetails = buildDetails(item.roomCategoryId, item.packageId, selectedNationality);
+      const category = roomCategories.find(entry => entry.id === item.roomCategoryId);
+      const guests = clampChaletGuests(chaletGuestLimits(category), item.adults, item.children);
+      const nextDetails = buildDetails(item.roomCategoryId, item.packageId, selectedNationality, guests);
       if (!nextDetails) return item;
-      const guests = clampChaletGuests(itemGuestLimits(nextDetails), item.adults, item.children);
       return { ...item, ...nextDetails, ...guests, childAges: item.childAges.slice(0, guests.children) };
     }));
   }, [roomCategories, packages, rates, nights, billSettings, selectedNationality]);
 
-  const roomQuantityKey = (categoryId: string, pkgId: string) => `${categoryId}:${pkgId}`;
+  const occupancyQuantityKey = (categoryId: string, pkgId: string, adults: number, children: number) => `${categoryId}:${pkgId}:${adults}-${children}`;
 
-  const selectOffer = (categoryId: string, pkgId: string, quantity?: number) => {
+  const newCartItem = (details: BookingDetails, guests: RoomGuests, index: number): BookingCartItem => ({
+    ...details,
+    id: `${details.roomCategoryId}-${details.packageId}-${Date.now()}-${index}`,
+    adults: guests.adults,
+    children: guests.children,
+    bedding: details.bedConfigurations?.[0] || '1 King',
+    childAges: Array.from({ length: guests.children }, () => 0),
+    specialRequest: '',
+    arrivalTime: '02:00 pm',
+  });
+
+  const cartRoomsFor = (categoryId: string, pkgId: string, adults: number, children: number) => (
+    bookingCart.filter(item => item.roomCategoryId === categoryId && item.packageId === pkgId && item.adults === adults && item.children === children)
+  );
+
+  // The Room dropdowns are the booking: choosing a number adds or removes rooms
+  // of that package and guest count in Booking Details straight away, so the
+  // bill always matches what is selected.
+  const setLineRoomCount = (categoryId: string, pkgId: string, guests: RoomGuests, count: number) => {
+    const current = cartRoomsFor(categoryId, pkgId, guests.adults, guests.children);
+    if (count < current.length) {
+      const removeIds = new Set(current.slice(count).map(item => item.id));
+      setBookingCart(prev => prev.filter(item => !removeIds.has(item.id)));
+      return;
+    }
+    if (count === current.length) return;
+    const nextDetails = buildDetails(categoryId, pkgId, selectedNationality, guests);
+    if (!nextDetails) {
+      toast({ variant: 'destructive', title: 'Rate not available', description: 'Please choose a package with a configured rate.' });
+      return;
+    }
+    setSelectedRoomCategoryId(categoryId);
+    setSelectedPackageId(pkgId);
+    setDetails(nextDetails);
+    const added = Array.from({ length: count - current.length }, (_, index) => newCartItem(nextDetails, guests, index));
+    setBookingCart(prev => [...prev, ...added]);
+  };
+
+  // Books one or more rooms of a room type + package. Each line is a guest
+  // count (from the searched rooms) with how many rooms to book at that
+  // occupancy; every room is priced for its own guests.
+  const selectOffer = (categoryId: string, pkgId: string, lines?: { adults: number; children: number; quantity: number }[]) => {
     setSelectedRoomCategoryId(categoryId);
     setSelectedPackageId(pkgId);
     const category = roomCategories.find(item => item.id === categoryId);
     const availableRoomCount = Number(category?.available_room_count ?? 0);
     const remainingRoomCount = Math.max(0, availableRoomCount - selectedRoomCountForCategory(categoryId));
-    const requestedQuantity = Math.max(1, Math.min(quantity ?? roomQuantities[roomQuantityKey(categoryId, pkgId)] ?? 1, remainingRoomCount));
-    if (remainingRoomCount <= 0 || requestedQuantity <= 0) {
+    const requestedLines = (lines ?? (category ? occupancyLinesFor(category).map(line => ({
+      ...line,
+      quantity: Math.min(line.count, roomsFittingGuests(category, line.adults, line.children)),
+    })) : []))
+      .filter(line => line.quantity > 0);
+    const requestedTotal = requestedLines.reduce((sum, line) => sum + line.quantity, 0);
+    if (remainingRoomCount <= 0) {
       toast({ variant: 'destructive', title: 'No rooms left', description: 'All available rooms for this room type are already selected.' });
       return;
     }
-    const nextDetails = buildDetails(categoryId, pkgId);
-    if (!nextDetails) {
-      toast({ variant: 'destructive', title: 'Rate not available', description: 'Please choose a package with a configured rate.' });
+    if (requestedTotal <= 0) {
+      toast({ variant: 'destructive', title: 'Select rooms', description: 'Choose how many rooms you want to book.' });
       return;
     }
-    setDetails(nextDetails);
-    const initialGuests = clampChaletGuests(itemGuestLimits(nextDetails), form.adults, form.children);
-    const nextItems = Array.from({ length: requestedQuantity }, (_, index) => ({
-        ...nextDetails,
-        id: `${categoryId}-${pkgId}-${Date.now()}-${index}`,
-        adults: initialGuests.adults,
-        children: initialGuests.children,
-        bedding: nextDetails.bedConfigurations?.[0] || '1 King',
-        childAges: Array.from({ length: initialGuests.children }, () => 0),
-        specialRequest: '',
-        arrivalTime: '02:00 pm',
-      }));
+    if (requestedTotal > remainingRoomCount) {
+      toast({ variant: 'destructive', title: 'Not enough rooms', description: `Only ${remainingRoomCount} room${remainingRoomCount === 1 ? '' : 's'} left for this room type.` });
+      return;
+    }
+    const nextItems: BookingCartItem[] = [];
+    for (const line of requestedLines) {
+      const guests = clampChaletGuests(chaletGuestLimits(category), line.adults, line.children);
+      const nextDetails = buildDetails(categoryId, pkgId, selectedNationality, guests);
+      if (!nextDetails) {
+        toast({ variant: 'destructive', title: 'Rate not available', description: 'Please choose a package with a configured rate.' });
+        return;
+      }
+      for (let index = 0; index < line.quantity; index += 1) {
+        nextItems.push(newCartItem(nextDetails, guests, nextItems.length));
+      }
+    }
+    setDetails(nextItems[0] ?? null);
     setBookingCart(prev => [...prev, ...nextItems]);
-    setRoomQuantities(prev => ({ ...prev, [roomQuantityKey(categoryId, pkgId)]: 1 }));
     setCheckoutOpen(true);
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  // Guest choices for a booked room: only counts that a free room of its type
+  // takes (each room's min adults and max adults/children/guests). The
+  // current choice always stays listed.
+  const cartRoomLimits = (item: BookingCartItem) => {
+    const category = roomCategories.find(entry => entry.id === item.roomCategoryId);
+    if (category?.room_guest_limits?.length) return category.room_guest_limits;
+    return [category ? chaletGuestLimits(category) : itemGuestLimits(item)];
+  };
+  const cartGuestsFit = (item: BookingCartItem, adults: number, children: number) => (
+    cartRoomLimits(item).some(limits => guestsFitLimits(limits, adults, children))
+  );
+  const cartAdultOptions = (item: BookingCartItem) => {
+    const maxAdults = Math.max(...cartRoomLimits(item).map(limits => limits.maxAdults), item.adults);
+    return Array.from({ length: maxAdults }, (_, index) => index + 1)
+      .filter(adults => adults === item.adults || cartGuestsFit(item, adults, item.children));
+  };
+  const cartChildOptions = (item: BookingCartItem) => {
+    const maxChildren = Math.max(...cartRoomLimits(item).map(limits => limits.maxChildren), item.children);
+    return Array.from({ length: maxChildren + 1 }, (_, children) => children)
+      .filter(children => children === item.children || cartGuestsFit(item, item.adults, children));
+  };
+  const cartGuestRangeText = (item: BookingCartItem) => {
+    const limits = cartRoomLimits(item);
+    const minAdults = Math.min(...limits.map(entry => entry.minAdults));
+    const maxAdults = Math.max(...limits.map(entry => entry.maxAdults));
+    const maxChildren = Math.max(...limits.map(entry => entry.maxChildren));
+    const maxGuests = Math.max(...limits.map(entry => entry.maxGuests));
+    const adultsText = minAdults > 1 ? `${minAdults}–${maxAdults} adults` : `up to ${maxAdults} adult${maxAdults === 1 ? '' : 's'}`;
+    return `This room takes ${adultsText}, up to ${maxChildren} child${maxChildren === 1 ? '' : 'ren'}, ${maxGuests} guest${maxGuests === 1 ? '' : 's'} in total.`;
   };
 
   // Changing adults can lower how many children the room allows, so the
   // children (and their ages) are trimmed to the room's guest limits.
   const updateCartGuests = (item: BookingCartItem, adults: number, children: number) => {
     const guests = clampChaletGuests(itemGuestLimits(item), adults, children);
+    // The room's price depends on its guests (adult/child charges).
+    const repriced = buildDetails(item.roomCategoryId, item.packageId, selectedNationality, guests);
     updateCartGuestDetails(item.id, {
+      ...(repriced ?? {}),
       ...guests,
       childAges: Array.from({ length: guests.children }, (_, index) => item.childAges[index] ?? 0),
     });
@@ -734,6 +967,9 @@ export default function ChaletBookingComponent() {
   };
 
   const cartSubtotal = bookingCart.reduce((sum, item) => sum + item.discountedSubtotal, 0);
+  // Room rates before offers; the offer saving is already taken off cartSubtotal.
+  const cartOriginalSubtotal = bookingCart.reduce((sum, item) => sum + Math.max(item.originalRatePerNight, item.ratePerNight) * item.nights, 0);
+  const cartOfferSavings = Math.max(0, cartOriginalSubtotal - cartSubtotal);
   const cartCurrency = bookingCart[0]?.currency ?? 'LKR';
   const cartUsdToLkrRate = bookingCart[0]?.usdToLkrRate ?? 0;
   // The coupon comes off the room total first; service charge, VAT and SSCL
@@ -751,6 +987,55 @@ export default function ChaletBookingComponent() {
     : 0;
   const payableTotal = discountedCartSubtotal + cartServiceCharge + cartVat + cartSscl;
   const paymentRequired = paymentOption === 'half' ? payableTotal / 2 : payableTotal;
+  const cartRoomNights = bookingCart.reduce((sum, item) => sum + item.nights, 0);
+  // Bill lines shared by the Booking Details panel and the checkout summary.
+  const priceSummaryRows = () => {
+    const money = (amount: number) => formatBillAmount(amount, cartCurrency, cartUsdToLkrRate);
+    return (
+      <div className="space-y-3 border-t pt-4 text-sm font-semibold text-stone-700">
+        <div className="flex justify-between gap-4">
+          <span>Room Total <span className="font-normal text-stone-500">({bookingCart.length} room{bookingCart.length === 1 ? '' : 's'} · {cartRoomNights} room night{cartRoomNights === 1 ? '' : 's'})</span></span>
+          <span>{money(cartOriginalSubtotal)}</span>
+        </div>
+        {cartOfferSavings > 0 ? (
+          <div className="flex justify-between gap-4 text-red-700">
+            <span>Offer Discount</span>
+            <span>-{money(cartOfferSavings)}</span>
+          </div>
+        ) : null}
+        {promoDiscount > 0 ? (
+          <div className="flex justify-between gap-4 text-green-700">
+            <span>Promo Discount ({appliedPromo?.code}{promoDiscountLabel ? ` - ${promoDiscountLabel}` : ''})</span>
+            <span>-{money(promoDiscount)}</span>
+          </div>
+        ) : null}
+        {cartOfferSavings > 0 || promoDiscount > 0 ? (
+          <div className="flex justify-between gap-4 border-t border-dashed pt-3 text-stone-900">
+            <span>Sub Total</span>
+            <span>{money(discountedCartSubtotal)}</span>
+          </div>
+        ) : null}
+        {cartServiceCharge > 0 ? (
+          <div className="flex justify-between gap-4">
+            <span>Service Charge ({billSettings.service_charge_pct}%)</span>
+            <span>{money(cartServiceCharge)}</span>
+          </div>
+        ) : null}
+        {cartVat > 0 ? (
+          <div className="flex justify-between gap-4">
+            <span>VAT ({billSettings.vat_pct}%)</span>
+            <span>{money(cartVat)}</span>
+          </div>
+        ) : null}
+        {cartSscl > 0 ? (
+          <div className="flex justify-between gap-4">
+            <span>SSCL ({billSettings.sscl_pct}%)</span>
+            <span>{money(cartSscl)}</span>
+          </div>
+        ) : null}
+      </div>
+    );
+  };
   const promoDiscountLabel = appliedPromo
     ? appliedPromo.discountType === 'percentage'
       ? `${Number(appliedPromo.discountValue || 0)}%`
@@ -949,8 +1234,23 @@ export default function ChaletBookingComponent() {
         // Shown once paid: straight away for the demo payment, and after
         // PayHere confirms the payment for PayHere bookings.
         paymentStatus: 'paid',
-        paymentMethod: result.payment?.provider === 'payhere' ? 'Online payment (PayHere)' : 'Online payment',
+        paymentMethod: result.payment?.provider === 'payments_lk'
+          ? 'Online payment (payments.lk)'
+          : result.payment?.provider === 'payhere' ? 'Online payment (PayHere)' : 'Online payment',
       };
+
+      if (result.payment?.provider === 'payments_lk' && result.payment.redirectUrl) {
+        // Keep the bill for the confirmation screen, then go to the payments.lk
+        // payment page; it sends the guest back to this page afterwards.
+        try {
+          sessionStorage.setItem(`${PAYHERE_BILL_KEY}${result.checkoutId}`, JSON.stringify(bill));
+          sessionStorage.setItem(OWN_CHECKOUT_KEY, String(result.checkoutId));
+        } catch {
+          // The confirmation screen still works without the saved bill.
+        }
+        window.location.assign(String(result.payment.redirectUrl));
+        return;
+      }
 
       if (result.payment?.provider === 'payhere' && result.payment.actionUrl && result.payment.fields) {
         // Keep the bill so the confirmation screen can show it when PayHere
@@ -981,7 +1281,7 @@ export default function ChaletBookingComponent() {
             <>
               <Loader2 className="w-16 h-16 text-[#283618] mx-auto mt-[0.5cm] mb-4 animate-spin" />
               <h1 className="text-2xl font-bold text-[#283618] mb-2">Confirming your payment…</h1>
-              <p className="text-muted-foreground mb-6">Please wait while we confirm your payment with PayHere and place your booking. Please don&apos;t close this page.</p>
+              <p className="text-muted-foreground mb-6">Please wait while we confirm your payment and place your booking. Please don&apos;t close this page.</p>
             </>
           ) : checkoutState === 'failed' ? (
             <>
@@ -999,7 +1299,7 @@ export default function ChaletBookingComponent() {
             <>
               <CheckCircle2 className="w-16 h-16 text-green-500 mx-auto mt-[0.5cm] mb-4" />
               <h1 className="text-2xl font-bold text-[#283618] mb-2">Payment is being confirmed</h1>
-              <p className="text-muted-foreground mb-6">PayHere is still confirming your payment. Once it is confirmed, your booking is placed and you will receive a confirmation email with your booking number.</p>
+              <p className="text-muted-foreground mb-6">Your payment is still being confirmed. Once it is confirmed, your booking is placed and you will receive a confirmation email with your booking number.</p>
             </>
           ) : (
             <>
@@ -1078,10 +1378,10 @@ export default function ChaletBookingComponent() {
         </div>
       {!checkoutOpen ? (
       <div className="mb-5 rounded-2xl border border-stone-200 bg-white px-4 py-4 shadow-sm">
-        <div className="mx-auto grid max-w-7xl gap-3 md:grid-cols-[1.35fr_1.35fr_1.05fr_1fr_auto_0.8fr] md:items-end">
+        <div className="mx-auto grid max-w-7xl gap-3 sm:grid-cols-2 lg:grid-cols-[1fr_1fr_1.45fr_0.95fr_1.35fr_auto_0.7fr] lg:items-end">
           <Popover open={isDatePopoverOpen} onOpenChange={setIsDatePopoverOpen}>
             <PopoverTrigger asChild>
-              <button type="button" className="grid gap-3 text-left md:col-span-2 md:grid-cols-2">
+              <button type="button" className="grid gap-3 text-left sm:col-span-2 sm:grid-cols-2">
                 <span>
                   <span className="mb-1.5 block text-[11px] font-semibold uppercase tracking-[0.14em] text-stone-500">Check In</span>
                   <span className="flex h-11 items-center justify-between rounded-lg border border-stone-300 bg-stone-50 px-3.5 text-sm font-semibold text-[#283618] transition-colors hover:border-[#283618]">
@@ -1133,6 +1433,113 @@ export default function ChaletBookingComponent() {
               />
             </PopoverContent>
           </Popover>
+          <div>
+            <div className="mb-1.5 text-[11px] font-semibold uppercase tracking-[0.14em] text-stone-500">Rooms &amp; Guests</div>
+            <Popover open={guestsPopoverOpen} onOpenChange={setGuestsPopoverOpen}>
+              <PopoverTrigger asChild>
+                <button
+                  type="button"
+                  className="flex h-11 w-full items-center justify-between gap-2 rounded-lg border border-stone-300 bg-stone-50 px-3.5 text-left text-sm font-semibold text-[#283618] transition-colors hover:border-[#283618]"
+                  aria-label={`Rooms and guests: ${guestsSummary}`}
+                >
+                  <span className="truncate">{guestsSummary}</span>
+                  <Users className="h-4 w-4 shrink-0" />
+                </button>
+              </PopoverTrigger>
+              <PopoverContent align="start" className="w-80 rounded-xl border-stone-200 bg-white p-3 shadow-xl">
+                <div className="max-h-[60vh] space-y-3 overflow-y-auto pr-1">
+                  {searchRoomGuests.map((room, index) => (
+                    <div key={index} className="overflow-hidden rounded-lg border border-stone-200">
+                      <div className="flex items-center justify-between bg-stone-100 px-3 py-2">
+                        <span className="text-sm font-semibold text-[#283618]">Room {index + 1}</span>
+                        <div className="flex items-center gap-1">
+                          {searchRooms > 1 ? (
+                            <button
+                              type="button"
+                              onClick={() => removeSearchRoom(index)}
+                              className="flex h-7 w-7 items-center justify-center rounded-md text-stone-700 transition-colors hover:bg-white hover:text-red-700"
+                              aria-label={`Remove room ${index + 1}`}
+                              title="Remove this room"
+                            >
+                              <Minus className="h-4 w-4" />
+                            </button>
+                          ) : null}
+                          {index === searchRooms - 1 && searchRooms < maxSearchRooms ? (
+                            <button
+                              type="button"
+                              onClick={addSearchRoom}
+                              className="flex h-7 w-7 items-center justify-center rounded-md text-stone-700 transition-colors hover:bg-white hover:text-[#283618]"
+                              aria-label="Add another room"
+                              title="Add another room"
+                            >
+                              <Plus className="h-4 w-4" />
+                            </button>
+                          ) : null}
+                        </div>
+                      </div>
+                      <div className="grid grid-cols-2 gap-3 p-3">
+                        {([
+                          {
+                            key: 'adults', label: 'Adult', hint: '12+ yrs', value: room.adults,
+                            // Fewer adults stops at the lowest room minimum; a party that fits no room can always go down.
+                            canDecrease: room.adults > 1,
+                            canIncrease: searchPartyFits(room.adults + 1, room.children),
+                          },
+                          {
+                            key: 'children', label: 'Child', hint: '0-11 yrs', value: room.children,
+                            canDecrease: room.children > 0,
+                            canIncrease: searchPartyFits(room.adults, room.children + 1),
+                          },
+                        ] as const).map(field => (
+                          <div key={field.key}>
+                            <p className="mb-1.5 text-sm font-medium text-stone-800">{field.label} <span className="text-xs font-normal text-stone-400">{field.hint}</span></p>
+                            <div className="flex h-10 items-stretch overflow-hidden rounded-lg border border-stone-300">
+                              <button
+                                type="button"
+                                onClick={() => updateSearchRoom(index, { [field.key]: field.value - 1 })}
+                                disabled={!field.canDecrease}
+                                className="flex w-10 items-center justify-center bg-stone-50 text-stone-700 transition-colors hover:bg-stone-100 disabled:cursor-not-allowed disabled:text-stone-300"
+                                aria-label={`Fewer ${field.key} in room ${index + 1}`}
+                              >
+                                <Minus className="h-4 w-4" />
+                              </button>
+                              <span className="flex flex-1 items-center justify-center border-x border-stone-300 text-base font-semibold text-stone-900">{field.value}</span>
+                              <button
+                                type="button"
+                                onClick={() => updateSearchRoom(index, { [field.key]: field.value + 1 })}
+                                disabled={!field.canIncrease}
+                                className="flex w-10 items-center justify-center bg-stone-50 text-stone-700 transition-colors hover:bg-stone-100 disabled:cursor-not-allowed disabled:text-stone-300"
+                                aria-label={`More ${field.key} in room ${index + 1}`}
+                              >
+                                <Plus className="h-4 w-4" />
+                              </button>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                      {!searchPartyFits(room.adults, room.children) ? (
+                        <p className="px-3 pb-3 text-xs font-medium text-amber-700">No free room takes {guestsLabel(room.adults, room.children).toLowerCase()}.</p>
+                      ) : null}
+                    </div>
+                  ))}
+                </div>
+                {searchRoomLimits.length > 0 ? (
+                  <p className="mt-2 text-xs text-stone-500">
+                    Up to {Math.max(...searchRoomLimits.map(limits => limits.maxAdults))} adults and {Math.max(...searchRoomLimits.map(limits => limits.maxChildren))} children per room
+                     · {maxSearchRooms} room{maxSearchRooms === 1 ? '' : 's'} free
+                  </p>
+                ) : null}
+                {searchRooms < maxSearchRooms ? (
+                  <button type="button" onClick={addSearchRoom} className="mt-3 flex w-full items-center justify-center gap-1.5 rounded-lg border border-dashed border-stone-300 py-2 text-sm font-semibold text-[#606C38] transition-colors hover:border-[#283618] hover:text-[#283618]">
+                    <Plus className="h-4 w-4" /> Add another room
+                  </button>
+                ) : null}
+                <Button type="button" onClick={() => setGuestsPopoverOpen(false)} className="mt-3 h-10 w-full rounded-lg bg-[#283618] text-sm font-semibold text-white hover:bg-[#3d5324]">
+                  Done
+                </Button>
+              </PopoverContent>
+            </Popover>
+          </div>
           <div>
             <div className="mb-1.5 text-[11px] font-semibold uppercase tracking-[0.14em] text-stone-500">Nationality</div>
             <div className="relative">
@@ -1250,7 +1657,7 @@ export default function ChaletBookingComponent() {
                         onChange={event => updateCartGuests(item, Number(event.target.value), item.children)}
                         className="h-14 w-full rounded-md border border-input bg-white px-4 text-base"
                       >
-                        {Array.from({ length: itemGuestLimits(item).maxAdults }, (_, index) => index + 1).map(value => <option key={value}>{value}</option>)}
+                        {cartAdultOptions(item).map(value => <option key={value}>{value}</option>)}
                       </select>
                     </div>
                     <div>
@@ -1260,12 +1667,10 @@ export default function ChaletBookingComponent() {
                         onChange={event => updateCartGuests(item, item.adults, Number(event.target.value))}
                         className="h-14 w-full rounded-md border border-input bg-white px-4 text-base"
                       >
-                        {Array.from({ length: maxChildrenFor(itemGuestLimits(item), item.adults) + 1 }, (_, value) => value).map(value => <option key={value}>{value}</option>)}
+                        {cartChildOptions(item).map(value => <option key={value}>{value}</option>)}
                       </select>
                     </div>
-                    <p className="text-xs text-stone-500 sm:col-span-2">
-                      Max {itemGuestLimits(item).maxAdults} adult{itemGuestLimits(item).maxAdults === 1 ? '' : 's'}, {itemGuestLimits(item).maxChildren} child{itemGuestLimits(item).maxChildren === 1 ? '' : 'ren'}, {itemGuestLimits(item).maxGuests} guest{itemGuestLimits(item).maxGuests === 1 ? '' : 's'} in total for this room.
-                    </p>
+                    <p className="text-xs text-stone-500 sm:col-span-2">{cartGuestRangeText(item)}</p>
                   </div>
                   {item.childAges.map((age, index) => (
                     <div key={`${item.id}-child-age-${index}`}>
@@ -1418,36 +1823,7 @@ export default function ChaletBookingComponent() {
             </div>
             <div className="mb-6 rounded-md border border-stone-200 p-5">
               <h3 className="mb-4 text-lg font-bold">Price Summary</h3>
-              <div className="space-y-3 border-t pt-4 text-sm font-semibold text-stone-700">
-                <div className="flex justify-between">
-                  <span>Room Total</span>
-                  <span>{formatBillAmount(cartSubtotal, bookingCart[0].currency, bookingCart[0].usdToLkrRate)}</span>
-                </div>
-                {promoDiscount > 0 ? (
-                  <div className="flex justify-between text-green-700">
-                    <span>Promo Discount ({appliedPromo?.code}{promoDiscountLabel ? ` - ${promoDiscountLabel}` : ''})</span>
-                    <span>-{formatBillAmount(promoDiscount, cartCurrency, cartUsdToLkrRate)}</span>
-                  </div>
-                ) : null}
-                {cartServiceCharge > 0 ? (
-                  <div className="flex justify-between">
-                    <span>Service Charge ({billSettings.service_charge_pct}%)</span>
-                    <span>{formatBillAmount(cartServiceCharge, bookingCart[0].currency, bookingCart[0].usdToLkrRate)}</span>
-                  </div>
-                ) : null}
-                {cartVat > 0 ? (
-                  <div className="flex justify-between">
-                    <span>VAT ({billSettings.vat_pct}%)</span>
-                    <span>{formatBillAmount(cartVat, bookingCart[0].currency, bookingCart[0].usdToLkrRate)}</span>
-                  </div>
-                ) : null}
-                {cartSscl > 0 ? (
-                  <div className="flex justify-between">
-                    <span>SSCL ({billSettings.sscl_pct}%)</span>
-                    <span>{formatBillAmount(cartSscl, bookingCart[0].currency, bookingCart[0].usdToLkrRate)}</span>
-                  </div>
-                ) : null}
-              </div>
+              {priceSummaryRows()}
               <div className="mt-4 flex justify-between border-t pt-4 font-bold">
                 <span>Total</span>
                 <span>{formatBillAmount(payableTotal, cartCurrency, cartUsdToLkrRate)}</span>
@@ -1510,7 +1886,7 @@ export default function ChaletBookingComponent() {
           </aside>
         </div>
       ) : (
-        <div className={bookingCart.length > 0 ? "grid gap-6 lg:grid-cols-[1fr_520px]" : "space-y-6"}>
+        <div className={bookingCart.length > 0 ? "grid gap-6 lg:grid-cols-[minmax(0,1fr)_440px]" : "space-y-6"}>
           <div className="space-y-4">
               {flexibleDates && availabilityDates.length > 0 ? (
                 <div className="space-y-6">
@@ -1549,7 +1925,8 @@ export default function ChaletBookingComponent() {
                             </thead>
                             <tbody>
                               {categoryRates.map(({ pkg, rate }) => {
-                                const resolvedRate = resolveRateForNationality(rate as ChaletRate, selectedNationality);
+                                const flexGuests = searchRoomGuests[0] ?? { adults: 1, children: 0 };
+                                const resolvedRate = resolveRateForNationality(rate as ChaletRate, selectedNationality, guestChargePerNight(rate as ChaletRate, selectedNationality, flexGuests.adults, flexGuests.children));
                                 const missingRate = 'missingRate' in resolvedRate && resolvedRate.missingRate;
                                 const featureLabels = packageFeatureLabels(pkg);
 
@@ -1641,6 +2018,13 @@ export default function ChaletBookingComponent() {
                 const availableRoomCount = Number(category.available_room_count ?? 0);
                 const selectedCategoryRoomCount = selectedRoomCountForCategory(category.id);
                 const remainingRoomCount = Math.max(0, availableRoomCount - selectedCategoryRoomCount);
+                // The rooms shown as available: only free rooms that take at least one
+                // of the searched parties (each room has its own guest limits).
+                const fittingRoomCount = category.room_guest_limits
+                  ? Math.min(remainingRoomCount, Math.max(0, category.room_guest_limits.filter(limits => (
+                    searchRoomGuests.some(room => guestsFitLimits(limits, room.adults, room.children))
+                  )).length - selectedCategoryRoomCount))
+                  : remainingRoomCount;
                 const categoryRates = packages
                   .map(pkg => ({ pkg, rate: findRate(category.id, pkg.id, selectedNationality) }))
                   .filter(item => item.rate);
@@ -1648,12 +2032,14 @@ export default function ChaletBookingComponent() {
                 if (categoryRates.length === 0) return null;
 
                 return (
-                  <div key={category.id} className="grid gap-4 overflow-hidden rounded-2xl border border-stone-200 bg-white p-3 shadow-sm md:p-4 lg:grid-cols-[400px_1fr]">
-                    <div className="relative h-[220px] overflow-hidden rounded-xl bg-stone-100 lg:h-full lg:min-h-[260px]">
-                      <span className={`absolute left-3 top-3 z-10 rounded-full px-3 py-1 text-xs font-semibold text-white shadow ${remainingRoomCount > 0 ? 'bg-[#bc6c25]' : 'bg-stone-700'}`}>
-                        {remainingRoomCount > 0
-                          ? `Last ${remainingRoomCount} Room${remainingRoomCount === 1 ? '' : 's'}`
-                          : 'Sold Out'}
+                  // With the booking panel open the list is narrower: a smaller photo and
+                  // each package's prices placed under its name instead of beside it.
+                  <div key={category.id} className={`grid gap-4 overflow-hidden rounded-2xl border border-stone-200 bg-white p-3 shadow-sm md:p-4 ${bookingCart.length > 0 ? 'xl:grid-cols-[260px_minmax(0,1fr)]' : 'lg:grid-cols-[400px_minmax(0,1fr)]'}`}>
+                    <div className={`relative h-[220px] overflow-hidden rounded-xl bg-stone-100 ${bookingCart.length > 0 ? 'xl:h-full xl:min-h-[260px]' : 'lg:h-full lg:min-h-[260px]'}`}>
+                      <span className={`absolute left-3 top-3 z-10 rounded-full px-3 py-1 text-xs font-semibold text-white shadow ${fittingRoomCount > 0 ? 'bg-[#bc6c25]' : 'bg-stone-700'}`}>
+                        {fittingRoomCount > 0
+                          ? `Last ${fittingRoomCount} Room${fittingRoomCount === 1 ? '' : 's'}`
+                          : remainingRoomCount > 0 ? 'Not for your guests' : 'Sold Out'}
                       </span>
                       <img src={categoryImage} alt={category.name} className="h-full w-full object-cover" />
                       {categoryImages.length > 1 ? (
@@ -1684,7 +2070,23 @@ export default function ChaletBookingComponent() {
                       <div className="flex flex-wrap items-center justify-between gap-2 border-b border-stone-200 pb-3">
                         <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
                           <h3 className="text-lg font-bold text-[#283618] md:text-xl">{category.name}</h3>
-                          <span className="text-xs font-semibold text-stone-500">{remainingRoomCount} room{remainingRoomCount === 1 ? '' : 's'} available</span>
+                          <span className="text-xs font-semibold text-stone-500">{fittingRoomCount} room{fittingRoomCount === 1 ? '' : 's'} available</span>
+                          {(() => {
+                            // Hint when this room type cannot take the searched rooms.
+                            const limits = chaletGuestLimits(category);
+                            if (fittingRoomCount > 0 && fittingRoomCount < searchRooms) {
+                              return <span className="rounded-full bg-amber-50 px-2 py-0.5 text-xs font-semibold text-amber-800 ring-1 ring-amber-200">Only {fittingRoomCount} left · you need {searchRooms}</span>;
+                            }
+                            const tooBig = searchRoomGuests.findIndex(room => roomsFittingGuests(category, room.adults, room.children) <= 0);
+                            if (tooBig >= 0) {
+                              const room = searchRoomGuests[tooBig];
+                              const tooFewAdults = room.adults < limits.minAdults;
+                              return <span className="rounded-full bg-amber-50 px-2 py-0.5 text-xs font-semibold text-amber-800 ring-1 ring-amber-200" title={`${limits.minAdults > 1 ? `Min ${limits.minAdults} adults, ` : ''}Max ${limits.maxAdults} adults, ${limits.maxChildren} children, ${limits.maxGuests} guests per room`}>{tooFewAdults
+                                ? `Room ${tooBig + 1} needs at least ${limits.minAdults} adults for this room type`
+                                : `Room ${tooBig + 1} (${room.adults + room.children} guests) is too big for this room type`}</span>;
+                            }
+                            return null;
+                          })()}
                           <button
                             type="button"
                             onClick={() => setInfoRoomCategory(category)}
@@ -1729,6 +2131,13 @@ export default function ChaletBookingComponent() {
                                       <span>Guests Allowed</span>
                                     </div>
                                     <div className="flex items-baseline gap-3">
+                                      {chaletGuestLimits(category).minAdults > 1 ? (
+                                        <>
+                                          <span className="text-sm font-semibold uppercase tracking-widest text-stone-500">Min</span>
+                                          <span className="text-xl font-bold text-stone-950">{chaletGuestLimits(category).minAdults}</span>
+                                          <span className="text-stone-300">·</span>
+                                        </>
+                                      ) : null}
                                       <span className="text-sm font-semibold uppercase tracking-widest text-stone-500">Max</span>
                                       <span className="text-xl font-bold text-stone-950">{category.max_guests}</span>
                                     </div>
@@ -1763,95 +2172,156 @@ export default function ChaletBookingComponent() {
                         </div>
                       </div>
 
-                      <div className="divide-y">
-                        {categoryRates.map(({ pkg, rate }) => {
-                          const resolvedRate = resolveRateForNationality(rate as ChaletRate, selectedNationality);
-                          const ratePerNight = resolvedRate.displayRatePerNight;
-                          const originalSubtotal = resolvedRate.displayOriginalRatePerNight * nights;
-                          const subtotal = ratePerNight * nights;
-                          const discountTotal = resolvedRate.displayDiscountPerNight * nights;
-                          const rowTotal = subtotal;
-                          const originalRowTotal = originalSubtotal;
-                          const offerPercent = discountPercent(originalSubtotal, subtotal);
-                          const active = selectedRoomCategoryId === category.id && selectedPackageId === pkg.id;
-                          const featureLabels = packageFeatureLabels(pkg);
-                          const missingRate = 'missingRate' in resolvedRate && resolvedRate.missingRate;
-                          const hasDiscount = !missingRate && discountTotal > 0;
-                          const offerName = rate?.offer_name || 'Special Offer';
-                          const discountLabel = rateDiscountLabel(rate as ChaletRate, selectedNationality, resolvedRate.currency);
-                          const quantityKey = roomQuantityKey(category.id, pkg.id);
-                          const selectedQuantity = Math.min(roomQuantities[quantityKey] ?? 1, Math.max(1, remainingRoomCount));
-                          return (
-                            <div key={`${category.id}-${pkg.id}`} className={`grid gap-3 rounded-xl px-3 py-4 transition-colors xl:grid-cols-[1fr_auto_170px_auto] xl:items-center xl:gap-5 ${active ? 'bg-[#f3f5ec]' : 'hover:bg-stone-50'}`}>
-                              <div className="min-w-0">
-                                <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
-                                  <h4 className="text-base font-semibold text-stone-900">{packageDisplayName(pkg)} <span className="font-normal text-stone-500">· {selectedNationality === 'Non Sri Lankan' ? 'Non Resident' : 'Resident'}</span></h4>
-                                  <button
-                                    type="button"
-                                    onClick={() => setInfoPackage({ pkg, category, rate: rate as ChaletRate })}
-                                    className="text-sm font-medium text-[#606C38] underline underline-offset-4 hover:text-[#283618]"
-                                  >
-                                    Details
-                                  </button>
-                                </div>
-                                <div className="mt-2 flex flex-wrap items-center gap-1.5">
-                                  {featureLabels.map((label, index) => (
-                                    <span key={`${pkg.id}-${label}-${index}`} className="inline-flex items-center gap-1.5 rounded-full bg-stone-100 px-2.5 py-1 text-xs font-medium text-stone-700">
-                                      {index === 0 && pkg.includes_breakfast ? <Coffee className="h-3.5 w-3.5" /> : <Utensils className="h-3.5 w-3.5" />}
-                                      {label}
-                                    </span>
-                                  ))}
+                      <div className="divide-y divide-stone-200">
+                        {(() => {
+                          // Every package of this room type books from the same rooms, so the
+                          // rooms picked in one dropdown are taken out of all the others.
+                          // The searched rooms are pre-selected on the first package only.
+                          // remainingRoomCount already leaves out the rooms in Booking Details.
+                          const roomsLeftToPick = remainingRoomCount;
+                          const offers = categoryRates.map(({ pkg, rate }) => {
+                            // Room rate without guest charges: for the offer % and the missing-rate check.
+                            const baseRate = resolveRateForNationality(rate as ChaletRate, selectedNationality);
+                            const missingRate = 'missingRate' in baseRate && baseRate.missingRate;
+                            const lines = occupancyLinesFor(category).map(line => {
+                              const key = occupancyQuantityKey(category.id, pkg.id, line.adults, line.children);
+                              const quantity = cartRoomsFor(category.id, pkg.id, line.adults, line.children).length;
+                              const resolved = resolveRateForNationality(rate as ChaletRate, selectedNationality, guestChargePerNight(rate as ChaletRate, selectedNationality, line.adults, line.children));
+                              return {
+                                ...line,
+                                key,
+                                quantity,
+                                total: resolved.displayRatePerNight * nights,
+                                originalTotal: resolved.displayOriginalRatePerNight * nights,
+                              };
+                            });
+                            return { pkg, rate, baseRate, missingRate, lines };
+                          });
+
+                          return offers.map(({ pkg, rate, baseRate, missingRate, lines }) => {
+                            const active = selectedRoomCategoryId === category.id && selectedPackageId === pkg.id;
+                            const featureLabels = packageFeatureLabels(pkg);
+                            const offerPercent = discountPercent(baseRate.displayOriginalRatePerNight, baseRate.displayRatePerNight);
+                            const maxSaving = Math.max(0, ...lines.map(line => line.originalTotal - line.total));
+                            const hasDiscount = !missingRate && maxSaving > 0;
+                            const offerName = rate?.offer_name || 'Special Offer';
+                            const discountLabel = rateDiscountLabel(rate as ChaletRate, selectedNationality, baseRate.currency);
+                            const chosenRooms = lines.reduce((sum, line) => sum + line.quantity, 0);
+                            return (
+                              <div key={`${category.id}-${pkg.id}`} className={`grid gap-4 rounded-xl px-3 py-5 transition-colors ${bookingCart.length > 0 ? '' : 'lg:grid-cols-[minmax(0,1fr)_minmax(0,560px)] lg:items-center'} ${active ? 'bg-[#f3f5ec]' : ''}`}>
+                                <div className="min-w-0 space-y-3">
+                                  <div className="flex flex-wrap items-baseline gap-x-4 gap-y-1">
+                                    <h4 className="text-lg font-medium text-stone-900">
+                                      {packageDisplayName(pkg)} - {selectedNationality === 'Non Sri Lankan' ? 'Non Resident' : 'Resident'}
+                                    </h4>
+                                    <button
+                                      type="button"
+                                      onClick={() => setInfoPackage({ pkg, category, rate: rate as ChaletRate })}
+                                      className="text-sm font-medium text-green-700 underline underline-offset-4 hover:text-[#283618]"
+                                    >
+                                      More Info ↗
+                                    </button>
+                                  </div>
+                                  {featureLabels.length > 0 ? (
+                                    <div className="flex flex-wrap gap-2">
+                                      {featureLabels.map((label, index) => (
+                                        <span key={`${pkg.id}-${label}-${index}`} className="inline-flex items-center gap-2 rounded-md border border-stone-300 px-3 py-1.5 text-sm font-medium text-stone-800">
+                                          {index === 0 && pkg.includes_breakfast ? <Coffee className="h-4 w-4" /> : <Utensils className="h-4 w-4" />}
+                                          {label}
+                                        </span>
+                                      ))}
+                                    </div>
+                                  ) : null}
                                   {hasDiscount ? (
-                                    <span className="inline-flex items-center gap-1 rounded-full bg-red-50 px-2.5 py-1 text-xs font-semibold text-red-700 ring-1 ring-red-200" title={discountLabel}>
-                                      <BadgePercent className="h-3.5 w-3.5" />
-                                      {offerName}: {offerPercent > 0 ? `${Math.round(offerPercent)}% off · ` : ''}Save {formatMoney(discountTotal, resolvedRate.currency)}
-                                    </span>
+                                    <div className="inline-flex max-w-full items-stretch whitespace-nowrap text-sm shadow-sm" title={discountLabel}>
+                                      <span className="inline-flex min-w-0 items-center gap-1.5 rounded-l-md border border-r-0 border-red-200 bg-red-50 px-3 py-1.5 font-semibold text-red-700">
+                                        <BadgePercent className="h-4 w-4 shrink-0" />
+                                        <span className="truncate">{offerName}</span>
+                                      </span>
+                                      <span
+                                        className="inline-flex items-center gap-1.5 bg-red-600 py-1.5 pl-3 pr-7 text-white"
+                                        style={{ clipPath: 'polygon(0 0, 100% 0, calc(100% - 12px) 50%, 100% 100%, 0 100%)' }}
+                                      >
+                                        {Math.round(offerPercent) > 0 ? (
+                                          <>
+                                            <span className="font-bold uppercase tracking-wide">{Math.round(offerPercent)}% Off</span>
+                                            <span className="text-red-100">·</span>
+                                          </>
+                                        ) : null}
+                                        <span className="font-medium">Save up to {formatMoney(maxSaving, baseRate.currency)}</span>
+                                      </span>
+                                    </div>
                                   ) : null}
                                 </div>
+
+                                <div className="grid gap-3 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-center sm:gap-6">
+                                <div className="divide-y divide-stone-100 rounded-lg border border-stone-200 bg-white px-4">
+                                  {missingRate ? (
+                                    <p className="py-3 text-sm font-bold text-red-700">Rate not set</p>
+                                  ) : lines.map(line => {
+                                    // This dropdown can take its own rooms plus whatever no other dropdown
+                                    // has picked, but only rooms big enough for these guests.
+                                    const fittingRooms = roomsFittingGuests(category, line.adults, line.children);
+                                    const maxForLine = Math.min(line.quantity + roomsLeftToPick, fittingRooms);
+                                    // Why no room of this type takes the party, from the free rooms' limits.
+                                    const roomLimits = category.room_guest_limits?.length ? category.room_guest_limits : [chaletGuestLimits(category)];
+                                    const lowestMinAdults = Math.min(...roomLimits.map(limits => limits.minAdults));
+                                    const noRoomReason = fittingRooms > 0
+                                      ? null
+                                      : line.adults < lowestMinAdults
+                                        ? `Needs at least ${lowestMinAdults} adults`
+                                        : 'Too many guests for this room';
+                                    return (
+                                      <div key={line.key} className="grid grid-cols-[auto_auto_minmax(0,1fr)] items-center gap-4 py-3 sm:gap-8">
+                                        <span className="inline-flex w-14 items-center gap-0.5 text-lg font-semibold text-stone-900" title={guestsLabel(line.adults, line.children)}>
+                                          {line.adults}<UserRound className="h-5 w-5" />
+                                          {line.children > 0 ? <span className="ml-1 inline-flex items-center text-sm">+{line.children}<UserRound className="h-3.5 w-3.5" /></span> : null}
+                                        </span>
+                                        <label className="flex flex-col items-center gap-1 text-sm text-stone-700">
+                                          Room
+                                          <select
+                                            value={line.quantity}
+                                            onChange={event => setLineRoomCount(category.id, pkg.id, { adults: line.adults, children: line.children }, Number(event.target.value))}
+                                            disabled={missingRate || maxForLine <= 0}
+                                            className={`h-10 w-20 rounded-md border bg-white px-2 text-base font-medium text-stone-900 disabled:bg-stone-100 disabled:text-stone-400 ${line.quantity > 0 ? 'border-blue-600 ring-1 ring-blue-600' : 'border-stone-300'}`}
+                                            aria-label={`Rooms for ${guestsLabel(line.adults, line.children)}`}
+                                          >
+                                            {Array.from({ length: maxForLine + 1 }, (_, count) => (
+                                              <option key={count} value={count}>{count}</option>
+                                            ))}
+                                          </select>
+                                        </label>
+                                        {noRoomReason ? (
+                                          <p className="text-right text-sm font-medium text-amber-700">{noRoomReason}</p>
+                                        ) : (
+                                        <div className="text-right">
+                                          {line.originalTotal > line.total ? <p className="text-sm font-medium text-red-700 line-through">{formatMoney(line.originalTotal, baseRate.currency)}</p> : null}
+                                          <p className="text-xl font-semibold text-stone-950">{formatMoney(line.total, baseRate.currency)}</p>
+                                          <p className="text-xs font-medium text-stone-700">Rate for {nights} Night{nights !== 1 ? 's' : ''}</p>
+                                          <p className="text-[11px] text-stone-500">+ taxes &amp; charges</p>
+                                        </div>
+                                        )}
+                                      </div>
+                                    );
+                                  })}
+                                </div>
+
+                                <Button
+                                  onClick={() => {
+                                    // The rooms are already in Booking Details; Book goes on to checkout.
+                                    setCheckoutOpen(true);
+                                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                                  }}
+                                  disabled={missingRate || chosenRooms <= 0}
+                                  className="h-11 w-full rounded-md bg-[#283618] px-8 text-base font-semibold text-white hover:bg-[#3d5324] sm:w-auto"
+                                >
+                                  {remainingRoomCount <= 0 && chosenRooms <= 0 ? 'Sold Out' : 'Book'}
+                                </Button>
+                                </div>
                               </div>
-                              <div className="flex items-center gap-4 xl:gap-5">
-                                <span className="inline-flex items-center gap-1 text-sm font-medium text-stone-600" title="Maximum guests per room">
-                                  <CircleUserRound className="h-4 w-4" /> Up to {category.max_guests || 2}
-                                </span>
-                                <label className="flex items-center gap-2 text-sm text-stone-600">
-                                  Rooms
-                                  <select
-                                    value={remainingRoomCount > 0 ? selectedQuantity : 0}
-                                    onChange={event => setRoomQuantities(prev => ({ ...prev, [quantityKey]: Number(event.target.value) }))}
-                                    disabled={remainingRoomCount <= 0 || missingRate}
-                                    className="h-9 w-16 rounded-lg border border-stone-300 bg-white px-2 text-sm font-semibold text-stone-800 disabled:bg-stone-100 disabled:text-stone-400"
-                                  >
-                                    {Array.from({ length: remainingRoomCount + 1 }, (_, count) => (
-                                      <option key={count} value={count} disabled={count === 0}>{count}</option>
-                                    ))}
-                                  </select>
-                                </label>
-                              </div>
-                              <div className="flex items-baseline justify-between gap-3 xl:block xl:text-right">
-                                {missingRate ? (
-                                  <p className="text-sm font-bold text-red-700">Rate not set</p>
-                                ) : (
-                                  <>
-                                    <div>
-                                      {hasDiscount ? <p className="text-xs font-medium text-stone-400 line-through">{formatMoney(originalRowTotal, resolvedRate.currency)}</p> : null}
-                                      <p className="text-xl font-bold text-stone-950">{formatMoney(rowTotal, resolvedRate.currency)}</p>
-                                    </div>
-                                    <p className="text-xs text-stone-500">
-                                      {formatMoney(ratePerNight, resolvedRate.currency)} / night · {nights} night{nights !== 1 ? 's' : ''}
-                                    </p>
-                                  </>
-                                )}
-                              </div>
-                              <Button
-                                onClick={() => selectOffer(category.id, pkg.id, selectedQuantity)}
-                                disabled={missingRate || remainingRoomCount <= 0}
-                                className="h-10 w-full rounded-lg bg-[#283618] px-6 text-sm font-semibold text-white hover:bg-[#3d5324] xl:w-auto"
-                              >
-                                {remainingRoomCount <= 0 ? 'Sold Out' : 'Book'}
-                              </Button>
-                            </div>
-                          );
-                        })}
+                            );
+                          });
+                        })()}
                       </div>
                     </div>
                   </div>
@@ -1878,49 +2348,25 @@ export default function ChaletBookingComponent() {
                       <div className="grid grid-cols-4 items-center gap-3 text-sm">
                         <div><p className="font-medium">Check In</p><p className="font-semibold">{format(parseISO(checkIn), 'dd MMM yyyy')}</p></div>
                         <div><p className="font-medium">Check Out</p><p className="font-semibold">{format(parseISO(checkOut), 'dd MMM yyyy')}</p></div>
-                        <div className="flex items-center justify-center text-lg font-bold">{item.adults + item.children}<UserRound className="ml-1 h-4 w-4" /></div>
-                        <div className="text-right font-bold">{formatBillAmount(item.discountedSubtotal, item.currency, item.usdToLkrRate)}</div>
+                        <div className="flex items-center justify-center text-lg font-bold" title={guestsLabel(item.adults, item.children)}>{item.adults + item.children}<UserRound className="ml-1 h-4 w-4" /></div>
+                        <div className="text-right">
+                          {item.originalRatePerNight > item.ratePerNight ? (
+                            <p className="text-xs font-medium text-red-700 line-through">{formatBillAmount(item.originalRatePerNight * item.nights, item.currency, item.usdToLkrRate)}</p>
+                          ) : null}
+                          <p className="font-bold">{formatBillAmount(item.discountedSubtotal, item.currency, item.usdToLkrRate)}</p>
+                        </div>
                       </div>
                     </div>
-                    <div className="mt-4 flex justify-between text-sm font-bold">
-                      <span>Sub Total</span>
-                      <span>{formatBillAmount(item.discountedSubtotal, item.currency, item.usdToLkrRate)}</span>
-                    </div>
+                    <p className="mt-2 text-xs text-stone-500">
+                      {guestsLabel(item.adults, item.children)} · {item.nights} night{item.nights === 1 ? '' : 's'}
+                      {item.originalRatePerNight > item.ratePerNight && item.offerName ? <span className="text-red-700"> · {item.offerName}</span> : null}
+                    </p>
                   </div>
                 ))}
               </div>
               <div className="mt-6 rounded-md border p-5">
                 <h3 className="mb-4 text-lg font-bold">Price Summary</h3>
-                <div className="space-y-3 border-t pt-4 text-sm font-semibold text-stone-700">
-                  <div className="flex justify-between">
-                    <span>Room Total</span>
-                    <span>{formatBillAmount(cartSubtotal, bookingCart[0].currency, bookingCart[0].usdToLkrRate)}</span>
-                  </div>
-                  {promoDiscount > 0 ? (
-                    <div className="flex justify-between text-green-700">
-                      <span>Promo Discount ({appliedPromo?.code}{promoDiscountLabel ? ` - ${promoDiscountLabel}` : ''})</span>
-                      <span>-{formatBillAmount(promoDiscount, cartCurrency, cartUsdToLkrRate)}</span>
-                    </div>
-                  ) : null}
-                  {cartServiceCharge > 0 ? (
-                    <div className="flex justify-between">
-                      <span>Service Charge ({billSettings.service_charge_pct}%)</span>
-                      <span>{formatBillAmount(cartServiceCharge, bookingCart[0].currency, bookingCart[0].usdToLkrRate)}</span>
-                    </div>
-                  ) : null}
-                  {cartVat > 0 ? (
-                    <div className="flex justify-between">
-                      <span>VAT ({billSettings.vat_pct}%)</span>
-                      <span>{formatBillAmount(cartVat, bookingCart[0].currency, bookingCart[0].usdToLkrRate)}</span>
-                    </div>
-                  ) : null}
-                  {cartSscl > 0 ? (
-                    <div className="flex justify-between">
-                      <span>SSCL ({billSettings.sscl_pct}%)</span>
-                      <span>{formatBillAmount(cartSscl, bookingCart[0].currency, bookingCart[0].usdToLkrRate)}</span>
-                    </div>
-                  ) : null}
-                </div>
+                {priceSummaryRows()}
                 <div className="mt-4 flex justify-between border-t pt-4 text-lg font-bold">
                   <span>Total</span>
                   <span>{formatBillAmount(payableTotal, cartCurrency, cartUsdToLkrRate)}</span>

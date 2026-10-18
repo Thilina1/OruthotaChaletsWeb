@@ -4,8 +4,9 @@ import { z } from 'zod';
 import { createClient } from '@supabase/supabase-js';
 import { isValidEmail, isValidInternationalPhone } from '@/lib/contact-validation';
 import { sendBookingRequestEmails } from '@/lib/chalet-booking-email';
-import { chaletGuestLimits } from '@/lib/chalet-guest-limits';
-import { buildPayHereCheckout, payHereConfig } from '@/lib/payhere';
+import { chaletGuestLimits, guestsFitLimits, roomGuestLimits } from '@/lib/chalet-guest-limits';
+import { buildPayHereCheckout, getSiteOrigin, payHereConfig } from '@/lib/payhere';
+import { createPaymentsLkCheckout, paymentsLkConfig } from '@/lib/payments-lk';
 import { CHECKOUT_HOLD_MINUTES, findUnavailableRoomCategory } from '@/lib/chalet-availability';
 
 const DEFAULT_SERVICE_CHARGE_PCT = 10;
@@ -108,15 +109,21 @@ function resolveRateForNationality(rateData: {
   lkr_discount_fixed_value?: number | null;
   usd_discount_value?: number | null;
   usd_discount_fixed_value?: number | null;
-}, nationality?: string) {
+}, nationality?: string, guestCharges = 0) {
+  // The discount is applied after the guest charges: its share of the room
+  // rate comes off the whole nightly total (same as the booking page).
+  const discountedTotal = (roomRate: number, percent?: number | null, fixedValue?: number | null) => {
+    const discountShare = roomRate > 0 ? (roomRate - applyRateDiscount(roomRate, percent, fixedValue)) / roomRate : 0;
+    return Math.max(0, (roomRate + Math.max(0, guestCharges)) * (1 - discountShare));
+  };
   if (nationality === 'Non Sri Lankan') {
     const usdRate = Number(rateData.usd_rate_per_night || 0);
     if (usdRate > 0) {
-      return applyRateDiscount(usdRate, rateData.usd_discount_value ?? rateData.discount_percent ?? 0, rateData.usd_discount_fixed_value);
+      return discountedTotal(usdRate, rateData.usd_discount_value ?? rateData.discount_percent ?? 0, rateData.usd_discount_fixed_value);
     }
   }
 
-  return applyRateDiscount(Number(rateData.rate_per_night), rateData.lkr_discount_value ?? rateData.discount_percent ?? 0, rateData.lkr_discount_fixed_value);
+  return discountedTotal(Number(rateData.rate_per_night), rateData.lkr_discount_value ?? rateData.discount_percent ?? 0, rateData.lkr_discount_fixed_value);
 }
 
 type RequestedRoom = {
@@ -137,6 +144,11 @@ type RateRow = {
   lkr_discount_fixed_value?: number | null;
   usd_discount_value?: number | null;
   usd_discount_fixed_value?: number | null;
+  // Per guest per night, added to the room rate (admin Rates page).
+  adult_rate?: number | null;
+  child_rate?: number | null;
+  usd_adult_rate?: number | null;
+  usd_child_rate?: number | null;
 };
 
 type PromoCode = {
@@ -232,10 +244,11 @@ export async function POST(request: Request) {
   }, {});
   const requestedCategoryIds = Object.keys(requestedRoomsByCategory);
   const requestedPackageIds = [...new Set(requestedRooms.map(room => room.packageId))];
-  const [{ data: rateRows, error: ratesError }, { data: categoryRows, error: categoriesError }, { data: packageRows }] = await Promise.all([
+  const [{ data: rateRows, error: ratesError }, { data: categoryRows, error: categoriesError }, { data: packageRows }, { data: roomRows, error: roomsError }] = await Promise.all([
     supabase
       .from('chalet_rates')
-      .select('package_id, room_category_id, rate_per_night, usd_rate_per_night, usd_to_lkr_rate, discount_percent, lkr_discount_value, lkr_discount_fixed_value, usd_discount_value, usd_discount_fixed_value')
+      // All columns, so the adult/child rates are included once their migration is run.
+      .select('*')
       .in('package_id', requestedPackageIds)
       .is('occupancy_type_id', null),
     supabase
@@ -246,10 +259,15 @@ export async function POST(request: Request) {
       .from('chalet_packages')
       .select('id, name')
       .in('id', requestedPackageIds),
+    supabase
+      .from('chalet_rooms')
+      // All columns, so min_adults is included once its migration is run.
+      .select('*')
+      .in('category_id', requestedCategoryIds),
   ]);
 
-  if (ratesError || categoriesError) {
-    console.error('Chalet availability verification failed:', { ratesError, categoriesError });
+  if (ratesError || categoriesError || roomsError) {
+    console.error('Chalet availability verification failed:', { ratesError, categoriesError, roomsError });
     return NextResponse.json({ error: 'Could not verify room availability.' }, { status: 500 });
   }
 
@@ -264,12 +282,45 @@ export async function POST(request: Request) {
     return badRequest('No rate found for one or more selected room type and package combinations.');
   }
 
+  // Guests are limited per room (a room left blank uses its room type's limits).
+  // Each party needs enough rooms of its room type that take that many guests.
+  const requestedGuestGroups = new Map<string, { roomCategoryId: string; adults: number; children: number; count: number }>();
   for (const room of requestedRooms) {
-    const category = (categoryRows ?? []).find(item => item.id === room.roomCategoryId);
-    const limits = chaletGuestLimits(category);
-    if (room.adults > limits.maxAdults || room.children > limits.maxChildren || room.adults + room.children > limits.maxGuests) {
-      return badRequest(`${category?.name || 'This room'} allows up to ${limits.maxAdults} adult(s), ${limits.maxChildren} child(ren) and ${limits.maxGuests} guest(s) in total.`);
+    const key = `${room.roomCategoryId}:${room.adults}-${room.children}`;
+    const group = requestedGuestGroups.get(key) ?? { roomCategoryId: room.roomCategoryId, adults: room.adults, children: room.children, count: 0 };
+    group.count += 1;
+    requestedGuestGroups.set(key, group);
+  }
+  for (const group of requestedGuestGroups.values()) {
+    const category = (categoryRows ?? []).find(item => item.id === group.roomCategoryId);
+    const categoryRooms = (roomRows ?? []).filter(item => item.category_id === group.roomCategoryId && item.status === 'available');
+    if (categoryRooms.length === 0) {
+      const limits = chaletGuestLimits(category);
+      if (!guestsFitLimits(limits, group.adults, group.children)) {
+        return badRequest(`${category?.name || 'This room'} allows up to ${limits.maxAdults} adult(s), ${limits.maxChildren} child(ren) and ${limits.maxGuests} guest(s) in total.`);
+      }
+      continue;
     }
+    const fittingRooms = categoryRooms.filter(item => guestsFitLimits(roomGuestLimits(item, category), group.adults, group.children)).length;
+    if (fittingRooms < group.count) {
+      const guests = `${group.adults} adult(s)${group.children ? ` and ${group.children} child(ren)` : ''}`;
+      return badRequest(fittingRooms === 0
+        ? `No ${category?.name || 'room'} takes ${guests}.`
+        : `Only ${fittingRooms} ${category?.name || 'room'}${fittingRooms === 1 ? '' : 's'} can take ${guests}.`);
+    }
+  }
+
+  // The same guest trying again (e.g. after going back from the payment page)
+  // is not blocked by their own earlier unpaid checkout: its room hold ends
+  // here. A late payment on that earlier page still books if rooms are free.
+  if (process.env.SUPABASE_SERVICE_ROLE_KEY) {
+    const { error: releaseError } = await supabase
+      .from('chalet_booking_checkouts')
+      .update({ expires_at: new Date().toISOString() })
+      .eq('status', 'awaiting_payment')
+      .gt('expires_at', new Date().toISOString())
+      .eq('booking_payload->>customer_email', email);
+    if (releaseError) console.error('Releasing the guest\'s earlier checkout failed:', releaseError);
   }
 
   // Every booking (checked-out ones too) holds its dates until it is
@@ -300,10 +351,17 @@ export async function POST(request: Request) {
     .maybeSingle();
   const billSettings = { ...defaultBillSettings, ...((settingsRes.data?.value as Record<string, unknown> | null) ?? {}) };
   const billCurrency = getCustomerBillCurrency(payload.nationality);
-  const ratePerNight = requestedRooms.reduce((sum, room) => {
+  // Each room: room rate + the rate's adult/child rates for the guests in that
+  // room (admin Rates page), then the rate's discount, in the bill currency.
+  const roomNightlyRate = (room: RequestedRoom) => {
     const roomRate = findRateForRoom(room);
-    return sum + (roomRate ? resolveRateForNationality(roomRate, payload.nationality) : 0);
-  }, 0);
+    if (!roomRate) return 0;
+    const guestCharges = payload.nationality === 'Non Sri Lankan'
+      ? Number(roomRate.usd_adult_rate || 0) * room.adults + Number(roomRate.usd_child_rate || 0) * room.children
+      : Number(roomRate.adult_rate || 0) * room.adults + Number(roomRate.child_rate || 0) * room.children;
+    return resolveRateForNationality(roomRate, payload.nationality, guestCharges);
+  };
+  const ratePerNight = requestedRooms.reduce((sum, room) => sum + roomNightlyRate(room), 0);
   const subtotal = ratePerNight * nights;
   const promoCode = payload.promoCode?.trim().toUpperCase() || '';
   let promoDiscount = 0;
@@ -354,9 +412,11 @@ export async function POST(request: Request) {
   const sscl = chargeApplies(billSettings.sscl_currency as ChargeCurrency, billCurrency) ? discountedSubtotal * Number(billSettings.sscl_pct || 0) / 100 : 0;
   const totalAmount = Math.max(0, discountedSubtotal + serviceCharge + vat + sscl);
   const paymentRequiredAmount = payload.paymentOption === 'half' ? totalAmount / 2 : totalAmount;
-  // With PayHere no booking is created here: the guest pays first and the
-  // booking is created when PayHere confirms the payment (payments/payhere/notify).
-  const payHere = paymentRequiredAmount > 0 ? payHereConfig() : null;
+  // With an online gateway no booking is created here: the guest pays first and
+  // the booking is created when the gateway confirms the payment. payments.lk
+  // is used when its key is set, otherwise PayHere, otherwise the demo payment.
+  const paymentsLk = paymentRequiredAmount > 0 ? paymentsLkConfig() : null;
+  const payHere = paymentRequiredAmount > 0 && !paymentsLk ? payHereConfig() : null;
   const initialPaymentStatus = 'paid';
   const { firstName, lastName } = splitCustomerName(payload.customerName);
   const customerIdentity = normalizeIdentity(payload.customerNic);
@@ -454,20 +514,19 @@ export async function POST(request: Request) {
 
   // Rooms for the booking confirmation PDF attached to the booking emails.
   const confirmationRooms = requestedRooms.map(room => {
-    const roomRate = findRateForRoom(room);
     return {
       name: (categoryRows ?? []).find(item => item.id === room.roomCategoryId)?.name || 'Chalet',
       packageName: (packageRows ?? []).find(item => item.id === room.packageId)?.name || '',
       adults: room.adults,
       children: room.children,
-      amount: (roomRate ? resolveRateForNationality(roomRate, payload.nationality) : 0) * nights,
+      amount: roomNightlyRate(room) * nights,
     };
   });
 
   const emailDetails = {
     rooms: confirmationRooms,
     promoCode: promoCode || null,
-    paymentMethod: payHere ? 'Online payment (PayHere)' : 'Online payment',
+    paymentMethod: paymentsLk ? 'Online payment (payments.lk)' : payHere ? 'Online payment (PayHere)' : 'Online payment',
     customerName: payload.customerName.trim(),
     customerEmail: email,
     customerPhone: payload.customerPhone.trim(),
@@ -505,6 +564,91 @@ export async function POST(request: Request) {
     paymentBalanceAmount: Math.max(0, totalAmount - paymentRequiredAmount),
     totalAmount,
   };
+
+  if (paymentsLk) {
+    // payments.lk charges LKR only: a USD bill is charged at the rate's USD to
+    // LKR exchange rate (the bill itself stays in USD).
+    const amount = Math.round(paymentRequiredAmount * 100) / 100;
+    const exchangeRate = billCurrency === 'USD' ? Number(findRateForRoom(requestedRooms[0])?.usd_to_lkr_rate || 0) : 1;
+    if (exchangeRate <= 0) {
+      console.error('payments.lk checkout needs a USD to LKR rate on the chalet rate.');
+      return NextResponse.json({ error: 'Online payment in USD is not available right now. Please contact us to book.' }, { status: 500 });
+    }
+    const amountCents = Math.round(amount * exchangeRate * 100);
+    if (amountCents < 1000 || amountCents > 100000000) {
+      return badRequest('This amount cannot be paid online. Please contact us to book.');
+    }
+    // The rooms are held for as long as the payment page is open (5 minutes,
+    // payments.lk's shortest); after that they are free again unless paid.
+    const paymentPageMinutes = 5;
+    const { data: checkoutId, error: checkoutError } = await supabase.rpc('create_chalet_checkout', {
+      p_booking: bookingInsertPayload,
+      p_email_details: emailDetails,
+      p_amount: amount,
+      p_currency: billCurrency,
+      p_hold_minutes: paymentPageMinutes,
+    });
+    if (checkoutError || !checkoutId) {
+      if (checkoutError?.message?.includes('ROOMS_UNAVAILABLE')) {
+        const [, categoryId, available] = checkoutError.message.match(/ROOMS_UNAVAILABLE:([^:]+):(\d+)/) ?? [];
+        const categoryName = (categoryRows ?? []).find(item => item.id === categoryId)?.name || 'the selected room type';
+        return NextResponse.json(
+          { error: `Only ${Number(available || 0)} room${Number(available) === 1 ? '' : 's'} available for ${categoryName} on the selected dates.` },
+          { status: 409 }
+        );
+      }
+      console.error('Chalet checkout save failed:', checkoutError);
+      return NextResponse.json({ error: 'Could not start the payment. Please try again.' }, { status: 500 });
+    }
+
+    const origin = getSiteOrigin(request).replace(/\/$/, '');
+    const returnSearch = new URLSearchParams({
+      checkIn: bookingInsertPayload.check_in_date,
+      checkOut: bookingInsertPayload.check_out_date,
+      nationality: payload.nationality || 'Sri Lankan',
+      guests: requestedRooms.map(room => `${room.adults}-${room.children}`).join(','),
+    }).toString();
+    let paymentPage;
+    try {
+      paymentPage = await createPaymentsLkCheckout({
+        checkoutId: String(checkoutId),
+        amountCents,
+        description: `Oruthota Chalets booking ${bookingInsertPayload.check_in_date} to ${bookingInsertPayload.check_out_date}`,
+        customer: { name: payload.customerName.trim(), email },
+        // The guest's search comes back with them, so a cancelled payment
+        // returns to the same rooms and dates.
+        successUrl: `${origin}/chalet-booking?${returnSearch}&payment=return&checkout=${checkoutId}`,
+        cancelUrl: `${origin}/chalet-booking?${returnSearch}&payment=cancelled&checkout=${checkoutId}`,
+        expiresInMinutes: paymentPageMinutes,
+      });
+    } catch (error) {
+      console.error('payments.lk checkout create failed:', error);
+      return NextResponse.json({ error: 'Could not start the payment. Please try again.' }, { status: 502 });
+    }
+
+    // Remember the payment page and the LKR amount asked for, to check the
+    // payment against later (webhook / return page).
+    const { error: linkError } = await supabase
+      .from('chalet_booking_checkouts')
+      .update({ booking_payload: { ...bookingInsertPayload, payments_lk_checkout_id: paymentPage.id, payments_lk_amount_cents: amountCents } })
+      .eq('id', String(checkoutId));
+    if (linkError) {
+      console.error('payments.lk checkout link save failed (needs SUPABASE_SERVICE_ROLE_KEY):', linkError);
+      return NextResponse.json({ error: 'Could not start the payment. Please try again.' }, { status: 500 });
+    }
+
+    return NextResponse.json({
+      ok: true,
+      checkoutId: String(checkoutId),
+      payment: {
+        provider: 'payments_lk',
+        sandbox: paymentsLk.sandbox,
+        redirectUrl: paymentPage.url,
+        chargedAmountLkr: amountCents / 100,
+      },
+      pricing,
+    });
+  }
 
   if (payHere) {
     // Rooms are available: keep the booking details as a checkout (the

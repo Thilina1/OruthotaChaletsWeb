@@ -41,7 +41,29 @@ export function createChaletDbClient() {
 
 // Online checkouts still waiting for payment hold their room types, so a room
 // a guest is paying for is not sold to someone else meanwhile.
-export async function fetchCheckoutHolds(supabase: SupabaseClient, checkIn: string, checkOut: string): Promise<ChaletBookingWindow[]> {
+// excludeCheckoutId: the viewing guest's own unpaid checkout, which should not
+// count against them (read directly, which needs the service role key).
+export async function fetchCheckoutHolds(supabase: SupabaseClient, checkIn: string, checkOut: string, excludeCheckoutId?: string | null): Promise<ChaletBookingWindow[]> {
+  if (excludeCheckoutId && /^[0-9a-f-]{36}$/i.test(excludeCheckoutId) && process.env.SUPABASE_SERVICE_ROLE_KEY) {
+    const { data, error } = await supabase
+      .from('chalet_booking_checkouts')
+      .select('check_in_date, check_out_date, room_allocations')
+      .eq('status', 'awaiting_payment')
+      .gt('expires_at', new Date().toISOString())
+      .lt('check_in_date', checkOut)
+      .gt('check_out_date', checkIn)
+      .neq('id', excludeCheckoutId);
+    if (!error) {
+      return (data ?? []).map(row => ({
+        room_id: null,
+        room_ids: [],
+        room_category_id: null,
+        room_allocations: Array.isArray(row.room_allocations) ? row.room_allocations : [],
+        check_in_date: row.check_in_date,
+        check_out_date: row.check_out_date,
+      }));
+    }
+  }
   const { data, error } = await supabase.rpc('get_chalet_checkout_holds', { p_check_in: checkIn, p_check_out: checkOut });
   if (error) {
     // Before the checkouts migration is run there are no holds to count.
