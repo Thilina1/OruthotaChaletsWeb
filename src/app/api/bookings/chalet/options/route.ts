@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
-import { addDays, format, parseISO, startOfDay } from 'date-fns';
+import { addDays, differenceInCalendarDays, format, parseISO, startOfDay } from 'date-fns';
 import { fetchCheckoutHolds } from '@/lib/chalet-availability';
 import { combinedGuestLimitSource, roomGuestLimits } from '@/lib/chalet-guest-limits';
 
@@ -97,13 +97,21 @@ export async function GET(request: Request) {
   const today = startOfDay(new Date());
   const availabilityCheckIn = checkIn || format(today, 'yyyy-MM-dd');
   const availabilityCheckOut = checkOut || format(addDays(today, 1), 'yyyy-MM-dd');
+  // Flexible dates: 9 nights, each priced and checked on its own (the guest
+  // picks an arrival and a departure night). flexStart moves the window
+  // (the page's arrows); it never starts before today.
+  const flexStartParam = searchParams.get('flexStart');
+  const requestedFlexStart = flexStartParam && /^\d{4}-\d{2}-\d{2}$/.test(flexStartParam) ? flexStartParam : availabilityCheckIn;
+  const flexWindowStart = differenceInCalendarDays(parseISO(requestedFlexStart), today) < 0 ? format(today, 'yyyy-MM-dd') : requestedFlexStart;
   const flexibleDateStrings = flexibleDates
-    ? Array.from({ length: 9 }, (_, index) => format(addDays(parseISO(availabilityCheckIn), index), 'yyyy-MM-dd'))
+    ? Array.from({ length: 9 }, (_, index) => format(addDays(parseISO(flexWindowStart), index), 'yyyy-MM-dd'))
     : [];
-  const bookingWindowStart = flexibleDates ? flexibleDateStrings[0] : availabilityCheckIn;
-  const bookingWindowEnd = flexibleDates
+  // The bookings loaded must cover both the searched stay and the flexible window.
+  const flexibleWindowEnd = flexibleDates
     ? format(addDays(parseISO(flexibleDateStrings[flexibleDateStrings.length - 1]), 1), 'yyyy-MM-dd')
     : availabilityCheckOut;
+  const bookingWindowStart = flexibleDates && flexibleDateStrings[0] < availabilityCheckIn ? flexibleDateStrings[0] : availabilityCheckIn;
+  const bookingWindowEnd = flexibleWindowEnd > availabilityCheckOut ? flexibleWindowEnd : availabilityCheckOut;
 
   const [categoryRes, packageRes, rateRes, roomsRes, bookingsRes, settingsRes] = await Promise.all([
     supabase
@@ -197,12 +205,24 @@ export async function GET(request: Request) {
       room_guest_limits: freeRoomGuestLimits,
     };
   });
+  // Free rooms of a room type for a stay, with each room's guest limits.
+  const freeRoomLimitsForCategory = (category: RoomCategory, checkInDate: string, checkOutDate: string) => {
+    const overlapping = bookings.filter(booking => bookingOverlapsDateRange(booking, checkInDate, checkOutDate));
+    return rooms
+      .filter(room => room.category_id === category.id && room.status === 'available' && !overlapping.some(booking => bookingUsesRoom(booking, room.id)))
+      .map(room => roomGuestLimits(room, category));
+  };
+
   const availabilityDates = flexibleDateStrings.map(date => {
-    const nextDate = format(addDays(parseISO(date), 1), 'yyyy-MM-dd');
+    const stayEnd = format(addDays(parseISO(date), 1), 'yyyy-MM-dd');
     return {
       date,
+      checkOut: stayEnd,
       categories: Object.fromEntries(
-        categoryData.map(category => [category.id, availableRoomCountForCategory(category, date, nextDate)])
+        categoryData.map(category => [category.id, availableRoomCountForCategory(category, date, stayEnd)])
+      ),
+      roomGuestLimits: Object.fromEntries(
+        categoryData.map(category => [category.id, freeRoomLimitsForCategory(category, date, stayEnd)])
       ),
     };
   });

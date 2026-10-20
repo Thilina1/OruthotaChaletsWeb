@@ -23,6 +23,9 @@ export function BookingForm({ showTableBooking = false }: { showTableBooking?: b
   const [isDatePopoverOpen, setIsDatePopoverOpen] = useState(false);
   const [dateRange, setDateRange] = useState<DateRange | undefined>(undefined);
   const [hoveredCheckoutDate, setHoveredCheckoutDate] = useState<Date | undefined>(undefined);
+  // Which field opened the calendar. Once both dates are set, a day clicked
+  // from Check-in changes only the check-in and one from Check-out only the check-out.
+  const [dateField, setDateField] = useState<'checkIn' | 'checkOut'>('checkIn');
   const [nationality, setNationality] = useState<'Sri Lankan' | 'Non Sri Lankan' | ''>('');
   const [promoCode, setPromoCode] = useState('');
   // One calendar month on phones, two side by side on wider screens.
@@ -40,7 +43,31 @@ export function BookingForm({ showTableBooking = false }: { showTableBooking?: b
   const hasValidRange = Boolean(dateRange?.from && dateRange.to && dateRange.to > dateRange.from);
   const nights = hasValidRange && dateRange?.from && dateRange.to ? differenceInCalendarDays(dateRange.to, dateRange.from) : 0;
 
-  const handleDateRangeSelect = (range: DateRange | undefined) => {
+  const handleDateRangeSelect = (range: DateRange | undefined, clickedDay?: Date) => {
+    const current = dateRange;
+    if (clickedDay && current?.from && current.to) {
+      if (dateField === 'checkIn') {
+        if (clickedDay < current.to) {
+          setDateRange({ from: clickedDay, to: current.to });
+          setIsDatePopoverOpen(false);
+        } else {
+          // On or after the old check-out: choose a new check-out next.
+          setDateRange({ from: clickedDay, to: undefined });
+          setDateField('checkOut');
+        }
+        setHoveredCheckoutDate(undefined);
+        return;
+      }
+      if (clickedDay > current.from) {
+        setDateRange({ from: current.from, to: clickedDay });
+        setHoveredCheckoutDate(undefined);
+        setIsDatePopoverOpen(false);
+        return;
+      }
+      // A check-out on or before the check-in starts a new stay from that day.
+      setDateRange({ from: clickedDay, to: undefined });
+      return;
+    }
     if (range?.from && range.to && range.to <= range.from) {
       setDateRange({ from: range.from, to: undefined });
       setHoveredCheckoutDate(undefined);
@@ -125,7 +152,7 @@ export function BookingForm({ showTableBooking = false }: { showTableBooking?: b
               <Popover open={isDatePopoverOpen} onOpenChange={setIsDatePopoverOpen}>
                 <PopoverTrigger asChild>
                   <button type="button" className="col-span-2 grid grid-cols-2 rounded-xl text-left transition-colors hover:bg-stone-100/80 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#283618]/40">
-                    <span className="flex items-center gap-3 px-5 py-3.5 md:px-7 md:py-5">
+                    <span onClick={() => setDateField('checkIn')} className="flex items-center gap-3 px-5 py-3.5 md:px-7 md:py-5">
                       <CalendarIcon className="h-5 w-5 shrink-0 text-[#283618] md:h-6 md:w-6" />
                       <span className="min-w-0">
                         <span className="block text-[11px] font-semibold uppercase tracking-[0.16em] text-stone-500 md:text-xs">Check-in</span>
@@ -134,7 +161,7 @@ export function BookingForm({ showTableBooking = false }: { showTableBooking?: b
                         </span>
                       </span>
                     </span>
-                    <span className="flex items-center gap-3 border-l border-stone-200 px-5 py-3.5 md:px-7 md:py-5">
+                    <span onClick={() => setDateField(dateRange?.from ? 'checkOut' : 'checkIn')} className="flex items-center gap-3 border-l border-stone-200 px-5 py-3.5 md:px-7 md:py-5">
                       <CalendarIcon className="h-5 w-5 shrink-0 text-[#283618] md:h-6 md:w-6" />
                       <span className="min-w-0">
                         <span className="block text-[11px] font-semibold uppercase tracking-[0.16em] text-stone-500 md:text-xs">
@@ -148,15 +175,24 @@ export function BookingForm({ showTableBooking = false }: { showTableBooking?: b
                   </button>
                 </PopoverTrigger>
                 <PopoverContent className="w-auto overflow-hidden rounded-2xl border border-stone-200 bg-white p-0 shadow-2xl" align="start">
+                  {dateRange?.from ? (
+                    <div className="border-b border-stone-100 px-5 pt-4 pb-3 text-sm font-semibold text-[#283618]">
+                      {dateField === 'checkIn' && dateRange.to ? 'Choose a new check-in date' : 'Choose a check-out date'}
+                    </div>
+                  ) : null}
                   <Calendar
                     mode="range"
                     selected={dateRange}
-                    onSelect={handleDateRangeSelect}
+                    onSelect={(range, clickedDay) => handleDateRangeSelect(range, clickedDay)}
+                    defaultMonth={dateRange?.from}
                     onDayMouseEnter={setHoveredCheckoutDate}
                     onDayMouseLeave={() => setHoveredCheckoutDate(undefined)}
                     numberOfMonths={isWideScreen ? 2 : 1}
                     initialFocus
-                    disabled={{ before: new Date() }}
+                    // Choosing a check-out: only days after the check-in.
+                    disabled={dateField === 'checkOut' && dateRange?.from && dateRange.to
+                      ? [{ before: new Date() }, { before: new Date(dateRange.from.getFullYear(), dateRange.from.getMonth(), dateRange.from.getDate() + 1) }]
+                      : { before: new Date() }}
                     modifiers={{ previewRange: isPreviewRangeDay }}
                     modifiersClassNames={{
                       previewRange: 'bg-[#ff9900]/25 text-stone-950 rounded-none',

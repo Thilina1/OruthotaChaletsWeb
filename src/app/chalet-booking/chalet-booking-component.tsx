@@ -225,7 +225,11 @@ type ChaletRate = {
 
 type FlexibleAvailabilityDate = {
   date: string;
+  // End of a stay of the searched length starting on `date`.
+  checkOut?: string;
   categories: Record<string, number>;
+  // Each free room's guest limits per room type, for that stay.
+  roomGuestLimits?: Record<string, ChaletGuestLimits[]>;
 };
 
 function roundMoney(value: number) {
@@ -237,6 +241,36 @@ function formatMoney(value: number, currency: 'LKR' | 'USD' = 'LKR') {
     minimumFractionDigits: Number.isInteger(value) ? 0 : 2,
     maximumFractionDigits: 2,
   })}`;
+}
+
+// Looks of the booking bar's date calendars (range and single-date modes).
+const dateCalendarClassNames = {
+  months: 'flex flex-col gap-6 md:flex-row',
+  month: 'space-y-5',
+  caption: 'relative flex items-center justify-center pt-1',
+  caption_label: 'text-xl font-semibold tracking-wide text-stone-950',
+  head_cell: 'w-10 rounded-md text-sm font-medium text-stone-900',
+  row: 'mt-2 flex w-full',
+  cell: 'h-10 w-10 p-0 text-center text-sm relative [&:has([aria-selected])]:bg-[#ff9900]/25 first:[&:has([aria-selected])]:rounded-l-full last:[&:has([aria-selected])]:rounded-r-full',
+  day: 'h-10 w-10 rounded-full p-0 text-base font-medium text-stone-950 hover:bg-[#ff9900]/20 hover:text-stone-950 focus:bg-[#ff9900]/20 focus:text-stone-950',
+  day_selected: 'bg-[#ff9900] text-white hover:bg-[#ff9900] hover:text-white focus:bg-[#ff9900] focus:text-white',
+  day_range_middle: 'rounded-none bg-[#ff9900]/25 text-stone-950 hover:bg-[#ff9900]/25 hover:text-stone-950',
+  day_range_end: 'day-range-end rounded-full bg-[#ff9900] text-white hover:bg-[#ff9900] hover:text-white',
+  day_disabled: 'text-stone-300 opacity-60',
+  nav_button: 'h-9 w-9 rounded-full bg-transparent p-0 text-stone-950 opacity-80 hover:bg-stone-100 hover:opacity-100',
+  nav_button_previous: 'absolute left-1',
+  nav_button_next: 'absolute right-1',
+};
+
+function isSameDayValue(a: Date, b: Date) {
+  return a.getFullYear() === b.getFullYear() && a.getMonth() === b.getMonth() && a.getDate() === b.getDate();
+}
+
+// Short prices for the Flexible Dates table: 37100 -> "37.1k", USD as "$120".
+function compactMoney(amount: number, currency: 'LKR' | 'USD' = 'LKR') {
+  if (currency === 'USD') return `$${Math.round(amount).toLocaleString('en-US')}`;
+  if (amount < 1000) return Math.round(amount).toLocaleString('en-US');
+  return `${(Math.round(amount / 100) / 10).toFixed(1).replace(/\.0$/, '')}k`;
 }
 
 function formatBillAmount(amount: number, currency: 'LKR' | 'USD', usdToLkrRate = 0) {
@@ -375,11 +409,24 @@ export default function ChaletBookingComponent() {
   const [selectedRoomCategoryId, setSelectedRoomCategoryId] = useState(roomCategoryId);
   const [loadingDetails, setLoadingDetails] = useState(true);
   const [rateError, setRateError] = useState('');
+  // Bumped by "Try again" to load the booking options again.
+  const [optionsReloadKey, setOptionsReloadKey] = useState(0);
+  // First night shown in the Flexible Dates table (moved by its arrows).
+  const [flexStart, setFlexStart] = useState('');
+  const [flexLoading, setFlexLoading] = useState(false);
+  // Arrival night picked in the Flexible Dates table, waiting for a departure.
+  const [flexArrival, setFlexArrival] = useState<{ rowKey: string; date: string } | null>(null);
+  // After picking arrival and departure in that table, one room of that row is
+  // added once the new dates have loaded.
+  const [pendingFlexAdd, setPendingFlexAdd] = useState<{ categoryId: string; pkgId: string; adults: number; children: number; checkIn: string } | null>(null);
   const [isDatePopoverOpen, setIsDatePopoverOpen] = useState(false);
   const [selectedDateRange, setSelectedDateRange] = useState<DateRange | undefined>(() => (
     checkIn && checkOut ? { from: parseISO(checkIn), to: parseISO(checkOut) } : undefined
   ));
   const [hoveredCheckoutDate, setHoveredCheckoutDate] = useState<Date | undefined>(undefined);
+  // First the calendar picks both dates; once both are set, the Check In and
+  // Check Out fields each change only their own date.
+  const [dateField, setDateField] = useState<'range' | 'checkIn' | 'checkOut'>('range');
   const [selectedNationality, setSelectedNationality] = useState<'Sri Lankan' | 'Non Sri Lankan'>(
     nationality === 'Non Sri Lankan' ? 'Non Sri Lankan' : 'Sri Lankan'
   );
@@ -636,6 +683,37 @@ export default function ChaletBookingComponent() {
     }
   };
 
+  const openDateField = (field: 'checkIn' | 'checkOut') => {
+    const hasCheckIn = Boolean(selectedDateRange?.from);
+    const hasBoth = hasCheckIn && Boolean(selectedDateRange?.to);
+    setDateField(field === 'checkOut' ? (hasCheckIn ? 'checkOut' : 'range') : (hasBoth ? 'checkIn' : 'range'));
+  };
+
+  const handleCheckInSelect = (date: Date | undefined) => {
+    if (!date) return;
+    const checkOut = selectedDateRange?.to;
+    if (checkOut && checkOut > date) {
+      setSelectedDateRange({ from: date, to: checkOut });
+      setIsDatePopoverOpen(false);
+      return;
+    }
+    // On or after the old check-out: choose a new check-out next.
+    setSelectedDateRange({ from: date, to: undefined });
+    setDateField('checkOut');
+  };
+
+  const handleCheckOutSelect = (date: Date | undefined) => {
+    const checkIn = selectedDateRange?.from;
+    if (!date || !checkIn || date <= checkIn) return;
+    setSelectedDateRange({ from: checkIn, to: date });
+    setIsDatePopoverOpen(false);
+  };
+
+  // Days of the current stay, highlighted while one date is being changed.
+  const isStayDay = (date: Date) => Boolean(
+    selectedDateRange?.from && selectedDateRange.to && date >= selectedDateRange.from && date <= selectedDateRange.to
+  );
+
   const isPreviewRangeDay = (date: Date) => {
     if (!selectedDateRange?.from || selectedDateRange.to || !hoveredCheckoutDate) return false;
     return date > selectedDateRange.from && date <= hoveredCheckoutDate;
@@ -680,7 +758,20 @@ export default function ChaletBookingComponent() {
       return;
     }
 
+    // A new search starts clean (an earlier failed load must not stick).
+    setRateError('');
+    setLoadingDetails(true);
     const optionsParams = new URLSearchParams({ checkIn, checkOut });
+    // The flexible table opens two nights before the check-in (never before today).
+    const initialFlexStart = format(
+      differenceInCalendarDays(addDays(parseISO(checkIn), -2), new Date()) < 0 ? new Date() : addDays(parseISO(checkIn), -2),
+      'yyyy-MM-dd',
+    );
+    if (flexibleDatesParam) {
+      optionsParams.set('flexStart', initialFlexStart);
+      setFlexStart(initialFlexStart);
+      setFlexArrival(null);
+    }
     try {
       const ownCheckout = sessionStorage.getItem(OWN_CHECKOUT_KEY);
       if (ownCheckout) optionsParams.set('ownCheckout', ownCheckout);
@@ -735,7 +826,33 @@ export default function ChaletBookingComponent() {
         setRateError((error as Error).message || 'Could not load chalet booking options.');
         setLoadingDetails(false);
       });
-  }, [checkIn, checkOut, packageId, roomCategoryId, flexibleDatesParam]);
+  }, [checkIn, checkOut, packageId, roomCategoryId, flexibleDatesParam, optionsReloadKey]);
+
+  // The Flexible Dates arrows: load only the nights of the new window.
+  const moveFlexWindow = (days: number) => {
+    if (!checkIn || !checkOut || !flexStart) return;
+    const today = format(new Date(), 'yyyy-MM-dd');
+    const moved = format(addDays(parseISO(flexStart), days), 'yyyy-MM-dd');
+    const nextStart = moved < today ? today : moved;
+    if (nextStart === flexStart) return;
+    const params = new URLSearchParams({ checkIn, checkOut, flexibleDates: 'true', flexStart: nextStart });
+    try {
+      const ownCheckout = sessionStorage.getItem(OWN_CHECKOUT_KEY);
+      if (ownCheckout) params.set('ownCheckout', ownCheckout);
+    } catch {
+      // Optional.
+    }
+    setFlexLoading(true);
+    fetch(`/api/bookings/chalet/options?${params.toString()}`)
+      .then(async response => {
+        const data = await readJsonResponse(response);
+        if (!response.ok) throw new Error(data.error || 'Could not load these dates.');
+        setAvailabilityDates((data.availabilityDates || []) as FlexibleAvailabilityDate[]);
+        setFlexStart(nextStart);
+      })
+      .catch(error => toast({ variant: 'destructive', title: 'Could not load these dates', description: (error as Error).message }))
+      .finally(() => setFlexLoading(false));
+  };
 
   const nights = checkIn && checkOut ? differenceInCalendarDays(parseISO(checkOut), parseISO(checkIn)) : 0;
   const rateHasMatrixValue = (rate: ChaletRate, targetNationality: string) => (
@@ -850,6 +967,17 @@ export default function ChaletBookingComponent() {
     setBookingCart(prev => [...prev, ...added]);
   };
 
+  useEffect(() => {
+    if (!pendingFlexAdd || loadingDetails || checkIn !== pendingFlexAdd.checkIn || roomCategories.length === 0) return;
+    const { categoryId, pkgId, adults, children } = pendingFlexAdd;
+    setPendingFlexAdd(null);
+    const category = roomCategories.find(item => item.id === categoryId);
+    const left = Math.max(0, Number(category?.available_room_count ?? 0) - selectedRoomCountForCategory(categoryId));
+    if (category && left > 0 && roomsFittingGuests(category, adults, children) > 0 && cartRoomsFor(categoryId, pkgId, adults, children).length === 0) {
+      setLineRoomCount(categoryId, pkgId, { adults, children }, 1);
+    }
+  }, [pendingFlexAdd, loadingDetails, checkIn, roomCategories]);
+
   // Books one or more rooms of a room type + package. Each line is a guest
   // count (from the searched rooms) with how many rooms to book at that
   // occupancy; every room is priced for its own guests.
@@ -951,12 +1079,14 @@ export default function ChaletBookingComponent() {
     bookingCart.filter(item => item.roomCategoryId === categoryId).length
   );
 
+  // Moves the stay to another date, keeping its length and the searched rooms/guests.
   const selectFlexibleDate = (date: string, categoryId: string, pkgId: string) => {
     const startDate = parseISO(date);
     const params = new URLSearchParams({
       checkIn: format(startDate, 'yyyy-MM-dd'),
-      checkOut: format(addDays(startDate, 1), 'yyyy-MM-dd'),
+      checkOut: format(addDays(startDate, Math.max(1, nights)), 'yyyy-MM-dd'),
       nationality: selectedNationality,
+      guests: searchRoomGuests.map(room => `${room.adults}-${room.children}`).join(','),
       roomCategoryId: categoryId,
       packageId: pkgId,
       flexibleDates: 'true',
@@ -1382,14 +1512,14 @@ export default function ChaletBookingComponent() {
           <Popover open={isDatePopoverOpen} onOpenChange={setIsDatePopoverOpen}>
             <PopoverTrigger asChild>
               <button type="button" className="grid gap-3 text-left sm:col-span-2 sm:grid-cols-2">
-                <span>
+                <span onClick={() => openDateField('checkIn')}>
                   <span className="mb-1.5 block text-[11px] font-semibold uppercase tracking-[0.14em] text-stone-500">Check In</span>
                   <span className="flex h-11 items-center justify-between rounded-lg border border-stone-300 bg-stone-50 px-3.5 text-sm font-semibold text-[#283618] transition-colors hover:border-[#283618]">
                     <span>{selectedDateRange?.from ? format(selectedDateRange.from, 'dd-MM-yyyy') : 'Select date'}</span>
                     <CalendarIcon className="h-5 w-5" />
                   </span>
                 </span>
-                <span>
+                <span onClick={() => openDateField('checkOut')}>
                   <span className="mb-1.5 block text-[11px] font-semibold uppercase tracking-[0.14em] text-stone-500">Check Out</span>
                   <span className="flex h-11 items-center justify-between rounded-lg border border-stone-300 bg-stone-50 px-3.5 text-sm font-semibold text-[#283618] transition-colors hover:border-[#283618]">
                     <span>{selectedDateRange?.from && selectedDateRange.to && selectedDateRange.to > selectedDateRange.from ? format(selectedDateRange.to, 'dd-MM-yyyy') : 'Select date'}</span>
@@ -1399,38 +1529,65 @@ export default function ChaletBookingComponent() {
               </button>
             </PopoverTrigger>
             <PopoverContent className="w-auto overflow-hidden rounded-2xl border border-stone-200 bg-white p-0 shadow-2xl" align="start">
-              <Calendar
-                mode="range"
-                selected={selectedDateRange}
-                onSelect={handleDateRangeSelect}
-                onDayMouseEnter={setHoveredCheckoutDate}
-                onDayMouseLeave={() => setHoveredCheckoutDate(undefined)}
-                numberOfMonths={2}
-                initialFocus
-                disabled={{ before: new Date() }}
-                modifiers={{ previewRange: isPreviewRangeDay }}
-                modifiersClassNames={{
-                  previewRange: 'bg-[#ff9900]/25 text-stone-950 rounded-none',
-                }}
-                className="rounded-2xl bg-white p-5"
-                classNames={{
-                  months: 'flex flex-col gap-6 md:flex-row',
-                  month: 'space-y-5',
-                  caption: 'relative flex items-center justify-center pt-1',
-                  caption_label: 'text-xl font-semibold tracking-wide text-stone-950',
-                  head_cell: 'w-10 rounded-md text-sm font-medium text-stone-900',
-                  row: 'mt-2 flex w-full',
-                  cell: 'h-10 w-10 p-0 text-center text-sm relative [&:has([aria-selected])]:bg-[#ff9900]/25 first:[&:has([aria-selected])]:rounded-l-full last:[&:has([aria-selected])]:rounded-r-full',
-                  day: 'h-10 w-10 rounded-full p-0 text-base font-medium text-stone-950 hover:bg-[#ff9900]/20 hover:text-stone-950 focus:bg-[#ff9900]/20 focus:text-stone-950',
-                  day_selected: 'bg-[#ff9900] text-white hover:bg-[#ff9900] hover:text-white focus:bg-[#ff9900] focus:text-white',
-                  day_range_middle: 'rounded-none bg-[#ff9900]/25 text-stone-950 hover:bg-[#ff9900]/25 hover:text-stone-950',
-                  day_range_end: 'day-range-end rounded-full bg-[#ff9900] text-white hover:bg-[#ff9900] hover:text-white',
-                  day_disabled: 'text-stone-300 opacity-60',
-                  nav_button: 'h-9 w-9 rounded-full bg-transparent p-0 text-stone-950 opacity-80 hover:bg-stone-100 hover:opacity-100',
-                  nav_button_previous: 'absolute left-1',
-                  nav_button_next: 'absolute right-1',
-                }}
-              />
+              {dateField !== 'range' ? (
+                <div className="flex items-center justify-between gap-4 border-b border-stone-100 px-5 pt-4 pb-3 text-sm">
+                  <span className="font-semibold text-[#283618]">{dateField === 'checkIn' ? 'Choose a new check-in date' : 'Choose a check-out date'}</span>
+                  {selectedDateRange?.from ? (
+                    <span className="text-stone-500">
+                      {format(selectedDateRange.from, 'dd MMM')}
+                      {' → '}
+                      {selectedDateRange.to ? format(selectedDateRange.to, 'dd MMM') : '…'}
+                    </span>
+                  ) : null}
+                </div>
+              ) : null}
+              {dateField === 'checkIn' ? (
+                <Calendar
+                  mode="single"
+                  selected={selectedDateRange?.from}
+                  onSelect={handleCheckInSelect}
+                  defaultMonth={selectedDateRange?.from}
+                  numberOfMonths={2}
+                  initialFocus
+                  disabled={{ before: new Date() }}
+                  modifiers={{ stay: isStayDay }}
+                  modifiersClassNames={{ stay: 'bg-[#ff9900]/15 text-stone-950' }}
+                  className="rounded-2xl bg-white p-5"
+                  classNames={dateCalendarClassNames}
+                />
+              ) : dateField === 'checkOut' ? (
+                <Calendar
+                  mode="single"
+                  selected={selectedDateRange?.to}
+                  onSelect={handleCheckOutSelect}
+                  defaultMonth={selectedDateRange?.from}
+                  numberOfMonths={2}
+                  initialFocus
+                  // Check-out must be after check-in.
+                  disabled={[{ before: new Date() }, ...(selectedDateRange?.from ? [{ before: addDays(selectedDateRange.from, 1) }] : [])]}
+                  modifiers={{ stay: isStayDay, checkInDay: day => Boolean(selectedDateRange?.from && isSameDayValue(day, selectedDateRange.from)) }}
+                  modifiersClassNames={{ stay: 'bg-[#ff9900]/15 text-stone-950', checkInDay: 'bg-[#ff9900]/60 text-white opacity-100' }}
+                  className="rounded-2xl bg-white p-5"
+                  classNames={dateCalendarClassNames}
+                />
+              ) : (
+                <Calendar
+                  mode="range"
+                  selected={selectedDateRange}
+                  onSelect={handleDateRangeSelect}
+                  onDayMouseEnter={setHoveredCheckoutDate}
+                  onDayMouseLeave={() => setHoveredCheckoutDate(undefined)}
+                  numberOfMonths={2}
+                  initialFocus
+                  disabled={{ before: new Date() }}
+                  modifiers={{ previewRange: isPreviewRangeDay }}
+                  modifiersClassNames={{
+                    previewRange: 'bg-[#ff9900]/25 text-stone-950 rounded-none',
+                  }}
+                  className="rounded-2xl bg-white p-5"
+                  classNames={dateCalendarClassNames}
+                />
+              )}
             </PopoverContent>
           </Popover>
           <div>
@@ -1610,6 +1767,7 @@ export default function ChaletBookingComponent() {
       ) : rateError ? (
         <div className="rounded-md border border-red-200 bg-red-50 p-4 text-red-700">
           {rateError}
+          <Button variant="link" className="text-red-700 pl-2" onClick={() => setOptionsReloadKey(key => key + 1)}>Try again</Button>
           <Button variant="link" className="text-red-700 pl-2" onClick={() => router.back()}>Go back</Button>
         </div>
       ) : checkoutOpen && bookingCart.length > 0 ? (
@@ -1884,119 +2042,241 @@ export default function ChaletBookingComponent() {
           <div className="space-y-4">
               {flexibleDates && availabilityDates.length > 0 ? (
                 <div className="space-y-6">
+                  <p className="flex flex-wrap items-center gap-x-4 gap-y-1 rounded-lg bg-white px-4 py-3 text-sm text-stone-600 shadow-sm">
+                    <span><span className="font-semibold text-stone-900">Click a night</span> to choose your arrival, then click your departure day.</span>
+                    <span className="text-xs text-stone-500">Check-in from 2:00 pm · check-out by 10:00 am</span>
+                  </p>
                   {roomCategories.map(category => {
                     const categoryRates = packages
                       .map(pkg => ({ pkg, rate: findRate(category.id, pkg.id, selectedNationality) }))
                       .filter(item => item.rate);
-                    const selectedCategoryRoomCount = selectedRoomCountForCategory(category.id);
-
                     if (categoryRates.length === 0) return null;
+                    // Rooms of this type still free for the searched stay (Booking Details already took some).
+                    const remainingRoomCount = Math.max(0, Number(category.available_room_count ?? 0) - selectedRoomCountForCategory(category.id));
+                    const lines = occupancyLinesFor(category);
 
                     return (
                       <section key={`flex-${category.id}`} className="overflow-hidden rounded-xl bg-white shadow-sm">
                         <div className="overflow-x-auto">
-                          <table className="w-full min-w-[1120px] border-collapse text-sm">
+                          <table className="w-full min-w-[1180px] border-collapse text-sm">
                             <thead>
                               <tr className="bg-[#283618] text-white">
-                                <th className="w-[330px] border-r border-white/35 px-4 py-4 text-left align-top">
-                                  <div className="text-xl font-bold">{category.name}</div>
-                                  <button
-                                    type="button"
-                                    onClick={() => setInfoRoomCategory(category)}
-                                    className="mt-1 text-sm font-medium underline underline-offset-4"
-                                  >
-                                    More Info ↗
-                                  </button>
+                                <th className="w-[300px] border-r border-white/25 px-4 py-3 text-left align-middle">
+                                  <div className="flex items-center justify-between gap-3">
+                                    <div>
+                                      <div className="text-lg font-bold">{category.name}</div>
+                                      <button type="button" onClick={() => setInfoRoomCategory(category)} className="text-sm font-medium underline underline-offset-4">
+                                        More Info ↗
+                                      </button>
+                                    </div>
+                                    <button
+                                      type="button"
+                                      onClick={() => moveFlexWindow(-7)}
+                                      disabled={flexLoading || !flexStart || flexStart <= format(new Date(), 'yyyy-MM-dd')}
+                                      className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full ring-1 ring-white/70 transition hover:bg-white/15 disabled:opacity-30"
+                                      aria-label="Earlier dates"
+                                    >
+                                      <ChevronLeft className="h-4 w-4" />
+                                    </button>
+                                  </div>
                                 </th>
                                 {availabilityDates.map(slot => (
-                                  <th key={`${category.id}-${slot.date}`} className="w-[110px] border-r border-white/35 px-3 py-4 text-center">
+                                  <th key={`${category.id}-${slot.date}`} className={`w-[96px] border-r border-white/25 px-2 py-3 text-center ${flexLoading ? 'opacity-60' : ''}`}>
                                     <div className="font-bold">{format(parseISO(slot.date), 'EEE')}</div>
                                     <div className="font-semibold">{format(parseISO(slot.date), 'd MMM')}</div>
                                   </th>
                                 ))}
-                                <th className="w-[110px] px-3 py-4 text-center">Room(s)</th>
+                                <th className="w-[130px] border-r border-white/25 px-2 py-3">
+                                  <div className="flex items-center gap-3">
+                                    <button
+                                      type="button"
+                                      onClick={() => moveFlexWindow(7)}
+                                      disabled={flexLoading || !flexStart}
+                                      className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full ring-1 ring-white/70 transition hover:bg-white/15 disabled:opacity-30"
+                                      aria-label="Later dates"
+                                    >
+                                      <ChevronRight className="h-4 w-4" />
+                                    </button>
+                                    <span>Room(s)</span>
+                                  </div>
+                                </th>
+                                <th className="w-[200px] px-3 py-3" />
                               </tr>
                             </thead>
                             <tbody>
-                              {categoryRates.map(({ pkg, rate }) => {
-                                const flexGuests = searchRoomGuests[0] ?? { adults: 1, children: 0 };
-                                const resolvedRate = resolveRateForNationality(rate as ChaletRate, selectedNationality, guestChargePerNight(rate as ChaletRate, selectedNationality, flexGuests.adults, flexGuests.children));
-                                const missingRate = 'missingRate' in resolvedRate && resolvedRate.missingRate;
+                              {categoryRates.flatMap(({ pkg, rate }) => lines.map(line => {
+                                const baseRate = resolveRateForNationality(rate as ChaletRate, selectedNationality);
+                                const missingRate = 'missingRate' in baseRate && baseRate.missingRate;
+                                const nightRate = resolveRateForNationality(rate as ChaletRate, selectedNationality, guestChargePerNight(rate as ChaletRate, selectedNationality, line.adults, line.children));
+                                const rowKey = occupancyQuantityKey(category.id, pkg.id, line.adults, line.children);
+                                const rowRooms = cartRoomsFor(category.id, pkg.id, line.adults, line.children);
+                                const quantity = rowRooms.length;
+                                const maxRooms = missingRate ? 0 : Math.min(quantity + remainingRoomCount, roomsFittingGuests(category, line.adults, line.children));
                                 const featureLabels = packageFeatureLabels(pkg);
+                                // The stay drawn on this row: a pending arrival, or the booked stay.
+                                const pending = flexArrival?.rowKey === rowKey ? flexArrival.date : null;
+                                const arrival = pending ?? (quantity > 0 ? checkIn : null);
+                                const departure = pending ? null : (quantity > 0 ? checkOut : null);
+                                const nightFree = (slot: FlexibleAvailabilityDate) => {
+                                  const limits = slot.roomGuestLimits?.[category.id] ?? [];
+                                  const fit = limits.filter(entry => guestsFitLimits(entry, line.adults, line.children)).length;
+                                  return !missingRate && Math.min(Number(slot.categories?.[category.id] ?? 0), fit) > 0;
+                                };
+                                const rowTotal = rowRooms.reduce((sum, item) => sum + item.discountedSubtotal, 0);
+                                const rowOriginal = rowRooms.reduce((sum, item) => sum + Math.max(item.originalRatePerNight, item.ratePerNight) * item.nights, 0);
+
+                                const pickNight = (slot: FlexibleAvailabilityDate) => {
+                                  if (pending && slot.date > pending) {
+                                    // Every night from arrival up to the departure must be free.
+                                    const blocked = availabilityDates.find(entry => entry.date >= pending && entry.date < slot.date && !nightFree(entry));
+                                    if (blocked) {
+                                      toast({ variant: 'destructive', title: 'Not available', description: `No room for ${guestsLabel(line.adults, line.children).toLowerCase()} on the night of ${format(parseISO(blocked.date), 'EEE d MMM')}.` });
+                                      return;
+                                    }
+                                    setFlexArrival(null);
+                                    setPendingFlexAdd({ categoryId: category.id, pkgId: pkg.id, adults: line.adults, children: line.children, checkIn: pending });
+                                    const params = new URLSearchParams({
+                                      checkIn: pending,
+                                      checkOut: slot.date,
+                                      nationality: selectedNationality,
+                                      guests: searchRoomGuests.map(room => `${room.adults}-${room.children}`).join(','),
+                                      roomCategoryId: category.id,
+                                      packageId: pkg.id,
+                                      flexibleDates: 'true',
+                                    });
+                                    if (enteredPromoCode.trim()) params.set('promoCode', enteredPromoCode.trim());
+                                    router.push(`/chalet-booking?${params.toString()}`);
+                                    return;
+                                  }
+                                  if (nightFree(slot)) setFlexArrival({ rowKey, date: slot.date });
+                                };
 
                                 return (
-                                  <tr key={`flex-${category.id}-${pkg.id}`} className="border-b border-stone-200 last:border-b-0">
-                                    <td className="border-r border-stone-200 px-4 py-4 align-top">
-                                      <div className="font-bold text-stone-950">
+                                  <tr key={`flex-${rowKey}`} className="border-b border-stone-200 last:border-b-0">
+                                    <td className="border-r border-stone-200 px-4 py-3 align-middle">
+                                      <div className="font-semibold text-stone-950">
                                         {packageDisplayName(pkg)} - {selectedNationality === 'Non Sri Lankan' ? 'Non Resident' : 'Resident'}
                                       </div>
-                                      <button
-                                        type="button"
-                                        onClick={() => setInfoPackage({ pkg, category, rate: rate as ChaletRate })}
-                                        className="mt-2 text-sm font-semibold text-green-700 underline underline-offset-4"
-                                      >
-                                        More Info ↗
-                                      </button>
-                                      <div className="mt-3 flex flex-wrap gap-2">
-                                        {featureLabels.slice(0, 2).map((label, index) => (
-                                          <span key={`flex-${pkg.id}-${label}-${index}`} className="inline-flex items-center gap-2 rounded border border-stone-300 px-2 py-1 text-xs font-semibold text-stone-700">
-                                            {index === 0 && pkg.includes_breakfast ? <Coffee className="h-4 w-4" /> : <Utensils className="h-4 w-4" />}
-                                            {label}
+                                      <div className="mt-1.5 flex items-center gap-2">
+                                        <button type="button" onClick={() => setInfoPackage({ pkg, category, rate: rate as ChaletRate })} className="text-sm font-medium text-green-700 underline underline-offset-4">
+                                          More Info ↗
+                                        </button>
+                                        {featureLabels[0] ? (
+                                          <span className="inline-flex h-7 items-center rounded border border-stone-300 px-1.5" title={featureLabels.join(', ')}>
+                                            {pkg.includes_breakfast ? <Coffee className="h-4 w-4" /> : <Utensils className="h-4 w-4" />}
                                           </span>
-                                        ))}
+                                        ) : null}
+                                        <span className="inline-flex items-center gap-0.5 font-semibold text-stone-900" title={guestsLabel(line.adults, line.children)}>
+                                          {line.adults}<UserRound className="h-4 w-4" />
+                                          {line.children > 0 ? <span className="ml-0.5 inline-flex items-center text-xs">+{line.children}<UserRound className="h-3 w-3" /></span> : null}
+                                        </span>
                                       </div>
                                     </td>
                                     {availabilityDates.map(slot => {
-                                      const availableForDate = Number(slot.categories?.[category.id] ?? 0);
-                                      const remainingForDate = Math.max(0, availableForDate - selectedCategoryRoomCount);
-                                      const selectedDate = slot.date === checkIn;
-                                      const disabled = missingRate || remainingForDate <= 0;
-
+                                      const free = nightFree(slot);
+                                      const isArrival = arrival === slot.date;
+                                      const isDeparture = departure === slot.date;
+                                      const inStay = Boolean(arrival && departure && slot.date > arrival && slot.date < departure);
+                                      const canBeDeparture = Boolean(pending && slot.date > pending);
+                                      const clickable = canBeDeparture || (free && !isDeparture);
+                                      const shade = '#dfe5cc';
+                                      // Check-in is from 2 pm and check-out by 10 am, so the arrival
+                                      // and departure days are only half taken (diagonal halves).
+                                      const background = isArrival
+                                        ? `linear-gradient(to bottom right, transparent 50%, ${shade} 50%)`
+                                        : isDeparture
+                                          ? `linear-gradient(to bottom right, ${shade} 50%, transparent 50%)`
+                                          : inStay
+                                            ? shade
+                                            : !free
+                                              ? 'linear-gradient(to top right, #f5f5f4 calc(50% - 0.5px), #d6d3d1 calc(50% - 0.5px), #d6d3d1 calc(50% + 0.5px), #f5f5f4 calc(50% + 0.5px))'
+                                              : undefined;
                                       return (
-                                        <td key={`flex-${category.id}-${pkg.id}-${slot.date}`} className={`border-r border-stone-200 p-0 text-center ${disabled ? 'bg-stone-100' : selectedDate ? 'bg-[#eef1e4]' : 'bg-white'}`}>
+                                        <td key={`flex-${rowKey}-${slot.date}`} className="relative h-[82px] border-r border-stone-200 p-0 text-center" style={background ? { background } : undefined}>
+                                          {isArrival ? (
+                                            <span className="absolute inset-x-1 top-0 z-[1] rounded-b bg-[#283618] py-0.5 text-[11px] font-semibold text-white">Arrival</span>
+                                          ) : null}
+                                          {isDeparture ? (
+                                            <span className="absolute inset-x-1 bottom-0 z-[1] rounded-t bg-[#283618] py-0.5 text-[11px] font-semibold text-white">Depart</span>
+                                          ) : null}
                                           <button
                                             type="button"
-                                            onClick={() => selectFlexibleDate(slot.date, category.id, pkg.id)}
-                                            disabled={disabled}
-                                            className={`flex h-full min-h-[86px] w-full flex-col items-center justify-center gap-1 px-2 py-3 font-bold transition-colors ${
-                                              disabled
-                                                ? 'cursor-not-allowed text-stone-400'
-                                                : 'text-stone-950 hover:bg-green-50 focus:bg-green-50'
-                                            }`}
-                                            aria-label={disabled ? `${category.name} unavailable on ${slot.date}` : `Select ${category.name} on ${slot.date}`}
+                                            onClick={() => pickNight(slot)}
+                                            disabled={!clickable}
+                                            className={`flex h-full w-full flex-col items-center justify-center px-1 leading-tight transition-colors ${clickable ? 'hover:bg-[#283618]/5' : 'cursor-default'} ${canBeDeparture ? 'ring-1 ring-inset ring-[#283618]/20' : ''}`}
+                                            aria-label={free ? `${format(parseISO(slot.date), 'd MMM')}: ${formatMoney(nightRate.displayRatePerNight, nightRate.currency)} per night` : `${format(parseISO(slot.date), 'd MMM')}: not available`}
                                           >
-                                            {disabled ? (
-                                              <span className="text-2xl font-semibold">X</span>
-                                            ) : (
-                                              <>
-                                                {resolvedRate.displayDiscountPerNight > 0 ? (
-                                                  <span className="text-xs text-red-700 line-through">
-                                                    {formatMoney(resolvedRate.displayOriginalRatePerNight, resolvedRate.currency)}
-                                                  </span>
+                                            {free ? (
+                                              <span className={isDeparture ? 'opacity-50' : ''}>
+                                                {nightRate.displayOriginalRatePerNight > nightRate.displayRatePerNight ? (
+                                                  <span className="block text-xs text-red-700 line-through">{compactMoney(nightRate.displayOriginalRatePerNight, nightRate.currency)}</span>
                                                 ) : null}
-                                                <span className="text-lg">{formatMoney(resolvedRate.displayRatePerNight, resolvedRate.currency)}</span>
-                                                <span className="text-[11px] font-semibold text-stone-500">{remainingForDate} left</span>
-                                              </>
+                                                <span className="block text-base font-semibold text-stone-950">{compactMoney(nightRate.displayRatePerNight, nightRate.currency)}</span>
+                                              </span>
+                                            ) : (
+                                              <span className="absolute right-2 top-1.5 text-sm font-semibold text-stone-400">X</span>
                                             )}
                                           </button>
+                                          {isArrival ? (
+                                            <button
+                                              type="button"
+                                              onClick={() => (pending ? setFlexArrival(null) : setLineRoomCount(category.id, pkg.id, { adults: line.adults, children: line.children }, 0))}
+                                              className="absolute inset-x-0 bottom-1 z-[1] text-[11px] font-medium text-green-700 underline underline-offset-2"
+                                            >
+                                              Remove
+                                            </button>
+                                          ) : null}
                                         </td>
                                       );
                                     })}
-                                    <td className="px-3 py-4 text-center align-middle">
-                                      <Button
-                                        onClick={() => selectOffer(category.id, pkg.id)}
-                                        disabled={missingRate || Math.max(0, Number(category.available_room_count ?? 0) - selectedCategoryRoomCount) <= 0}
-                                        className="h-9 rounded-full bg-white px-5 font-bold text-[#283618] ring-1 ring-stone-300 hover:bg-[#283618] hover:text-white"
-                                      >
-                                        Book
-                                      </Button>
-                                      <p className="mt-2 text-xs font-semibold text-stone-600">
-                                        {Math.max(0, Number(category.available_room_count ?? 0) - selectedCategoryRoomCount)} available
-                                      </p>
+                                    <td className="border-r border-stone-200 px-2 text-center align-middle">
+                                      <div className="mx-auto inline-flex h-9 items-center gap-3 rounded-full px-3 ring-1 ring-stone-300">
+                                        <button
+                                          type="button"
+                                          onClick={() => setLineRoomCount(category.id, pkg.id, { adults: line.adults, children: line.children }, quantity - 1)}
+                                          disabled={quantity <= 0}
+                                          className="text-lg font-semibold text-green-700 disabled:text-stone-300"
+                                          aria-label="One room fewer"
+                                        >
+                                          −
+                                        </button>
+                                        <span className="w-4 text-center font-semibold">{quantity}</span>
+                                        <button
+                                          type="button"
+                                          onClick={() => setLineRoomCount(category.id, pkg.id, { adults: line.adults, children: line.children }, quantity + 1)}
+                                          disabled={quantity >= maxRooms}
+                                          className="text-lg font-semibold text-green-700 disabled:text-stone-300"
+                                          aria-label="One more room"
+                                        >
+                                          +
+                                        </button>
+                                      </div>
+                                    </td>
+                                    <td className="px-3 py-2 align-middle">
+                                      {quantity > 0 ? (
+                                        <div className="flex items-start justify-between gap-2">
+                                          <div className="text-xs text-stone-700">
+                                            <p>{nights} Night{nights === 1 ? '' : 's'}, {guestsLabel(line.adults, line.children)}{quantity > 1 ? ` × ${quantity}` : ''}</p>
+                                            {rowOriginal > rowTotal ? <p className="text-red-700 line-through">{formatBillAmount(rowOriginal, rowRooms[0].currency, rowRooms[0].usdToLkrRate)}</p> : null}
+                                            <p className="text-base font-bold text-stone-950">{formatBillAmount(rowTotal, rowRooms[0].currency, rowRooms[0].usdToLkrRate)}</p>
+                                            <p className="text-[11px] text-stone-500">+ taxes &amp; charges</p>
+                                          </div>
+                                          <button
+                                            type="button"
+                                            onClick={() => setLineRoomCount(category.id, pkg.id, { adults: line.adults, children: line.children }, 0)}
+                                            className="text-stone-600 hover:text-red-700"
+                                            aria-label="Remove these rooms"
+                                          >
+                                            <Trash2 className="h-4 w-4" />
+                                          </button>
+                                        </div>
+                                      ) : pending ? (
+                                        <p className="text-xs font-medium text-[#283618]">Now click your departure day</p>
+                                      ) : null}
                                     </td>
                                   </tr>
                                 );
-                              })}
+                              }))}
                             </tbody>
                           </table>
                         </div>

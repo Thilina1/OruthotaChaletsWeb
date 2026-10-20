@@ -62,11 +62,21 @@ async function paymentsLkRequest<T>(path: string, init: RequestInit & { idempote
   return body as T;
 }
 
+// payments.lk takes only Sri Lankan numbers (e.g. 0771234567); others are
+// left out and the guest types a number on the payment page.
+export function sriLankanPhone(value?: string | null) {
+  const digits = (value || '').replace(/\D/g, '');
+  if (/^94[1-9]\d{8}$/.test(digits)) return `0${digits.slice(2)}`;
+  if (/^0[1-9]\d{8}$/.test(digits)) return digits;
+  if (/^[1-9]\d{8}$/.test(digits)) return `0${digits}`;
+  return null;
+}
+
 export function createPaymentsLkCheckout(params: {
   checkoutId: string;
   amountCents: number;
   description: string;
-  customer: { name: string; email: string };
+  customer: { name: string; email: string; phone?: string | null };
   successUrl: string;
   cancelUrl: string;
   expiresInMinutes: number;
@@ -79,7 +89,11 @@ export function createPaymentsLkCheckout(params: {
       amountCents: params.amountCents,
       description: params.description.slice(0, 120),
       reference: params.checkoutId,
-      customer: { name: params.customer.name.slice(0, 80), email: params.customer.email },
+      customer: {
+        name: params.customer.name.slice(0, 80),
+        email: params.customer.email,
+        ...(sriLankanPhone(params.customer.phone) ? { phone: sriLankanPhone(params.customer.phone) } : {}),
+      },
       successUrl: params.successUrl,
       cancelUrl: params.cancelUrl,
       expiresInMinutes: params.expiresInMinutes,

@@ -614,7 +614,8 @@ export async function POST(request: Request) {
         checkoutId: String(checkoutId),
         amountCents,
         description: `Oruthota Chalets booking ${bookingInsertPayload.check_in_date} to ${bookingInsertPayload.check_out_date}`,
-        customer: { name: payload.customerName.trim(), email },
+        // The phone from the booking form, so the payment page does not ask again.
+        customer: { name: payload.customerName.trim(), email, phone: payload.customerPhone },
         // The guest's search comes back with them, so a cancelled payment
         // returns to the same rooms and dates.
         successUrl: `${origin}/chalet-booking?${returnSearch}&payment=return&checkout=${checkoutId}`,
