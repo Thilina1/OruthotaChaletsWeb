@@ -27,7 +27,7 @@ const FACT_SECTIONS = [
     icon: Info,
     items: [
       { label: "Property Type", value: "Family oriented eco resort" },
-      { label: "Location", value: "Rajawella, Digana, Kandy (18km from City Center)" },
+      { label: "Location", value: "Rajawella, Digana, Kandy (18km from City Centre)" },
       { label: "Total Area", value: "Overlooking Victoria Reservoir" },
       { label: "Vibe", value: "Rustic, Tranquil, and Family-Oriented" }
     ]

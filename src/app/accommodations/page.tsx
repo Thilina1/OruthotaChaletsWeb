@@ -6,13 +6,8 @@ import { Button } from '@/components/ui/button';
 import { Wind, Wifi, Car, Coffee, Utensils, Waves } from 'lucide-react';
 import Link from 'next/link';
 import { Suspense } from 'react';
+import { ROOM_GALLERY_IMAGES } from '@/data/room-gallery';
 
-const ROOM_GALLERY_IMAGES = [
-  '/rooms/DSCN1695.jpg',
-  '/rooms/IMG_5676.jpg',
-  '/Room 1.png',
-  '/Room 2.png',
-];
 
 const RESORT_AMENITIES = [
   { icon: Wifi, label: "High-Speed Wifi" },

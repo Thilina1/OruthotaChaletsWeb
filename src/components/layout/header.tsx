@@ -41,7 +41,7 @@ export function Header() {
     };
 
     const updateTime = () => {
-      const sriLankaTime = new Date().toLocaleTimeString('en-US', {
+      const sriLankaTime = new Date().toLocaleTimeString('en-GB', {
         timeZone: 'Asia/Colombo',
         hour: 'numeric',
         minute: '2-digit',

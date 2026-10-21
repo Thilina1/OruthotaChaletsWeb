@@ -28,7 +28,7 @@ export default function AboutPage() {
 
                             <div className="text-muted-foreground text-lg leading-relaxed space-y-6">
                                 <p>
-                                    <strong className="text-foreground">Oruthota Chalets</strong>… a beautiful family-oriented holiday resort overlooking the waters of the Victoria Reservoir is located approximately 18 kilometers from the city of Kandy. This eco-friendly resort is nestled amidst a picturesque, tranquil and rural setting, well away from the busyness of a city life.
+                                    <strong className="text-foreground">Oruthota Chalets</strong>… a beautiful family-oriented holiday resort overlooking the waters of the Victoria Reservoir is located approximately 18 kilometres from the city of Kandy. This eco-friendly resort is nestled amidst a picturesque, tranquil and rural setting, well away from the busyness of a city life.
                                 </p>
                                 <p>
                                     Access to Oruthota Chalets is through a typical rural road of about a kilometre, off the main road. Experience the rural lifestyles of a little hamlet, with multi-religious influences whilst driving to this unique concept of a beautiful eco-friendly holiday resort.

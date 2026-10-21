@@ -14,7 +14,7 @@ const initiatives = [
     {
         id: 'water',
         title: 'Water Conservation',
-        description: 'Through advanced rainwater harvesting systems and water-efficient fixtures, we ensure every drop from the heavens is respected and utilized responsibly across our lush gardens.',
+        description: 'Through advanced rainwater harvesting systems and water-efficient fixtures, we ensure every drop from the heavens is respected and utilised responsibly across our lush gardens.',
         icon: Droplets,
         color: 'text-blue-500',
         bgColor: 'bg-blue-500/10'
@@ -22,7 +22,7 @@ const initiatives = [
     {
         id: 'waste',
         title: 'Zero Waste & Recycling',
-        description: 'Our comprehensive waste management program ensures minimal landfill contribution. Organic waste is composted to nourish our gardens, and all plastics and glass are responsibly recycled.',
+        description: 'Our comprehensive waste management programme ensures minimal landfill contribution. Organic waste is composted to nourish our gardens, and all plastics and glass are responsibly recycled.',
         icon: Recycle,
         color: 'text-emerald-500',
         bgColor: 'bg-emerald-500/10'
@@ -46,7 +46,7 @@ const initiatives = [
     {
         id: 'materials',
         title: 'Eco-Friendly Materials',
-        description: 'From biodegradable amenities in our chalets to natural cleaning products, we prioritize materials that are kind to the earth without compromising on your luxurious comfort.',
+        description: 'From biodegradable amenities in our chalets to natural cleaning products, we prioritise materials that are kind to the earth without compromising on your luxurious comfort.',
         icon: Leaf,
         color: 'text-teal-500',
         bgColor: 'bg-teal-500/10'
@@ -75,7 +75,7 @@ export default function SustainabilityPage() {
                         Harmony with the Environment
                     </h2>
                     <p className="text-muted-foreground text-lg md:text-xl leading-relaxed">
-                        At Oruthota Chalets, we recognize that true hospitality extends beyond our guests—it includes caring for the magnificent environment that hosts us. 
+                        At Oruthota Chalets, we recognise that true hospitality extends beyond our guests—it includes caring for the magnificent environment that hosts us. 
                         Our philosophy is deeply rooted in sustainable practices that harmonise with the idyllic setting of the Sri Lankan hill country. We strive every day 
                         to ensure that your luxurious escape leaves a positive imprint on our planet and local communities.
                     </p>
@@ -155,8 +155,8 @@ export default function SustainabilityPage() {
                                 {[
                                     'Participate in our local tree-planting excursions.',
                                     'Enjoy farm-to-table dining with 100% organic local produce.',
-                                    'Opt-in for our linen reuse program to save water.',
-                                    'Explore the reservoir via non-motorized environmental tours.'
+                                    'Opt-in for our linen reuse programme to save water.',
+                                    'Explore the reservoir via non-motorised environmental tours.'
                                 ].map((item, i) => (
                                     <li key={i} className="flex items-start gap-3">
                                         <div className="mt-1 bg-primary/20 p-1 rounded-full shrink-0">

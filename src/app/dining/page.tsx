@@ -40,7 +40,7 @@ const DINING_VENUES = [
     subtitle: 'MAIN RESTAURANT',
     description: `Step back in time at our main restaurant, where colonial elegance meets modern culinary excellence. The high ceilings, antique furniture, and warm lighting create a sophisticated atmosphere perfect for any occasion.
         
-        Our daily rotating menu features a fusion of international favorites and Sri Lankan classics, ensuring there is always something new to discover.`,
+        Our daily rotating menu features a fusion of international favourites and Sri Lankan classics, ensuring there is always something new to discover.`,
     imageUrl: '/Restaurant.png',
     features: ['Breakfast', 'Lunch', 'Dinner', 'A la Carte']
   },
@@ -50,7 +50,7 @@ const DINING_VENUES = [
     subtitle: 'Reservoir View Terrace',
     description: `Immerse yourself in nature while you dine. Our terrace offers panoramic views of the Victoria Reservoir, providing a stunning backdrop for a romantic dinner or a relaxed lunch. 
         
-        Enjoy the gentle cool breeze and the sounds of nature as you savor fresh seafood, grilled specialties, and refreshing mocktails.`,
+        Enjoy the gentle cool breeze and the sounds of nature as you savour fresh seafood, grilled specialties, and refreshing mocktails.`,
     imageUrl: '/DSC00159.jpg',
     features: ['Outdoor Seating', 'Sunset Views', 'Grill & BBQ']
   }
@@ -66,7 +66,7 @@ export default function DiningPage() {
       <PageHero
         title="Wine & Dine"
         subtitle="Culinary Journeys"
-        description="A symphony of flavors tailored to your palate, set against the backdrop of mist-covered mountains."
+        description="A symphony of flavours tailored to your palate, set against the backdrop of mist-covered mountains."
         imageUrl="/Restaurant.png"
         imageAlt="Dining at Oruthota Chalets"
       />
@@ -89,7 +89,7 @@ export default function DiningPage() {
             </div>
             <h2 className="font-headline text-4xl md:text-5xl text-foreground">Exquisite Culinary Journeys</h2>
             <p className="text-muted-foreground text-sm leading-relaxed max-w-4xl mx-auto">
-              Indulge in an array of culinary delights at Oruthota Chalets. Our chefs craft exquisite dishes using the freshest local ingredients, offering a symphony of flavors that range from authentic Sri Lankan specialties to international. Whether it&apos;s a romantic dinner under the stars or a casual family meal, our dining experiences are designed to delight your senses and nourish your soul.
+              Indulge in an array of culinary delights at Oruthota Chalets. Our chefs craft exquisite dishes using the freshest local ingredients, offering a symphony of flavours that range from authentic Sri Lankan specialties to international. Whether it&apos;s a romantic dinner under the stars or a casual family meal, our dining experiences are designed to delight your senses and nourish your soul.
             </p>
           </div>
 

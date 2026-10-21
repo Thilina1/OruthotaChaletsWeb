@@ -27,7 +27,7 @@ const EVENT_TYPES = [
     description: "Exchange your vows against the breathtaking backdrop of the Victoria Reservoir. Our lakeside gardens provide a romantic sanctuary for your special day.",
     icon: Heart,
     image: "/instagram-2.png",
-    features: ["Lakeside Ceremony Space", "Customizable Decor Themes", "Gourmet Catering Options", "Dedicated Wedding Coordinator"]
+    features: ["Lakeside Ceremony Space", "Customisable Decor Themes", "Gourmet Catering Options", "Dedicated Wedding Coordinator"]
   },
   {
     title: "Conferences and Events",
@@ -38,7 +38,7 @@ const EVENT_TYPES = [
   },
   {
     title: "Private Parties",
-    description: "Celebrate life's milestones with elegance. From intimate birthdays to grand anniversaries, we create personalized experiences that last a lifetime.",
+    description: "Celebrate life's milestones with elegance. From intimate birthdays to grand anniversaries, we create personalised experiences that last a lifetime.",
     icon: Sparkles,
     image: "/Private Parties.png",
     features: ["Private Dining Venues", "Live Music Arrangements", "Themed Decorations", "Exclusive Property Hire"]
@@ -46,7 +46,7 @@ const EVENT_TYPES = [
 ];
 
 const AMENITIES = [
-  { icon: UtensilsCrossed, title: "Exquisite Catering", desc: "A blend of local flavors and international favorites." },
+  { icon: UtensilsCrossed, title: "Exquisite Catering", desc: "A blend of local flavours and international favourites." },
   { icon: Mic2, title: "AV Technology", desc: "Modern sound systems and projection equipment." },
   { icon: Camera, title: "Scenic Backdrops", desc: "Stunning locations for photography and videography." },
   { icon: ShieldCheck, title: "Expert Planning", desc: "Professional staff to manage every detail of your event." }

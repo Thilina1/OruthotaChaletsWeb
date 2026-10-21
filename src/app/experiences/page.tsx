@@ -167,7 +167,7 @@ export default function ExperiencesPage() {
               <div className="relative z-10 flex flex-col items-center">
                 <h3 className="font-headline text-3xl md:text-4xl mb-4 text-foreground">Ready for an Adventure?</h3>
                 <p className="text-muted-foreground mb-8 max-w-xl text-lg leading-relaxed">
-                  Contact us to arrange any of these experiences during your stay. We're happy to customize activities to your preferences.
+                  Contact us to arrange any of these experiences during your stay. We're happy to customise activities to your preferences.
                 </p>
                 <Link href="/contact" passHref>
                   <Button className="rounded-full px-8 h-12 text-base shadow-xl hover:shadow-primary/20 hover:-translate-y-0.5 transition-all duration-300">

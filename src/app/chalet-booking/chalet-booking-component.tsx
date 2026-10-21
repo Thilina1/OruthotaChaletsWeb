@@ -2826,7 +2826,7 @@ export default function ChaletBookingComponent() {
                     ) : null}
                   </div>
                   <div className="mt-3 flex flex-wrap gap-3 text-sm font-semibold text-stone-700">
-                    {infoRoomCategory.area_sqm ? <span>{infoRoomCategory.area_sqm} square meters</span> : null}
+                    {infoRoomCategory.area_sqm ? <span>{infoRoomCategory.area_sqm} square metres</span> : null}
                     {infoRoomCategory.max_guests ? <span>Up to {infoRoomCategory.max_guests} guests</span> : null}
                     {infoRoomCategory.available_room_count ? <span>{infoRoomCategory.available_room_count} available</span> : null}
                   </div>

@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Autoplay from 'embla-carousel-autoplay';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { STATIC_EXPERIENCES } from '@/data/experiences';
+import { ROOM_GALLERY_IMAGES } from '@/data/room-gallery';
 import { BookingForm } from '@/components/booking-form';
 import { Button } from '@/components/ui/button';
 import { Utensils, BedDouble, MountainSnow, Map, Tag, Bed, Building2, RefreshCw, Star, ArrowRight, MapPin, ChevronLeft, ChevronRight, Quote, User, Download, Facebook, Instagram, Wind, Wifi, Car, Coffee, Waves } from 'lucide-react';
@@ -105,7 +106,7 @@ export default function Home() {
           <div className="text-muted-foreground leading-relaxed space-y-4">
             <p className="font-semibold text-lg">The Aura of Tranquility</p>
             <p>
-              Oruthota Chalets… a beautiful family-oriented holiday resort overlooking the waters of the Victoria Reservoir is located approximately 18 kilometers from the city of Kandy. This eco-friendly resort is nestled amidst a picturesque, tranquil and rural setting, well away from the busyness of a city life.
+              Oruthota Chalets… a beautiful family-oriented holiday resort overlooking the waters of the Victoria Reservoir is located approximately 18 kilometres from the city of Kandy. This eco-friendly resort is nestled amidst a picturesque, tranquil and rural setting, well away from the busyness of a city life.
             </p>
             <p>
               Access to Oruthota Chalets is through a typical rural road of about a kilometre, off the main road. Experience the rural lifestyles of a little hamlet, with multi-religious influences whilst driving to this unique concept of a beautiful eco-friendly holiday resort.
@@ -161,7 +162,7 @@ export default function Home() {
               <div className="flex flex-col items-center justify-center">
                 <div className="flex items-end">
                   <span className="font-headline text-4xl text-primary tracking-tighter">1</span>
-                  <span className="font-headline text-1xl text-primary ml-1 mb-1">Hrs</span>
+                  <span className="font-headline text-1xl text-primary ml-1 mb-1">Hr</span>
                 </div>
                 <p className="tracking-[0.2em] text-xs text-muted-foreground mt-1">TO KNUCKLES</p>
               </div>
@@ -185,7 +186,7 @@ export default function Home() {
               <p className="text-primary tracking-widest mb-2">ORUTHOTA CHALETS</p>
               <h2 className="font-headline text-4xl text-foreground mb-6">A Hidden Fairytale by the Waters of Victoria</h2>
               <p className="text-muted-foreground leading-relaxed mb-6">
-                Nestled amidst the serene landscapes of Sri Lanka’s Hill Country, Oruthota Chalets is a hidden fairytale overlooking the tranquil waters of the Victoria Reservoir, just 18 kilometers from the historic city of Kandy. Set within a picturesque rural setting, this eco-friendly, family-oriented retreat offers a peaceful escape far removed from the bustle of city life. Reached via a charming village road, guests are gently introduced to the authentic rhythms of a small hamlet enriched with multi-religious traditions. From reconnecting with nature to unwinding in storybook-like surroundings, Oruthota Chalets promises a truly relaxing getaway and memories to cherish long after your stay. ✨🌿
+                Nestled amidst the serene landscapes of Sri Lanka’s Hill Country, Oruthota Chalets is a hidden fairytale overlooking the tranquil waters of the Victoria Reservoir, just 18 kilometres from the historic city of Kandy. Set within a picturesque rural setting, this eco-friendly, family-oriented retreat offers a peaceful escape far removed from the bustle of city life. Reached via a charming village road, guests are gently introduced to the authentic rhythms of a small hamlet enriched with multi-religious traditions. From reconnecting with nature to unwinding in storybook-like surroundings, Oruthota Chalets promises a truly relaxing getaway and memories to cherish long after your stay. ✨🌿
               </p>
               <div className="flex flex-wrap gap-4 mt-8">
                 <Link href="/fact-sheet" passHref>
@@ -259,9 +260,22 @@ export default function Home() {
           >
             <CarouselContent className="md:justify-center">
               {roomsLoading && <p className="text-center w-full">Loading rooms...</p>}
-              {!roomsLoading && (!rooms || rooms.length === 0) && (
-                <p className="text-center w-full text-muted-foreground p-8">No rooms available at the moment.</p>
-              )}
+              {/* No rooms listed: show the room photos instead. */}
+              {!roomsLoading && (!rooms || rooms.length === 0) && ROOM_GALLERY_IMAGES.map((src, idx) => (
+                <CarouselItem key={src} className="basis-1/2 md:basis-1/3 lg:basis-1/4">
+                  <div className="p-1">
+                    <Link href="/accommodations" className="group relative block h-64 overflow-hidden rounded-xl shadow-lg md:h-80">
+                      <Image
+                        src={src}
+                        alt={`Room gallery photo ${idx + 1}`}
+                        fill
+                        sizes="(min-width: 1024px) 25vw, (min-width: 768px) 33vw, 50vw"
+                        className="object-cover transition-transform duration-500 group-hover:scale-110"
+                      />
+                    </Link>
+                  </div>
+                </CarouselItem>
+              ))}
               {rooms?.slice(0, 3).map((accommodation) => {
                 return (
                   <CarouselItem key={accommodation.id} className="md:basis-1/2 lg:basis-1/3">
@@ -384,7 +398,7 @@ export default function Home() {
             {STATIC_EXPERIENCES.filter(exp =>
               ['culinary-tourism', 'knuckles-trek', 'rural-activities'].includes(exp.id)
             ).map((experience) => {
-              const imageUrl = experience.galleryImages?.[0] || PlaceHolderImages.find(p => p.id === experience.imageId)?.imageUrl || '/placeholder.svg';
+              const imageUrl = experience.homeImage || experience.galleryImages?.[0] || PlaceHolderImages.find(p => p.id === experience.imageId)?.imageUrl || '/placeholder.svg';
               return (
                 <div key={experience.id} className="group text-center w-full md:w-[30%] min-w-[300px]">
                   <div className="relative h-96 mb-8 overflow-hidden rounded-2xl shadow-xl transform transition-all duration-500 group-hover:shadow-2xl group-hover:-translate-y-2">
@@ -701,7 +715,7 @@ export default function Home() {
                       <div className="space-y-3">
                         <h2 className="font-headline text-2xl md:text-3xl text-[#283618]">Top Rated on Agoda</h2>
                         <p className="text-muted-foreground text-md leading-relaxed">
-                          Join thousands of travelers who have chosen Oruthota Chalets as their preferred destination on Agoda.
+                          Join thousands of travellers who have chosen Oruthota Chalets as their preferred destination on Agoda.
                         </p>
                       </div>
 
