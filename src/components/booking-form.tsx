@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import { Calendar } from '@/components/ui/calendar';
+import { stayCalendarDayClassNames, stayDayClassNames, stayDayModifiers } from '@/lib/stay-calendar';
 import { Calendar as CalendarIcon, ChevronDown, Utensils, Clock, Globe, Tag } from 'lucide-react';
 import { format, differenceInCalendarDays } from 'date-fns';
 import { useRouter } from 'next/navigation';
@@ -79,11 +80,6 @@ export function BookingForm({ showTableBooking = false }: { showTableBooking?: b
       setHoveredCheckoutDate(undefined);
       setIsDatePopoverOpen(false);
     }
-  };
-
-  const isPreviewRangeDay = (date: Date) => {
-    if (!dateRange?.from || dateRange.to || !hoveredCheckoutDate) return false;
-    return date > dateRange.from && date <= hoveredCheckoutDate;
   };
 
   const handleFindRoom = () => {
@@ -193,10 +189,8 @@ export function BookingForm({ showTableBooking = false }: { showTableBooking?: b
                     disabled={dateField === 'checkOut' && dateRange?.from && dateRange.to
                       ? [{ before: new Date() }, { before: new Date(dateRange.from.getFullYear(), dateRange.from.getMonth(), dateRange.from.getDate() + 1) }]
                       : { before: new Date() }}
-                    modifiers={{ previewRange: isPreviewRangeDay }}
-                    modifiersClassNames={{
-                      previewRange: 'bg-[#ff9900]/25 text-stone-950 rounded-none',
-                    }}
+                    modifiers={stayDayModifiers(dateRange, hoveredCheckoutDate)}
+                    modifiersClassNames={stayDayClassNames}
                     className="rounded-2xl bg-white p-4"
                     classNames={{
                       months: 'flex flex-col gap-6 md:flex-row',
@@ -205,11 +199,8 @@ export function BookingForm({ showTableBooking = false }: { showTableBooking?: b
                       caption_label: 'text-base font-semibold tracking-wide text-stone-950',
                       head_cell: 'w-10 rounded-md text-xs font-medium text-stone-500',
                       row: 'mt-1.5 flex w-full',
-                      cell: 'h-10 w-10 p-0 text-center text-sm relative [&:has([aria-selected])]:bg-[#ff9900]/25 first:[&:has([aria-selected])]:rounded-l-full last:[&:has([aria-selected])]:rounded-r-full',
-                      day: 'h-10 w-10 rounded-full p-0 text-sm font-medium text-stone-950 hover:bg-[#ff9900]/20 hover:text-stone-950 focus:bg-[#ff9900]/20 focus:text-stone-950',
-                      day_selected: 'bg-[#ff9900] text-white hover:bg-[#ff9900] hover:text-white focus:bg-[#ff9900] focus:text-white',
-                      day_range_middle: 'rounded-none bg-[#ff9900]/25 text-stone-950 hover:bg-[#ff9900]/25 hover:text-stone-950',
-                      day_range_end: 'day-range-end rounded-full bg-[#ff9900] text-white hover:bg-[#ff9900] hover:text-white',
+                      ...stayCalendarDayClassNames,
+                      day: 'h-10 w-full rounded-full p-0 text-sm font-medium text-stone-950 hover:bg-[#f39c34]/15 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#f39c34]',
                       day_disabled: 'text-stone-300 opacity-60',
                       nav_button: 'h-8 w-8 rounded-full bg-transparent p-0 text-stone-950 opacity-80 hover:bg-stone-100 hover:opacity-100',
                       nav_button_previous: 'absolute left-1',

@@ -13,6 +13,7 @@ import { useToast } from '@/hooks/use-toast';
 import { CalendarIcon, BedDouble, Loader2, CheckCircle2, Maximize2, UserRound, Utensils, X, Wifi, ShowerHead, Tv, Wind, Check, ChevronLeft, ChevronRight, Coffee, CircleUserRound, Trash2, BadgePercent, Search, ShieldCheck, Download, Minus, Plus, Users } from 'lucide-react';
 import { PhoneNumberInput } from '@/components/phone-number-input';
 import { downloadChaletBookingBill, type ChaletBookingBill } from '@/lib/chalet-booking-bill-pdf';
+import { stayCalendarDayClassNames, stayDayClassNames, stayDayModifiers } from '@/lib/stay-calendar';
 import { chaletGuestLimits, clampChaletGuests, guestsFitLimits, maxChildrenFor, type ChaletGuestLimits } from '@/lib/chalet-guest-limits';
 import { isValidEmail, isValidInternationalPhone } from '@/lib/contact-validation';
 import { readJsonResponse } from '@/lib/fetch-json';
@@ -251,20 +252,13 @@ const dateCalendarClassNames = {
   caption_label: 'text-xl font-semibold tracking-wide text-stone-950',
   head_cell: 'w-10 rounded-md text-sm font-medium text-stone-900',
   row: 'mt-2 flex w-full',
-  cell: 'h-10 w-10 p-0 text-center text-sm relative [&:has([aria-selected])]:bg-[#ff9900]/25 first:[&:has([aria-selected])]:rounded-l-full last:[&:has([aria-selected])]:rounded-r-full',
-  day: 'h-10 w-10 rounded-full p-0 text-base font-medium text-stone-950 hover:bg-[#ff9900]/20 hover:text-stone-950 focus:bg-[#ff9900]/20 focus:text-stone-950',
-  day_selected: 'bg-[#ff9900] text-white hover:bg-[#ff9900] hover:text-white focus:bg-[#ff9900] focus:text-white',
-  day_range_middle: 'rounded-none bg-[#ff9900]/25 text-stone-950 hover:bg-[#ff9900]/25 hover:text-stone-950',
-  day_range_end: 'day-range-end rounded-full bg-[#ff9900] text-white hover:bg-[#ff9900] hover:text-white',
+  ...stayCalendarDayClassNames,
+  day: 'h-10 w-full rounded-full p-0 text-base font-medium text-stone-950 hover:bg-[#f39c34]/15 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#f39c34]',
   day_disabled: 'text-stone-300 opacity-60',
   nav_button: 'h-9 w-9 rounded-full bg-transparent p-0 text-stone-950 opacity-80 hover:bg-stone-100 hover:opacity-100',
   nav_button_previous: 'absolute left-1',
   nav_button_next: 'absolute right-1',
 };
-
-function isSameDayValue(a: Date, b: Date) {
-  return a.getFullYear() === b.getFullYear() && a.getMonth() === b.getMonth() && a.getDate() === b.getDate();
-}
 
 // Short prices for the Flexible Dates table: 37100 -> "37.1k", USD as "$120".
 function compactMoney(amount: number, currency: 'LKR' | 'USD' = 'LKR') {
@@ -707,16 +701,6 @@ export default function ChaletBookingComponent() {
     if (!date || !checkIn || date <= checkIn) return;
     setSelectedDateRange({ from: checkIn, to: date });
     setIsDatePopoverOpen(false);
-  };
-
-  // Days of the current stay, highlighted while one date is being changed.
-  const isStayDay = (date: Date) => Boolean(
-    selectedDateRange?.from && selectedDateRange.to && date >= selectedDateRange.from && date <= selectedDateRange.to
-  );
-
-  const isPreviewRangeDay = (date: Date) => {
-    if (!selectedDateRange?.from || selectedDateRange.to || !hoveredCheckoutDate) return false;
-    return date > selectedDateRange.from && date <= hoveredCheckoutDate;
   };
 
   const handleSearch = () => {
@@ -1550,8 +1534,8 @@ export default function ChaletBookingComponent() {
                   numberOfMonths={2}
                   initialFocus
                   disabled={{ before: new Date() }}
-                  modifiers={{ stay: isStayDay }}
-                  modifiersClassNames={{ stay: 'bg-[#ff9900]/15 text-stone-950' }}
+                  modifiers={stayDayModifiers(selectedDateRange)}
+                  modifiersClassNames={stayDayClassNames}
                   className="rounded-2xl bg-white p-5"
                   classNames={dateCalendarClassNames}
                 />
@@ -1565,8 +1549,8 @@ export default function ChaletBookingComponent() {
                   initialFocus
                   // Check-out must be after check-in.
                   disabled={[{ before: new Date() }, ...(selectedDateRange?.from ? [{ before: addDays(selectedDateRange.from, 1) }] : [])]}
-                  modifiers={{ stay: isStayDay, checkInDay: day => Boolean(selectedDateRange?.from && isSameDayValue(day, selectedDateRange.from)) }}
-                  modifiersClassNames={{ stay: 'bg-[#ff9900]/15 text-stone-950', checkInDay: 'bg-[#ff9900]/60 text-white opacity-100' }}
+                  modifiers={stayDayModifiers(selectedDateRange)}
+                  modifiersClassNames={stayDayClassNames}
                   className="rounded-2xl bg-white p-5"
                   classNames={dateCalendarClassNames}
                 />
@@ -1580,10 +1564,8 @@ export default function ChaletBookingComponent() {
                   numberOfMonths={2}
                   initialFocus
                   disabled={{ before: new Date() }}
-                  modifiers={{ previewRange: isPreviewRangeDay }}
-                  modifiersClassNames={{
-                    previewRange: 'bg-[#ff9900]/25 text-stone-950 rounded-none',
-                  }}
+                  modifiers={stayDayModifiers(selectedDateRange, hoveredCheckoutDate)}
+                  modifiersClassNames={stayDayClassNames}
                   className="rounded-2xl bg-white p-5"
                   classNames={dateCalendarClassNames}
                 />
