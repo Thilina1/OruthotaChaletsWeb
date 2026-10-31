@@ -413,10 +413,11 @@ export async function POST(request: Request) {
   const totalAmount = Math.max(0, discountedSubtotal + serviceCharge + vat + sscl);
   const paymentRequiredAmount = payload.paymentOption === 'half' ? totalAmount / 2 : totalAmount;
   // With an online gateway no booking is created here: the guest pays first and
-  // the booking is created when the gateway confirms the payment. payments.lk
-  // is used when its key is set, otherwise PayHere, otherwise the demo payment.
-  const paymentsLk = paymentRequiredAmount > 0 ? paymentsLkConfig() : null;
-  const payHere = paymentRequiredAmount > 0 && !paymentsLk ? payHereConfig() : null;
+  // the booking is created when the gateway confirms the payment. PayHere is
+  // used when its merchant details are set, otherwise payments.lk when its key
+  // is set, otherwise the demo payment.
+  const payHere = paymentRequiredAmount > 0 ? payHereConfig() : null;
+  const paymentsLk = paymentRequiredAmount > 0 && !payHere ? paymentsLkConfig() : null;
   const initialPaymentStatus = 'paid';
   const { firstName, lastName } = splitCustomerName(payload.customerName);
   const customerIdentity = normalizeIdentity(payload.customerNic);
